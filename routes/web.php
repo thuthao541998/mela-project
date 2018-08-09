@@ -11,6 +11,8 @@
 |
 */
 
+Route::resource('admin/product','ProductController');
+
 Route::resource('admin/product','OrderController');
 
 Route::resource('admin/order-detail','OrderDetailController');
