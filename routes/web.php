@@ -11,7 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 Route::resource('admin/order-detail','OrderDetailController');
+
+Route::resource('admin/article', 'ArticleController');
+
+Route::resource('admin/category', 'CategoryController');
+
+
