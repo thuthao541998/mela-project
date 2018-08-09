@@ -17,12 +17,11 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->integer('price');
-            $table->integer('categoryId');
             $table->string('images');
             $table->string('overview');
             $table->string('description');
             $table->foreign('categoryId')->references('id')->on('categories');
-            $table->string('brand');
+            $table->string('brandId')->references('id')->on('brands');
             $table->timestamps(true);
             $table->string('status')->default(1);
         });
