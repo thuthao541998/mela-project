@@ -19,6 +19,7 @@ class CreateArticlesTable extends Migration
             $table->string('author');
             $table->string('title');
             $table->string('content');
+            $table->string('images');
             $table->timestamps(true);
             $table->integer('status')->default(1);
         });

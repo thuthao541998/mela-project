@@ -40,6 +40,7 @@ class ArticleController extends Controller
         $obj = new Article();
         $obj->name = Input::get('name');
         $obj->author = Input::get('author');
+        $obj->title = Input::get('title');
         $obj->content = Input::get('content');
         $obj->images = Input::get('images');
         $obj->save();
@@ -93,6 +94,7 @@ class ArticleController extends Controller
         }
         $obj->name = Input::get('name');
         $obj->author = Input::get('author');
+        $obj->title = Input::get('title');
         $obj->content = Input::get('content');
         $obj->images = Input::get('images');
         $obj->save();
@@ -109,7 +111,7 @@ class ArticleController extends Controller
     {
         $obj = Article::find($id);
         if ($obj == null) {
-            return response('article not found or has been deleted!', 404);
+            return response('The artitle is not found or has been deleted!', 404);
         }
         $obj->delete();
         return response('Deleted', 200);
