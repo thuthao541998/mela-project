@@ -36,7 +36,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $obj = new Product());
+        $obj = new Product();
         $obj->name = Input::get('name');
         $obj->author = Input::get('author');
         $obj->content = Input::get('content');
