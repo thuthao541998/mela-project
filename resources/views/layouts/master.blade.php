@@ -24,13 +24,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- font-awesome icons -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
           integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{asset('css/font.css')}}" type="text/css"/>
-    <link href="{{asset('css/font-awesome.css')}}" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('css/morris.css')}}" type="text/css"/>
     <!-- //font-awesome icons -->
     <script src="{{asset('js/jquery2.0.3.min.js')}}"></script>
-    <script src="{{asset('js/raphael-min.js')}}"></script>
-    <script src="{{asset('js/morris.js')}}"></script>
 </head>
 <body>
 <section id="container">
@@ -42,7 +37,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 MELA
             </a>
             <div class="sidebar-toggle-box">
-                <div class="fa fa-bars"></div>
+                <div class="fas fa-bars"></div>
             </div>
         </div>
         <!--logo end-->
@@ -57,14 +52,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <!-- Xử lí login admin ở đây -->
                 <li class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                        <i class="fas fa-user-alt"></i>
+                        <i class="fas fa-user-alt" style="margin: 0.6em;"></i>
                         <span class="username">John Doe</span>
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu extended logout">
-                        <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
-                        <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
-                        <li><a href="#"><i class="fa fa-key"></i> Log Out</a></li>
+                        <li><a href="#"><i class=" fas fa-suitcase"></i>Profile</a></li>
+                        <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+                        <li><a href="#"><i class="fas fa-key"></i> Log Out</a></li>
                     </ul>
                 </li>
                 <!-- user login dropdown end -->
