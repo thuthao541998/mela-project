@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -13,7 +14,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $list_obj = Product::all();
+        return view('admin.product.list')->with('list_obj', $list_obj);
     }
 
     /**
@@ -23,7 +25,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.product.create');
     }
 
     /**
@@ -34,7 +36,13 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $obj = new Product());
+        $obj->name = Input::get('name');
+        $obj->author = Input::get('author');
+        $obj->content = Input::get('content');
+        $obj->images = Input::get('images');
+        $obj->save();
+        return redirect('/admin/product');
     }
 
     /**
@@ -45,7 +53,12 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        $obj = Product::find($id);
+        if ($obj == null) {
+            return view('404');
+        }
+        return view('admin.product.show')
+            ->with('obj', $obj);
     }
 
     /**
@@ -56,7 +69,12 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $obj = Product::find($id);
+        if ($obj == null) {
+            return view('404');
+        }
+        return view('admin.product.edit')
+            ->with('obj', $obj);
     }
 
     /**
@@ -68,7 +86,17 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $obj = Product::find($id);
+        if ($obj == null) {
+            return view('404');
+        }
+        $obj->name = Input::get('name');
+        $obj->price = Input::get('price');
+        $obj->overview = Input::get('overview');
+        $obj->description = Input::get('description');
+        $obj->images = Input::get('images');
+        $obj->save();
+        return redirect('/admin/product');
     }
 
     /**
@@ -79,6 +107,11 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $obj = Product::find($id);
+        if ($obj == null) {
+            return response('article not found or has been deleted!', 404);
+        }
+        $obj->delete();
+        return response('Deleted', 200);
     }
 }
