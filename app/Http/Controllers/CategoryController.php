@@ -15,7 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $list_obj = Category::paginate(10);
+        $list_obj = Category::all();
         return view('admin.category.list')->with('list_obj', $list_obj);
     }
 
