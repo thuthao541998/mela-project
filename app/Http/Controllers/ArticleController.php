@@ -15,7 +15,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $list_obj = Article::all();
+        $list_obj = Article::paginate(10);
         return view('admin.article.list')->with('list_obj', $list_obj);
     }
 
