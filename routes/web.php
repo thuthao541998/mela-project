@@ -21,3 +21,6 @@ Route::resource('admin/article', 'ArticleController');
 
 Route::resource('admin/category', 'CategoryController');
 
+Route::get('/master',function (){
+    return view('layouts.master');
+});
