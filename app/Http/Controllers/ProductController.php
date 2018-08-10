@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 
 class ProductController extends Controller
 {
@@ -36,7 +37,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $obj = new Product());
+        $obj = new Product();
         $obj->name = Input::get('name');
         $obj->author = Input::get('author');
         $obj->content = Input::get('content');
