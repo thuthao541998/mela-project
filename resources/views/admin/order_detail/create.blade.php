@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('page-title', 'Edit Order - Admin Page')
+@section('page-title', 'Create Order Detail - Admin Page')
 @section('content')
     <div class="row">
         <div class="col-lg-12">
@@ -15,24 +15,29 @@
                 <div class="panel-body">
                     <div class="form">
                         <form class="cmxform form-horizontal" method="get" action="" novalidate="novalidate">
-                            @method('PUT')
                             {{csrf_field()}}
                             <div class="form-group ">
-                                <label class="control-label col-lg-3">ID</label>
+                                <label class="control-label col-lg-3">Product</label>
                                 <div class="col-lg-6">
-                                    <input class=" form-control" name="name" type="text" value="{{$obj->id}}">
+                                    <input class=" form-control" name="name" type="text">
                                 </div>
                             </div>
                             <div class="form-group ">
-                                <label class="control-label col-lg-3">Client</label>
+                                <label class="control-label col-lg-3">Order</label>
                                 <div class="col-lg-6">
-                                    <input class="form-control" type="text" name="client" value="{{$obj->clientId}}">
+                                    <input class="form-control" type="text" name="client">
                                 </div>
                             </div>
                             <div class="form-group ">
-                                <label class="control-label col-lg-3">Total</label>
+                                <label class="control-label col-lg-3">Quantity</label>
                                 <div class="col-lg-6">
-                                    <input class="form-control " name="total" type="text" value="{{$obj->total}}">
+                                    <input class="form-control " name="total" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <label class="control-label col-lg-3">Unit price</label>
+                                <div class="col-lg-6">
+                                    <input class="form-control " name="total" type="text">
                                 </div>
                             </div>
                             <div class="form-group">

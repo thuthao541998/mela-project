@@ -1,4 +1,6 @@
-<section class="wrapper">
+@extends('layouts.master')
+@section('page-title', 'Create Product - Admin Page')
+@section('content')
     <div class="row">
         <div class="col-lg-12">
             <section class="panel">
@@ -78,4 +80,4 @@
             </section>
         </div>
     </div>
-</section>
+@endsection
