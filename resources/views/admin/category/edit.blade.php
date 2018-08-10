@@ -5,12 +5,10 @@
         <div class="col-lg-12">
             <section class="panel">
                 <header class="panel-heading">
-                    Create new product
+                    <div class="heading">Edit category</div>
                     <span class="tools pull-right">
-                                <a class="fa fa-chevron-down" href="javascript:;"></a>
-                                <a class="fa fa-cog" href="javascript:;"></a>
-                                <a class="fa fa-times" href="javascript:;"></a>
-                             </span>
+                        <a class="fa fa-chevron-down" href="javascript:;"></a>
+                     </span>
                 </header>
                 <div class="panel-body">
                     <div class="form">
