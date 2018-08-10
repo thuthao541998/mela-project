@@ -1,5 +1,5 @@
 @extends('layouts.master)
-@section('page-title', 'List Article - Admin Page')
+@section('page-title', 'List Product - Admin Page')
 <link href="css/list.css" rel='stylesheet' type='text/css' />//để sang bên master layout hộ c
 @section('content')
     <section id="main-content">
@@ -7,7 +7,7 @@
             <div class="table-agile-info">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        List Article
+                        List Product
                     </div>
                     <div>
                         <table class="table" ui-jq="footable" ui-options='{
@@ -64,7 +64,14 @@
                     <div class="col-md-8 form-inline">
                         <div class="form-check mb-2">
                             <input class="form-check-input" type="checkbox" value="" id="check-all">
-                            <label class="form-check-label" for="defaultCheck1">Delete All</label>
+                            <label class="form-check-label" for="defaultCheck1">Check All</label>
+                        </div>
+                        <div class="form-group mx-sm-3 mb-2">
+                            <select id="select-action" class="form-control">
+                                <option selected value="0">Action</option>
+                                <option value="1">Delete All</option>
+                                <option value="2">Another Action</option>
+                            </select>
                         </div>
                         <button type="submit" class="btn btn-primary mb-2" id="btn-apply">Submit</button>
                     </div>

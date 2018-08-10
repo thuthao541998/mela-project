@@ -9,6 +9,20 @@
                     <div class="panel-heading">
                         List Category
                     </div>
+                    <div class="col-md-8 form-inline">
+                        <div class="form-group mx-sm-4 mb-3">
+                            <label for="chooseCategory">Category</label>
+                            <select id="select-action" class="form-control">
+                                <option selected value="0">Category</option>
+                                <option value="1">Lipstick</option>
+                                <option value="2">Lip Gloss</option>
+                                <option value="3">Lip Liner</option>
+                                <option value="4">Lip Stain</option>
+                                <option value="5">Lip Balm</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary mb-2" id="btn-apply">Submit</button>
+                    </div>
                     <div>
                         <table class="table" ui-jq="footable" ui-options='{
                             "paging": {
@@ -56,7 +70,14 @@
                     <div class="col-md-8 form-inline">
                         <div class="form-check mb-2">
                             <input class="form-check-input" type="checkbox" value="" id="check-all">
-                            <label class="form-check-label" for="defaultCheck1">Delete All</label>
+                            <label class="form-check-label" for="defaultCheck1">Check All</label>
+                        </div>
+                        <div class="form-group mx-sm-3 mb-2">
+                            <select id="select-action" class="form-control">
+                                <option selected value="0">Action</option>
+                                <option value="1">Delete All</option>
+                                <option value="2">Another Action</option>
+                            </select>
                         </div>
                         <button type="submit" class="btn btn-primary mb-2" id="btn-apply">Submit</button>
                     </div>
