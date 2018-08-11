@@ -25,7 +25,7 @@
                             <div class="form-group ">
                                 <label class="control-label col-lg-3">Images</label>
                                 <div class="col-lg-6">
-                                    <img class="img-thumbnail" name="images" src="{{$obj->images}}">
+                                    <img class="img-fluid" name="images" src="{{$obj->images}}">
                                 </div>
                             </div>
                             <div class="form-group ">

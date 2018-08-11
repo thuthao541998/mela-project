@@ -22,7 +22,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label>Category</label>
+                                <label class="control-label col-lg-3">Category</label>
                                 <div class="col-lg-6">
                                     <select name="categoryId">
                                         <option value="0">All</option>
@@ -33,7 +33,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label>Brand</label>
+                                <label class="control-label col-lg-3">Brand</label>
                                 <div class="col-lg-6">
                                     <select name="brandId">
                                         <option value="0">All</option>
