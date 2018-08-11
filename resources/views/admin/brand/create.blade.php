@@ -1,37 +1,38 @@
 @extends('layouts.master')
-@section('page-title', 'Edit Category - Admin Page')
+@section('page-title', 'Create Article - Admin Page')
 @section('content')
     <link rel="stylesheet" href="{{asset('css/form.css')}}">
     <div class="row">
         <div class="col-lg-12">
             <section class="panel">
                 <header class="panel-heading">
-                    <div class="heading">Edit category</div>
+                    <div class="heading">Create new article</div>
                     <span class="tools pull-right">
-                        <a class="fa fa-chevron-down" href="javascript:;"></a>
-                     </span>
+                        <a href="javascript:;">
+                            <span class="fa fa-chevron-down"></span>
+                        </a>
+                    </span>
                 </header>
                 <div class="panel-body">
                     <div class="form">
                         <form class="cmxform form-horizontal" method="get" action="" novalidate="novalidate">
-                            @method('PUT')
                             {{csrf_field()}}
-                            <div class="form-group ">
+                            <div class="form-group">
                                 <label class="control-label col-lg-3">Name</label>
                                 <div class="col-lg-6">
-                                    <input class=" form-control" name="name" type="text" value="{{$obj->name}}">
-                                </div>
-                            </div>
-                            <div class="form-group ">
-                                <label class="control-label col-lg-3">Images</label>
-                                <div class="col-lg-6">
-                                    <img class="img-thumbnail" name="images" src="{{$obj->images}}">
+                                    <input class=" form-control" name="name" type="text">
                                 </div>
                             </div>
                             <div class="form-group ">
                                 <label class="control-label col-lg-3">Description</label>
                                 <div class="col-lg-6">
-                                    <input class="form-control " name="description" type="text" value="{{$obj->description}}">
+                                    <input class="form-control " name="description" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <label class="control-label col-lg-3">Images</label>
+                                <div class="col-lg-6">
+                                    <input class="form-control" type="text" name="images">
                                 </div>
                             </div>
                             <div class="form-group">

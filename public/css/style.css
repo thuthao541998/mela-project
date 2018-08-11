@@ -3143,19 +3143,3 @@ div#graph1, div#graph4, div#graph5, div#graph6, div#graph7, div#graph8, div#grap
 .chart_agile_bottom {
     padding: 0;
 }
-
-
-
-/*Create and edit form*/
-.fa-chevron-down {
-    color: #fff !important;
-}
-.form {
-    float: left;
-    width: 70%;
-}
-.heading {
-    float: left;
-    width: 70%;
-
-}
