@@ -58,7 +58,7 @@
                                     <td class="col-md-4">{{$item->description}}</td>
                                     <td class="col-md-3">
                                         <a href="#" class="btn btn-link btn-quick-edit">Quick Edit</a>&nbsp;&nbsp;
-                                        <a href="/admin/bakery/edit/{{$item -> id}}" class="btn btn-link btn-edit">Edit</a>&nbsp;&nbsp;
+                                        <a href="/admin/bakery/{{$item -> id}}/edit" class="btn btn-link btn-edit">Edit</a>&nbsp;&nbsp;
                                         <a href="#" id="{{$item-> id}}" class="btn btn-link btn-delete">Delete</a>
                                     </td>
                                 </tr>
