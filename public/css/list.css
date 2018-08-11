@@ -1,0 +1,28 @@
+#main-content {
+    margin-left: 240px;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+.panel-heading {
+    position: relative;
+    height: 57px;
+    line-height: 57px;
+    letter-spacing: 0.2px;
+    color: #000;
+    font-size: 18px;
+    font-weight: 400;
+    padding: 0 16px;
+    background:#ddede0;
+    border-top-right-radius: 2px;
+    border-top-left-radius: 2px;
+    text-transform: uppercase;
+    text-align: center;
+}
+.table>thead>tr>th {
+    border-bottom: 1px solid #e1ab91 ! important;
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    border-bottom: 1px solid #e9e9e9 ! important;
+}
