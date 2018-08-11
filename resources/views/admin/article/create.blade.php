@@ -5,8 +5,7 @@
     <div class="row">
         <div class="col-lg-12">
             <section class="panel">
-                <header class="panel-heading">
-                    <div class="heading">Create new article</div>
+                <header class="panel-heading">Create new article
                     <span class="tools pull-right">
                         <a href="javascript:;">
                             <span class="fa fa-chevron-down"></span>

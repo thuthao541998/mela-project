@@ -5,8 +5,7 @@
     <div class="row">
         <div class="col-lg-12">
             <section class="panel">
-                <header class="panel-heading">
-                    <div class="heading">Edit order</div>
+                <header class="panel-heading">Edit order
                     <span class="tools pull-right">
                         <a class="fa fa-chevron-down" href="javascript:;"></a>
                      </span>
