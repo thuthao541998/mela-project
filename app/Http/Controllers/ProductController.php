@@ -90,6 +90,7 @@ class ProductController extends Controller
             ->with('obj', $obj)
             ->with('categories', $categories)
             ->with('choosedCategoryId', $choosedCategoryId)
+            ->with('brands',$brands)
             ->with('choosedBrandId', $choosedBrandId)
             ;
     }
