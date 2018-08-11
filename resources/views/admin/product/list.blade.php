@@ -3,7 +3,6 @@
 @section('content')
     <section id="main-content">
         <section class="wrapper">
-            <div class="table-agile-info">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         List Product
@@ -21,39 +20,41 @@
                             }}'>
                             <thead>
                             <tr>
-                                <th data-breakpoints="xs"></th>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Price</th>
-                                <th>Images</th>
-                                <th>Overview</th>
-                                <th>Description</th>
-                                <th>Category</th>
-                                <th>Brand</th>
-                                <th data-breakpoints="xs sm md" data-title="DOB">Action</th>
+
+                                <th class="col-md-1"></th>
+                                <th class="col-md-1">ID</th>
+                                <th class="col-md-1">Name</th>
+                                <th class="col-md-1">Price</th>
+                                <th class="col-md-1">Images</th>
+                                <th class="col-md-1">Overview</th>
+                                <th class="col-md-2">Description</th>
+                                <th class="col-md-1">Category</th>
+                                <th class="col-md-1">Brand</th>
+                                <th class="col-md-2">Action</th>
                             </tr>
                             </thead>
                             <tbody>
                             @foreach($list_obj as $item)
                                 <tr class="row" id="row-item-{{$item->id}}">
-                                    <td>
+                                    <td class="col-md-1 text-center">
                                         <input type="checkbox" class="check-item">
                                     </td>
-                                    <td>{{$item->id}}</td>
-                                    <td>{{$item->name}}</td>
-                                    <td>{{$item->price}}</td>
-                                    <td>
+                                    <td class="col-md-1">{{$item->id}}</td>
+                                    <td class="col-md-1">{{$item->name}}</td>
+                                    <td class="col-md-1">{{$item->price}}</td>
+                                    <td class="col-md-1">
                                         <div class="card"
                                              style="background-image: url('{{$item->images}}'); background-size: cover; width: 60px; height: 60px;">
                                         </div>
                                     </td>
-                                    <td>{{$item->overview}}</td>
-                                    <td>{{$item->description}}</td>
-                                    <td>{{$item->categoryId}}</td>
-                                    <td>{{$item->brandId}}</td>
-                                    <td>
+                                    <td class="col-md-1">{{$item->overview}}</td>
+                                    <td class="col-md-2">{{$item->description}}</td>
+                                    <td class="col-md-1">{{$item->categoryId}}</td>
+                                    <td class="col-md-1">{{$item->brandId}}</td>
+                                    <td class="col-md-2">
+
                                         <a href="#" class="btn btn-link btn-quick-edit">Quick Edit</a>&nbsp;&nbsp;
-                                        <a href="/admin/bakery/edit/{{$item -> id}}" class="btn btn-link btn-edit">Edit</a>&nbsp;&nbsp;
+                                        <a href="/admin/bakery/{{$item -> id}}/edit" class="btn btn-link btn-edit">Edit</a>&nbsp;&nbsp;
                                         <a href="#" id="{{$item-> id}}" class="btn btn-link btn-delete">Delete</a>
                                     </td>
                                 </tr>
@@ -76,7 +77,6 @@
                         <button type="submit" class="btn btn-primary mb-2" id="btn-apply">Submit</button>
                     </div>
                 </div>
-            </div>
         </section>
     </section>
 @endsection

@@ -3,7 +3,6 @@
 @section('content')
     <section id="main-content">
         <section class="wrapper">
-            <div class="table-agile-info">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         List Order
@@ -21,23 +20,24 @@
                             }}'>
                             <thead>
                             <tr>
-                                <th data-breakpoints="xs"></th>
-                                <th>Client</th>
-                                <th>Total</th>
-                                <th data-breakpoints="xs sm md" data-title="DOB">Action</th>
+                                <th class="col-md-1"></th>
+                                <th class="col-md-1">ID</th>
+                                <th class="col-md-3">Client</th>
+                                <th class="col-md-3">Total</th>
+                                <th class="col-md-4">Action</th>
                             </thead>
                             <tbody>
                             @foreach($list_obj as $item)
                                 <tr class="row" id="row-item-{{$item->id}}">
-                                    <td>
+                                    <td class="col-md-1 text-center">
                                         <input type="checkbox" class="check-item">
                                     </td>
-                                    <td>{{$item->id}}</td>
-                                    <td>{{$item->clientId}}</td>
-                                    <td>{{$item->total}}</td>
-                                    <td>
+                                    <td class="col-md-1">{{$item->id}}</td>
+                                    <td class="col-md-3">{{$item->clientId}}</td>
+                                    <td class="col-md-3">{{$item->total}}</td>
+                                    <td class="col-md-4">
                                         <a href="#" class="btn btn-link btn-quick-edit">Quick Edit</a>&nbsp;&nbsp;
-                                        <a href="/admin/bakery/edit/{{$item -> id}}" class="btn btn-link btn-edit">Edit</a>&nbsp;&nbsp;
+                                        <a href="/admin/bakery/{{$item -> id}}/edit" class="btn btn-link btn-edit">Edit</a>&nbsp;&nbsp;
                                         <a href="#" id="{{$item-> id}}" class="btn btn-link btn-delete">Delete</a>
                                     </td>
                                 </tr>
@@ -60,7 +60,6 @@
                         <button type="submit" class="btn btn-primary mb-2" id="btn-apply">Submit</button>
                     </div>
                 </div>
-            </div>
         </section>
     </section>
 @endsection
