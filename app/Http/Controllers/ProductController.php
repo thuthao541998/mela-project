@@ -111,7 +111,7 @@ class ProductController extends Controller
     {
         $obj = Product::find($id);
         if ($obj == null) {
-            return response('Product not found or has been deleted!', 404);
+        return response('Product not found or has been deleted!', 404);
         }
         $obj->delete();
         return response('Deleted', 200);
