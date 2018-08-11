@@ -3,7 +3,6 @@
 @section('content')
     <section id="main-content">
         <section class="wrapper">
-            <div class="table-agile-info">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         List Article
@@ -72,7 +71,6 @@
                         <button type="submit" class="btn btn-primary mb-2" id="btn-apply">Submit</button>
                     </div>
                 </div>
-            </div>
         </section>
     </section>
 @endsection
