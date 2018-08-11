@@ -1,6 +1,5 @@
-@extends('layouts.master)
+@extends('layouts.master')
 @section('page-title', 'List Category - Admin Page')
-<link href="css/list.css" rel='stylesheet' type='text/css' />//để sang bên master layout hộ c
 @section('content')
     <section id="main-content">
         <section class="wrapper">
