@@ -20,6 +20,7 @@
                             }}'>
                             <thead>
                             <tr>
+
                                 <th class="col-md-1"></th>
                                 <th class="col-md-1">ID</th>
                                 <th class="col-md-1">Name</th>
@@ -48,9 +49,10 @@
                                     </td>
                                     <td class="col-md-1">{{$item->overview}}</td>
                                     <td class="col-md-2">{{$item->description}}</td>
-                                    <td class="col-md-1">{{$item->category}}</td>
-                                    <td class="col-md-1">{{$item->brand}}</td>
+                                    <td class="col-md-1">{{$item->categoryId}}</td>
+                                    <td class="col-md-1">{{$item->brandId}}</td>
                                     <td class="col-md-2">
+
                                         <a href="#" class="btn btn-link btn-quick-edit">Quick Edit</a>&nbsp;&nbsp;
                                         <a href="/admin/bakery/{{$item -> id}}/edit" class="btn btn-link btn-edit">Edit</a>&nbsp;&nbsp;
                                         <a href="#" id="{{$item-> id}}" class="btn btn-link btn-delete">Delete</a>

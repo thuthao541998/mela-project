@@ -6,8 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    //
-    public static function find(int $id)
-    {
-    }
+    protected $table = 'products';
+    public $timestamps = true;
 }

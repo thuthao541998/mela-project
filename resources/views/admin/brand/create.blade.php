@@ -1,42 +1,37 @@
 @extends('layouts.master')
-@section('page-title', 'Edit Order Detail - Admin Page')
+@section('page-title', 'Create Article - Admin Page')
 @section('content')
     <link rel="stylesheet" href="{{asset('css/form.css')}}">
     <div class="row">
         <div class="col-lg-12">
             <section class="panel">
-                <header class="panel-heading">Edit order detail
+                <header class="panel-heading">Create new article
                     <span class="tools pull-right">
-                        <a class="fa fa-chevron-down" href="javascript:;"></a>
-                     </span>
+                        <a href="javascript:;">
+                            <span class="fa fa-chevron-down"></span>
+                        </a>
+                    </span>
                 </header>
                 <div class="panel-body">
                     <div class="form">
                         <form class="cmxform form-horizontal" method="get" action="" novalidate="novalidate">
-                            @method('PUT')
                             {{csrf_field()}}
-                            <div class="form-group ">
-                                <label class="control-label col-lg-3">Product</label>
+                            <div class="form-group">
+                                <label class="control-label col-lg-3">Name</label>
                                 <div class="col-lg-6">
-                                    <input class=" form-control" name="name" type="text" value="{{$obj->productId}}">
+                                    <input class=" form-control" name="name" type="text">
                                 </div>
                             </div>
                             <div class="form-group ">
-                                <label class="control-label col-lg-3">Order</label>
+                                <label class="control-label col-lg-3">Description</label>
                                 <div class="col-lg-6">
-                                    <input class="form-control" type="text" name="client" value="{{$obj->orderId}}">
+                                    <textarea class="form-control" rows="10" name="description" type="text"></textarea>
                                 </div>
                             </div>
                             <div class="form-group ">
-                                <label class="control-label col-lg-3">Quantity</label>
+                                <label class="control-label col-lg-3">Images</label>
                                 <div class="col-lg-6">
-                                    <input class="form-control " name="total" type="text" value="{{$obj->quantity}}">
-                                </div>
-                            </div>
-                            <div class="form-group ">
-                                <label class="control-label col-lg-3">Unit price</label>
-                                <div class="col-lg-6">
-                                    <input class="form-control " name="total" type="text" value="{{$obj->unitPrice}}">
+                                    <input class="form-control" type="text" name="images">
                                 </div>
                             </div>
                             <div class="form-group">
