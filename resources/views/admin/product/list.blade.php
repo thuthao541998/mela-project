@@ -22,6 +22,7 @@
                             <thead>
                             <tr>
                                 <th data-breakpoints="xs"></th>
+                                <th>ID</th>
                                 <th>Name</th>
                                 <th>Price</th>
                                 <th>Images</th>
@@ -48,8 +49,8 @@
                                     </td>
                                     <td>{{$item->overview}}</td>
                                     <td>{{$item->description}}</td>
-                                    <td>{{$item->category}}</td>
-                                    <td>{{$item->brand}}</td>
+                                    <td>{{$item->categoryId}}</td>
+                                    <td>{{$item->brandId}}</td>
                                     <td>
                                         <a href="#" class="btn btn-link btn-quick-edit">Quick Edit</a>&nbsp;&nbsp;
                                         <a href="/admin/bakery/edit/{{$item -> id}}" class="btn btn-link btn-edit">Edit</a>&nbsp;&nbsp;

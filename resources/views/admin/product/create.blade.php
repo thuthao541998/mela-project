@@ -26,7 +26,7 @@
                                     <select name="categoryId">
                                         <option value="0">All</option>
                                         @foreach($categories as $category)
-                                            <option value="{{$category->id}}" {{$category->id==$choosedCategoryId?'selected':''}}>{{$category->name}}</option>
+                                            <option value="{{$category->id}}">{{$category->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -37,7 +37,7 @@
                                     <select name="brandId">
                                         <option value="0">All</option>
                                         @foreach($brands as $brand)
-                                            <option value="{{$brand->id}}" {{$brand->id==$choosedBrandId?'selected':''}}>{{$brand->name}}</option>
+                                            <option value="{{$brand->id}}">{{$brand->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>

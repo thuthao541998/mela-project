@@ -14,7 +14,8 @@ class ProductTableSeeder extends Seeder
         \Illuminate\Support\Facades\DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         \Illuminate\Support\Facades\DB::table('products')->truncate();
         \Illuminate\Support\Facades\DB::table('products')->insert([
-            ['name' => 'Crystal GelGloss',
+            [
+                'name' => 'Crystal GelGloss',
                 'price' => 400000,
                 'images' => 'https://www.shiseido.com/dw/image/v2/BBSK_PRD/on/demandware.static/-/Sites-itemmaster_shiseido/default/dw83d67e60/images/hi-res/0730852148239.jpg?sw=540&sh=540&sm=fit',
                 'description' => 'This flexible, non-drying formula boasts a superior refractive index that boosts color vibrancy when worn as a top coat and creates the illusion of fuller lips. This crystalline fluid is infused with a moisturizing blend of oils for an effortless glide and high-shine polymers to lend lips an intense shine. Free of shimmer that can compromise clarity, this crystal-clear varnish is housed in a sleek tube with an integrated applicator that minimizes color contamination when the gloss is layered over pigmented products. Dermatologist-tested.',
@@ -22,7 +23,8 @@ class ProductTableSeeder extends Seeder
                 'brandId' => 1,
                 'categoryId' => 2
             ],
-            ['name' => 'LacquerInk LipShine ',
+            [
+                'name' => 'LacquerInk LipShine ',
                 'price' => 400000,
                 'images' => 'https://www.shiseido.com/dw/image/v2/BBSK_PRD/on/demandware.static/-/Sites-itemmaster_shiseido/default/dw281d47f7/images/alt1/0730852148260-main.jpg?sw=540&sh=540&sm=fit',
                 'description' => 'The unique blend of oils in this hybrid formula offers the shine and comfort of a gloss, while smoothing polymers provide the durable, hydrating color of a lipstick. A custom, concave applicator hugs the contours of the mouth and dispenses the perfect amount of pigment that can be worn alone or layered over other lip products for extra dimension and sheen. Available in 12 shades, this full-coverage fluid deposits inky color with a vivid, vinyl finish. Dermatologist-tested.',
@@ -139,7 +141,8 @@ class ProductTableSeeder extends Seeder
                 'images' => 'https://www.nyxcosmetics.com/dw/image/v2/AANG_PRD/on/demandware.static/-/Sites-cpd-nyxusa-master-catalog/default/dw1e94f54f/ProductImages/2016/Lips/Velvet_Matte_Lipstick/velvetmattelipstick_main.jpg?sw=195&sh=195&sm=fit&q=70',
                 'description' => 'Dress your lips in decadent color with our Velvet Matte Lipstick--a luxurious new lip color that glides right on and never feels dry. Housed in an elegant soft-touch case, each standout shade is a fashion statement in itself. ',
                 'overview' => 'Dress your lips in decadent color with our Velvet Matte Lipstick.',
-                'brandId' => 2
+                'brandId' => 2,
+                'categoryId' => 1
             ],
             ['name' => 'Plush Gel Lipstick ',
                 'price' => 400000,
@@ -172,8 +175,8 @@ class ProductTableSeeder extends Seeder
                 'overview' => 'Indulge your cravings with our Whipped Lip & Cheek Soufflé.',
                 'brandId' => 2,
                 'categoryId' => 3
-            ],
+            ]
         ]);
-
+        \Illuminate\Support\Facades\DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }
