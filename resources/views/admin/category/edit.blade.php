@@ -25,19 +25,19 @@
                             <div class="form-group ">
                                 <label class="control-label col-lg-3">Images</label>
                                 <div class="col-lg-6">
-                                    <img class="img-fluid" name="images" src="{{$obj->images}}">
+                                    <img class="img-fluid" style="background-size: cover; height: 150px;" name="images" src="{{$obj->images}}">
                                 </div>
                             </div>
                             <div class="form-group ">
                                 <label class="control-label col-lg-3">Description</label>
                                 <div class="col-lg-6">
-                                    <input class="form-control " name="description" type="text" value="{{$obj->description}}">
+                                    <textarea class="form-control" rows="10" name="description" type="text" value="{{$obj->description}}"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-lg-offset-3 col-lg-6">
                                     <button class="btn btn-primary" type="submit">Save</button>
-                                    <button class="btn btn-default" type="button">Reset</button>
+                                    <button class="btn btn-default" type="reset">Reset</button>
                                 </div>
                             </div>
                         </form>

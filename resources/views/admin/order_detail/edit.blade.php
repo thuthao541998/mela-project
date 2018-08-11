@@ -43,7 +43,7 @@
                             <div class="form-group">
                                 <div class="col-lg-offset-3 col-lg-6">
                                     <button class="btn btn-primary" type="submit">Save</button>
-                                    <button class="btn btn-default" type="button">Reset</button>
+                                    <button class="btn btn-default" type="reset">Reset</button>
                                 </div>
                             </div>
                         </form>

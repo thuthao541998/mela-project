@@ -58,19 +58,19 @@
                             <div class="form-group ">
                                 <label class="control-label col-lg-3">Overview</label>
                                 <div class="col-lg-6">
-                                    <input class="form-control " name="overview" type="text">
+                                    <textarea class="form-control" rows="5" name="overview" type="text"></textarea>
                                 </div>
                             </div>
                             <div class="form-group ">
                                 <label class="control-label col-lg-3">Description</label>
                                 <div class="col-lg-6">
-                                    <input class="form-control " name="description" type="text">
+                                    <textarea class="form-control" rows="10" name="description" type="text"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-lg-offset-3 col-lg-6">
                                     <button class="btn btn-primary" type="submit">Save</button>
-                                    <button class="btn btn-default" type="button">Reset</button>
+                                    <button class="btn btn-default" type="reset">Reset</button>
                                 </div>
                             </div>
                         </form>
