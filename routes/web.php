@@ -1,5 +1,9 @@
 <?php
 
+//Route::get('/', function (){
+//    return view('layouts.master');
+//});
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,7 +17,7 @@
 
 Route::resource('admin/product','ProductController');
 
-Route::resource('admin/product','OrderController');
+Route::resource('admin/order','OrderController');
 
 Route::resource('admin/order-detail','OrderDetailController');
 
@@ -21,5 +25,4 @@ Route::resource('admin/article', 'ArticleController');
 
 Route::resource('admin/category', 'CategoryController');
 
-Route::resource('admin/client','BrandController');
-
+Route::resource('admin/brand','BrandController');

@@ -16,7 +16,7 @@ class OrderDetailController extends Controller
     public function index()
     {
 //        Phải xử lí gộp các order detail chung một orderId vào và index ra
-        $order_details = OrderDetail::all();
+        $order_details = OrderDetail::paginate(10);
         return view('admin.order_detail.list')->with('$order_details_in_view', $order_details);
     }
 
