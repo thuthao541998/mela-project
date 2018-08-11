@@ -782,7 +782,7 @@ ul.top-menu>li>a:hover,ul.top-menu>li>a:focus {
     font-size: 18px;
     font-weight: 400;
     padding: 0 16px;
-    background:#ddede0;
+    background:#8b5c7e;
    border-top-right-radius: 2px;
    border-top-left-radius: 2px; 
     text-transform: uppercase;
@@ -3143,4 +3143,19 @@ div#graph1, div#graph4, div#graph5, div#graph6, div#graph7, div#graph8, div#grap
 .chart_agile_bottom {
     padding: 0;
 }
+
+
+
+/*Create and edit form*/
+.fa-chevron-down {
+    color: #fff !important;
+}
+.form {
+    float: left;
+    width: 70%;
+}
+.heading {
+    float: left;
+    width: 70%;
+
 }

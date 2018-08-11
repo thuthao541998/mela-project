@@ -5,18 +5,18 @@
         <div class="col-lg-12">
             <section class="panel">
                 <header class="panel-heading">
-                    Create new product
+                    <div class="heading">Create new article</div>
                     <span class="tools pull-right">
-                                <a class="fa fa-chevron-down" href="javascript:;"></a>
-                                <a class="fa fa-cog" href="javascript:;"></a>
-                                <a class="fa fa-times" href="javascript:;"></a>
-                             </span>
+                        <a href="javascript:;">
+                            <span class="fa fa-chevron-down"></span>
+                        </a>
+                    </span>
                 </header>
                 <div class="panel-body">
                     <div class="form">
                         <form class="cmxform form-horizontal" method="get" action="" novalidate="novalidate">
                             {{csrf_field()}}
-                            <div class="form-group ">
+                            <div class="form-group">
                                 <label class="control-label col-lg-3">Name</label>
                                 <div class="col-lg-6">
                                     <input class=" form-control" name="name" type="text">
