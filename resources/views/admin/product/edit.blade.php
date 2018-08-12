@@ -24,7 +24,7 @@
                             <div class="form-group">
                                 <label class="control-label col-lg-3">Category</label>
                                 <div class="col-lg-6">
-                                    <select name="categoryId" value="{{$obj->categoryId}}">
+                                    <select class="form-control" name="categoryId" value="{{$obj->categoryId}}">
                                         <option value="0">All</option>
                                         @foreach($categories as $category)
                                             <option value="{{$category->id}}" {{$category->id==$choosedCategoryId?'selected':''}}>{{$category->name}}</option>
@@ -35,7 +35,7 @@
                             <div class="form-group">
                                 <label class="control-label col-lg-3">Brand</label>
                                 <div class="col-lg-6">
-                                    <select name="brandId" value="{{$obj->brandId}}">
+                                    <select class="form-control" name="brandId" value="{{$obj->brandId}}">
                                         <option value="0">All</option>
                                         @foreach($brands as $brand)
                                             <option value="{{$brand->id}}" {{$brand->id==$choosedBrandId?'selected':''}}>{{$brand->name}}</option>
