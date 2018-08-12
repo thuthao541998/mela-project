@@ -1,6 +1,7 @@
 @extends('layouts.master')
 @section('page-title', 'List Category - Admin Page')
 @section('content')
+    <link href="{{asset('css/list.css')}}" rel='stylesheet' type='text/css' />
     <section id="main-content">
         <section class="wrapper">
                 <div class="panel panel-default">

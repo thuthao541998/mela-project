@@ -58,13 +58,13 @@
                             <div class="form-group ">
                                 <label class="control-label col-lg-3">Overview</label>
                                 <div class="col-lg-6">
-                                    <textarea class="form-control" rows="5" name="overview" type="text" value="{{$obj->overview}}"></textarea>
+                                    <textarea class="form-control" rows="5" name="overview" type="text" value="">{{$obj->overview}}</textarea>
                                 </div>
                             </div>
                             <div class="form-group ">
                                 <label class="control-label col-lg-3">Description</label>
                                 <div class="col-lg-6">
-                                    <textarea class="form-control" rows="10" name="description" type="text" value="{{$obj->description}}"></textarea>
+                                    <textarea class="form-control" rows="10" name="description" type="text" value="">{{$obj->description}}</textarea>
                                 </div>
                             </div>
 
