@@ -15,22 +15,28 @@
                         <form class="cmxform form-horizontal" method="get" action="" novalidate="novalidate">
                             @method('PUT')
                             {{csrf_field()}}
-                            <div class="form-group ">
-                                <label class="control-label col-lg-3">Name</label>
-                                <div class="col-lg-6">
-                                    <input class=" form-control" name="name" type="text" value="{{$obj->name}}">
+                            <div class="col-lg-7">
+                                <div class="form-group ">
+                                    <label class="control-label col-lg-2">Name</label>
+                                    <div class="col-lg-9">
+                                        <input class=" form-control" name="name" type="text" value="{{$obj->name}}">
+                                    </div>
+                                </div>
+                                <div class="form-group ">
+                                    <label class="control-label col-lg-2">Description</label>
+                                    <div class="col-lg-9">
+                                        <textarea class="form-control" rows="10" name="description" type="text">{{$obj->description}}</textarea>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="form-group ">
-                                <label class="control-label col-lg-3">Images</label>
-                                <div class="col-lg-6">
-                                    <img class="img-fluid" style="background-size: cover; height: 150px;" name="images" src="{{$obj->images}}">
-                                </div>
-                            </div>
-                            <div class="form-group ">
-                                <label class="control-label col-lg-3">Description</label>
-                                <div class="col-lg-6">
-                                    <textarea class="form-control" rows="10" name="description" type="text" value="{{$obj->description}}"></textarea>
+                            <div class="col-lg-5">
+                                <div class="custom-file">
+                                    <label class="control-label col-lg-3">Images</label>
+                                    <div class="col-lg-9">
+                                        <input type="file" class="custom-file-input" name="images" id="img">
+                                        <label class="custom-file-label" for="img">Choose file</label>
+                                        <img class="mt-2 img-fluid mb-5" style="background-size: cover; width: 260px;" name="images" src="{{$obj->images}}">
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -45,4 +51,5 @@
             </section>
         </div>
     </div>
+    <script src="{{asset('js/form.js')}}"></script>
 @endsection
