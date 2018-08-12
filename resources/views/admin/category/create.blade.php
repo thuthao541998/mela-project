@@ -34,7 +34,7 @@
                                     <label class="control-label col-lg-3">Images</label>
                                     <div class="col-lg-9">
                                         <input type="file" class="custom-file-input" name="images" id="img">
-                                        <label class="custom-file-label" for="img">Choose file</label>
+                                        <label class="custom-file-label text-truncate" for="img">Choose file</label>
                                     </div>
                                 </div>
                             </div>
