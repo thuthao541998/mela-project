@@ -12,7 +12,7 @@
                 </header>
                 <div class="panel-body">
                     <div class="form">
-                        <form class="cmxform form-horizontal" method="get" action="" novalidate="novalidate">
+                        <form class="cmxform form-horizontal" method="post" action="/admin/product/{{$obj->id}}" novalidate="novalidate">
                             @method('PUT')
                             {{csrf_field()}}
                             <div class="col-lg-7">
