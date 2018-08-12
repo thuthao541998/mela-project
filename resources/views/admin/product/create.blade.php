@@ -12,7 +12,7 @@
                 </header>
                 <div class="panel-body">
                     <div class="form">
-                        <form class="cmxform form-horizontal" method="get" action="" novalidate="novalidate">
+                        <form class="cmxform form-horizontal" method="post" action="/admin/product" novalidate="novalidate" enctype="multipart/form-data">
                             {{csrf_field()}}
                             <div class="col-lg-7">
                                 <div class="form-group ">
@@ -27,7 +27,7 @@
                                         <select class="form-control" name="categoryId">
                                             <option value="0">All</option>
                                             @foreach($categories as $category)
-                                                <option value="{{$category->id}}" {{$category->id==$choosedCategoryId?'selected':''}}>{{$category->name}}</option>
+                                                <option value="{{$category->id}}">{{$category->name}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -38,7 +38,7 @@
                                         <select class="form-control" name="brandId">
                                             <option value="0">All</option>
                                             @foreach($brands as $brand)
-                                                <option value="{{$brand->id}}" {{$brand->id==$choosedBrandId?'selected':''}}>{{$brand->name}}</option>
+                                                <option value="{{$brand->id}}">{{$brand->name}}</option>
                                             @endforeach
                                         </select>
                                     </div>
