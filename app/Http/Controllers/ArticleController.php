@@ -116,4 +116,28 @@ class ArticleController extends Controller
         $obj->delete();
         return response('Deleted', 200);
     }
+
+
+
+    public function showJson($id)
+    {
+        $obj = Article::find($id);
+        if ($obj == null) {
+            return response()->json(['msg' => 'Not found'], 404);
+        }
+        return response()->json(['item' => $obj], 200);
+    }
+
+    public function quickUpdate(Request $request, $id)
+    {
+        $obj = Article::find($id);
+        if ($obj == null) {
+            return response()->json(['msg' => 'Not found'], 404);
+        }
+        $obj->name = Input::get('name');
+        $obj->price = Input::get('price');
+        $obj->images = Input::get('images');
+        $obj->save();
+        return response()->json(['item' => $obj], 200);
+    }
 }
