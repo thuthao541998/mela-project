@@ -20,8 +20,10 @@ class CreateProductsTable extends Migration
             $table->string('images');
             $table->string('overview');
             $table->string('description');
+            $table->integer('categoryId')->unsigned();
             $table->foreign('categoryId')->references('id')->on('categories');
-            $table->string('brandId')->references('id')->on('brands');
+            $table->integer('brandId')->unsigned();
+            $table->foreign('brandId')->references('id')->on('brands');
             $table->timestamps(true);
             $table->string('status')->default(1);
         });

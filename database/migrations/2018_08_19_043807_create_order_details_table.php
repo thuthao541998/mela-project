@@ -19,6 +19,7 @@ class CreateOrderDetailsTable extends Migration
             $table->integer('productId');
             $table->integer('quantity');
             $table->integer('unitprice');
+            $table->integer('orderId')->unsigned();
             $table->foreign('orderId')->references('id')->on('orders');
         });
     }

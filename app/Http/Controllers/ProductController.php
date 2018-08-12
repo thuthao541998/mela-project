@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Brand;
+use App\Category;
 use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
@@ -26,13 +28,18 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('admin.product.create');
+        $categories = Category::all();
+        $brands = Brand::all();
+        return view('admin.product.create')
+            ->with('categories', $categories)
+            ->with('brands', $brands)
+            ;
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -50,7 +57,7 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -66,24 +73,33 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         $obj = Product::find($id);
+        $categories = Category::all();
+        $brands = Brand::all();
+        $choosedBrandId = $obj->brandId;
+        $choosedCategoryId = $obj->categoryId;
         if ($obj == null) {
             return view('404');
         }
         return view('admin.product.edit')
-            ->with('obj', $obj);
+            ->with('obj', $obj)
+            ->with('categories', $categories)
+            ->with('choosedCategoryId', $choosedCategoryId)
+            ->with('brands',$brands)
+            ->with('choosedBrandId', $choosedBrandId)
+            ;
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -104,7 +120,7 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
