@@ -69,7 +69,7 @@
                                     <div class="col-lg-9">
                                         <input type="file" class="custom-file-input" name="images" id="img">
                                         <label class="custom-file-label text-truncate" for="img">Choose file</label>
-                                        <img class="mt-2 img-fluid mb-5" style="background-size: cover; width: 260px;" name="images" src="{{$obj->images}}">
+                                        <img class="mt-2 img-fluid mb-5" style="background-size: cover; width: 260px;" src="{{$obj->images}}">
                                     </div>
                                 </div>
                             </div>
