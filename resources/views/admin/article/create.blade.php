@@ -18,21 +18,15 @@
                             {{csrf_field()}}
                             <div class="col-lg-7">
                                 <div class="form-group ">
-                                    <label class="control-label col-lg-2">Name</label>
+                                    <label class="control-label col-lg-2">Title</label>
                                     <div class="col-lg-9">
-                                        <input class=" form-control" name="name" type="text">
+                                        <input class=" form-control" name="title" type="text">
                                     </div>
                                 </div>
                                 <div class="form-group ">
                                     <label class="control-label col-lg-2">Author</label>
                                     <div class="col-lg-9">
                                         <input class=" form-control" name="author" type="text">
-                                    </div>
-                                </div>
-                                <div class="form-group ">
-                                    <label class="control-label col-lg-2">Title</label>
-                                    <div class="col-lg-9">
-                                        <input class="form-control" name="title" type="text">
                                     </div>
                                 </div>
                                 <div class="form-group ">

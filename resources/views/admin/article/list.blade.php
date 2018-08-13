@@ -14,9 +14,8 @@
                                 <tr class="row">
                                     <th class="col-md-1"></th>
                                     <th class="col-md-1">ID</th>
-                                    <th class="col-md-1">Name</th>
+                                    <th class="col-md-1">Title</th>
                                     <th class="col-md-1">Author</th>
-                                    <th class="col-md-2">Title</th>
                                     <th class="col-md-3 text-center">Content</th>
                                     <th class="col-md-1">Images</th>
                                     <th class="col-md-3 text-center">Action</th>
@@ -29,9 +28,8 @@
                                         <input type="checkbox" class="check-item">
                                     </td>
                                     <td class="col-md-1">{{$item->id}}</td>
-                                    <td class="col-md-1">{{$item->name}}</td>
+                                    <td class="col-md-1">{{$item->title}}</td>
                                     <td class="col-md-1">{{$item->author}}</td>
-                                    <td class="col-md-2">{{$item->title}}</td>
                                     <td class="col-md-3">{{$item->content}}</td>
                                     <td class="col-md-1">
                                         <div class="card"
