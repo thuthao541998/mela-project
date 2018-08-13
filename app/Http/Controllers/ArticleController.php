@@ -135,7 +135,8 @@ class ArticleController extends Controller
             return response()->json(['msg' => 'Not found'], 404);
         }
         $obj->name = Input::get('name');
-        $obj->price = Input::get('price');
+        $obj->author = Input::get('author');
+        $obj->content = Input::get('content');
         $obj->images = Input::get('images');
         $obj->save();
         return response()->json(['item' => $obj], 200);

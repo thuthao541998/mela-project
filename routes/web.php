@@ -35,3 +35,15 @@ Route::get('admin/404',function (){
 
 Route::get("/admin/article/get-json/{id}", "ArticleController@showJson");
 Route::put("/admin/article/update-json/{id}", "ArticleController@quickUpdate");
+
+Route::get("/admin/brand/get-json/{id}", "BrandController@showJson");
+Route::put("/admin/brand/update-json/{id}", "BrandController@quickUpdate");
+
+Route::get("/admin/category/get-json/{id}", "CategoryController@showJson");
+Route::put("/admin/category/update-json/{id}", "CategoryController@quickUpdate");
+
+Route::get("/admin/order/get-json/{id}", "OrderController@showJson");
+Route::put("/admin/order/update-json/{id}", "OrderController@quickUpdate");
+
+Route::get("/admin/product/get-json/{id}", "ProductController@showJson");
+Route::put("/admin/product/update-json/{id}", "ProductController@quickUpdate");

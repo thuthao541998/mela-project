@@ -63,8 +63,9 @@
         </section>
     </section>
 
-    <div class="modal fade" id="modal-edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-        <div class="modal-dialog" >
+    {{--Modal--}}
+    <div class="modal" id="modal-edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLongTitle">Quick Edit</h5>
@@ -76,16 +77,21 @@
                     <form action="" name="quick-edit-form">
                         <input type="hidden" name="id">
                         <div class="form-group">
-                            <label>Name</label>
-                            <input type="text" name="name" class="form-control w-50">
+                            <label class="col-form-label">Name</label>
+                            <input type="text" name="name" class="form-control w-75">
                         </div>
                         <div class="form-group">
-                            <label>Author</label>
-                            <input type="number" name="price" class="form-control w-25">
+                            <label class="col-form-label">Author</label>
+                            <input type="text" name="author" class="form-control w-75">
                         </div>
                         <div class="form-group">
-                            <label>Content</label>
-                            <textarea type="text" rows="10" name="content" class="form-control"></textarea>
+                            <label class="col-form-label">Content</label>
+                            <textarea type="text" rows="10" name="content" class="form-control w-75"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label">Images</label>
+                            <input type="text" name="images" class="form-control w-75">
+                            <img src="" alt="" class="img-thumbnail mt-2 align-self-center card ml-2" style="background-size: cover; width: 260px;">
                         </div>
                     </form>
                 </div>

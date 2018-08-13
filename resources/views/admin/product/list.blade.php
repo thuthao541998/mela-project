@@ -97,4 +97,41 @@
             </div>
         </section>
     </section>
+
+    {{--Modal--}}
+    <div class="modal" id="modal-edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Quick Edit</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="" name="quick-edit-form">
+                        <input type="hidden" name="id">
+                        <div class="form-group">
+                            <label class="col-form-label">Name</label>
+                            <input type="text" name="name" class="form-control w-75">
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label">Price</label>
+                            <input type="number" name="price" class="form-control w-75">
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label">Images</label>
+                            <input type="text" name="images" class="form-control w-75">
+                            <img src="" alt="" class="img-thumbnail mt-2 align-self-center card ml-2" style="background-size: cover; width: 260px;">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="btn-update-changes">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{{asset('js/quick-edit.js')}}"></script>
 @endsection
