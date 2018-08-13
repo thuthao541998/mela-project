@@ -27,3 +27,7 @@ Route::resource('admin/category', 'CategoryController');
 
 Route::resource('admin/brand','BrandController');
 
+Route::get('admin/404',function (){
+    return view('admin.404.404');
+});
+

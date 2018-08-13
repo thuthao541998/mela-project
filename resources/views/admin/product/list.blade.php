@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('page-title', 'List Product - Admin Page')
 @section('content')
-    <link href="{{asset('css/list.css')}}" rel='stylesheet' type='text/css' />
+    <link href="{{asset('css/list.css')}}" rel='stylesheet' type='text/css'/>
     <section id="main-content">
         <section class="wrapper">
             <div class="panel panel-default">
@@ -13,28 +13,19 @@
                         <div class="form-group mx-sm-4 mb-3">
                             <label for="chooseCategory">Category</label>
                             <select id="select-action" class="form-control">
-                                <option selected value="0">Category</option>
-                                <option value="1">Lipstick</option>
-                                <option value="2">Lip Gloss</option>
-                                <option value="3">Lip Liner</option>
-                                <option value="4">Lip Stain</option>
-                                <option value="5">Lip Balm</option>
+                                <option selected value="0">All</option>
+                                @foreach($categories as $category)
+                                    <option value="{{$category->id}}">{{$category->name}}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="form-group mx-sm-4 mb-3">
                             <label for="chooseCategory">Brand</label>
                             <select id="select-action" class="form-control">
-                                <option selected value="0">Brand</option>
-                                <option value="1">Urban Decay</option>
-                                <option value="2">NARS</option>
-                                <option value="3">Kylie Cosmetics</option>
-                                <option value="4">NYX</option>
-                                <option value="5">Maybelline</option>
-                                <option value="6">Stila</option>
-                                <option value="7">MAC</option>
-                                <option value="8">ColourPop</option>
-                                <option value="9">Dior</option>
-                                <option value="10">Anastasia Beverly Hills</option>
+                                <option selected value="0">All</option>
+                                @foreach($brands as $brand)
+                                    <option value="{{$brand->id}}">{{$brand->name}}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
@@ -57,6 +48,8 @@
                         </thead>
                         <tbody>
                         @foreach($list_obj as $item)
+                            <span class="hidden" {{$brand = $brands->find($item->brandId)}}></span>
+                            <span class="hidden" {{$category = $category->find($item->categoryId)}}></span>
                             <tr class="row" id="row-item-{{$item->id}}">
                                 <td class="col-md-1 text-center" style="width: 3%">
                                     <input type="checkbox" class="check-item">
@@ -71,8 +64,8 @@
                                 </td>
                                 <td class="col-md-1">{{$item->overview}}</td>
                                 <td class="col-md-3 text-justify">{{$item->description}}</td>
-                                <td class="col-md-1 text-center" style="width: 3%">{{$item->categoryId}}</td>
-                                <td class="col-md-1 text-center" style="width: 3%">{{$item->brandId}}</td>
+                                <td class="col-md-1 text-center" style="width: 3%">{{$category->name}}</td>
+                                <td class="col-md-1 text-center" style="width: 3%">{{$brand->name}}</td>
                                 <td class="col-md-2 text-center">
                                     <a href="#" class="btn btn-link btn-quick-edit"><span class="fa fa-eraser"></span> Quick Edit</a>&nbsp;&nbsp;
                                     <a href="/admin/product/{{$item -> id}}/edit" class="btn btn-link btn-edit"><span class="fa fa-edit"></span> Edit</a>&nbsp;&nbsp;

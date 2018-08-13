@@ -7,6 +7,7 @@ use App\Category;
 use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
+use JD\Cloudder\Facades\Cloudder;
 
 class ProductController extends Controller
 {
@@ -17,8 +18,14 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $list_obj = Product::paginate(10);
-        return view('admin.product.list')->with('list_obj', $list_obj);
+        $brands = Brand::all();
+        $categories = Category::all();
+        $list_obj = Product::all();
+        return view('admin.product.list')
+            ->with('list_obj', $list_obj)
+            ->with('brands',$brands)
+            ->with('categories',$categories)
+            ;
     }
 
     /**
@@ -49,7 +56,13 @@ class ProductController extends Controller
         $obj->price = Input::get('price');
         $obj->overview = Input::get('overview');
         $obj->description = Input::get('description');
-        $obj->images = Input::get('images');
+        $obj->brandId = Input::get('brandId');
+        $obj->categoryId = Input::get('categoryId');
+        if(Input::hasFile('images')){
+            $image_id = time();
+            Cloudder::upload(Input::file('images')->getRealPath(), $image_id);
+            $obj->images = Cloudder::secureShow($image_id);
+        }
         $obj->save();
         return redirect('/admin/product');
     }
@@ -112,7 +125,13 @@ class ProductController extends Controller
         $obj->price = Input::get('price');
         $obj->overview = Input::get('overview');
         $obj->description = Input::get('description');
-        $obj->images = Input::get('images');
+        $obj->brandId = Input::get('brandId');
+        $obj->categoryId = Input::get('categoryId');
+        if(Input::hasFile('images')){
+            $image_id = time();
+            Cloudder::upload(Input::file('images')->getRealPath(), $image_id);
+            $obj->images = Cloudder::secureShow($image_id);
+        }
         $obj->save();
         return redirect('/admin/product');
     }

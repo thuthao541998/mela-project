@@ -12,11 +12,10 @@
                         <table class="table table-hover">
                             <thead>
                                 <tr class="row">
-                                    <th class="col-sm-1" style="width: 3%"></th>
-                                    <th class="col-sm-1" style="width: 5%">ID</th>
-                                    <th class="col-md-1">Name</th>
-                                    <th class="col-sm-1" style="width: 10%">Author</th>
-                                    <th class="col-md-2">Title</th>
+                                    <th class="col-md-1" style="width: 3%"></th>
+                                    <th class="col-md-1"  style="width: 5%">ID</th>
+                                    <th class="col-md-1">Title</th>
+                                    <th class="col-md-1"  style="width: 10%">Author</th>
                                     <th class="col-md-3 text-center">Content</th>
                                     <th class="col-md-1">Images</th>
                                     <th class="col-md-3 text-center">Action</th>
@@ -28,10 +27,9 @@
                                     <td class="col-md-1 text-center" style="width: 3%">
                                         <input type="checkbox" class="check-item">
                                     </td>
-                                    <td class="col-md-1" style="width: 5%">{{$item->id}}</td>
-                                    <td class="col-md-1">{{$item->name}}</td>
+                                    <td class="col-md-1"  style="width: 5%">{{$item->id}}</td>
+                                    <td class="col-md-1">{{$item->title}}</td>
                                     <td class="col-md-1" style="width: 10%">{{$item->author}}</td>
-                                    <td class="col-md-2">{{$item->title}}</td>
                                     <td class="col-md-3">{{$item->content}}</td>
                                     <td class="col-md-1">
                                         <div class="card"
