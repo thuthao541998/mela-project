@@ -22,7 +22,7 @@
                         </div>
                     </div>
                     <div>
-                        <table class="table table-striped">
+                        <table class="table table-light">
                             <thead>
                             <tr class="row">
                                 <th class="col-md-1" style="width: 3%"></th>
