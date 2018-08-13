@@ -18,8 +18,14 @@ class ProductController extends Controller
      */
     public function index()
     {
+        $brands = Brand::all();
+        $categories = Category::all();
         $list_obj = Product::all();
-        return view('admin.product.list')->with('list_obj', $list_obj);
+        return view('admin.product.list')
+            ->with('list_obj', $list_obj)
+            ->with('brands',$brands)
+            ->with('categories',$categories)
+            ;
     }
 
     /**
