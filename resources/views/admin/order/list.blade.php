@@ -40,17 +40,17 @@
                             <div class="col-md-8 form-inline">
                                 <div class="form-check mb-2">
                                     <input class="form-check-input" type="checkbox" value="" id="check-all">
-                                    <label class="form-check-label" for="defaultCheck1">Check All</label>
-                                </div>
-                                <div class="form-group mx-sm-3 mb-2">
                                     <select id="select-action" class="form-control">
                                         <option selected value="0">Action</option>
                                         <option value="1">Delete All</option>
                                         <option value="2">Another Action</option>
                                     </select>
+                                    <button type="submit" class="btn btn-primary mb-2" id="btn-apply">Submit</button>
                                 </div>
-                                <button type="submit" class="btn btn-primary mb-2" id="btn-apply">Submit</button>
                             </div>
+                        </div>
+                        <div class="pagination pull-right">
+                            {!! $list_obj->links() !!}
                         </div>
                     </div>
                 </div>

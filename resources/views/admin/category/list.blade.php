@@ -69,6 +69,9 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="pagination pull-right">
+                            {!! $list_obj->links() !!}
+                        </div>
                     </div>
                 </div>
         </section>
