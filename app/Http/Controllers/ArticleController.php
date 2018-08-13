@@ -16,10 +16,8 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $list_obj = DB::table('articles')->paginate('15');
-        return view('admin.article.list', ['list_obj' => $list_obj]);
-        /*$list_obj = Article::paginate(10);
-        return view('admin.article.list', compact('article'))->with('list_obj', $list_obj);*/
+        $list_obj = Article::paginate(5);
+        return view('admin.article.list', compact('article'))->with('list_obj', $list_obj);
     }
 
     /**
