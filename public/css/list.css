@@ -59,3 +59,9 @@
 .pagination{
     padding-top: 10px;
 }
+.fa-eraser{
+    color:green;
+}
+.fa-trash{
+    color:red;
+}
