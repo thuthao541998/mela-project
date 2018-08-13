@@ -14,7 +14,7 @@
                 </header>
                 <div class="panel-body">
                     <div class="form">
-                        <form class="cmxform form-horizontal" method="get" action="" novalidate="novalidate">
+                        <form class="cmxform form-horizontal" method="get" action="" novalidate="novalidate" enctype="multipart/form-data">
                             {{csrf_field()}}
                             <div class="col-lg-7">
                                 <div class="form-group ">

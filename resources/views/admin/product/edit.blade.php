@@ -12,7 +12,7 @@
                 </header>
                 <div class="panel-body">
                     <div class="form">
-                        <form class="cmxform form-horizontal" method="get" action="" novalidate="novalidate">
+                        <form class="cmxform form-horizontal" method="get" action="" novalidate="novalidate" enctype="multipart/form-data">
                             @method('PUT')
                             {{csrf_field()}}
                             <div class="col-lg-7">
