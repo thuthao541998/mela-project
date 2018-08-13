@@ -119,6 +119,8 @@ class ProductController extends Controller
         $obj->price = Input::get('price');
         $obj->overview = Input::get('overview');
         $obj->description = Input::get('description');
+        $obj->brandId = Input::get('brandId');
+        $obj->categoryId = Input::get('categoryId');
         if(Input::hasFile('images')){
             $image_id = time();
             Cloudder::upload(Input::file('images')->getRealPath(), $image_id);

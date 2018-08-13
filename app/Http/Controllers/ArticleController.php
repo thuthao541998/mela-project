@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Article;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
+use JD\Cloudder\Facades\Cloudder;
 
 class ArticleController extends Controller
 {
@@ -42,7 +43,11 @@ class ArticleController extends Controller
         $obj->author = Input::get('author');
         $obj->title = Input::get('title');
         $obj->content = Input::get('content');
-        $obj->images = Input::get('images');
+        if(Input::hasFile('images')){
+            $image_id = time();
+            Cloudder::upload(Input::file('images')->getRealPath(), $image_id);
+            $obj->images = Cloudder::secureShow($image_id);
+        }
         $obj->save();
         return redirect('/admin/article');
     }
@@ -57,7 +62,7 @@ class ArticleController extends Controller
     {
         $obj = Article::find($id);
         if ($obj == null) {
-            return view('404');
+            return view('admin.404.404');
         }
         return view('admin.article.show')
             ->with('obj', $obj);
@@ -73,7 +78,7 @@ class ArticleController extends Controller
     {
         $obj = Article::find($id);
         if ($obj == null) {
-            return view('404');
+            return view('admin.404.404');
         }
         return view('admin.article.edit')
             ->with('obj', $obj);
@@ -90,13 +95,17 @@ class ArticleController extends Controller
     {
         $obj = Article::find($id);
         if ($obj == null) {
-            return view('404');
+            return view('admin.404.404');
         }
         $obj->name = Input::get('name');
         $obj->author = Input::get('author');
         $obj->title = Input::get('title');
         $obj->content = Input::get('content');
-        $obj->images = Input::get('images');
+        if(Input::hasFile('images')){
+            $image_id = time();
+            Cloudder::upload(Input::file('images')->getRealPath(), $image_id);
+            $obj->images = Cloudder::secureShow($image_id);
+        }
         $obj->save();
         return redirect('/admin/article');
     }
