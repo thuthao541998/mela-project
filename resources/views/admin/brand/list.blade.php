@@ -27,50 +27,52 @@
                         </div>
                     </div>
                     <div>
-                        <table class="table" ui-jq="footable" >
+                        <table class="table table-striped" >
                             <thead>
-                                <tr class="row">
-                                    <th class="col-md-1"></th>
-                                    <th class="col-md-1">ID</th>
-                                    <th class="col-md-1 text-center">Name</th>
-                                    <th class="col-md-4 text-center">Description</th>
-                                    <th class="col-md-2">Images</th>
-                                    <th class="col-md-3 text-center">Action</th>
-                                </tr>
+                            <tr class="row">
+                                <th class="col-md-1" style="width: 3%"></th>
+                                <th class="col-md-1" style="width: 3%">ID</th>
+                                <th class="col-md-1 text-center">Name</th>
+                                <th class="col-md-4 text-center">Description</th>
+                                <th class="col-md-2 text-center">Images</th>
+                                <th class="col-md-3 text-center">Action</th>
+                            </tr>
                             </thead>
                             <tbody>
-                                @foreach($list_obj as $item)
+                            @foreach($list_obj as $item)
                                 <tr class="row" id="row-item-{{$item->id}}">
-                                    <td class="col-md-1 text-center">
+                                    <td class="col-md-1 text-center" style="width: 3%">
                                         <input type="checkbox" class="check-item">
                                     </td>
-                                    <td class="col-md-1">{{$item->id}}</td>
+                                    <td class="col-md-1" style="width: 3%">{{$item->id}}</td>
                                     <td class="col-md-2 text-center">{{$item->name}}</td>
-                                    <td class="col-md-3">{{$item->description}}</td>
+                                    <td class="col-md-3 text-justify">{{$item->description}}</td>
                                     <td class="col-md-2">
                                         <div class="card"
                                              style="background-image: url('{{$item->images}}'); background-size: cover; width: 120px; height: 80px;">
                                         </div>
                                     </td>
                                     <td class="col-md-3">
-                                        <a href="#" class="btn btn-link btn-quick-edit">Quick Edit</a>&nbsp;&nbsp;
-                                        <a href="/admin/bakery/{{$item -> id}}/edit" class="btn btn-link btn-edit">Edit</a>&nbsp;&nbsp;
-                                        <a href="#" id="{{$item-> id}}" class="btn btn-link btn-delete">Delete</a>
+                                        <a href="#" class="btn btn-link btn-quick-edit"><span class="fa fa-eraser"></span> Quick Edit</a>&nbsp;&nbsp;
+                                        <a href="/admin/brand/{{$item -> id}}/edit" class="btn btn-link btn-edit"><span class="fa fa-edit"></span> Edit</a>&nbsp;&nbsp;
+                                        <a href="#" id="{{$item-> id}}" class="btn btn-link btn-delete"><span class="fa fa-trash"></span> Delete</a>
                                     </td>
                                 </tr>
                             @endforeach
-                        </tbody>
-                    </table>
-                    </div>
-                    <div class="col-md-8 form-inline">
-                        <div class="form-check mb-2">
-                            <input class="form-check-input" type="checkbox" value="" id="check-all">
-                            <select id="select-action" class="form-control">
-                                <option selected value="0">Action</option>
-                                <option value="1">Delete All</option>
-                                <option value="2">Another Action</option>
-                            </select>
-                            <button type="submit" class="btn btn-primary mb-2" id="btn-apply">Submit</button>
+                            </tbody>
+                        </table>
+                        <div class="row">
+                            <div class="col-md-8 form-inline">
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" value="" id="check-all">
+                                    <select id="select-action" class="form-control">
+                                        <option selected value="0">Action</option>
+                                        <option value="1">Delete All</option>
+                                        <option value="2">Another Action</option>
+                                    </select>
+                                    <button type="submit" class="btn btn-primary mb-2" id="btn-apply">Submit</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
             </div>

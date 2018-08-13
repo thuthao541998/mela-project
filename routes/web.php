@@ -26,3 +26,4 @@ Route::resource('admin/article', 'ArticleController');
 Route::resource('admin/category', 'CategoryController');
 
 Route::resource('admin/brand','BrandController');
+

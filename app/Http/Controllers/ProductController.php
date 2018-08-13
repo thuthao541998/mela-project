@@ -17,7 +17,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $list_obj = Product::all();
+        $list_obj = Product::paginate(10);
         return view('admin.product.list')->with('list_obj', $list_obj);
     }
 

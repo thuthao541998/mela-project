@@ -15,7 +15,7 @@ class BrandController extends Controller
      */
     public function index()
     {
-        $list_obj = Brand::all();
+        $list_obj = Brand::paginate(10);
         return view('admin.brand.list')->with('list_obj', $list_obj);
     }
 
