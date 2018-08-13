@@ -20,7 +20,7 @@ class ProductController extends Controller
     {
         $brands = Brand::all();
         $categories = Category::all();
-        $list_obj = Product::all();
+        $list_obj = Product::paginate(10);
         return view('admin.product.list')
             ->with('list_obj', $list_obj)
             ->with('brands',$brands)
