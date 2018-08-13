@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use JD\Cloudder\Facades\Cloudder;
 
@@ -16,8 +17,10 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $list_obj = Article::paginate(10);
-        return view('admin.article.list')->with('list_obj', $list_obj);
+        $list_obj = DB::table('articles')->paginate('15');
+        return view('admin.article.list', ['list_obj' => $list_obj]);
+        /*$list_obj = Article::paginate(10);
+        return view('admin.article.list', compact('article'))->with('list_obj', $list_obj);*/
     }
 
     /**
@@ -67,6 +70,7 @@ class ArticleController extends Controller
         return view('admin.article.show')
             ->with('obj', $obj);
     }
+
 
     /**
      * Show the form for editing the specified resource.
