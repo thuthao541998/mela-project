@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-lg-12">
             <section class="panel">
-                <header class="panel-heading">Create new article
+                <header class="panel-heading">Create new brand
                     <span class="tools pull-right">
                         <a href="javascript:;">
                             <span class="fa fa-chevron-down"></span>
@@ -14,9 +14,8 @@
                 </header>
                 <div class="panel-body">
                     <div class="form">
-                        <form class="cmxform form-horizontal" method="get" action="" novalidate="novalidate">
+                        <form class="cmxform form-horizontal" method="post" action="/admin/brand" novalidate="novalidate" enctype="multipart/form-data">
                             {{csrf_field()}}
-
                             <div class="col-lg-7">
                                 <div class="form-group">
                                     <label class="control-label col-lg-2">Name</label>
