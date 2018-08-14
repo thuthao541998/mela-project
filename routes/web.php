@@ -15,6 +15,10 @@
 |
 */
 
+Route::resource('/', function (){
+    return 'yay';
+});
+
 Route::resource('admin/product','ProductController');
 
 Route::resource('admin/order','OrderController');
