@@ -1,9 +1,5 @@
 <?php
 
-//Route::get('/', function (){
-//    return view('layouts.master');
-//});
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,8 +11,8 @@
 |
 */
 
-Route::resource('/', function (){
-    return 'yay';
+Route::get('/', function (){
+    return view('layouts.master');
 });
 
 Route::resource('admin/product','ProductController');
