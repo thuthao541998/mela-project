@@ -85,18 +85,13 @@
                 <div class="modal-body">
                     <form action="" name="quick-edit-form">
                         <input type="hidden" name="id">
-                        <div class="form-group">
-                            <label class="col-form-label">Name</label>
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label">Name</label>
                             <input type="text" name="name" class="form-control w-75">
                         </div>
-                        <div class="form-group">
-                            <label class="col-form-label">Description</label>
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label mr-0 pr-0">Description</label>
                             <textarea type="text" rows="10" name="description" class="form-control w-75"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-form-label">Images</label>
-                            <input type="text" name="images" class="form-control w-75">
-                            <img src="" alt="" class="img-thumbnail mt-2 align-self-center card ml-2" style="background-size: cover; width: 260px;">
                         </div>
                     </form>
                 </div>

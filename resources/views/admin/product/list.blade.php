@@ -111,13 +111,13 @@
                 <div class="modal-body">
                     <form action="" name="quick-edit-form">
                         <input type="hidden" name="id">
-                        <div class="form-group">
-                            <label class="col-form-label">Name</label>
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label">Name</label>
                             <input type="text" name="name" class="form-control w-75">
                         </div>
-                        <div class="form-group">
-                            <label class="col-form-label">Price</label>
-                            <input type="number" name="price" class="form-control w-75">
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label mr-0 pr-0">Price</label>
+                            <input type="number" rows="10" name="price" class="form-control w-75">
                         </div>
                         <div class="form-group">
                             <label class="col-form-label">Images</label>
