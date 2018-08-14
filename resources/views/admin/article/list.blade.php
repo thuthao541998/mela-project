@@ -32,7 +32,12 @@
                                     <td class="col-md-1">{{$item->name}}</td>
                                     <td class="col-md-1" style="width: 10%">{{$item->author}}</td>
                                     <td class="col-md-2">{{$item->title}}</td>
-                                    <td class="col-md-3">{{$item->content}}</td>
+                                    <td class="col-md-3 text-justify">
+                                        <span class="btn" data-toggle="collapse" data-target="#demo">See More &raquo;</span>
+                                        <div id="demo" class="collapse">
+                                            {{$item->content}}
+                                        </div>
+                                    </td>
                                     <td class="col-md-1">
                                         <div class="card"
                                              style="background-image: url('{{$item->images}}'); background-size: cover; width: 60px; height: 60px;">
@@ -41,7 +46,7 @@
                                     <td class="col-md-3">
                                         <a href="#" class="btn btn-link btn-quick-edit"><span class="fa fa-eraser"></span>Quick Edit</a>&nbsp;&nbsp;
                                         <a href="/admin/article/{{$item -> id}}/edit" class="btn btn-link btn-edit"><span class="fa fa-edit"></span>Edit</a>&nbsp;&nbsp;
-                                        <a href="#" id="{{$item-> id}}" class="btn btn-link btn-delete"><span class="fa fa-trash"></span>Delete</a>
+                                        <<a href="/admin/article/{{$item->id}}" method="delete" class="btn btn-link btn-delete"><span class="fa fa-trash"></span>Delete</a>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -67,4 +72,6 @@
                 </div>
         </section>
     </section>
+    <script src="{{asset('js/delete.js')}}"></script>
 @endsection
+
