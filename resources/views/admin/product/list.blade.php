@@ -67,7 +67,7 @@
                                 <td class="col-sm-1 text-center" style="">{{$category->name}}</td>
                                 <td class="col-sm-1 text-center" style="">{{$brand->name}}</td>
                                 <td class="col-sm-2 text-center">
-                                    <a href="#" class="btn btn-link btn-quick-edit" data-toggle="tooltip" title="Quick Edit" data-placement="top"><span class="fa fa-eraser"></span></a>
+                                    <a href="#" class="btn btn-link btn-quick-edit-product" data-toggle="tooltip" title="Quick Edit" data-placement="top"><span class="fa fa-eraser"></span></a>
                                     <a href="/admin/product/{{$item -> id}}/edit" class="btn btn-link btn-edit" data-toggle="tooltip" title="Edit" data-placement="top"><span class="fa fa-edit"></span></a>
                                     <a href="#" id="{{$item-> id}}" class="btn btn-link btn-delete" data-toggle="tooltip" title="Delete" data-placement="top"><span class="fa fa-trash"></span></a>
                                 </td>
@@ -125,7 +125,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="btn-update-changes">Save changes</button>
+                    <button type="button" class="btn btn-primary" id="btn-update-changes-product">Save changes</button>
                 </div>
             </div>
         </div>
