@@ -116,7 +116,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <!-- inbox dropdown start-->
                 <li id="header_inbox_bar" class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                        <i class="fas fa-envelope-o"></i>
+                        <i class="far fa-envelope-open"></i>
                         <span class="badge bg-important">4</span>
                     </a>
                     <ul class="dropdown-menu extended inbox">
@@ -180,8 +180,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <!-- notification dropdown start-->
                 <li id="header_notification_bar" class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-
-                        <i class="fas fa-bell-o"></i>
+                        <i class="far fa-bell"></i>
                         <span class="badge bg-warning">3</span>
                     </a>
                     <ul class="dropdown-menu extended notification">
