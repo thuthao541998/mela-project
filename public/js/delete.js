@@ -2,10 +2,10 @@ var listDeleteButton = document.getElementsByClassName('btn-delete');
 for (var i = 0; i < listDeleteButton.length; i++) {
     listDeleteButton[i].onclick = function () {
         if(confirm('Do you really want to delete this?')){
-            var params = '_token={{csrf_token()}}';
+            var params = '_token='+$('meta[name="csrf-token"]').attr('content');
             var currentId = this.id;
             var xhttp = new XMLHttpRequest();
-            xhttp.open("POST", "" +
+            xhttp.open("DELETE", "" +
                 "/admin/article/" + currentId, true);
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 10 && this.status == 200) {
