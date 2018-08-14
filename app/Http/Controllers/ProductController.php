@@ -171,7 +171,7 @@ class ProductController extends Controller
         }
         $obj->name = Input::get('name');
         $obj->price = Input::get('price');
-        $obj->images = Input::get('images');
+        $obj->overview = Input::get('overview');
         $obj->save();
         return response()->json(['item' => $obj], 200);
     }

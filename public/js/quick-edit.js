@@ -57,9 +57,7 @@ $('.btn-quick-edit').click(function () {
         success: function (resp) {
             $('form[name="quick-edit-form"] input[name="name"]').val(resp.item.name);
             $('form[name="quick-edit-form"] input[name="price"]').val(resp.item.price);
-            $('form[name="quick-edit-form"] input[name="id"]').val(resp.item.id);
-            $('form[name="quick-edit-form"] img').attr('src', resp.item.images);
-            $('form[name="quick-edit-form"] input[name="images"]').val(resp.item.images);
+            $('form[name="quick-edit-form"] textarea[name="overview"]').val(resp.item.overview);
         },
         error: function () {
             alert('error');
@@ -72,12 +70,12 @@ $('.btn-quick-edit').click(function () {
 $('#btn-update-changes').click(function () {
     var name = $('form[name="quick-edit-form"] input[name="name"]').val();
     var price = $('form[name="quick-edit-form"] input[name="price"]').val();
-    var images = $('form[name="quick-edit-form"] input[name="images"]').val();
+    var overview = $('form[name="quick-edit-form"] textarea[name="overview"]').val();
     var id = $('form[name="quick-edit-form"] input[name="id"]').val();
     $.ajax({
         url:'/admin/product/update-json/' + id,
         method: 'PUT',
-        data:'name=' + name + '&price=' + price + '&images=' + images + '&_token=' + $('meta[name="csrf-token"]').attr('content'),
+        data:'name=' + name + '&price=' + price + '&overview=' + overview + '&_token=' + $('meta[name="csrf-token"]').attr('content'),
         success: function (resp) {
             alert('success');
         },
