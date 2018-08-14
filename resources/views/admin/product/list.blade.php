@@ -67,7 +67,7 @@
                                 <td class="col-sm-1 text-center" style="">{{$category->name}}</td>
                                 <td class="col-sm-1 text-center" style="">{{$brand->name}}</td>
                                 <td class="col-sm-2 text-center">
-                                    <a href="#" class="btn btn-link btn-quick-edit" data-toggle="tooltip" title="Quick Edit" data-placement="top"><span class="fa fa-eraser"></span></a>
+                                    <a href="#" class="btn btn-link btn-quick-edit-product" data-toggle="tooltip" title="Quick Edit" data-placement="top"><span class="fa fa-eraser"></span></a>
                                     <a href="/admin/product/{{$item -> id}}/edit" class="btn btn-link btn-edit" data-toggle="tooltip" title="Edit" data-placement="top"><span class="fa fa-edit"></span></a>
                                     <a href="#" id="{{$item-> id}}" class="btn btn-link btn-delete" data-toggle="tooltip" title="Delete" data-placement="top"><span class="fa fa-trash"></span></a>
                                 </td>
@@ -98,7 +98,7 @@
 
     {{--Modal--}}
     <div class="modal" id="modal-edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLongTitle">Quick Edit</h5>
@@ -115,18 +115,17 @@
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-2 col-form-label mr-0 pr-0">Price</label>
-                            <input type="number" rows="10" name="price" class="form-control w-75">
+                            <input type="number" name="price" class="form-control w-75">
                         </div>
-                        <div class="form-group">
-                            <label class="col-form-label">Images</label>
-                            <input type="text" name="images" class="form-control w-75">
-                            <img src="" alt="" class="img-thumbnail mt-2 align-self-center card ml-2" style="background-size: cover; width: 260px;">
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label ml-0 pl-0">Overview</label>
+                            <textarea type="text" rows="8" name="overview" class="form-control w-75"></textarea>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="btn-update-changes">Save changes</button>
+                    <button type="button" class="btn btn-primary" id="btn-update-changes-product">Save changes</button>
                 </div>
             </div>
         </div>
