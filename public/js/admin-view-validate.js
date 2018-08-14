@@ -55,6 +55,10 @@ $(document).ready(function() {
             content: {
                 required: true,
                 minlength: 2
+            },
+            id: {
+                required: true,
+                minlength: 2
             }
         },
         messages: {
@@ -106,6 +110,10 @@ $(document).ready(function() {
             },
             content: {
                 required: "Vui lòng nhập content",
+                minlength: "Content quá ngắn vậy, chém gió ah?"
+            },
+            id: {
+                required: "Vui lòng nhập id",
                 minlength: "Content quá ngắn vậy, chém gió ah?"
             }
         }
