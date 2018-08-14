@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
+use JD\Cloudder\Facades\Cloudder;
 
 class CategoryController extends Controller
 {
@@ -15,7 +16,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $list_obj = Category::paginate(10);
+        $list_obj = Category::paginate(3);
         return view('admin.category.list')->with('list_obj', $list_obj);
     }
 
@@ -40,7 +41,11 @@ class CategoryController extends Controller
         $obj = new Category();
         $obj->name = Input::get('name');
         $obj->description = Input::get('description');
-        $obj->images = Input::get('images');
+        if(Input::hasFile('images')){
+            $image_id = time();
+            Cloudder::upload(Input::file('images')->getRealPath(), $image_id);
+            $obj->images = Cloudder::secureShow($image_id);
+        }
         $obj->save();
         return redirect('/admin/category');
     }
@@ -55,7 +60,7 @@ class CategoryController extends Controller
     {
         $obj = Category::find($id);
         if ($obj == null) {
-            return view('404');
+            return view('admin.404.404');
         }
         return view('admin.category.show')
             ->with('obj', $obj);
@@ -71,7 +76,7 @@ class CategoryController extends Controller
     {
         $obj = Category::find($id);
         if ($obj == null) {
-            return view('404');
+            return view('admin.404.404');
         }
         return view('admin.category.edit')
             ->with('obj', $obj);
@@ -88,11 +93,15 @@ class CategoryController extends Controller
     {
         $obj = Category::find($id);
         if ($obj == null) {
-            return view('404');
+            return view('admin.404.404');
         }
         $obj->name = Input::get('name');
         $obj->description = Input::get('description');
-        $obj->images = Input::get('images');
+        if(Input::hasFile('images')){
+            $image_id = time();
+            Cloudder::upload(Input::file('images')->getRealPath(), $image_id);
+            $obj->images = Cloudder::secureShow($image_id);
+        }
         $obj->save();
         return redirect('/admin/category');
     }
