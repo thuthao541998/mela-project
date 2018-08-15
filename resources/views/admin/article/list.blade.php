@@ -8,6 +8,8 @@
                     <div class="panel-heading">
                         List Article
                     </div>
+                    <div class="alert alert-success d-none" role="alert" id="messageSuccess"></div>
+                    <div class="alert alert-danger d-none" role="alert" id="messageError"></div>
                     <div>
                         <table class="table table-hover">
                             <thead>
