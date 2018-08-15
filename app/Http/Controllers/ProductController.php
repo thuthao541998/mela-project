@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Brand;
 use App\Category;
+use App\Http\Requests\StoreProductPost;
 use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
@@ -115,8 +116,9 @@ class ProductController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreProductPost $request, $id)
     {
+        $request->validated();
         $obj = Product::find($id);
         if ($obj == null) {
             return view('404');

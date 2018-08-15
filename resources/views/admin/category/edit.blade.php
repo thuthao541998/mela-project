@@ -11,6 +11,11 @@
                      </span>
                 </header>
                 <div class="panel-body">
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <label style="font-size: 15px">Please refill the form.</label>
+                        </div>
+                    @endif
                     <div class="form">
                         <form class="cmxform form-horizontal" method="post" action="/admin/category/{{$obj->id}}" novalidate="novalidate" enctype="multipart/form-data">
                             @method('PUT')
@@ -20,12 +25,18 @@
                                     <label class="control-label col-lg-2">Name</label>
                                     <div class="col-lg-9">
                                         <input class=" form-control" name="name" type="text" value="{{$obj->name}}">
+                                        @foreach ($errors->get('name') as $title)
+                                            <p class="text-danger help-block">{{$title}}</p>
+                                        @endforeach
                                     </div>
                                 </div>
                                 <div class="form-group ">
                                     <label class="control-label col-lg-2">Description</label>
                                     <div class="col-lg-9">
                                         <textarea class="form-control" rows="10" name="description" type="text">{{$obj->description}}</textarea>
+                                        @foreach ($errors->get('description') as $title)
+                                            <p class="text-danger help-block">{{$title}}</p>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
