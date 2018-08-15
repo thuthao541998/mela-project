@@ -34,6 +34,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <script src="{{asset('js/jquery2.0.3.min.js')}}"></script>
     <script src="{{asset('js/app.js')}}"></script>
+    {{--font logo--}}
+    <link href='https://fonts.googleapis.com/css?family=Istok+Web:700' rel='stylesheet' type='text/css'>
 </head>
 <body>
 <section id="container">
@@ -43,7 +45,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="brand logo-toggle">
             <div style="margin-left: 5%; display: inline-flex;">
                 <img src="{{asset('images/logo.png')}}" alt="MELA" style="width: 50%; height: auto;">
-                <div style="margin-top: 10%; color: white; font-size: 2em;">MELA</div>
+                <div style="margin-top: 10%; color: white; font-size: 2em; font-family: 'Istok Web', sans-serif;">MELA</div>
             </div>
 
         </div>
