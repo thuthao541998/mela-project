@@ -44,7 +44,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <!--logo start-->
         <div class="brand logo-toggle">
             <div style="margin-left: 5%; display: inline-flex;">
-                <img src="{{asset('images/logo.png')}}" alt="MELA" style="width: 50%; height: auto;">
+                <img src="{{asset('images/logo.png')}}" alt="MELA" style="width: 50%;">
                 <div style="margin-top: 10%; color: white; font-size: 2em; font-family: 'Istok Web', sans-serif;">MELA</div>
             </div>
 
