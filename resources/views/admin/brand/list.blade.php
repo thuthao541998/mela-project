@@ -8,6 +8,8 @@
                     <div class="panel-heading">
                         List Brand
                     </div>
+                    <div class="alert alert-success hidden mt-2" role="alert" id="messageSuccess"></div>
+                    <div class="alert alert-danger hidden mt-2" role="alert" id="messageError"></div>
                     <div class="col-md-8 form-inline">
                         <div class="form-group mx-sm-4 mb-3">
                             <label for="chooseCategory">Brand</label>
@@ -70,7 +72,7 @@
                                         <option value="1">Delete All</option>
                                         <option value="2">Another Action</option>
                                     </select>
-                                    <button type="submit" class="btn btn-primary mb-2" id="btn-apply">Submit</button>
+                                    <button type="submit" class="btn btn-primary mb-2" id="btn-apply-brand">Submit</button>
                                 </div>
                             </div>
                         </div>

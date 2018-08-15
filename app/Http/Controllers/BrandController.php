@@ -112,4 +112,10 @@ class BrandController extends Controller
         $obj->delete();
         return response('Deleted', 200);
     }
+
+    public function destroyMany()
+    {
+        Brand::destroy(Input::get('ids'));
+        return Input::get('ids');
+    }
 }

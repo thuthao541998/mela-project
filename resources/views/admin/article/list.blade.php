@@ -8,6 +8,8 @@
                     <div class="panel-heading">
                         List Article
                     </div>
+                    <div class="alert alert-success hidden mt-2" role="alert" id="messageSuccess"></div>
+                    <div class="alert alert-danger hidden mt-2" role="alert" id="messageError"></div>
                     <div>
                         <table class="table table-hover">
                             <thead>
@@ -61,7 +63,7 @@
                                         <option value="1">Delete All</option>
                                         <option value="2">Another Action</option>
                                     </select>
-                                    <button type="submit" class="btn btn-primary mb-2" id="btn-apply">Submit</button>
+                                    <button type="submit" class="btn btn-primary mb-2" id="btn-apply-article">Submit</button>
                                 </div>
                             </div>
                         </div>
