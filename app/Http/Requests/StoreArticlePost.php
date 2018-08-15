@@ -24,7 +24,7 @@ class StoreArticlePost extends FormRequest
     public function rules()
     {
         return [
-            'title'=>'required|min:1500|max:3000',
+            'title'=>'required|min:150',
             'author'=>'required',
             'content'=>'required|min:1000',
         ];
