@@ -12,10 +12,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         function hideURLbar() {
             window.scrollTo(0, 1);
         } </script>
+
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <!-- bootstrap-css -->
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
 
     <!-- //bootstrap-css -->
     <!-- Custom CSS -->
@@ -29,6 +33,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
           integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <script src="{{asset('js/jquery2.0.3.min.js')}}"></script>
+    <script src="{{asset('js/app.js')}}"></script>
 </head>
 <body>
 <section id="container">
@@ -36,9 +41,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <header class="header fixed-top clearfix">
         <!--logo start-->
         <div class="brand logo-toggle">
-            <div class="logo" style="margin-left: 30%;">
-                <img src="{{asset('images/logo.png')}}" alt="MELA" style="width: 50%;">
+            <div style="margin-left: 5%; display: inline-flex;">
+                <img src="{{asset('images/logo.png')}}" alt="MELA" style="width: 50%; height: auto;">
+                <div style="margin-top: 10%; color: white; font-size: 2em;">MELA</div>
             </div>
+
         </div>
         <!--logo end-->
         <div class="nav notify-row" id="top_menu">
@@ -231,7 +238,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                         <i class="fas fa-user-alt" style="margin: 0.6em;"></i>
                         <span class="username">John Doe</span>
-                        <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu extended logout">
                         <li><a href="#"><i class=" fas fa-suitcase"></i>Profile</a></li>
@@ -253,13 +259,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="leftside-navigation">
                 <ul class="sidebar-menu" id="nav-accordion">
                     <li class="sub-menu">
+                        <a href="/admin/product">
+                            <i class="fas fa-home"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li class="sub-menu">
                         <a href="javascript:;">
                             <i class="fas fa-gift"></i>
                             <span>Product Manager</span>
                         </a>
                         <ul class="sub">
-                            <li><a href="#">Add Product</a></li>
-                            <li><a href="#">List All Products</a></li>
+                            <li><a href="/admin/product/create">Add Product</a></li>
+                            <li><a href="/admin/product">List All Products</a></li>
                         </ul>
                     </li>
                     <li class="sub-menu">
@@ -268,8 +280,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <span>Category Manager</span>
                         </a>
                         <ul class="sub">
-                            <li><a href="#">Add Category</a></li>
-                            <li><a href="#">List All Categories</a></li>
+                            <li><a href="/admin/category/create">Add Category</a></li>
+                            <li><a href="/admin/category">List All Categories</a></li>
                         </ul>
                     </li>
                     {{--Brand Manager--}}
@@ -290,8 +302,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <span>Order Manager</span>
                         </a>
                         <ul class="sub">
-                            <li><a href="#">Add Order</a></li>
-                            <li><a href="#">List All Orders</a></li>
+                            <li><a href="/admin/order/create">Add Order</a></li>
+                            <li><a href="/admin/order">List All Orders</a></li>
                         </ul>
                     </li>
                     <li class="sub-menu">
@@ -302,7 +314,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <ul class="sub">
                             <!-- Có nên cho add client vào không? -->
                             <!-- <li><a href="#">Add Client</a></li> -->
-                            <li><a href="#">List All Clients</a></li>
+                            <li><a href="/admin/client">List All Clients</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -318,7 +330,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             @show
         </section>
         <!-- footer -->
-        <div class="footer">
+        <div class="footer" style="margin-left: 7.5em;">
             <div>
                 <h3 style="color: #744e7d; margin-bottom: 0.3em">MELA PROJECT ©</h3>
                 <p>A product of Untitled 2018 and Nh0kjapan</p>

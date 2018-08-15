@@ -20,7 +20,7 @@ class ProductController extends Controller
     {
         $brands = Brand::all();
         $categories = Category::all();
-        $list_obj = Product::all();
+        $list_obj = Product::paginate(10);
         return view('admin.product.list')
             ->with('list_obj', $list_obj)
             ->with('brands',$brands)
@@ -150,5 +150,29 @@ class ProductController extends Controller
         }
         $obj->delete();
         return response('Deleted', 200);
+    }
+
+
+
+    public function showJson($id)
+    {
+        $obj = Product::find($id);
+        if ($obj == null) {
+            return response()->json(['msg' => 'Not found'], 404);
+        }
+        return response()->json(['item' => $obj], 200);
+    }
+
+    public function quickUpdate(Request $request, $id)
+    {
+        $obj = Product::find($id);
+        if ($obj == null) {
+            return response()->json(['msg' => 'Not found'], 404);
+        }
+        $obj->name = Input::get('name');
+        $obj->price = Input::get('price');
+        $obj->overview = Input::get('overview');
+        $obj->save();
+        return response()->json(['item' => $obj], 200);
     }
 }

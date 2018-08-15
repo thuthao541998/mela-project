@@ -31,19 +31,19 @@
                     </div>
                 </div>
                 <div>
-                    <table class="table table-striped">
+                    <table class="table table-light">
                         <thead>
                         <tr class="row">
-                            <th class="col-md-1" style="width: 3%"></th>
-                            <th class="col-md-1" style="width: 3%">ID</th>
-                            <th class="col-md-1 text-center" style="width: 5%">Name</th>
-                            <th class="col-md-1" style="width: 2%">Price</th>
-                            <th class="col-md-1">Images</th>
-                            <th class="col-md-1">Overview</th>
-                            <th class="col-md-3">Description</th>
-                            <th class="col-md-1" style="width: 3%">Category</th>
-                            <th class="col-md-1 text-center" style="width: 3%">Brand</th>
-                            <th class="col-md-2 text-center">Action</th>
+                            <th class="col-sm-1" style="width: 3%"></th>
+                            <th class="col-xsm-3" style="width: 3%">ID</th>
+                            <th class="col-sm-1 text-center" style="width: 5%">Name</th>
+                            <th class="col-sm-1" style="width: 2%">Price</th>
+                            <th class="col-sm-1">Images</th>
+                            <th class="col-sm-1">Overview</th>
+                            <th class="col-sm-2">Description</th>
+                            <th class="col-sm-1" style="width: 3%">Category</th>
+                            <th class="col-sm-1 text-center" style="width: 3%">Brand</th>
+                            <th class="col-sm-2 text-center">Action</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -51,25 +51,25 @@
                             <span class="hidden" {{$brand = $brands->find($item->brandId)}}></span>
                             <span class="hidden" {{$category = $category->find($item->categoryId)}}></span>
                             <tr class="row" id="row-item-{{$item->id}}">
-                                <td class="col-md-1 text-center" style="width: 3%">
+                                <td class="col-sm-1 text-center" style="width: 3%">
                                     <input type="checkbox" class="check-item">
                                 </td>
-                                <td class="col-md-1" style="width: 3%">{{$item->id}}</td>
-                                <td class="col-md-1 text-center" style="width: 5%">{{$item->name}}</td>
-                                <td class="col-md-1 text-center" style="width: 0%">{{$item->price}}</td>
-                                <td class="col-md-1">
+                                <td class="col-xsm-3">{{$item->id}}</td>
+                                <td class="col-sm-1 text-center" style="width: 5%">{{$item->name}}</td>
+                                <td class="col-sm-1">{{$item->price}}</td>
+                                <td class="col-sm-1">
                                     <div class="card"
                                          style="background-image: url('{{$item->images}}'); background-size: cover; width: 60px; height: 60px;">
                                     </div>
                                 </td>
-                                <td class="col-md-1">{{$item->overview}}</td>
-                                <td class="col-md-3 text-justify">{{$item->description}}</td>
-                                <td class="col-md-1 text-center" style="width: 3%">{{$category->name}}</td>
-                                <td class="col-md-1 text-center" style="width: 3%">{{$brand->name}}</td>
-                                <td class="col-md-2 text-center">
-                                    <a href="#" class="btn btn-link btn-quick-edit"><span class="fa fa-eraser"></span> Quick Edit</a>&nbsp;&nbsp;
-                                    <a href="/admin/product/{{$item -> id}}/edit" class="btn btn-link btn-edit"><span class="fa fa-edit"></span> Edit</a>&nbsp;&nbsp;
-                                    <a href="#" id="{{$item-> id}}" class="btn btn-link btn-delete"><span class="fa fa-trash"></span> Delete</a>
+                                <td class="col-sm-1  text-justify">{{$item->overview}}</td>
+                                <td class="col-sm-2 text-justify">{{$item->description}}</td>
+                                <td class="col-sm-1 text-center" style="">{{$category->name}}</td>
+                                <td class="col-sm-1 text-center" style="">{{$brand->name}}</td>
+                                <td class="col-sm-2 text-center">
+                                    <a href="#" class="btn btn-link btn-quick-edit-product" data-toggle="tooltip" title="Quick Edit" data-placement="top"><span class="fa fa-eraser"></span></a>
+                                    <a href="/admin/product/{{$item -> id}}/edit" class="btn btn-link btn-edit" data-toggle="tooltip" title="Edit" data-placement="top"><span class="fa fa-edit"></span></a>
+                                    <a href="#" id="{{$item-> id}}" class="btn btn-link btn-delete" data-toggle="tooltip" title="Delete" data-placement="top"><span class="fa fa-trash"></span></a>
                                 </td>
                             </tr>
                         @endforeach
@@ -95,4 +95,40 @@
             </div>
         </section>
     </section>
+
+    {{--Modal--}}
+    <div class="modal" id="modal-edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Quick Edit</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="" name="quick-edit-form">
+                        <input type="hidden" name="id">
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label">Name</label>
+                            <input type="text" name="name" class="form-control w-75">
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label mr-0 pr-0">Price</label>
+                            <input type="number" name="price" class="form-control w-75">
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label ml-0 pl-0">Overview</label>
+                            <textarea type="text" rows="8" name="overview" class="form-control w-75"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="btn-update-changes-product">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{{asset('js/quick-edit.js')}}"></script>
 @endsection
