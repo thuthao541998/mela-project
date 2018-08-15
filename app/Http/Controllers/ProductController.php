@@ -130,6 +130,6 @@ class ProductController extends Controller
             return response('Product not found or has been deleted!', 404);
         }
         $obj->delete();
-        return redirect('/admin/product ');
+        return response('Deleted', 200);
     }
 }
