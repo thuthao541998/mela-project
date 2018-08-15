@@ -25,7 +25,7 @@ class StoreProductPost extends FormRequest
     {
         return [
             'name'=>'required|min:20',
-            'price'=>'required|numeric',
+            'price'=>'required|numeric|min:0',
             'overview'=>'required|min:1000',
             'description'=>'required|min:1500'
         ];
