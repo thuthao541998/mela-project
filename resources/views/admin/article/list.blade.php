@@ -73,5 +73,6 @@
         </section>
     </section>
     <script src="{{asset('js/delete.js')}}"></script>
+    <script src="{{asset('js/checkAll.js')}}"></script>
 @endsection
 

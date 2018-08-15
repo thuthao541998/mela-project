@@ -112,4 +112,10 @@ class CategoryController extends Controller
         $obj->delete();
         return response('Deleted', 200);
     }
+
+    public function destroyMany()
+    {
+        Category::destroy(Input::get('ids'));
+        return Input::get('ids');
+    }
 }

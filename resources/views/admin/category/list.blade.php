@@ -11,7 +11,7 @@
                     <div class="col-md-8 form-inline">
                         <div class="form-group mx-sm-4 mb-3">
                             <label for="chooseCategory">Category</label>
-                            <select id="select-action" class="form-control">
+                            <select id="select-action1" class="form-control">
                                 <option selected value="0">Category</option>
                                 <option value="1">Lipstick</option>
                                 <option value="2">Lip Gloss</option>
@@ -77,4 +77,5 @@
         </section>
     </section>
     <script src="{{asset('js/delete.js')}}"></script>
+    <script src="{{asset('js/checkAll.js')}}"></script>
 @endsection

@@ -27,3 +27,6 @@ Route::resource('admin/category', 'CategoryController');
 
 Route::resource('admin/brand','BrandController');
 
+Route::delete("/admin/product/destroy-many", "ProductController@destroyMany");
+
+Route::delete("/admin/category/destroy-many", "CategoryController@destroyMany");

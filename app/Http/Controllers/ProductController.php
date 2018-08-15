@@ -132,4 +132,10 @@ class ProductController extends Controller
         $obj->delete();
         return response('Deleted', 200);
     }
+
+    public function destroyMany()
+    {
+        Product::destroy(Input::get('ids'));
+        return Input::get('ids');
+    }
 }
