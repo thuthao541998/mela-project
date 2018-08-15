@@ -8,8 +8,8 @@
                     <div class="panel-heading">
                         List Article
                     </div>
-                    <div class="alert alert-success d-none" role="alert" id="messageSuccess"></div>
-                    <div class="alert alert-danger d-none" role="alert" id="messageError"></div>
+                    <div class="alert alert-success hidden mt-2" role="alert" id="messageSuccess"></div>
+                    <div class="alert alert-danger hidden mt-2" role="alert" id="messageError"></div>
                     <div>
                         <table class="table table-hover">
                             <thead>
@@ -48,7 +48,7 @@
                                     <td class="col-md-3">
                                         <a href="#" class="btn btn-link btn-quick-edit"><span class="fa fa-eraser"></span>Quick Edit</a>&nbsp;&nbsp;
                                         <a href="/admin/article/{{$item -> id}}/edit" class="btn btn-link btn-edit"><span class="fa fa-edit"></span>Edit</a>&nbsp;&nbsp;
-                                        <a href="javascript:void(0)" id="{{$item -> id}}" class="btn btn-link btn-delete"><span class="fa fa-trash"></span>Delete</a>
+                                        <a href="javascript:void(0)" id="{{$item -> id}}" class="btn btn-link btn-delete-article"><span class="fa fa-trash"></span>Delete</a>
                                     </td>
                                 </tr>
                                 @endforeach

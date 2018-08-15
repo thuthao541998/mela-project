@@ -8,6 +8,8 @@
                     <div class="panel-heading">
                         List Brand
                     </div>
+                    <div class="alert alert-success hidden mt-2" role="alert" id="messageSuccess"></div>
+                    <div class="alert alert-danger hidden mt-2" role="alert" id="messageError"></div>
                     <div class="col-md-8 form-inline">
                         <div class="form-group mx-sm-4 mb-3">
                             <label for="chooseCategory">Brand</label>
@@ -55,7 +57,7 @@
                                     <td class="col-md-3">
                                         <a href="#" class="btn btn-link btn-quick-edit"><span class="fa fa-eraser"></span> Quick Edit</a>&nbsp;&nbsp;
                                         <a href="/admin/brand/{{$item -> id}}/edit" class="btn btn-link btn-edit"><span class="fa fa-edit"></span> Edit</a>&nbsp;&nbsp;
-                                        <a href="javascript:void(0)" id="{{$item -> id}}" class="btn btn-link btn-delete"><span class="fa fa-trash"></span> Delete</a>
+                                        <a href="javascript:void(0)" id="{{$item -> id}}" class="btn btn-link btn-delete-brand"><span class="fa fa-trash"></span> Delete</a>
                                     </td>
                                 </tr>
                             @endforeach
