@@ -2,5 +2,6 @@
     color: #fff !important;
 }
 .error{
-    color: red;
+    color:#FF5555;
+    font-style: italic;
 }
