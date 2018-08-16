@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Brand;
+use App\Http\Requests\StoreBrandPost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use JD\Cloudder\Facades\Cloudder;
@@ -89,8 +90,9 @@ class BrandController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreBrandPost $request, $id)
     {
+        $request->validated();
         $obj = Brand::find($id);
         if ($obj == null) {
             return view('admin.404.404');
