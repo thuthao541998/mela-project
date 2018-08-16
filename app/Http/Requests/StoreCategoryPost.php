@@ -26,6 +26,7 @@ class StoreCategoryPost extends FormRequest
         return [
             'name'=>'required|min:10',
             'description'=>'required|min:500',
+            'images'=>'required',
         ];
     }
 }

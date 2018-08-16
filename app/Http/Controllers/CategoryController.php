@@ -37,8 +37,9 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(StoreCategoryPost $request)
     {
+        $request->validated();
         $obj = new Category();
         $obj->name = Input::get('name');
         $obj->description = Input::get('description');

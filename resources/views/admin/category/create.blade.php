@@ -11,6 +11,11 @@
                      </span>
                 </header>
                 <div class="panel-body">
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <label style="font-size: 15px">Please refill the form.</label>
+                        </div>
+                    @endif
                     <div class="form">
                         <form class="cmxform form-horizontal" method="post" action="/admin/category" novalidate="novalidate"  enctype="multipart/form-data">
                             {{csrf_field()}}
@@ -19,12 +24,18 @@
                                     <label class="control-label col-lg-2">Name</label>
                                     <div class="col-lg-9">
                                         <input class=" form-control" name="name" type="text">
+                                        @foreach ($errors->get('name') as $title)
+                                            <p class="text-danger help-block">{{$title}}</p>
+                                        @endforeach
                                     </div>
                                 </div>
                                 <div class="form-group ">
                                     <label class="control-label col-lg-2">Description</label>
                                     <div class="col-lg-9">
                                         <textarea class="form-control" rows="10" name="description" type="text"></textarea>
+                                        @foreach ($errors->get('description') as $title)
+                                            <p class="text-danger help-block">{{$title}}</p>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
@@ -34,6 +45,9 @@
                                     <div class="col-lg-9">
                                         <input type="file" class="custom-file-input" name="images" id="img">
                                         <label class="custom-file-label text-truncate" for="img">Choose file</label>
+                                        @foreach ($errors->get('images') as $title)
+                                            <p class="text-danger help-block">{{$title}}</p>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
