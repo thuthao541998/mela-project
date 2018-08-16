@@ -54,19 +54,21 @@
                         @foreach($list_obj as $item)
                             <span class="hidden" {{$brand = $brands->find($item->brandId)}}></span>
                             <span class="hidden" {{$category = $categories->find($item->categoryId)}}></span>
-                            <tr class="row col-lg-12" id="row-item-{{$item->id}}">
+                            <tr class="row col-lg-12 col-md-12 col-sm-12" id="row-item-{{$item->id}}">
                                 <td class="col-xsm-1 text-center" style="width: 3%">
                                     <input type="checkbox" class="check-item">
                                 </td>
                                 <td class="col-xsm-1">{{$item->id}}</td>
-                                <td class="col-md-1 col-sm-1 text-center" style="width: 5%">{{$item->name}}</td>
+                                <td class="col-md-1 col-sm-1" style="width: 5%">{{$item->name}}</td>
                                 <td class="col-md-1 col-sm-1">{{$item->price}}</td>
                                 <td class="col-md-1 col-sm-1">
                                     <div class="card"
                                          style="background-image: url('{{$item->images}}'); background-size: cover; width: 60px; height: 60px;">
                                     </div>
                                 </td>
-                                <td class="col-md-2 col-sm-2 text-justify">{{$item->overview}}</td>
+                                <td class="col-md-2 col-sm-2">
+                                        {{$item->overview}}
+                                </td>
                                 <td class="col-md-3 col-sm-2 text-justify">
                                     <div class="comment more">
                                         {{$item->description}}
