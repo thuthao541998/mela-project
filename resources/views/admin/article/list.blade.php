@@ -2,12 +2,15 @@
 @section('page-title', 'List Article - Admin Page')
 @section('content')
     <link href="{{asset('css/list.css')}}" rel='stylesheet' type='text/css' />
+    <link href="{{asset('css/readMore.css')}}" rel='stylesheet' type='text/css' />
     <section id="main-content">
         <section class="wrapper">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         List Article
                     </div>
+                    <div class="alert alert-success hidden mt-2" role="alert" id="messageSuccess"></div>
+                    <div class="alert alert-danger hidden mt-2" role="alert" id="messageError"></div>
                     <div>
                         <table class="table table-light">
                             <thead>
@@ -29,8 +32,13 @@
                                     </td>
                                     <td class="col-md-1"  style="width: 5%">{{$item->id}}</td>
                                     <td class="col-md-2">{{$item->title}}</td>
+
                                     <td class="col-md-1" style="width: 10%">{{$item->author}}</td>
-                                    <td class="col-md-4 text-justify">{{$item->content}}</td>
+                                    <td class="col-md-4 text-justify">
+                                        <div class="comment more">
+                                            {{$item->content}}
+                                        </div>
+                                     </td>
                                     <td class="col-md-1">
                                         <div class="card"
                                              style="background-image: url('{{$item->images}}'); background-size: cover; width: 60px; height: 60px;">
@@ -65,7 +73,6 @@
                 </div>
         </section>
     </section>
-
     {{--Modal--}}
     <div class="modal" id="modal-edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -101,4 +108,8 @@
         </div>
     </div>
     <script src="{{asset('js/quick-edit.js')}}"></script>
+    <script src="{{asset('js/delete.js')}}"></script>
+    <script src="{{asset('js/readMore.js')}}"></script>
+
 @endsection
+

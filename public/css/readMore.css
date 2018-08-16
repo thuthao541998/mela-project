@@ -1,0 +1,11 @@
+.container{
+    padding:5%;
+}
+a.morelink {
+    outline: none;
+    color: #5bc0de !important;
+}
+.morecontent span {
+    display: none;
+
+}

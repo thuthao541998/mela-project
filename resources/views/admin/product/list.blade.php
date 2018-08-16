@@ -1,13 +1,17 @@
 @extends('layouts.master')
 @section('page-title', 'List Product - Admin Page')
 @section('content')
-    <link href="{{asset('css/list.css')}}" rel='stylesheet' type='text/css'/>
+
+    <link href="{{asset('css/list.css')}}" rel='stylesheet' type='text/css' />
+    <link href="{{asset('css/readMore.css')}}" rel='stylesheet' type='text/css' />
     <section id="main-content">
         <section class="wrapper">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     List Product
                 </div>
+                <div class="alert alert-success hidden mt-2" role="alert" id="messageSuccess"></div>
+                <div class="alert alert-danger hidden mt-2" role="alert" id="messageError"></div>
                 <div>
                     <div class="col-md-8 form-inline">
                         <div class="form-group mx-sm-4 mb-3">
@@ -63,7 +67,11 @@
                                     </div>
                                 </td>
                                 <td class="col-md-2 col-sm-2 text-justify">{{$item->overview}}</td>
-                                <td class="col-md-3 col-sm-2 text-justify">{{$item->description}}</td>
+                                <td class="col-md-3 col-sm-2 text-justify">
+                                    <div class="comment more">
+                                        {{$item->description}}
+                                    </div>
+                                </td>
                                 <td class="col-md-1 col-sm-1 text-center">{{$category->name}}</td>
                                 <td class="col-md-1 col-sm-1 text-center">{{$brand->name}}</td>
                                 <td class="col-md-1 col-sm-1 text-center ">
@@ -131,4 +139,7 @@
         </div>
     </div>
     <script src="{{asset('js/quick-edit.js')}}"></script>
+    <script src="{{asset('js/delete.js')}}"></script>
+    <script src="{{asset('js/readMore.js')}}"></script>
+
 @endsection

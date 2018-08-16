@@ -62,5 +62,6 @@
                 </div>
         </section>
     </section>
+    <script src="{{asset('js/delete.js')}}"></script>
 @endsection
 
