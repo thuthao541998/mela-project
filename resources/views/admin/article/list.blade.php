@@ -2,6 +2,7 @@
 @section('page-title', 'List Article - Admin Page')
 @section('content')
     <link href="{{asset('css/list.css')}}" rel='stylesheet' type='text/css' />
+    <link href="{{asset('css/readMore.css')}}" rel='stylesheet' type='text/css' />
     <section id="main-content">
         <section class="wrapper">
                 <div class="panel panel-default">
@@ -35,8 +36,7 @@
                                     <td class="col-md-1" style="width: 10%">{{$item->author}}</td>
                                     <td class="col-md-2">{{$item->title}}</td>
                                     <td class="col-md-3 text-justify">
-                                        <span class="btn" data-toggle="collapse" data-target="#demo">See More &raquo;</span>
-                                        <div id="demo" class="collapse">
+                                        <div class="comment more">
                                             {{$item->content}}
                                         </div>
                                     </td>
@@ -75,5 +75,6 @@
         </section>
     </section>
     <script src="{{asset('js/delete.js')}}"></script>
+    <script src="{{asset('js/readMore.js')}}"></script>
 @endsection
 

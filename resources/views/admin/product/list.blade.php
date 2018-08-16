@@ -2,6 +2,7 @@
 @section('page-title', 'List Product - Admin Page')
 @section('content')
     <link href="{{asset('css/list.css')}}" rel='stylesheet' type='text/css' />
+    <link href="{{asset('css/readMore.css')}}" rel='stylesheet' type='text/css' />
     <section id="main-content">
         <section class="wrapper">
             <div class="panel panel-default">
@@ -72,14 +73,10 @@
                                     </div>
                                 </td>
                                 <td class="col-md-3 text-justify">
-                                    <span class="btn" data-toggle="collapse" data-target="#demo">See More &raquo;</span>
-                                    <div id="demo" class="collapse">
                                         {{$item->overview}}
-                                    </div>
                                 </td>
                                 <td class="col-md-3 text-justify">
-                                    <span class="btn" data-toggle="collapse" data-target="#demo">See More &raquo;</span>
-                                    <div id="demo" class="collapse">
+                                    <div class="comment more">
                                         {{$item->description}}
                                     </div>
                                 </td>
@@ -115,5 +112,5 @@
         </section>
     </section>
     <script src="{{asset('js/delete.js')}}"></script>
-
+    <script src="{{asset('js/readMore.js')}}"></script>
 @endsection
