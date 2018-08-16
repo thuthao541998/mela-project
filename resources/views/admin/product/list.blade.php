@@ -39,9 +39,9 @@
                         <thead>
                         <tr class="row col-md-12 col-sm-12 col-lg-12">
                             <th class="col-xsm-1" style="width: 3%"></th>
-                            <th class="col-xsm-1 " style="width: 3%">ID</th>
+                            <th class="col-xsm-1 ">ID</th>
                             <th class="col-md-1 col-sm-1  text-center" style="width: 5%">Name</th>
-                            <th class="col-md-1 col-sm-1" style="width: 2%">Price</th>
+                            <th class="col-md-1 col-sm-1">Price</th>
                             <th class="col-md-1 col-sm-1 ">Images</th>
                             <th class="col-md-2 col-sm-2">Overview</th>
                             <th class="col-md-3 col-sm-3 ">Description</th>
