@@ -24,7 +24,7 @@ class StoreBrandPost extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required|min:10',
+            'name'=>'required|min:10|unique:brands',
             'description'=>'required|min:500',
             'images'=>'required',
         ];
