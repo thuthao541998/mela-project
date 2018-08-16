@@ -37,7 +37,7 @@
                                         </div>
                                     </td>
                                     <td class="col-md-2 text-center">
-                                        <a href="#" class="btn btn-link btn-quick-edit-article" data-toggle="tooltip" title="Quick Edit" data-placement="top"><span class="fa fa-eraser"></span></a>
+                                        <a href="#" class="btn btn-link btn-quick-edit btn-quick-edit-article" data-toggle="tooltip" title="Quick Edit" data-placement="top"><span class="fa fa-eraser"></span></a>
                                         <a href="/admin/article/{{$item -> id}}/edit" class="btn btn-link btn-edit" data-toggle="tooltip" title="Edit" data-placement="top"><span class="fa fa-edit"></span></a>
                                         <a href="#" id="{{$item-> id}}" class="btn btn-link btn-delete" data-toggle="tooltip" title="Delete" data-placement="top"><span class="fa fa-trash"></span></a>
                                     </td>

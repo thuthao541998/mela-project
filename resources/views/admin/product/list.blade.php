@@ -40,16 +40,16 @@
                             <th class="col-sm-1" style="width: 2%">Price</th>
                             <th class="col-sm-1">Images</th>
                             <th class="col-sm-1">Overview</th>
-                            <th class="col-sm-2">Description</th>
+                            <th class="col-sm-3">Description</th>
                             <th class="col-sm-1" style="width: 3%">Category</th>
                             <th class="col-sm-1 text-center" style="width: 3%">Brand</th>
-                            <th class="col-sm-2 text-center">Action</th>
+                            <th class="col-sm-1 text-center">Action</th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach($list_obj as $item)
                             <span class="hidden" {{$brand = $brands->find($item->brandId)}}></span>
-                            <span class="hidden" {{$category = $category->find($item->categoryId)}}></span>
+                            <span class="hidden" {{$category = $categories->find($item->categoryId)}}></span>
                             <tr class="row" id="row-item-{{$item->id}}">
                                 <td class="col-sm-1 text-center" style="width: 3%">
                                     <input type="checkbox" class="check-item">
@@ -63,11 +63,11 @@
                                     </div>
                                 </td>
                                 <td class="col-sm-1  text-justify">{{$item->overview}}</td>
-                                <td class="col-sm-2 text-justify">{{$item->description}}</td>
+                                <td class="col-sm-3 text-justify">{{$item->description}}</td>
                                 <td class="col-sm-1 text-center" style="">{{$category->name}}</td>
                                 <td class="col-sm-1 text-center" style="">{{$brand->name}}</td>
-                                <td class="col-sm-2 text-center">
-                                    <a href="#" class="btn btn-link btn-quick-edit-product" data-toggle="tooltip" title="Quick Edit" data-placement="top"><span class="fa fa-eraser"></span></a>
+                                <td class="col-sm-1 text-center">
+                                    <a href="#" class="btn btn-link btn-quick-edit btn-quick-edit-product" data-toggle="tooltip" title="Quick Edit" data-placement="top"><span class="fa fa-eraser"></span></a>
                                     <a href="/admin/product/{{$item -> id}}/edit" class="btn btn-link btn-edit" data-toggle="tooltip" title="Edit" data-placement="top"><span class="fa fa-edit"></span></a>
                                     <a href="#" id="{{$item-> id}}" class="btn btn-link btn-delete" data-toggle="tooltip" title="Delete" data-placement="top"><span class="fa fa-trash"></span></a>
                                 </td>

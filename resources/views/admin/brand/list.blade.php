@@ -8,24 +8,6 @@
                     <div class="panel-heading">
                         List Brand
                     </div>
-                    <div class="col-md-8 form-inline">
-                        <div class="form-group mx-sm-4 mb-3">
-                            <label for="chooseCategory">Brand</label>
-                            <select id="select-action" class="form-control">
-                                <option selected value="0">Brand</option>
-                                <option value="1">Urban Decay</option>
-                                <option value="2">NARS</option>
-                                <option value="3">Kylie Cosmetics</option>
-                                <option value="4">NYX</option>
-                                <option value="5">Maybelline</option>
-                                <option value="6">Stila</option>
-                                <option value="7">MAC</option>
-                                <option value="8">ColourPop</option>
-                                <option value="9">Dior</option>
-                                <option value="10">Anastasia Beverly Hills</option>
-                            </select>
-                        </div>
-                    </div>
                     <div>
                         <table class="table table-light" >
                             <thead>
