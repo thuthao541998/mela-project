@@ -9,7 +9,7 @@ $(document).ready(function() {
             },
             price: {
                 required: true,
-                minlength: 2,
+            
                 min:0
             },
             images: {

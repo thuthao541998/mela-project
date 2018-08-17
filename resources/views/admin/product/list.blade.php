@@ -1,7 +1,6 @@
 @extends('layouts.master')
 @section('page-title', 'List Product - Admin Page')
 @section('content')
-
     <link href="{{asset('css/list.css')}}" rel='stylesheet' type='text/css' />
     <link href="{{asset('css/readMore.css')}}" rel='stylesheet' type='text/css' />
     <section id="main-content">
@@ -79,7 +78,7 @@
                                 <td class="col-md-1 col-sm-1 text-center ">
                                     <a href="#" class="btn btn-link btn-quick-edit btn-quick-edit-product" data-toggle="tooltip" title="Quick Edit" data-placement="top"><span class="fa fa-eraser"></span></a>
                                     <a href="/admin/product/{{$item -> id}}/edit" class="btn btn-link btn-edit" data-toggle="tooltip" title="Edit" data-placement="top"><span class="fa fa-edit"></span></a>
-                                    <a href="#" id="{{$item-> id}}" class="btn btn-link btn-delete" data-toggle="tooltip" title="Delete" data-placement="top"><span class="fa fa-trash"></span></a>
+                                    <a href="javascript:void(0)" id="{{$item-> id}}" class="btn btn-link btn-delete btn-delete-product" data-toggle="tooltip" title="Delete" data-placement="top"><span class="fa fa-trash"></span></a>
                                 </td>
                             </tr>
                         @endforeach
