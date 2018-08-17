@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Brand;
 use App\Category;
+use App\Http\Requests\StoreProductPost;
 use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
@@ -115,8 +116,9 @@ class ProductController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreProductPost $request, $id)
     {
+        $request->validated();
         $obj = Product::find($id);
         if ($obj == null) {
             return view('404');
@@ -150,5 +152,29 @@ class ProductController extends Controller
         }
         $obj->delete();
         return response('Deleted', 200);
+    }
+
+
+
+    public function showJson($id)
+    {
+        $obj = Product::find($id);
+        if ($obj == null) {
+            return response()->json(['msg' => 'Not found'], 404);
+        }
+        return response()->json(['item' => $obj], 200);
+    }
+
+    public function quickUpdate(Request $request, $id)
+    {
+        $obj = Product::find($id);
+        if ($obj == null) {
+            return response()->json(['msg' => 'Not found'], 404);
+        }
+        $obj->name = Input::get('name');
+        $obj->price = Input::get('price');
+        $obj->overview = Input::get('overview');
+        $obj->save();
+        return response()->json(['item' => $obj], 200);
     }
 }

@@ -12,9 +12,8 @@
 */
 
 Route::get('/', function (){
-    return view('layouts.master');
+    return view('page/index');
 });
-
 Route::resource('admin/product','ProductController');
 
 Route::resource('admin/order','OrderController');
@@ -31,3 +30,8 @@ Route::get('admin/404',function (){
     return view('admin.404.404');
 });
 
+Route::get("/admin/article/get-json/{id}", "ArticleController@showJson");
+Route::put("/admin/article/update-json/{id}", "ArticleController@quickUpdate");
+
+Route::get("/admin/product/get-json/{id}", "ProductController@showJson");
+Route::put("/admin/product/update-json/{id}", "ProductController@quickUpdate");
