@@ -17,6 +17,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
+        $list_obj = null;
         $list_obj = Article::paginate(5);
         return view('admin.article.list', compact('article'))->with('list_obj', $list_obj);
     }
@@ -48,7 +49,11 @@ class ArticleController extends Controller
             Cloudder::upload(Input::file('images')->getRealPath(), $image_id);
             $obj->images = Cloudder::secureShow($image_id);
         }
-        $obj->save();
+        try{
+            $obj->save();
+        } catch (Exception $e){
+            return new \App\Exceptions\AdminException('Cannot save article. Try again.');
+        }
         return redirect('/admin/article');
     }
 
@@ -107,7 +112,11 @@ class ArticleController extends Controller
             Cloudder::upload(Input::file('images')->getRealPath(), $image_id);
             $obj->images = Cloudder::secureShow($image_id);
         }
-        $obj->save();
+        try{
+            $obj->save();
+        } catch (Exception $e){
+            return new \App\Exceptions\AdminException('Cannot update article. Try again.');
+        }
         return redirect('/admin/article');
     }
 
@@ -148,7 +157,11 @@ class ArticleController extends Controller
         $obj->author = Input::get('author');
         $obj->content = Input::get('content');
         $obj->images = Input::get('images');
-        $obj->save();
+        try{
+            $obj->save();
+        } catch (Exception $e){
+            return new \App\Exceptions\AdminException('Cannot update article. Try again.');
+        }
         return response()->json(['item' => $obj], 200);
     }
 }

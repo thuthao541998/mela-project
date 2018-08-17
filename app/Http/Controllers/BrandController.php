@@ -17,6 +17,7 @@ class BrandController extends Controller
      */
     public function index()
     {
+        $list_obj = null;
         $list_obj = Brand::paginate(5);
         return view('admin.brand.list')->with('list_obj', $list_obj);
     }
@@ -47,7 +48,11 @@ class BrandController extends Controller
             Cloudder::upload(Input::file('images')->getRealPath(), $image_id);
             $obj->images = Cloudder::secureShow($image_id);
         }
-        $obj->save();
+        try{
+            $obj->save();
+        } catch (Exception $e){
+            return new \App\Exceptions\AdminException('Cannot save brand. Try again.');
+        }
         return redirect('/admin/brand');
     }
 
@@ -104,7 +109,11 @@ class BrandController extends Controller
             Cloudder::upload(Input::file('images')->getRealPath(), $image_id);
             $obj->images = Cloudder::secureShow($image_id);
         }
-        $obj->save();
+        try{
+            $obj->save();
+        } catch (Exception $e){
+            return new \App\Exceptions\AdminException('Cannot update brand. Try again.');
+        }
         return redirect('/admin/brand');
     }
 

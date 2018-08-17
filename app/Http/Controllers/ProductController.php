@@ -9,6 +9,7 @@ use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use JD\Cloudder\Facades\Cloudder;
+use Mockery\Exception;
 
 class ProductController extends Controller
 {
@@ -19,14 +20,14 @@ class ProductController extends Controller
      */
     public function index()
     {
+        $list_obj = null;
         $brands = Brand::all();
         $categories = Category::all();
         $list_obj = Product::paginate(10);
         return view('admin.product.list')
             ->with('list_obj', $list_obj)
             ->with('brands',$brands)
-            ->with('categories',$categories)
-            ;
+            ->with('categories',$categories);
     }
 
     /**
@@ -40,8 +41,7 @@ class ProductController extends Controller
         $brands = Brand::all();
         return view('admin.product.create')
             ->with('categories', $categories)
-            ->with('brands', $brands)
-            ;
+            ->with('brands', $brands);
     }
 
     /**
@@ -64,7 +64,11 @@ class ProductController extends Controller
             Cloudder::upload(Input::file('images')->getRealPath(), $image_id);
             $obj->images = Cloudder::secureShow($image_id);
         }
-        $obj->save();
+        try{
+            $obj->save();
+        } catch (Exception $e){
+            return new \App\Exceptions\AdminException('Cannot save product. Try again.');
+        }
         return redirect('/admin/product');
     }
 
@@ -134,7 +138,11 @@ class ProductController extends Controller
             Cloudder::upload(Input::file('images')->getRealPath(), $image_id);
             $obj->images = Cloudder::secureShow($image_id);
         }
-        $obj->save();
+        try{
+            $obj->save();
+        } catch (Exception $e){
+            return new \App\Exceptions\AdminException('Cannot update product. Try again.');
+        }
         return redirect('/admin/product');
     }
 
@@ -174,7 +182,11 @@ class ProductController extends Controller
         $obj->name = Input::get('name');
         $obj->price = Input::get('price');
         $obj->overview = Input::get('overview');
-        $obj->save();
+        try{
+            $obj->save();
+        } catch (Exception $e){
+            return new \App\Exceptions\AdminException('Cannot update product. Try again.');
+        }
         return response()->json(['item' => $obj], 200);
     }
 }
