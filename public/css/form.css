@@ -1,7 +1,6 @@
 .fa-chevron-down {
     color: #fff !important;
 }
-.form {
-    float: left;
-    width: 70%;
+.error{
+    color: red;
 }

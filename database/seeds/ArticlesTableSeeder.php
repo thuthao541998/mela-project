@@ -14,7 +14,6 @@ class ArticlesTableSeeder extends Seeder
         \Illuminate\Support\Facades\DB::table('articles')->truncate();
         \Illuminate\Support\Facades\DB::table('articles')->insert([
             [
-                'name'=>'MAC Is Giving Away Free Lipstick Again to Celebrate National Lipstick Day',
                 'author'=>'STACEY LEASCA',
                 'title'=>'MAC Is Giving Away Free Lipstick Again to Celebrate National Lipstick Day',
                 'content'=>'As any diehard makeup fan will tell you, this Sunday, July 29 marks National Lipstick Day. And though this day would be great on its own, MAC Cosmetics just made it even better by announcing it will once again give free lipstick away all day long.
@@ -24,7 +23,6 @@ But if you can\'t make it to a store fear not: MAC will also be offering the sam
                 'images'=>'https://media.glamour.com/photos/5b59c49219725e4006234c40/master/w_644,c_limit/mac-lipstick-instagram-1-3.jpg'
             ],
             [
-                'name'=>'Product Review: Lipstick Colors and Swatches',
                 'author'=>'Sana Alam Cordeaux',
                 'title'=>'Product Review: Lipstick Colors and Swatches',
                 'content'=>'I recently came across a few lipsticks from a company called Kismet Cosmetics. Many of you probably have not heard of this brand. I hadn’t either until very recently. Kismet is a boutique cosmetics brand that is based out of Louisiana and was created by a local makeup artist in the area.
@@ -37,7 +35,6 @@ When trying these lipsticks, I based my review of them on four points:
                 'images'=>'https://images.huffingtonpost.com/2015-08-05-1438737813-6606866-Burnout2-thumb.jpg'
             ],
             [
-                'name'=>'A Women\'s March Organizer on the Feminist Power of Red Lipstick',
                 'author'=>'SARAH SOPHIE FLICKER',
                 'title'=>'A Women\'s March Organizer on the Feminist Power of Red Lipstick',
                 'content'=>'Red lipstick has pretty much been my thing since high school. I couldn’t tell you precisely why or when that happened—it’s always represented my most authentic self. It makes me feel like me. And really, isn’t that what’s so empowering about makeup?
@@ -49,7 +46,6 @@ And while a red lip is my signature, there are plenty of times—say, when I’m
                 'images'=>'https://media.glamour.com/photos/5b0d8d1d5fb9720bc7fc71e3/64:25/w_1600/_lede.jpg'
             ],
             [
-                'name'=>'LIPSTICK REVIEW FOR VALENTINE’S DAY',
                 'author'=>'HEDONISTIT',
                 'title'=>'LIPSTICK REVIEW FOR VALENTINE’S DAY',
                 'content'=>'MAC’s new line of lipsticks which just recently came out, in collaboration with tetrachromat Maureen Seaberg, who has a special gene which allows her to distinguish over 100 times more shades than most humans. Thanks to this collaboration, MAC released 24 new shades of pigmented lipsticks which stay the same color in every kind of lighting.
@@ -63,7 +59,6 @@ A great option for shiny + durable lipstick lovers, who are willing to compromis
                 'images'=>'https://www.hedonistit.com/wp-content/uploads/2017/01/lipstick_round_up-1.jpg'
             ],
             [
-                'name'=>'NARSISSIST WANTED VELVET LIPGLIDE SET',
                 'author'=>'Rosa',
                 'title'=>'NARSISSIST WANTED VELVET LIPGLIDE SET',
                 'content'=>'If you have followed me along this beauty journey for any amount of time you would know a few things. Firstly, I love lipstick! Secondly; Pinky, mauve tones are my jam! And thirdly Im quietly (not so quiet) obsessed with the Wanted collection from Nars!
@@ -73,7 +68,6 @@ The formula is unlike anything Ive tried in that its almost like a matte lipglos
                 'images'=>'http://www.lipsticknlinguine.com/wp-content/uploads/2018/07/IMG_2812-1024x663.jpg'
             ],
             [
-                'name'=>'BOBBI BROWN CRUSHED LIP COLOUR LIPSTICK',
                 'author'=>'Rosa',
                 'title'=>'BOBBI BROWN CRUSHED LIP COLOUR LIPSTICK',
                 'content'=>'It should be apparent that lipstick is my favourite makeup item by now! I have drawers and drawers of the things in array of shades and finishes. It seems strange to me that anyone would NOT like the stuff!
@@ -87,7 +81,6 @@ There are 22 shades available from pinks to berries and maroon shades in this Vi
                 'images'=>'http://www.lipsticknlinguine.com/wp-content/uploads/2018/07/Facetune_10-07-2018-21-53-42-e1531223687308-1024x764.jpg'
             ],
             [
-                'name'=>'Hot Lips is Charlotte Tilbury’s Star-Studded Lipstick Line',
                 'author'=>'Beautylish',
                 'title'=>'Hot Lips is Charlotte Tilbury’s Star-Studded Lipstick Line',
                 'content'=>'If there’s anyone who understands the power of a good lipstick, it’s Charlotte Tilbury. As Hollywood’s go-to makeup artist, she’s spent years mixing custom lip shades for celebrity clientele, like Kate Moss, Sienna Miller, Penelope Cruz, and more. Luckily for those of us who aren’t on the A-list, Charlotte has just released Hot Lips, a new lipstick collection inspired by her most mesmerizing celebrity friends.
@@ -96,7 +89,6 @@ Need more convincing? Hot Lips has a charitable angle, too. For every lipstick p
                 'images'=>'https://dy6g3i6a1660s.cloudfront.net/sUx2lXsZQW7HJ4t-9k0OHQPUAow/orig.jpg'
             ],
             [
-                'name'=>'The New Lipstick Range Designed to Flatter Asian Skin',
                 'author'=>'Beautylish',
                 'title'=>'The New Lipstick Range Designed to Flatter Asian Skin',
                 'content'=>'Shien Lee has a bone to pick with the Asian makeup market. That is, if there were an Asian makeup market. While we’re all thankful that Anna Sui continues to produce a full line of shades suited to Asian customers—Lee, an event producer and beauty entrepreneur in New York City—struggled to find shades that flattered her coloring. With that, Shien Cosmetics was born.
@@ -109,7 +101,6 @@ The great news is while the products are formulated with Asian skin in mind, the
                 'images'=>'https://dy6g3i6a1660s.cloudfront.net/oe7wNqJIiZmjjLVHXaB-PAPUAoo/orig.jpg'
             ],
             [
-                'name'=>'Anna Sui Does It Again! Her Classic Lipsticks Just Got a Big Makeover for Fall',
                 'author'=>'Beautylish',
                 'title'=>'Anna Sui Does It Again! Her Classic Lipsticks Just Got a Big Makeover for Fall',
                 'content'=>'All things Anna Sui—from her runway designs to beauty collections—draw inspiration from vintage styles. So it’s no surprise she’s given her beloved lipsticks a retro makeover for fall. That’s right, it’s time to say goodbye to the black enamel sculpted rose tubes and usher in some seriously flashy new packaging. The new tubes, which are a translucent silvery-black, have a sort of hip-grandma vibe, in the most appealing possible way: small diamond-shaped engravings cover the outside, and there are black stars sketched along the base.
@@ -130,7 +121,6 @@ $30 each | shop all 10 shades
                 'images'=>'https://dy6g3i6a1660s.cloudfront.net/wzMqe2YGNzy2ajPjjR8PTQJYAZA/orig.jpg'
             ],
             [
-                'name'=>'There Are 36 Reasons to Try Armani\'s New Rouge Ecstasy CC Lipstick ',
                 'author'=>'Beautylish',
                 'title'=>'There Are 36 Reasons to Try Armani\'s New Rouge Ecstasy CC Lipstick ',
                 'content'=>'This month, Giorgio Armani Beauty launched its Rouge Ecstasy CC Lipstick, the first CC lipstick to hit the market. Since we\'re already huge fans of Armani\'s stellar products (Maestro Fusion Makeup and Luminous Silk Foundation, anyone?), we were pretty excited to hear about these and even more excited to try them out.

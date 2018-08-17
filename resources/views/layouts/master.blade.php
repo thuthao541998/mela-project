@@ -15,6 +15,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         } </script>
     <!-- bootstrap-css -->
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
     <!-- //bootstrap-css -->
     <!-- Custom CSS -->
     <link href="{{asset('css/style.css')}}" rel='stylesheet' type='text/css'/>
@@ -163,5 +166,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="{{asset('js/jquery.slimscroll.js')}}"></script>
 <script src="{{asset('js/jquery.nicescroll.js')}}"></script>
 <script src="{{asset('js/jquery.scrollTo.js')}}"></script>
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+<script src="{{asset("js/admin-view-validate.js")}}"></script>
 </body>
 </html>

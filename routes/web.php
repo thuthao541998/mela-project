@@ -1,9 +1,5 @@
 <?php
 
-//Route::get('/', function (){
-//    return view('layouts.master');
-//});
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,6 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/', function (){
+    return view('layouts.master');
+});
 
 Route::resource('admin/product','ProductController');
 
@@ -26,4 +26,8 @@ Route::resource('admin/article', 'ArticleController');
 Route::resource('admin/category', 'CategoryController');
 
 Route::resource('admin/brand','BrandController');
+
+Route::get('admin/404',function (){
+    return view('admin.404.404');
+});
 
