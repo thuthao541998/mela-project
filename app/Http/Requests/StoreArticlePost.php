@@ -27,6 +27,7 @@ class StoreArticlePost extends FormRequest
             'title'=>'required|min:20',
             'author'=>'required',
             'content'=>'required|min:250',
+            
         ];
     }
 }

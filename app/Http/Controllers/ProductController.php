@@ -50,8 +50,9 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreProductPost $request)
     {
+        $request->validated();
         $obj = new Product();
         $obj->name = Input::get('name');
         $obj->price = Input::get('price');
