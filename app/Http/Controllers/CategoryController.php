@@ -119,9 +119,15 @@ class CategoryController extends Controller
     {
         $obj = Category::find($id);
         if ($obj == null) {
-            return response('Product not found or has been deleted!', 404);
+            return response('Category not found or has been deleted!', 404);
         }
         $obj->delete();
         return response('Deleted', 200);
+    }
+
+    public function destroyMany()
+    {
+        Category::destroy(Input::get('ids'));
+        return Input::get('ids');
     }
 }

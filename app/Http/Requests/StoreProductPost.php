@@ -24,11 +24,10 @@ class StoreProductPost extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required|min:10',
+            'name'=>'required',
             'price'=>'required|numeric|gt:0',
             'overview'=>'required|min:70',
-            'description'=>'required|min:500',
-            'images'=>'required',
+            'description'=>'required|min:250',
         ];
     }
 }

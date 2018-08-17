@@ -19,7 +19,7 @@
                         </div>
                     @endif
                     <div class="form">
-                        <form class="cmxform form-horizontal" method="post" action="/admin/brand" novalidate="novalidate" enctype="multipart/form-data">
+                        <form id="create-form" class="cmxform form-horizontal" method="post" action="/admin/brand" novalidate="novalidate" enctype="multipart/form-data">
                             {{csrf_field()}}
                             <div class="col-lg-7">
                                 <div class="form-group">

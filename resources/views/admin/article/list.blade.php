@@ -2,12 +2,15 @@
 @section('page-title', 'List Article - Admin Page')
 @section('content')
     <link href="{{asset('css/list.css')}}" rel='stylesheet' type='text/css' />
+    <link href="{{asset('css/readMore.css')}}" rel='stylesheet' type='text/css' />
     <section id="main-content">
         <section class="wrapper">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         List Article
                     </div>
+                    <div class="alert alert-success hidden mt-2" role="alert" id="messageSuccess"></div>
+                    <div class="alert alert-danger hidden mt-2" role="alert" id="messageError"></div>
                     <div>
                         <table class="table table-light">
                             <thead>
@@ -30,16 +33,20 @@
                                     <td class="col-md-1"  style="width: 5%">{{$item->id}}</td>
                                     <td class="col-md-2">{{$item->title}}</td>
                                     <td class="col-md-1" style="width: 10%">{{$item->author}}</td>
-                                    <td class="col-md-4 text-justify">{{$item->content}}</td>
+                                    <td class="col-md-4 text-justify">
+                                        <div class="comment more">
+                                            {{$item->content}}
+                                        </div>
+                                     </td>
                                     <td class="col-md-1">
                                         <div class="card"
                                              style="background-image: url('{{$item->images}}'); background-size: cover; width: 60px; height: 60px;">
                                         </div>
                                     </td>
                                     <td class="col-md-2 text-center">
-                                        <a href="#" class="btn btn-link btn-quick-edit-article" data-toggle="tooltip" title="Quick Edit" data-placement="top"><span class="fa fa-eraser"></span></a>
+                                        <a href="#" class="btn btn-link btn-quick-edit btn-quick-edit-article" data-toggle="tooltip" title="Quick Edit" data-placement="top"><span class="fa fa-eraser"></span></a>
                                         <a href="/admin/article/{{$item -> id}}/edit" class="btn btn-link btn-edit" data-toggle="tooltip" title="Edit" data-placement="top"><span class="fa fa-edit"></span></a>
-                                        <a href="#" id="{{$item-> id}}" class="btn btn-link btn-delete" data-toggle="tooltip" title="Delete" data-placement="top"><span class="fa fa-trash"></span></a>
+                                        <a href="javascript:void(0" id="{{$item-> id}}" class="btn btn-link btn-delete-article" data-toggle="tooltip" title="Delete" data-placement="top"><span class="fa fa-trash"></span></a>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -54,7 +61,7 @@
                                         <option value="1">Delete All</option>
                                         <option value="2">Another Action</option>
                                     </select>
-                                    <button type="submit" class="btn btn-primary ml-2" id="btn-apply">Submit</button>
+                                    <button type="submit" class="btn btn-primary mb-2" id="btn-apply-article">Submit</button>
                                 </div>
                             </div>
                         </div>
@@ -65,7 +72,6 @@
                 </div>
         </section>
     </section>
-
     {{--Modal--}}
     <div class="modal" id="modal-edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -101,4 +107,8 @@
         </div>
     </div>
     <script src="{{asset('js/quick-edit.js')}}"></script>
+    <script src="{{asset('js/delete.js')}}"></script>
+    <script src="{{asset('js/checkAll.js')}}"></script>
+    <script src="{{asset('js/readMore.js')}}"></script>
 @endsection
+

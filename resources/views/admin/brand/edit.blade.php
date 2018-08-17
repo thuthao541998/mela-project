@@ -17,7 +17,7 @@
                         </div>
                     @endif
                     <div class="form">
-                        <form class="cmxform form-horizontal" method="post" action="/admin/brand/{{$obj -> id}}" novalidate="novalidate">
+                        <form id="create-form-edit" class="cmxform form-horizontal" method="post" action="/admin/brand/{{$obj -> id}}" novalidate="novalidate">
                             @method('PUT')
                             {{csrf_field()}}
                             <div class="col-lg-7">
