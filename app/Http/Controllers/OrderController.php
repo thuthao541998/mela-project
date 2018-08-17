@@ -115,4 +115,27 @@ class OrderController extends Controller
         $order->delete();
         return redirect('/admin/order');
     }
+
+
+
+    public function showJson($id)
+    {
+        $obj = Order::find($id);
+        if ($obj == null) {
+            return response()->json(['msg' => 'Not found'], 404);
+        }
+        return response()->json(['item' => $obj], 200);
+    }
+
+    public function quickUpdate(Request $request, $id)
+    {
+        $obj = Order::find($id);
+        if ($obj == null) {
+            return response()->json(['msg' => 'Not found'], 404);
+        }
+        $obj->clientId = Input::get('clientId');
+        $obj->total = Input::get('total');
+        $obj->save();
+        return response()->json(['item' => $obj], 200);
+    }
 }

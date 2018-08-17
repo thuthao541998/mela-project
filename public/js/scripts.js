@@ -206,7 +206,7 @@
 
 
 
-        $('.sidebar-toggle-box .fa-bars').click(function (e) {
+        $('.logo-toggle').click(function (e) {
 
             $(".leftside-navigation").niceScroll({
                 cursorcolor: "#1FB5AD",
