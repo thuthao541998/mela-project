@@ -116,7 +116,7 @@ class BrandController extends Controller
     {
         $obj = Brand::find($id);
         if ($obj == null) {
-            return response('brand not found or has been deleted!', 404);
+            return response('Brand not found or has been deleted!', 404);
         }
         $obj->delete();
         return response('Deleted', 200);

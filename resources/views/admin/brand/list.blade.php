@@ -8,6 +8,8 @@
                     <div class="panel-heading">
                         List Brand
                     </div>
+                    <div class="alert alert-success hidden mt-2" role="alert" id="messageSuccess"></div>
+                    <div class="alert alert-danger hidden mt-2" role="alert" id="messageError"></div>
                     <div class="col-md-8 form-inline">
                         <div class="form-group mx-sm-4 mb-3">
                             <label for="chooseCategory">Brand</label>
@@ -55,7 +57,7 @@
                                     <td class="col-md-3 text-center">
                                         <a href="#" class="btn btn-link btn-quick-edit" data-toggle="tooltip" title="Quick Edit" data-placement="top"><span class="fa fa-eraser"></span></a>
                                         <a href="/admin/brand/{{$item -> id}}/edit" class="btn btn-link btn-edit" data-toggle="tooltip" title="Edit" data-placement="top"><span class="fa fa-edit"></span></a>
-                                        <a href="#" id="{{$item-> id}}" class="btn btn-link btn-delete" data-toggle="tooltip" title="Delete" data-placement="top"><span class="fa fa-trash"></span></a>
+                                        <a href="javascript:void(0)" id="{{$item-> id}}" class="btn btn-link btn-delete-brand" data-toggle="tooltip" title="Delete" data-placement="top"><span class="fa fa-trash"></span></a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -81,4 +83,5 @@
                 </div>
         </section>
     </section>
+    <script src="{{asset('js/delete.js')}}"></script>
 @endsection

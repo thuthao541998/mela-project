@@ -8,6 +8,8 @@
                     <div class="panel-heading">
                         List Article
                     </div>
+                    <div class="alert alert-success hidden mt-2" role="alert" id="messageSuccess"></div>
+                    <div class="alert alert-danger hidden mt-2" role="alert" id="messageError"></div>
                     <div>
                         <table class="table table-light">
                             <thead>
@@ -30,7 +32,13 @@
                                     <td class="col-md-1"  style="width: 5%">{{$item->id}}</td>
                                     <td class="col-md-2">{{$item->title}}</td>
                                     <td class="col-md-1" style="width: 10%">{{$item->author}}</td>
-                                    <td class="col-md-4 text-justify">{{$item->content}}</td>
+                                    <td class="col-md-3 text-justify">
+                                        <span class="btn" data-toggle="collapse" data-target="#demo">See More &raquo;</span>
+                                        <div id="demo" class="collapse">
+                                            {{$item->content}}
+                                        </div>
+                                    </td>
+
                                     <td class="col-md-1">
                                         <div class="card"
                                              style="background-image: url('{{$item->images}}'); background-size: cover; width: 60px; height: 60px;">
@@ -39,7 +47,7 @@
                                     <td class="col-md-2 text-center">
                                         <a href="#" class="btn btn-link btn-quick-edit" data-toggle="tooltip" title="Quick Edit" data-placement="top"><span class="fa fa-eraser"></span></a>
                                         <a href="/admin/article/{{$item -> id}}/edit" class="btn btn-link btn-edit" data-toggle="tooltip" title="Edit" data-placement="top"><span class="fa fa-edit"></span></a>
-                                        <a href="#" id="{{$item-> id}}" class="btn btn-link btn-delete" data-toggle="tooltip" title="Delete" data-placement="top"><span class="fa fa-trash"></span></a>
+                                        <a href="javascript:void(0)" id="{{$item-> id}}" class="btn btn-link btn-delete-article" data-toggle="tooltip" title="Delete" data-placement="top"><span class="fa fa-trash"></span></a>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -65,4 +73,6 @@
                 </div>
         </section>
     </section>
+    <script src="{{asset('js/delete.js')}}"></script>
 @endsection
+
