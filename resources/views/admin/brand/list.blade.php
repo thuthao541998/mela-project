@@ -10,28 +10,10 @@
                     </div>
                     <div class="alert alert-success hidden mt-2" role="alert" id="messageSuccess"></div>
                     <div class="alert alert-danger hidden mt-2" role="alert" id="messageError"></div>
-                    <div class="col-md-8 form-inline">
-                        <div class="form-group mx-sm-4 mb-3">
-                            <label for="chooseCategory">Brand</label>
-                            <select id="select-action" class="form-control">
-                                <option selected value="0">Brand</option>
-                                <option value="1">Urban Decay</option>
-                                <option value="2">NARS</option>
-                                <option value="3">Kylie Cosmetics</option>
-                                <option value="4">NYX</option>
-                                <option value="5">Maybelline</option>
-                                <option value="6">Stila</option>
-                                <option value="7">MAC</option>
-                                <option value="8">ColourPop</option>
-                                <option value="9">Dior</option>
-                                <option value="10">Anastasia Beverly Hills</option>
-                            </select>
-                        </div>
-                    </div>
                     <div>
-                        <table class="table table-striped" >
+                        <table class="table table-light" >
                             <thead>
-                            <tr class="row">
+                            <tr class="row pl-4">
                                 <th class="col-md-1" style="width: 3%"></th>
                                 <th class="col-md-1" style="width: 3%">ID</th>
                                 <th class="col-md-1 text-center">Name</th>
@@ -42,22 +24,21 @@
                             </thead>
                             <tbody>
                             @foreach($list_obj as $item)
-                                <tr class="row" id="row-item-{{$item->id}}">
+                                <tr class="row pl-4" id="row-item-{{$item->id}}">
                                     <td class="col-md-1 text-center" style="width: 3%">
                                         <input type="checkbox" class="check-item">
                                     </td>
                                     <td class="col-md-1" style="width: 3%">{{$item->id}}</td>
-                                    <td class="col-md-2 text-center">{{$item->name}}</td>
+                                    <td class="col-md-2">{{$item->name}}</td>
                                     <td class="col-md-3 text-justify">{{$item->description}}</td>
                                     <td class="col-md-2">
-                                        <div class="card"
+                                        <div class="card text-center"
                                              style="background-image: url('{{$item->images}}'); background-size: cover; width: 120px; height: 80px;">
                                         </div>
                                     </td>
-                                    <td class="col-md-3">
-                                        <a href="#" class="btn btn-link btn-quick-edit"><span class="fa fa-eraser"></span> Quick Edit</a>&nbsp;&nbsp;
-                                        <a href="/admin/brand/{{$item -> id}}/edit" class="btn btn-link btn-edit"><span class="fa fa-edit"></span> Edit</a>&nbsp;&nbsp;
-                                        <a href="javascript:void(0)" id="{{$item -> id}}" class="btn btn-link btn-delete"><span class="fa fa-trash"></span> Delete</a>
+                                    <td class="col-md-3 text-center">
+                                        <a href="/admin/brand/{{$item -> id}}/edit" class="btn btn-link btn-edit" data-toggle="tooltip" title="Edit" data-placement="top"><span class="fa fa-edit"></span></a>
+                                        <a href="javascript:void(0)" id="{{$item-> id}}" class="btn btn-link btn-delete-brand" data-toggle="tooltip" title="Delete" data-placement="top"><span class="fa fa-trash"></span></a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -86,3 +67,4 @@
     <script src="{{asset('js/delete.js')}}"></script>
     <script src="{{asset('js/checkAll.js')}}"></script>
 @endsection
+

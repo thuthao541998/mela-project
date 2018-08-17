@@ -12,33 +12,37 @@
                 </header>
                 <div class="panel-body">
                     <div class="form">
-                        <form class="cmxform form-horizontal" method="get" action="" novalidate="novalidate">
+                        <form id="create-form" class="cmxform form-horizontal" method="get" action="" novalidate="novalidate">
                             @method('PUT')
                             {{csrf_field()}}
-                            <div class="form-group ">
-                                <label class="control-label col-lg-3">Product</label>
-                                <div class="col-lg-6">
-                                    <input class=" form-control" name="name" type="text" value="{{$obj->productId}}">
+
+                            <div class="col-lg-7">
+                                <div class="form-group ">
+                                    <label class="control-label col-lg-2">Product</label>
+                                    <div class="col-lg-9">
+                                        <input class=" form-control" name="productId" type="text" value="{{$obj->productId}}">
+                                    </div>
+                                </div>
+                                <div class="form-group ">
+                                    <label class="control-label col-lg-2">Author</label>
+                                    <div class="col-lg-9">
+                                        <input class=" form-control" name="author" type="text" value="{{$obj->orderId}}">
+                                    </div>
+                                </div>
+                                <div class="form-group ">
+                                    <label class="control-label col-lg-2">Quantity</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control " name="quantity" type="number" value="{{$obj->quantity}}">
+                                    </div>
+                                </div>
+                                <div class="form-group ">
+                                    <label class="control-label col-lg-2">Unit price</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control" name="unitprice" type="number" value="{{$obj->unitprice}}">
+                                    </div>
                                 </div>
                             </div>
-                            <div class="form-group ">
-                                <label class="control-label col-lg-3">Order</label>
-                                <div class="col-lg-6">
-                                    <input class="form-control" type="text" name="client" value="{{$obj->orderId}}">
-                                </div>
-                            </div>
-                            <div class="form-group ">
-                                <label class="control-label col-lg-3">Quantity</label>
-                                <div class="col-lg-6">
-                                    <input class="form-control " name="total" type="text" value="{{$obj->quantity}}">
-                                </div>
-                            </div>
-                            <div class="form-group ">
-                                <label class="control-label col-lg-3">Unit price</label>
-                                <div class="col-lg-6">
-                                    <input class="form-control " name="total" type="text" value="{{$obj->unitPrice}}">
-                                </div>
-                            </div>
+                            <div class="col-lg-5"></div>
                             <div class="form-group">
                                 <div class="col-lg-offset-3 col-lg-6">
                                     <button class="btn btn-primary" type="submit">Save</button>
@@ -51,4 +55,5 @@
             </section>
         </div>
     </div>
+    <script src="{{asset('js/form.js')}}"></script>
 @endsection

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Brand;
+use App\Http\Requests\StoreBrandPost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
+use JD\Cloudder\Facades\Cloudder;
 
 class BrandController extends Controller
 {
@@ -40,7 +42,11 @@ class BrandController extends Controller
         $obj = new Brand();
         $obj->name = Input::get('name');
         $obj->description = Input::get('description');
-        $obj->images = Input::get('images');
+        if(Input::hasFile('images')){
+            $image_id = time();
+            Cloudder::upload(Input::file('images')->getRealPath(), $image_id);
+            $obj->images = Cloudder::secureShow($image_id);
+        }
         $obj->save();
         return redirect('/admin/brand');
     }
@@ -55,7 +61,7 @@ class BrandController extends Controller
     {
         $obj = Brand::find($id);
         if ($obj == null) {
-            return view('404');
+            return view('admin.404.404');
         }
         return view('admin.brand.show')
             ->with('obj', $obj);
@@ -71,7 +77,7 @@ class BrandController extends Controller
     {
         $obj = Brand::find($id);
         if ($obj == null) {
-            return view('404');
+            return view('admin.404.404');
         }
         return view('admin.brand.edit')
             ->with('obj', $obj);
@@ -84,15 +90,20 @@ class BrandController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreBrandPost $request, $id)
     {
+        $request->validated();
         $obj = Brand::find($id);
         if ($obj == null) {
-            return view('404');
+            return view('admin.404.404');
         }
         $obj->name = Input::get('name');
         $obj->description = Input::get('description');
-        $obj->images = Input::get('images');
+        if(Input::hasFile('images')){
+            $image_id = time();
+            Cloudder::upload(Input::file('images')->getRealPath(), $image_id);
+            $obj->images = Cloudder::secureShow($image_id);
+        }
         $obj->save();
         return redirect('/admin/brand');
     }
