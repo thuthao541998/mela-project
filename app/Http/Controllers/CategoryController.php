@@ -17,6 +17,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
+        $list_obj = null;
         $list_obj = Category::paginate(3);
         return view('admin.category.list')->with('list_obj', $list_obj);
     }
@@ -48,7 +49,11 @@ class CategoryController extends Controller
             Cloudder::upload(Input::file('images')->getRealPath(), $image_id);
             $obj->images = Cloudder::secureShow($image_id);
         }
-        $obj->save();
+        try{
+            $obj->save();
+        } catch (Exception $e){
+            return new \App\Exceptions\AdminException('Cannot save category. Try again.');
+        }
         return redirect('/admin/category');
     }
 
@@ -105,7 +110,11 @@ class CategoryController extends Controller
             Cloudder::upload(Input::file('images')->getRealPath(), $image_id);
             $obj->images = Cloudder::secureShow($image_id);
         }
-        $obj->save();
+        try{
+            $obj->save();
+        } catch (Exception $e){
+            return new \App\Exceptions\AdminException('Cannot update category. Try again.');
+        }
         return redirect('/admin/category');
     }
 
