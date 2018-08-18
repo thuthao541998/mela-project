@@ -50,7 +50,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <img src="{{asset('images/logo.png')}}" alt="MELA" style="width: 100px; height: 80px;">
                 <div style="margin-top: 10%; color: white; font-size: 2em; font-family: 'Istok Web', sans-serif;">MELA</div>
             </div>
-
         </div>
         <!--logo end-->
         <div class="nav notify-row" id="top_menu">

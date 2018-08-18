@@ -11,8 +11,9 @@
 |
 */
 
-Route::get('/', 'ProductController@index');
-
+Route::get('/', function (){
+    return view('page/index');
+});
 Route::resource('admin/product','ProductController');
 
 Route::resource('admin/order','OrderController');
