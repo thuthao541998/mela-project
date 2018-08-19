@@ -95,12 +95,6 @@
 
                 <!-- Social -->
                 <div class="social flex-w flex-l-m p-r-20">
-                    <a href="#"><i class="fab fa-facebook-square fa-2x" aria-hidden="true"></i></a>
-                    &nbsp;
-                    <a href="#"><i class="fab fa-snapchat-square fa-2x" aria-hidden="true"></i></a>
-                    &nbsp;
-                    <a href="#"><i class="fab fa-line fa-2x" aria-hidden="true"></i></a>
-
                     <button class="btn-show-sidebar m-l-33 trans-0-4"></button>
                 </div>
             </div>
@@ -115,6 +109,15 @@
 
     <!-- - -->
     <ul class="menu-sidebar p-t-95 p-b-70">
+        <li class="t-center m-b-13">
+            <a href="#"><i class="fab fa-facebook-square fa-2x" aria-hidden="true"></i></a>
+            &nbsp;
+            <a href="#"><i class="fab fa-snapchat-square fa-2x" aria-hidden="true"></i></a>
+            &nbsp;
+            <a href="#"><i class="fab fa-line fa-2x" aria-hidden="true"></i></a>
+        </li>
+
+        
         <li class="t-center m-b-13">
             <a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
         </li>
