@@ -43,7 +43,7 @@
             </span>
 
         <h3 class="tit4 t-center p-l-15 p-r-15 p-t-3">
-            Pato Place
+            Mela Place
         </h3>
     </div>
 
