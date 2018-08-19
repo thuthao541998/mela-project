@@ -7,34 +7,10 @@
     </section>
 
     <!-- Main menu -->
-    <section class="section-mainmenu p-t-110 p-b-70 bg1-pattern">
+    <section class="section-mainmenu p-t-50 p-b-70 bg1-pattern">
         <div class="container">
-            <div class="row p-t-108 p-b-70">
+            <div class="row p-t-10 p-b-70">
                 <div class="col-md-10 col-lg-6 p-r-35 p-r-15-lg m-l-r-auto">
-
-
-                    <div class="blo3 flex-w flex-col-l-sm m-b-30">
-                        <div class="pic-blo3 size20 bo-rad-10 hov-img-zoom m-r-28">
-                            <a href="#"><img src="images/lunch-01.jpg" alt="IMG-MENU"></a>
-                        </div>
-
-                        <div class="text-blo3 size21 flex-col-l-m">
-                            <a href="#" class="txt21 m-b-3">
-                                Sed varius
-                            </a>
-
-                            <span class="txt23">
-								Aenean pharetra tortor dui in pellentesque
-							</span>
-
-                            <span class="txt22 m-t-20">
-								$29.79
-							</span>
-                        </div>
-                    </div>
-
-
-
 
                     <div class="wrap-item-mainmenu p-b-22">
                         <div class="tit-mainmenu tit10 p-b-25">
@@ -52,8 +28,7 @@
 
                         @foreach($list_obj as $obj)
 
-
-                            <div class="blo3 flex-w flex-col-l-sm m-b-30">
+                            <div class="blo3 flex-w flex-col-l-sm m-t-30 m-b-20">
                                 <div class="pic-blo3 size20 bo-rad-10 hov-img-zoom m-r-28">
                                     <a href="#"><img src="{{$obj->images}}" alt="IMG-MENU"></a>
                                 </div>
@@ -67,35 +42,13 @@
                                         {{$obj->overview}}
                                     </span>
 
-                                    <span class="txt22 m-t-20">
+                                    <span class="txt22 m-t-10">
                                         {{$obj->price}}
                                     </span>
                                 </div>
                             </div>
+                            <div class="line-item-mainmenu bg3-pattern"></div>
 
-
-
-
-
-
-
-                            <div class="item-mainmenu m-b-36">
-                                <div class="flex-w flex-b m-b-3">
-                                    <a href="#" class="name-item-mainmenu txt21">
-                                        Pine nut sbrisalona
-                                    </a>
-
-                                    <div class="line-item-mainmenu bg3-pattern"></div>
-
-                                    <div class="price-item-mainmenu txt22">
-                                        $29.79
-                                    </div>
-                                </div>
-
-                                <span class="info-item-mainmenu txt23">
-								    Sed fermentum eros vitae eros
-							    </span>
-                            </div>
                         @endforeach
                     </div>
                 </div>
