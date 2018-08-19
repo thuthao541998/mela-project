@@ -86,6 +86,9 @@
                             <li>
                                 <a href="contact.html">Contact</a>
                             </li>
+                            <li>
+                                <a href="#"><i class="fas fa-user-circle fa-2x" aria-hidden="true" ></i></a>
+                            </li>
                         </ul>
                     </nav>
                 </div>
@@ -113,12 +116,7 @@
     <!-- - -->
     <ul class="menu-sidebar p-t-95 p-b-70">
         <li class="t-center m-b-13">
-            <form class="navbar-form navbar-center" action="/action_page.php">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search">
-                </div>
-                <button type="submit" class="btn btn-default" >Search</button>
-            </form>
+            <a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
         </li>
 
         <li class="t-center m-b-13">
