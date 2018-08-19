@@ -43,7 +43,7 @@
                                 <select name="categoryId" class="form-control m-3">
                                     <option value="0">All</option>
                                     @foreach($categories as $category)
-                                        <option value="{{$category->id}}" {{$category->id==$choosedCategoryId?'selected':''}}>{{$category->name}}</option>
+                                        <option value="{{$category->id}}">{{$category->name}}</option>
                                     @endforeach
                                 </select>
                             </form>
