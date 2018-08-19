@@ -57,12 +57,14 @@
                                 <a href="/">Home</a>
                             </li>
 
-                            <li>
-                                <a href="/product">Product</a>
-                            </li>
-
-                            <li>
-                                <a href="reservation.html">Reservation</a>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Product
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">All </a></li>
+                                    <li><a href="#">Category </a></li>
+                                    <li><a href="#">Brand </a></li>
+                                </ul>
                             </li>
 
                             <li>
@@ -70,11 +72,15 @@
                             </li>
 
                             <li>
-                                <a href="about.html">About</a>
+                                <a href="blog.html">Blog</a>
                             </li>
 
                             <li>
-                                <a href="blog.html">Blog</a>
+                                <a href="reservation.html">Cart</a>
+                            </li>
+
+                            <li>
+                                <a href="about.html">About</a>
                             </li>
 
                             <li>
@@ -107,11 +113,26 @@
     <!-- - -->
     <ul class="menu-sidebar p-t-95 p-b-70">
         <li class="t-center m-b-13">
+            <form class="navbar-form navbar-center" action="/action_page.php">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default" >Search</button>
+            </form>
+        </li>
+
+        <li class="t-center m-b-13">
             <a href="/" class="txt19">Home</a>
         </li>
 
         <li class="t-center m-b-13">
-            <a href="/product" class="txt19">Product</a>
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">PRODUCT
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">All </a></li>
+                    <li><a href="#">Category </a></li>
+                    <li><a href="#">Brand </a></li>
+                </ul>
         </li>
 
         <li class="t-center m-b-13">
@@ -133,7 +154,7 @@
         <li class="t-center">
             <!-- Button3 -->
             <a href="reservation.html" class="btn3 flex-c-m size13 txt11 trans-0-4 m-l-r-auto">
-                Reservation
+                Cart
             </a>
         </li>
     </ul>
@@ -197,13 +218,13 @@
                         </span>
 
                     <h2 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="fadeInUp">
-                        Pato Place
+                        Mela Shop
                     </h2>
 
                     <div class="wrap-btn-slide1 animated visible-false" data-appear="zoomIn">
                         <!-- Button1 -->
                         <a href="menu.html" class="btn1 flex-c-m size1 txt3 trans-0-4">
-                            Look Menu
+                            Look Product
                         </a>
                     </div>
                 </div>
@@ -216,13 +237,13 @@
                         </span>
 
                     <h2 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="lightSpeedIn">
-                        Pato Place
+                        Mela Shop
                     </h2>
 
                     <div class="wrap-btn-slide1 animated visible-false" data-appear="slideInUp">
                         <!-- Button1 -->
                         <a href="menu.html" class="btn1 flex-c-m size1 txt3 trans-0-4">
-                            Look Menu
+                            Look Product
                         </a>
                     </div>
                 </div>
@@ -235,13 +256,13 @@
                         </span>
 
                     <h2 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="rotateInUpRight">
-                        Pato Place
+                        Mela Shop
                     </h2>
 
                     <div class="wrap-btn-slide1 animated visible-false" data-appear="rotateIn">
                         <!-- Button1 -->
                         <a href="menu.html" class="btn1 flex-c-m size1 txt3 trans-0-4">
-                            Look Menu
+                            Look Product
                         </a>
                     </div>
                 </div>
