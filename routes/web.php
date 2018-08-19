@@ -11,7 +11,11 @@
 |
 */
 
-Route::get('/', 'ProductController@index');
+Route::get('/',function (){
+    return view('client.index');
+});
+
+//Route::get('/', 'ProductController@index');
 
 Route::resource('admin/product','ProductController');
 
