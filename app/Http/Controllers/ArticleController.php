@@ -37,8 +37,9 @@ class ArticleController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(StoreArticlePost $request)
     {
+        $request->validated();
         $obj = new Article();
         $obj->author = Input::get('author');
         $obj->title = Input::get('title');

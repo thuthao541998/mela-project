@@ -27,7 +27,7 @@ class StoreProductPost extends FormRequest
             'name'=>'required',
             'price'=>'required|numeric|gt:0',
             'overview'=>'required|min:70',
-            'description'=>'required|min:250'
+            'description'=>'required|min:250',
         ];
     }
 }

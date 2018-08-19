@@ -26,6 +26,7 @@ class StoreBrandPost extends FormRequest
         return [
             'name'=>'required',
             'description'=>'required|min:500',
+            'images'=>'required',
         ];
     }
 }

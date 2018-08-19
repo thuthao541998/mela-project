@@ -8,6 +8,8 @@
                     <div class="panel-heading">
                         List Brand
                     </div>
+                    <div class="alert alert-success hidden mt-2" role="alert" id="messageSuccess"></div>
+                    <div class="alert alert-danger hidden mt-2" role="alert" id="messageError"></div>
                     <div>
                         <table class="table table-light" >
                             <thead>
@@ -51,7 +53,7 @@
                                         <option value="1">Delete All</option>
                                         <option value="2">Another Action</option>
                                     </select>
-                                    <button type="submit" class="btn btn-primary ml-2" id="btn-apply">Submit</button>
+                                    <button type="submit" class="btn btn-primary mb-2" id="btn-apply-brand">Submit</button>
                                 </div>
                             </div>
                         </div>
@@ -63,5 +65,6 @@
         </section>
     </section>
     <script src="{{asset('js/delete.js')}}"></script>
+    <script src="{{asset('js/checkAll.js')}}"></script>
 @endsection
 

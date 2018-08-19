@@ -37,8 +37,9 @@ class BrandController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreBrandPost $request)
     {
+        $request->validated();
         $obj = new Brand();
         $obj->name = Input::get('name');
         $obj->description = Input::get('description');
@@ -122,5 +123,11 @@ class BrandController extends Controller
         }
         $obj->delete();
         return response('Deleted', 200);
+    }
+
+    public function destroyMany()
+    {
+        Brand::destroy(Input::get('ids'));
+        return Input::get('ids');
     }
 }

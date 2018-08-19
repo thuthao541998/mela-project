@@ -93,7 +93,7 @@
                                     <option value="1">Delete All</option>
                                     <option value="2">Another Action</option>
                                 </select>
-                                <button type="submit" class="btn btn-primary ml-2" id="btn-apply">Submit</button>
+                                <button type="submit" class="btn btn-primary mb-2" id="btn-apply-product">Submit</button>
                             </div>
                         </div>
                     </div>
@@ -141,6 +141,6 @@
     </div>
     <script src="{{asset('js/quick-edit.js')}}"></script>
     <script src="{{asset('js/delete.js')}}"></script>
+    <script src="{{asset('js/checkAll.js')}}"></script>
     <script src="{{asset('js/readMore.js')}}"></script>
-
 @endsection

@@ -50,8 +50,9 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreProductPost $request)
     {
+        $request->validated();
         $obj = new Product();
         $obj->name = Input::get('name');
         $obj->price = Input::get('price');
@@ -152,6 +153,11 @@ class ProductController extends Controller
         }
         $obj->delete();
         return response('Deleted', 200);
+    }
+    public function destroyMany()
+    {
+        Product::destroy(Input::get('ids'));
+        return Input::get('ids');
     }
 
 
