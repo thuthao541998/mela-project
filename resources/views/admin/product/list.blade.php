@@ -12,22 +12,22 @@
                 <div class="alert alert-success hidden mt-2" role="alert" id="messageSuccess"></div>
                 <div class="alert alert-danger hidden mt-2" role="alert" id="messageError"></div>
                 <div>
-                    <div class="col-md-8 form-inline">
+                    <div class="filter-btn col-md-8 form-inline" action="/admin/product" method="GET">
                         <div class="form-group mx-sm-4 mb-3">
                             <label for="chooseCategory">Category</label>
-                            <select id="select-action" class="form-control">
-                                <option selected value="0">All</option>
+                            <select id="select-action" name="categoryId" class="form-control">
+                                <option selected value={{$null}}>All</option>
                                 @foreach($categories as $category)
-                                    <option value="{{$category->id}}">{{$category->name}}</option>
+                                    <option value="{{$category->id}}"{{$category->id==$choosedCategoryId?'selected':''}}>{{$category->name}}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="form-group mx-sm-4 mb-3">
                             <label for="chooseCategory">Brand</label>
-                            <select id="select-action" class="form-control">
-                                <option selected value="0">All</option>
+                            <select id="select-action" name="brandId" class="form-control">
+                                <option selected value="{{$null}}">All</option>
                                 @foreach($brands as $brand)
-                                    <option value="{{$brand->id}}">{{$brand->name}}</option>
+                                    <option value="{{$brand->id}}"{{$brand->id==$choosedBrandId?'selected':''}}>{{$brand->name}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -93,7 +93,7 @@
                                     <option value="1">Delete All</option>
                                     <option value="2">Another Action</option>
                                 </select>
-                                <button type="submit" class="btn btn-primary mb-2" id="btn-apply-product">Submit</button>
+                                <button type="submit" class="btn btn-primary ml-2" id="btn-apply-product">Submit</button>
                             </div>
                         </div>
                     </div>
@@ -143,4 +143,5 @@
     <script src="{{asset('js/delete.js')}}"></script>
     <script src="{{asset('js/checkAll.js')}}"></script>
     <script src="{{asset('js/readMore.js')}}"></script>
+    <script src="{{asset('js/product-filter.js')}}"></script>
 @endsection
