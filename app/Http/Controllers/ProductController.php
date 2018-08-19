@@ -18,14 +18,32 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
+        $limit = 10;
         $brands = Brand::all();
+        $choosedBrandId = Input::get('brandId');
         $categories = Category::all();
-        $list_obj = Product::paginate(10);
+        $choosedCategoryId = Input::get('categoryId');
+        $list_obj = null;
+        if(($choosedCategoryId == null && $choosedBrandId == null)){
+            $list_obj = Product::paginate($limit);
+        }else if($choosedBrandId == null || $choosedBrandId == '0'){
+            $list_obj = Product::where('categoryId', $choosedBrandId)-> paginate($limit);
+        }else if ($choosedCategoryId == null || $choosedCategoryId == '0'){
+            $list_obj = Product::where('brandId', $choosedBrandId)-> paginate($limit);
+        } else {
+            $list_obj = Product::where([
+                'categoryId'=> $choosedCategoryId,
+                'brandID'=> $choosedBrandId
+            ]) -> paginate($limit);
+        }
         return view('admin.product.list')
             ->with('list_obj', $list_obj)
             ->with('brands',$brands)
             ->with('categories',$categories)
+            ->with('choosedBrandId',$choosedBrandId)
+            ->with('choosedCategoryId',$choosedCategoryId)
+            ->with('null',null)
             ;
     }
 
