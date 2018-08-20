@@ -47,3 +47,7 @@ Route::put("/admin/product/update-json/{id}", "ProductController@quickUpdate");
 
 // Route client
 Route::get('/list-product',"ProductController@indexClient");
+
+Route::get('/about-us',function (){
+    return view('client.aboutUs');
+});
