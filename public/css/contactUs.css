@@ -1,10 +1,11 @@
 iframe{
-    height:700px;
+    height:500px;
     width:650px;
 }
 .row {
     margin: auto;
     height:700px;
+    padding-top: 50px;
 }
 
 .middle {
