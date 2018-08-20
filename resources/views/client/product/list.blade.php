@@ -8,60 +8,40 @@
 
     <!-- Main menu -->
 
-
-    <div class="container p-t-20 p-b-20">
-        <div class="tit-mainmenu tit10 p-b-25">
-            <form>
-                <div class="col-lg-6">
-                    <label class="p-t-10">Choose a category: </label>
-                    <select name="categoryId" class="form-control m-3">
-                        <option value="0">All</option>
-                        @foreach($categories as $category)
-                            <option value="{{$category->id}}" {{$category->id==$choosedCategoryId?'selected':''}}>{{$category->name}}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="col-lg-6">
-                    <label class="p-t-10">Choose a brand: </label>
-                    <select name="categoryId" class="form-control m-3">
-                        <option value="0">All</option>
-                        @foreach($brands as $brand)
-                            <option value="{{$brand->id}}" {{$brand->id==$choosedBrandId?'selected':''}}>{{$brand->name}}</option>
-                        @endforeach
-                    </select>
-                </div>
-
-
-            </form>
+    <section class="bg1-pattern">
+        <div class="container p-t-20 p-b-20">
+            <div class="tit-mainmenu tit10 p-b-25">
+                <form action="/list-product" method="GET" name="filter-form">
+                    <div class="col-lg-6">
+                        <label class="p-t-10">Choose a category: </label>
+                        <select name="categoryId" class="form-control m-3" id="categoryId">
+                            <option value="0">All</option>
+                            @foreach($categories as $category)
+                                <option value="{{$category->id}}" {{$category->id==$choosedCategoryId?'selected':''}}>{{$category->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col-lg-6">
+                        <label class="p-t-10">Choose a brand: </label>
+                        <select name="brandId" class="form-control m-3">
+                            <option value="0">All</option>
+                            @foreach($brands as $brand)
+                                <option value="{{$brand->id}}" {{$brand->id==$choosedBrandId?'selected':''}}>{{$brand->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </form>
+            </div>
         </div>
-    </div>
+    </section>
 
 
-
-    <section class="section-mainmenu p-t-50 p-b-70 bg1-pattern">
+    <section class="section-mainmenu p-t-30 p-b-70 bg1-pattern">
         <div class="container">
             <div class="row p-t-10 p-b-70">
                 <div class="col-md-10 col-lg-6 p-r-35 p-r-15-lg m-l-r-auto">
 
                     <div class="wrap-item-mainmenu p-b-22">
-                        <div class="tit-mainmenu tit10 p-b-25">
-                            <form>
-                                <label class="p-t-10">Choose a category: </label>
-                                <select name="categoryId" class="form-control m-3">
-                                    <option value="0">All</option>
-                                    @foreach($categories as $category)
-                                        <option value="{{$category->id}}" {{$category->id==$choosedCategoryId?'selected':''}}>{{$category->name}}</option>
-                                    @endforeach
-                                </select>
-                                <label class="p-t-10">Choose a brand: </label>
-                                <select name="categoryId" class="form-control m-3">
-                                    <option value="0">All</option>
-                                    @foreach($brands as $brand)
-                                        <option value="{{$brand->id}}" {{$brand->id==$choosedBrandId?'selected':''}}>{{$brand->name}}</option>
-                                    @endforeach
-                                </select>
-                            </form>
-                        </div>
 
                         @foreach($list_obj as $obj)
 
@@ -92,5 +72,15 @@
             </div>
         </div>
     </section>
+
+    <script src="{{asset('js/app.js')}}"></script>
+    <script>
+        $('form[name="filter-form"] select[name="categoryId"]').change(function () {
+            window.location.href = $('form[name="filter-form"]').attr('action') + '?categoryId=' + $(this).val();
+        });
+        $('form[name="filter-form"] select[name="bradnId"]').change(function () {
+            window.location.href = $('form[name="filter-form"]').attr('action') + '?brandId=' + $(this).val();
+        });
+    </script>
 
 @endsection
