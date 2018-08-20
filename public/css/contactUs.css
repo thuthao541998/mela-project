@@ -1,13 +1,18 @@
 iframe{
+    display: block;
     height:500px;
-    width:650px;
+    width:100%;
+}
+section {
+    padding-top: 30px;
 }
 .row {
     margin: auto;
-    height:700px;
-    padding-top: 50px;
+    padding-top: 30px;
 }
-
+.topic{
+    padding-top: 30px;
+}
 .middle {
     background-color:rgb(241, 231, 231);
     padding-bottom: 30px;

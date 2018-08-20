@@ -3,17 +3,31 @@
     <link href="{{asset('css/contactUs.css')}}" rel='stylesheet' type='text/css' />
     <section>
         <div class="container-map">
-            <div class="row">
-                <div class="col-md-6">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.1186727365266!2d105.78188298381623!3d21.027937099878503!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454b3aa600d69%3A0x11275455cd98079!2zVMO0biBUaOG6pXQgVGh1eeG6v3QsIEjDoCBO4buZaSwgVmlldG5hbQ!5e0!3m2!1sen!2s!4v1512029986933"
-                            frameborder="0" style="border:0" allowfullscreen></iframe>
-                </div>
-                <div class="col-md-6 middle">
+            <div class="row-fluid">
+                <div class="middle">
                     <div class="topic text-center">
                         <p>MELA COSMETICS</p>
                         <h1>CONTACT US</h1>
                     </div>
-                    <div class=" send-email">
+                    <div class="row">
+                        <div class="col-lg-6 col-sm-12 ift">
+                            <p class="text-justify">Trong trường hợp quý khách có bất kì thắc mắc hoặc đóng góp nào, xin vui lòng liên hệ với chúng tôi theo thông
+                                tin dưới đây. Chúng tôi sẽ phản hồi lại quý khách trong thời gian sớm nhất.</p>
+                            <p class="fzone">Fun Zone</p>
+                            <p>
+                                <span class="fa fa-map-marker"></span>&nbsp Địa chỉ: Đại học FPT - Tôn Thất Thuyết,Cầu Giấy, Hà Nội, Việt Nam</p>
+                            <p>
+                                <span class="fa fa-phone"></span>&nbsp Điện thoại: 123-456-789</p>
+                            <p>
+                                <span class="fa fa-fax"></span>&nbsp Fax: (84-236) 3749 889 | 882 </p>
+                            <p>
+                                <span class="fa fa-envelope"></span>&nbsp E-mail (kinh doanh): <a href="mailto:hoangnvd00536@fpt.edu.vn" target="_top">abc@fpt.edu.vn</a></p>
+                            <p>
+                                <span class="fa fa-tag"></span>&nbsp
+                                <a href="#">funzone.vn</a>
+                            </p>
+                        </div>
+                        <div class="col-lg-6 col-sm-12 send-email">
                         <h4 class="s-e-title">We are here assist you.</h4>
                         <table class="container-fluid">
                             <tr>
@@ -85,6 +99,10 @@
             </div>
         </div>
         </div>
+        <div class="span8">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.1186727365266!2d105.78188298381623!3d21.027937099878503!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454b3aa600d69%3A0x11275455cd98079!2zVMO0biBUaOG6pXQgVGh1eeG6v3QsIEjDoCBO4buZaSwgVmlldG5hbQ!5e0!3m2!1sen!2s!4v1512029986933"
+                    frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
         <div class="bottom text-center">
             <p>VĂN PHÒNG ĐẠI DIỆN & KINH DOANH</p>
             <p>
@@ -95,13 +113,13 @@
                 <span class="fa fa-fax"></span>&nbsp Fax: (84-236) 3749 889 | 882 </p>
             <p class="sMedia">
                 <a href="#">
-                    <span class="fa fa-instagram text-black"></span>
+                    <span class="fab fa-instagram text-black"></span>
                 </a>&nbsp&nbsp
                 <a href="#">
-                    <span class="fa fa-twitter text-black"></span>
+                    <span class="fab fa-twitter text-black"></span>
                 </a>&nbsp&nbsp
                 <a href="#">
-                    <span class="fa fa-facebook text-black"></span>
+                    <span class="fab fa-facebook text-black"></span>
                 </a>
             </p>
         </div>
