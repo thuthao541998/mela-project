@@ -52,8 +52,6 @@
                         </thead>
                         <tbody>
                         @foreach($list_obj as $item)
-                            <span class="hidden" {{$brand = $brands->find($item->brandId)}}></span>
-                            <span class="hidden" {{$category = $categories->find($item->categoryId)}}></span>
                             <tr class="row col-lg-12 col-md-12 col-sm-12" id="row-item-{{$item->id}}">
                                 <td class="col-xsm-1 text-center" style="width: 3%">
                                     <input type="checkbox" class="check-item">
@@ -74,8 +72,8 @@
                                         {{$item->description}}
                                     </div>
                                 </td>
-                                <td class="col-md-1 col-sm-1 text-center">{{$category->name}}</td>
-                                <td class="col-md-1 col-sm-1 text-center">{{$brand->name}}</td>
+                                <td class="col-md-1 col-sm-1 text-center">{{$item->getCategory()}}</td>
+                                <td class="col-md-1 col-sm-1 text-center">{{$item->getBrand()}}</td>
                                 <td class="col-md-1 col-sm-1 text-center ">
                                     <a href="#" class="btn btn-link btn-quick-edit btn-quick-edit-product" data-toggle="tooltip" title="Quick Edit" data-placement="top"><span class="fa fa-eraser"></span></a>
                                     <a href="/admin/product/{{$item -> id}}/edit" class="btn btn-link btn-edit" data-toggle="tooltip" title="Edit" data-placement="top"><span class="fa fa-edit"></span></a>
