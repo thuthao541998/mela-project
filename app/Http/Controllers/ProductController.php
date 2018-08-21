@@ -146,7 +146,7 @@ class ProductController extends Controller
         $choosedBrandId = $obj->brandId;
         $choosedCategoryId = $obj->categoryId;
         if ($obj == null) {
-            return view('404');
+            return view('admin.404.404');
         }
         return view('admin.product.edit')
             ->with('obj', $obj)
@@ -169,7 +169,7 @@ class ProductController extends Controller
         $request->validated();
         $obj = Product::find($id);
         if ($obj == null) {
-            return view('404');
+            return view('admin.404.404');
         }
         $obj->name = Input::get('name');
         $obj->price = Input::get('price');

@@ -2,7 +2,8 @@ $('#check-all').click(function () {
     $('.check-item').prop('checked', $(this).is(':checked'));
 });
 $('#btn-apply-product').click(function () {
-    switch ($('#select-action').val()){
+    var value = ($('select[name="select-action"]').val());
+    switch (value){
         case '0':
             alert('Please choose an action before click "Apply".');
             break;
@@ -32,10 +33,11 @@ $('#btn-apply-product').click(function () {
                         if($('.check-item').length == 0){
                             setTimeout(function(){
                                 window.location.reload(1);
-                            }, 3*1000);
+                            }, 2*1000);
                         }
                     },
-                    error: function () {
+                    error: function (r) {
+                        console.log(r);
                         $('#messageError').removeClass('hidden');
                         $('#messageError').text('Action fails! Please try again later!');
                     }
@@ -46,7 +48,7 @@ $('#btn-apply-product').click(function () {
             alert('Coming soon! Please try again later.');
             break;
         default:
-            alert('Invalid action.');
+            alert('Invalid action! Please try again');
             break;
     }
 })
