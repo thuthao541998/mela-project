@@ -15,7 +15,7 @@ Route::get('/',function (){
     return view('client.index');
 });
 
-//Route::get('/', 'ProductController@index');
+Route::get('/admin', 'ProductController@index');
 
 Route::resource('admin/product','ProductController');
 
@@ -48,3 +48,7 @@ Route::put("/admin/product/update-json/{id}", "ProductController@quickUpdate");
 // Route client
 Route::get('/list-product',"ProductController@indexClient");
 Route::get('/product/{id}',"ProductController@show");
+
+Route::get('/cart',function (){
+    return view('client.cart.cart');
+});
