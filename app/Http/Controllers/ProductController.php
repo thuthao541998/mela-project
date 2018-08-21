@@ -27,9 +27,9 @@ class ProductController extends Controller
         $list_obj = null;
         if(($choosedCategoryId == null && $choosedBrandId == null)){
             $list_obj = Product::paginate($limit);
-        }else if($choosedBrandId == null || $choosedBrandId == '0'){
+        }else if($choosedBrandId == null){
             $list_obj = Product::where('categoryId', $choosedCategoryId)-> paginate($limit);
-        }else if ($choosedCategoryId == null || $choosedCategoryId == '0'){
+        }else if ($choosedCategoryId == null){
             $list_obj = Product::where('brandId', $choosedBrandId)-> paginate($limit);
         } else {
             $list_obj = Product::where([
