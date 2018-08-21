@@ -11,6 +11,7 @@
                     </div>
                     <div class="alert alert-success hidden mt-2" role="alert" id="messageSuccess"></div>
                     <div class="alert alert-danger hidden mt-2" role="alert" id="messageError"></div>
+                    @if(count($list_obj)>0)
                     <div>
                         <table class="table table-light">
                             <thead>
@@ -69,6 +70,11 @@
                             {!! $list_obj->links() !!}
                         </div>
                     </div>
+                    @else
+                        <div class="alert alert-info" role="alert">
+                            Have no article, click <a href="/admin/article/create">here</a> to create new.
+                        </div>
+                    @endif
                 </div>
         </section>
     </section>
