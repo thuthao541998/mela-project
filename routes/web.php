@@ -17,6 +17,7 @@ Route::get('/',function (){
 
 //Route::get('/', 'ProductController@index');
 
+// ROUTE ADMIN
 Route::resource('admin/product','ProductController');
 
 Route::resource('admin/order','OrderController');
@@ -45,5 +46,8 @@ Route::get("/admin/product/get-json/{id}", "ProductController@showJson");
 Route::put("/admin/product/update-json/{id}", "ProductController@quickUpdate");
 
 
-// Route client
+// ROUTE CLIENT
 Route::get('/list-product',"ProductController@indexClient");
+Route::get('/list-article', function (){
+    return view('client.article.list');
+});
