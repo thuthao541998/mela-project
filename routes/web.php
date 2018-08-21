@@ -29,10 +29,10 @@ Route::resource('admin/category', 'CategoryController');
 
 Route::resource('admin/brand','BrandController');
 
-Route::delete("/admin/product/destroy-many", "ProductController@destroyMany");
-Route::delete("/admin/category/destroy-many", "CategoryController@destroyMany");
-Route::delete("/admin/article/destroy-many", "ProductController@destroyMany");
-Route::delete("/admin/brand/destroy-many", "CategoryController@destroyMany");
+Route::post("admin/product/destroy-many",'ProductController@destroyMany');
+Route::post("admin/category/destroy-many", "CategoryController@destroyMany");
+Route::post("admin/article/destroy-many", "ArticleController@destroyMany");
+Route::post("admin/brand/destroy-many", "CategoryController@destroyMany");
 
 Route::get('admin/404',function (){
     return view('admin.404.404');
