@@ -30,7 +30,7 @@
                                     <td class="col-md-4">
                                         <a href="#" class="btn btn-link btn-quick-edit"><span class="fa fa-eraser"></span> Quick Edit</a>&nbsp;&nbsp;
                                         <a href="/admin/order/{{$item -> id}}/edit" class="btn btn-link btn-edit"><span class="fa fa-edit"></span> Edit</a>&nbsp;&nbsp;
-                                        <a href="#" id="{{$item-> id}}" class="btn btn-link btn-delete"><span class="fa fa-trash"></span> Delete</a>
+                                        <a href="/admin/order/{{$item -> id}}" class="btn btn-link btn-delete"><span class="fa fa-trash"></span> Delete</a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -56,4 +56,5 @@
                 </div>
         </section>
     </section>
+    <script src="{{asset('js/delete.js')}}"></script>
 @endsection

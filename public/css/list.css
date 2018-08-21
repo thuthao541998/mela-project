@@ -37,7 +37,7 @@
     color: #000000;
 }
 .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td{
-    font-size: 12px;
+    font-size: 13px;
 }
 .table>thead>tr>th{
     font-size: 15px;

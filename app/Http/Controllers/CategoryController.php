@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Http\Requests\StoreCategoryPost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use JD\Cloudder\Facades\Cloudder;
@@ -36,8 +37,9 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(StoreCategoryPost $request)
     {
+        $request->validated();
         $obj = new Category();
         $obj->name = Input::get('name');
         $obj->description = Input::get('description');
@@ -89,8 +91,9 @@ class CategoryController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update($id)
+    public function update($id, StoreCategoryPost $request)
     {
+        $request->validated();
         $obj = Category::find($id);
         if ($obj == null) {
             return view('admin.404.404');
@@ -116,9 +119,15 @@ class CategoryController extends Controller
     {
         $obj = Category::find($id);
         if ($obj == null) {
-            return response('Product not found or has been deleted!', 404);
+            return response('Category not found or has been deleted!', 404);
         }
         $obj->delete();
         return response('Deleted', 200);
+    }
+
+    public function destroyMany()
+    {
+        Category::destroy(Input::get('ids'));
+        return Input::get('ids');
     }
 }

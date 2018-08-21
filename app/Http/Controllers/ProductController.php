@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Brand;
 use App\Category;
+use App\Http\Requests\StoreProductPost;
 use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
@@ -17,17 +18,64 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
+        $limit = 10;
         $brands = Brand::all();
+        $choosedBrandId = Input::get('brandId');
         $categories = Category::all();
-        $list_obj = Product::paginate(10);
+        $choosedCategoryId = Input::get('categoryId');
+        $list_obj = null;
+        if(($choosedCategoryId == null && $choosedBrandId == null)){
+            $list_obj = Product::paginate($limit);
+        }else if($choosedBrandId == null){
+            $list_obj = Product::where('categoryId', $choosedCategoryId)-> paginate($limit);
+        }else if ($choosedCategoryId == null){
+            $list_obj = Product::where('brandId', $choosedBrandId)-> paginate($limit);
+        } else {
+            $list_obj = Product::where([
+                'categoryId'=> $choosedCategoryId,
+                'brandID'=> $choosedBrandId
+            ]) -> paginate($limit);
+        }
         return view('admin.product.list')
             ->with('list_obj', $list_obj)
             ->with('brands',$brands)
             ->with('categories',$categories)
+            ->with('choosedBrandId',$choosedBrandId)
+            ->with('choosedCategoryId',$choosedCategoryId)
+            ->with('null',null)
             ;
     }
 
+    public function indexClient()
+    {
+        $limit = 10;
+        $brands = Brand::all();
+        $choosedBrandId = Input::get('brandId');
+        $categories = Category::all();
+        $choosedCategoryId = Input::get('categoryId');
+        $list_obj = null;
+        if(($choosedCategoryId == null && $choosedBrandId == null)){
+            $list_obj = Product::paginate($limit);
+        }else if($choosedBrandId == null || $choosedBrandId == '0'){
+            $list_obj = Product::where('categoryId', $choosedCategoryId)-> paginate($limit);
+        }else if ($choosedCategoryId == null || $choosedCategoryId == '0'){
+            $list_obj = Product::where('brandId', $choosedBrandId)-> paginate($limit);
+        } else {
+            $list_obj = Product::where([
+                'categoryId'=> $choosedCategoryId,
+                'brandID'=> $choosedBrandId
+            ]) -> paginate($limit);
+        }
+        return view('client.product')
+            ->with('list_obj', $list_obj)
+            ->with('brands',$brands)
+            ->with('categories',$categories)
+            ->with('choosedBrandId',$choosedBrandId)
+            ->with('choosedCategoryId',$choosedCategoryId)
+            ->with('null',null)
+            ;
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -49,8 +97,9 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreProductPost $request)
     {
+        $request->validated();
         $obj = new Product();
         $obj->name = Input::get('name');
         $obj->price = Input::get('price');
@@ -115,8 +164,9 @@ class ProductController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreProductPost $request, $id)
     {
+        $request->validated();
         $obj = Product::find($id);
         if ($obj == null) {
             return view('404');
@@ -150,5 +200,34 @@ class ProductController extends Controller
         }
         $obj->delete();
         return response('Deleted', 200);
+    }
+    public function destroyMany()
+    {
+        Product::destroy(Input::get('ids'));
+        return Input::get('ids');
+    }
+
+
+
+    public function showJson($id)
+    {
+        $obj = Product::find($id);
+        if ($obj == null) {
+            return response()->json(['msg' => 'Not found'], 404);
+        }
+        return response()->json(['item' => $obj], 200);
+    }
+
+    public function quickUpdate(Request $request, $id)
+    {
+        $obj = Product::find($id);
+        if ($obj == null) {
+            return response()->json(['msg' => 'Not found'], 404);
+        }
+        $obj->name = Input::get('name');
+        $obj->price = Input::get('price');
+        $obj->overview = Input::get('overview');
+        $obj->save();
+        return response()->json(['item' => $obj], 200);
     }
 }

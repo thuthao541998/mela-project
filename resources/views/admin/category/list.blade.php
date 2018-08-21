@@ -8,17 +8,11 @@
                     <div class="panel-heading">
                         List Category
                     </div>
+                    <div class="alert alert-success hidden mt-2" role="alert" id="messageSuccess"></div>
+                    <div class="alert alert-danger hidden mt-2" role="alert" id="messageError"></div>
                     <div class="col-md-8 form-inline">
                         <div class="form-group mx-sm-4 mb-3">
                             <label for="chooseCategory">Category</label>
-                            <select id="select-action" class="form-control">
-                                <option selected value="0">Category</option>
-                                <option value="1">Lipstick</option>
-                                <option value="2">Lip Gloss</option>
-                                <option value="3">Lip Liner</option>
-                                <option value="4">Lip Stain</option>
-                                <option value="5">Lip Balm</option>
-                            </select>
                         </div>
                     </div>
                     <div>
@@ -48,9 +42,8 @@
                                     </td>
                                     <td class="col-md-4 text-justify">{{$item->description}}</td>
                                     <td class="col-md-2 text-center">
-                                        <a href="#" class="btn btn-link btn-quick-edit" data-toggle="tooltip" title="Quick Edit" data-placement="top"><span class="fa fa-eraser"></span></a>
                                         <a href="/admin/category/{{$item -> id}}/edit" class="btn btn-link btn-edit" data-toggle="tooltip" title="Edit" data-placement="top"><span class="fa fa-edit"></span></a>
-                                        <a href="#" id="{{$item-> id}}" class="btn btn-link btn-delete" data-toggle="tooltip" title="Delete" data-placement="top"><span class="fa fa-trash"></span></a>
+                                        <a href="javascript:void(0)" id="{{$item-> id}}" class="btn btn-link btn-delete-category" data-toggle="tooltip" title="Delete" data-placement="top"><span class="fa fa-trash"></span></a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -65,7 +58,7 @@
                                         <option value="1">Delete All</option>
                                         <option value="2">Another Action</option>
                                     </select>
-                                    <button type="submit" class="btn btn-primary ml-2 " id="btn-apply">Submit</button>
+                                    <button type="submit" class="btn btn-primary mb-2" id="btn-apply-category">Submit</button>
                                 </div>
                             </div>
                         </div>
@@ -76,4 +69,6 @@
                 </div>
         </section>
     </section>
+    <script src="{{asset('js/delete.js')}}"></script>
+    <script src="{{asset('js/checkAll.js')}}"></script>
 @endsection
