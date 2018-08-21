@@ -43,39 +43,6 @@
         </div>
 
         <div class="col-lg-9 p-l-0 p-r-0 m-t-40">
-            {{--<section class="bg1-pattern">--}}
-                {{--<div class="container p-t-20 p-b-20">--}}
-                    {{--<div class="tit-mainmenu tit10 p-b-25">--}}
-                        {{--<form action="/list-product" method="GET" name="filter-form">--}}
-                            {{--<div class="col-lg-6">--}}
-                                {{--<label class="p-t-10">Choose a category: </label>--}}
-                                {{--<div class="col-lg-8">--}}
-                                    {{--<select name="categoryId" class="form-control m-3 w-75" id="categoryId">--}}
-                                        {{--<option value="0">All</option>--}}
-                                        {{--@foreach($categories as $category)--}}
-                                            {{--<option value="{{$category->id}}" {{$category->id==$choosedCategoryId?'selected':''}}>{{$category->name}}</option>--}}
-                                        {{--@endforeach--}}
-                                    {{--</select>--}}
-                                {{--</div>--}}
-
-                            {{--</div>--}}
-                            {{--<div class="col-lg-6">--}}
-                                {{--<label class="p-t-10">Choose a brand: </label>--}}
-                                {{--<div class="col-lg-8">--}}
-                                    {{--<select name="brandId" class="form-control m-3">--}}
-                                        {{--<option value="0">All</option>--}}
-                                        {{--@foreach($brands as $brand)--}}
-                                            {{--<option value="{{$brand->id}}" {{$brand->id==$choosedBrandId?'selected':''}}>{{$brand->name}}</option>--}}
-                                        {{--@endforeach--}}
-                                    {{--</select>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                        {{--</form>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-            {{--</section>--}}
-
-
             <main class="section-mainmenu p-t-30 p-b-70 bg1-pattern">
                 <div class="container">
                     <div class="row p-t-10 p-b-70">
@@ -116,24 +83,7 @@
     </div>
 
 
-
-
-
-
-
-
     <script src="{{asset('js/app.js')}}"></script>
-    <script>
-        $('a.hello').change(function () {
-            window.location.href = $('form[name="filter-form"]').attr('action') + '?categoryId=' + $(this).val();
-        });
-        $('form[name="filter-form"] select[name="categoryId"]').change(function () {
-            window.location.href = $('form[name="filter-form"]').attr('action') + '?categoryId=' + $(this).val();
-        });
-        $('form[name="filter-form"] select[name="bradnId"]').change(function () {
-            window.location.href = $('form[name="filter-form"]').attr('action') + '?brandId=' + $(this).val();
-        });
-    </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
 
 @endsection
