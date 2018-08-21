@@ -71,7 +71,7 @@
                         </div>
                     </div>
                     @else
-                        <div class="alert alert-info" role="alert">
+                        <div class="alert alert-secondary" role="alert">
                             Have no article, click <a href="/admin/article/create">here</a> to create new.
                         </div>
                     @endif

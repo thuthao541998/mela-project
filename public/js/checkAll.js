@@ -10,7 +10,7 @@ $('#btn-apply-product').click(function () {
         case '1':
             var arrayId = [];
             $('.check-item:checked').each(function(index, item) {
-                arrayId.push(item.closest('.row').id.replace('row-item-', ''));
+                arrayId.push(parseInt(item.closest('.row').id.replace('row-item-', '')));
             });
             if(arrayId.length == 0){
                 alert('Please choose at least 1 item.');
@@ -18,9 +18,10 @@ $('#btn-apply-product').click(function () {
             }
             if (confirm('Are you sure want to delete these product?')) {
                 $.ajax({
-                    method: 'DELETE',
+                    type: 'DELETE',
                     url: '/admin/product/destroy-many',
                     data: {
+                        'method'  : 'DELETE',
                         '_token': $('meta[name="csrf-token"]').attr('content'),
                         'ids': arrayId
                     },
@@ -54,6 +55,7 @@ $('#btn-apply-product').click(function () {
 })
 
 $('#btn-apply-article').click(function () {
+    alert($('#select-action').val());
     switch ($('#select-action').val()){
         case '0':
             alert('Please choose an action before click "Apply".');
@@ -104,6 +106,7 @@ $('#btn-apply-article').click(function () {
 });
 
 $('#btn-apply-category').click(function () {
+
     switch ($('#select-action').val()){
         case '0':
             alert('Please choose an action before click "Apply".');

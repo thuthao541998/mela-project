@@ -11,7 +11,6 @@
                 </div>
                 <div class="alert alert-success hidden mt-2 ml-2 mr-2" role="alert" id="messageSuccess"></div>
                 <div class="alert alert-danger hidden mt-2 ml-2 mr-2" role="alert" id="messageError"></div>
-                @if(count($list_obj)>0)
                 <div>
                     <div class="filter-btn col-md-8 form-inline" action="/admin/product" method="GET">
                         <div class="form-group mx-sm-4 mb-3">
@@ -34,6 +33,7 @@
                         </div>
                     </div>
                 </div>
+                @if(count($list_obj)>0)
                 <div>
                     <table class="table table-light pl-4 float-lg-none">
                         <thead>
@@ -103,8 +103,8 @@
                     </div>
                 </div>
                 @else
-                    <div class="alert alert-info" role="alert">
-                        Have no product, click <a href="/admin/product/create">here</a> to create new.
+                    <div class="alert alert-secondary" style="margin-top: 70px" role="alert">
+                       <h6>Have no product, click <a href="/admin/product/create">here</a> to create new.</h6>
                     </div>
                 @endif
             </div>
