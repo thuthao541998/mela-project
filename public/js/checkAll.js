@@ -18,14 +18,15 @@ $('#btn-apply-product').click(function () {
             }
             if (confirm('Are you sure want to delete these product?')) {
                 $.ajax({
-                    type: 'DELETE',
+                    method: 'POST',
                     url: '/admin/product/destroy-many',
                     data: {
-                        'method'  : 'DELETE',
+
                         '_token': $('meta[name="csrf-token"]').attr('content'),
                         'ids': arrayId
                     },
                     success: function (resp) {
+                        console.log(1);
                         $('#messageSuccess').text('Action success!');
                         $('#messageSuccess').removeClass('hidden');
                         for (var i = 0; i < arrayId.length; i++) {
@@ -71,13 +72,14 @@ $('#btn-apply-article').click(function () {
             }
             if (confirm('Are you sure want to delete these product?')) {
                 $.ajax({
-                    method: 'DELETE',
+                    method: 'POST',
                     url: '/admin/article/destroy-many',
                     data: {
                         '_token': $('meta[name="csrf-token"]').attr('content'),
                         'ids': arrayId
                     },
                     success: function (resp) {
+                        console.log(1);
                         $('#messageSuccess').text('Action success!');
                         $('#messageSuccess').removeClass('hidden');
                         for (var i = 0; i < arrayId.length; i++) {
@@ -122,7 +124,7 @@ $('#btn-apply-category').click(function () {
             }
             if (confirm('Are you sure want to delete these product?')) {
                 $.ajax({
-                    method: 'DELETE',
+                    method: 'POST',
                     url: '/admin/category/destroy-many',
                     data: {
                         '_token': $('meta[name="csrf-token"]').attr('content'),
@@ -172,7 +174,7 @@ $('#btn-apply-brand').click(function () {
             }
             if (confirm('Are you sure want to delete these product?')) {
                 $.ajax({
-                    method: 'DELETE',
+                    method: 'POST',
                     url: '/admin/brand/destroy-many',
                     data: {
                         '_token': $('meta[name="csrf-token"]').attr('content'),

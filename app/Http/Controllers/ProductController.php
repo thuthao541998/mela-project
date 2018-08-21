@@ -203,6 +203,7 @@ class ProductController extends Controller
     }
     public function destroyMany()
     {
+
         Product::destroy(Input::get('ids'));
         return Input::get('ids');
     }

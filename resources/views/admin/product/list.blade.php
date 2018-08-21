@@ -12,7 +12,7 @@
                 <div class="alert alert-success hidden mt-2 ml-2 mr-2" role="alert" id="messageSuccess"></div>
                 <div class="alert alert-danger hidden mt-2 ml-2 mr-2" role="alert" id="messageError"></div>
                 <div>
-                    <div class="filter-btn col-md-8 form-inline" action="/admin/product" method="GET">
+                    <div class="filter-btn form-inline" action="/admin/product" method="GET">
                         <div class="form-group mx-sm-4 mb-3">
                             <label for="chooseCategory">Category</label>
                             <select id="select-action" name="categoryId" class="form-control">
@@ -103,7 +103,7 @@
                     </div>
                 </div>
                 @else
-                    <div class="alert alert-secondary" style="margin-top: 70px" role="alert">
+                    <div class="alert alert-secondary" role="alert">
                        <h6>Have no product, click <a href="/admin/product/create">here</a> to create new.</h6>
                     </div>
                 @endif

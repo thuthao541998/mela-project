@@ -130,6 +130,12 @@ class ArticleController extends Controller
         return response('Deleted', 200);
     }
 
+    public function destroyMany()
+    {
+
+        Article::destroy(Input::get('ids'));
+        return Input::get('ids');
+    }
 
 
     public function showJson($id)
