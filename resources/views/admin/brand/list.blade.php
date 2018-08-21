@@ -54,7 +54,7 @@
                                         <option value="1">Delete All</option>
                                         <option value="2">Another Action</option>
                                     </select>
-                                    <button type="submit" class="btn btn-primary mb-2" id="btn-apply-brand">Submit</button>
+                                    <button type="submit" class="btn btn-primary ml-2" id="btn-apply-brand">Submit</button>
                                 </div>
                             </div>
                         </div>
