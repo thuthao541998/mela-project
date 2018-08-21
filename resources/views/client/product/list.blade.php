@@ -8,7 +8,6 @@
     </section>
 
     <!-- Main menu -->
-
     <div class="container-fluid row bg1-pattern">
         <div class="col-lg-3 p-l-0 p-r-0 m-t-40">
             <section class="bg1-pattern">
@@ -46,7 +45,7 @@
             <main class="section-mainmenu p-t-30 p-b-70 bg1-pattern">
                 <div class="container">
                     <div class="row p-t-10 p-b-70">
-                        <div class="col-md-10 col-lg-6 p-r-35 p-r-15-lg m-l-r-auto">
+                        <div class="col-md-10 col-lg-10 p-r-35 p-r-15-lg m-l-r-auto">
 
                             <div class="wrap-item-mainmenu p-b-22">
 
@@ -54,7 +53,7 @@
 
                                     <div class="blo3 flex-w flex-col-l-sm m-t-30 m-b-20">
                                         <div class="pic-blo3 size20 bo-rad-10 hov-img-zoom m-r-28">
-                                            <a href="#"><img src="{{$obj->images}}" alt="IMG-MENU"></a>
+                                            <a href="#"><img src="{{$obj->images}}" alt="IMG-MENU" style="width: 180px; height: 180px"></a>
                                         </div>
 
                                         <div class="text-blo3 size21 flex-col-l-m">
@@ -69,6 +68,8 @@
                                             <span class="txt22 m-t-10">
                                             {{$obj->price}}
                                             </span>
+
+                                            <button class="add-cart-large m-t-10"><i class="fas fa-cart-plus fa-2x"></i></button>
                                         </div>
                                     </div>
                                     <div class="line-item-mainmenu bg3-pattern"></div>
