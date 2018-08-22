@@ -71,12 +71,12 @@ class BrandController extends Controller
 
     public function detailBrand($id){
         $brand = Brand::find($id);
-        $product = Product::where('brandId', $id)->paginate(10);
+        $products = Product::where('brandId', $id)->paginate(10);
         if($brand == null){
             return view('admin.404.404');
         }
         return view('client.brand.detail')->with('brand',$brand)
-            ->with('product',$product);
+            ->with('products',$products);
 
     }
     /**
