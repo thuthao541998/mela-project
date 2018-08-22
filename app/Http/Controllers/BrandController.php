@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Brand;
 use App\Http\Requests\StoreBrandPost;
+use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use JD\Cloudder\Facades\Cloudder;
@@ -68,6 +69,16 @@ class BrandController extends Controller
             ->with('obj', $obj);
     }
 
+    public function detailBrand($id){
+        $brand = Brand::find($id);
+        $product = Product::where('brandId', $id)->paginate(10);
+        if($brand == null){
+            return view('admin.404.404');
+        }
+        return view('client.brand.detail')->with('brand',$brand)
+            ->with('product',$product);
+
+    }
     /**
      * Show the form for editing the specified resource.
      *
