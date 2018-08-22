@@ -1,0 +1,50 @@
+.product-main{
+    background-color: white;
+    box-shadow: 0 4px 4px #6E6E6E;
+    margin: 50px;
+    display: inline-block;
+    padding: 30px;
+}
+
+.btn
+{
+    border-radius: 0;
+}
+
+.colors
+{
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+}
+
+.color
+{
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+    height: 2em;
+    width: 2em;
+    border-radius: 0;
+}
+
+.color:first-of-type
+{
+    margin-left: 20px;
+}
+
+.black
+{
+    background: #000000;
+}
+
+.gray
+{
+    background: #808080;
+}
+
+.gold
+{
+    background: #D3AF37;
+}

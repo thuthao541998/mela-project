@@ -4,12 +4,14 @@
 {{-- $category = tên category của product --}}
 @extends('layouts.index')
 @section('content')
+    <link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light/all.min.css" />
+    <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Molengo' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="{{asset('js/rating.js')}}"></script>
+    <link rel="stylesheet" type="text/css" href="{{asset('css/product-detail.css')}}" />
     <div class="container">
-        <div class="row">
-            {{--<h1>{{$category}}</h1>--}}
-        </div>
-        <div class="row" style="display: inline-block; border: solid 1px #808080; padding: 15px">
-            <div class="col-md-6">
+        <div class="row product-main">
+            <div class="col-md-7">
                 <img class="img-fluid" alt="{{$obj->name}}" src="{{$obj->images}}" />
                 <br />
                 {{--Nếu có nhiều ảnh của sản phẩm thì nhét vào các dòng dưới--}}
@@ -28,18 +30,28 @@
                 {{--</div>--}}
                 {{--</div>--}}
             </div>
-            <div class="col-md-6">
-                <h2>{{$obj->name}}</h2>
+            <div class="col-md-5" style="padding: 20px;">
+                <div class="row" style="margin-top: 10px;">
+                    <div class="col-md-5">
+                        {{--<h5 class="text-xs-right">Current price: </h5>--}}
+                        <h3 style="font-size: 2em;"><span style="font-size: 0.5em;">VND </span><span style="font-weight: bold; font-family: 'Quicksand', sans-serif;">{{$obj->price}}</span></h3>
+                    </div>
+
+                    <h3 class="col-md-7" style="font-weight: bold; font-family: 'Molengo', sans-serif; font-size: 2em; -ms-text-align-last: right;text-align: right;">{{$obj->name}}</h3>
+                </div>
+
                 {{-- Đánh giá sản phẩm: 3/5 sao, 10 lượt đánh giá--}}
                 {{--<p>--}}
                 {{--<div id="rating1"></div>--}}
                 {{--(10 reviews)--}}
                 {{--</p>--}}
                 <br />
-                <p class="text-justify">{{$obj->overview}}</p>
+                <br />
+                <br />
+                <p class="text-justify" style="color: #999; font-style: italic;">{{$obj->overview}}</p>
+                <br />
                 <p class="text-justify">{{$obj->description}}</p>
                 <br>
-                <h4 class="text-xs-right">Current price: <span style="color: #197BB5; font-size: 35px;">VND {{$obj->price}}</span></h4>
                 {{-- 89% người dùng thích sản phẩm này!--}}
                 {{--<p class="text-xs-right"><strong>89%</strong> of buyers enjoyed this product! <strong>(107 votes)</strong></p>--}}
                 <br />
@@ -52,71 +64,10 @@
                 {{--<span class="color gold"></span>--}}
                 {{--</h4>--}}
                 <br />
-                <br />
-                <button type="button" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Add To Card</button>
+                <button type="button" class="btn btn-dark" style="background-color: black; color: whitesmoke;">{{--<i class="fa fa-shopping-cart"></i>--}} Add To Card</button>
                 {{-- Có thể có chức năng thích sản phẩm sau này --}}
-                <button type="button" class="btn btn-primary"><i class="fa fa-heart"></i></button>
+                <button type="button" class="btn btn-danger"><i class="fa fa-heart"></i></button>
             </div>
         </div>
     </div>
-
-    <!-- you need to include the shieldui css and js assets in order for the charts to work -->
-    <link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light/all.min.css" />
-    <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
-
-    <script type="text/javascript">
-        jQuery(function ($) {
-            $('#rating1').shieldRating({
-                max: 5,
-                step: 1,
-                value: 3,
-                markPreset: false
-            });
-        });
-    </script>
-
-    <style>
-        .btn
-        {
-            border-radius: 0;
-        }
-
-        .colors
-        {
-            -webkit-box-flex: 1;
-            -webkit-flex-grow: 1;
-            -ms-flex-positive: 1;
-            flex-grow: 1;
-        }
-
-        .color
-        {
-            display: inline-block;
-            vertical-align: middle;
-            margin-right: 10px;
-            height: 2em;
-            width: 2em;
-            border-radius: 0;
-        }
-
-        .color:first-of-type
-        {
-            margin-left: 20px;
-        }
-
-        .black
-        {
-            background: #000000;
-        }
-
-        .gray
-        {
-            background: #808080;
-        }
-
-        .gold
-        {
-            background: #D3AF37;
-        }
-    </style>
 @endsection
