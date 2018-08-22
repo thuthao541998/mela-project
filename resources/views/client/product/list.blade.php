@@ -1,12 +1,6 @@
 @extends('layouts.index')
 @section('content')
-
-    <section class="bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15"
-             style="background-image: url(http://www.lipsticknlinguine.com/wp-content/uploads/2018/07/Facetune_10-07-2018-21-43-07-633x391@2x.jpg);">
-        <h2 class="tit6 t-center">
-            List product
-        </h2>
-    </section>
+@section('page-topic','LIST PRODUCT')
     <div class="content">
         <!-- Main menu -->
         <div class="container-fluid row bg1-pattern">
@@ -49,6 +43,7 @@
                         <div class="row p-t-10 p-b-70">
                             <div class="col-md-10 col-lg-10 p-r-35 p-r-15-lg m-l-r-auto">
                                 @if(count($list_obj)>0)
+                                    <div class="product-title">PRODUCT LIST [{{count($list_obj)}}]</div>
                                     <div class="wrap-item-mainmenu p-b-22">
                                         @foreach($list_obj as $obj)
                                             <div class="blo3 flex-w flex-col-l-sm m-t-30 m-b-20">

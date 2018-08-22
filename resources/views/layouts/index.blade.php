@@ -226,7 +226,7 @@
                     <div class="wrap-btn-slide1 animated visible-false" data-appear="zoomIn">
                         <!-- Button1 -->
                         <a href="menu.html" class="btn1 flex-c-m size1 txt3 trans-0-4">
-                            Shop Now
+                            @yield('page-topic')
                         </a>
                     </div>
                 </div>
@@ -245,7 +245,7 @@
                     <div class="wrap-btn-slide1 animated visible-false" data-appear="slideInUp">
                         <!-- Button1 -->
                         <a href="menu.html" class="btn1 flex-c-m size1 txt3 trans-0-4">
-                            Shop Now
+                            @yield('page-topic')
                         </a>
                     </div>
                 </div>
@@ -264,7 +264,7 @@
                     <div class="wrap-btn-slide1 animated visible-false" data-appear="rotateIn">
                         <!-- Button1 -->
                         <a href="menu.html" class="btn1 flex-c-m size1 txt3 trans-0-4">
-                            Shop Now
+                            @yield('page-topic')
                         </a>
                     </div>
                 </div>

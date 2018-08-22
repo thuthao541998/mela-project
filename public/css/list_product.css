@@ -5595,3 +5595,7 @@ p.w3ls_para {
 .p-b-22{
     padding-right: 20%;
 }
+.product-title {
+    font-weight: bold;
+    letter-spacing: 2px;
+}
