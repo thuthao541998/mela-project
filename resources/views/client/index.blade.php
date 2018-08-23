@@ -150,7 +150,7 @@
 
                             <!-- Button2 -->
                             <a href="#" class="btn2 flex-c-m txt5 ab-c-m size4">
-                                Lunch
+                                Lacquer
                             </a>
                         </div>
                     </div>
@@ -162,7 +162,7 @@
 
                             <!-- Button2 -->
                             <a href="#" class="btn2 flex-c-m txt5 ab-c-m size5">
-                                Dinner
+                                Gloss
                             </a>
                         </div>
                     </div>
@@ -174,7 +174,7 @@
 
                             <!-- Button2 -->
                             <a href="#" class="btn2 flex-c-m txt5 ab-c-m size6">
-                                Happy Hour
+                               Stain
                             </a>
                         </div>
                     </div>
@@ -190,7 +190,7 @@
 
                             <!-- Button2 -->
                             <a href="#" class="btn2 flex-c-m txt5 ab-c-m size7">
-                                Drink
+                                Balm
                             </a>
                         </div>
                     </div>
@@ -202,7 +202,7 @@
 
                             <!-- Button2 -->
                             <a href="#" class="btn2 flex-c-m txt5 ab-c-m size8">
-                                Starters
+                                Sheer
                             </a>
                         </div>
                     </div>
@@ -214,7 +214,7 @@
 
                             <!-- Button2 -->
                             <a href="#" class="btn2 flex-c-m txt5 ab-c-m size9">
-                                Dessert
+                                Matte
                             </a>
                         </div>
                     </div>
