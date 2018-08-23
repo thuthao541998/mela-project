@@ -1,5 +1,6 @@
 @extends("layouts.index")
 @section('content')
+@section('page-topic','LIST ARTICLE')
     <meta charset="utf-8"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
@@ -13,37 +14,35 @@
     <link href='//theme.hstatic.net/1000246282/1000396748/14/responsive.css?v=36' rel='stylesheet' type='text/css'
           media='all'/>
     {{--font google--}}
+    <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Montserrat+Alternates:400italic' rel='stylesheet' type='text/css'>
     {{--read more css js--}}
     <link href="{{asset('css/list.css')}}" rel='stylesheet' type='text/css' />
     <link href="{{asset('css/readMore.css')}}" rel='stylesheet' type='text/css' />
     <script src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
-    <script src="{{asset('js/quick-edit.js')}}"></script>
-    <script src="{{asset('js/delete.js')}}"></script>
-    <script src="{{asset('js/checkAll.js')}}"></script>
     <script src="{{asset('js/readMore.js')}}"></script>
-    <script src="{{asset('js/product-filter.js')}}"></script>
 
+    <div class="text-center mt-5 fs-75" style="font-family: 'Lobster', cursive;">List Article</div>
     <div id="blog-template">
         <div class="container">
             <div class="row">
-                <div class="col-lg-9 col-md-9 col-sm-12">
+                <div class="col-lg-12 col-md-12 col-sm-12">
                     <ul class="blog-list-articles lists-articles " id="list-articles">
                         {{-- Bắt vòng lặp list_obj ở đây --}}
                         @foreach($list_obj as $item)
-                            <li class="clearfix">
-                                <div class="blog-item-image">
+                            <li class="clearfix ">
+                                <div class="blog-item-image col-lg-3">
                                     <a href="/article/{{$item->id}}">
-                                        <img src="{{$item->images}}" alt="{{$item->title}}" title="{{$item->title}}"/>
+                                        <div style="background-image:url('{{$item->images}}'); width:100% ; height: 140px;"></div>
                                     </a>
                                 </div>
-                                <div class="blog-item-title">
+                                <div class="blog-item-title ml-2">
                                     <a href="/article/{{$item->id}}" title="{{$item->title}}">
                                         <h2 style="font-weight: 600; font-family: 'Comfortaa', cursive;line-height:1.1; font-size: 1.5em;margin-bottom: 5px; text-transform: uppercase;">{{$item->title}}</h2>
                                     </a>
                                     <a href="#">
-                                        <h4 style="color: #5a6268; font-size: 0.8em; text-transform: capitalize;">{{$item->author}}</h4>
+                                        <h4 style="color: #5a6268; font-size: 0.8em; text-transform: capitalize;">By : {{$item->author}}</h4>
                                     </a>
                                     <p>
                                         {{-- Cần xử lí chuyển sang định dạng ngày-tháng-năm --}}
@@ -56,8 +55,8 @@
                             <hr/>
                         @endforeach
                     </ul>
-                    <div class="col-xs-12 clearfix loadmore">
-                        <a href="javascript:" class="btn-loading">Load more articles</a>
+                    <div class="pagination pull-right">
+                        {!! $list_obj->links() !!}
                     </div>
                 </div>
             </div>
