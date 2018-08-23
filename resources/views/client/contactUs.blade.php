@@ -1,107 +1,79 @@
 @extends("layouts.index")
 @section('content')
     <link href="{{asset('css/contactUs.css')}}" rel='stylesheet' type='text/css' />
-    <section>
-        <div class="container-map">
-            <div class="row-fluid">
-                <div class="middle">
-                    <div class="topic text-center">
-                        <p>MELA COSMETICS</p>
-                        <h1>CONTACT US</h1>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-6 col-sm-12 ift">
-                            <p class="text-justify">Trong trường hợp quý khách có bất kì thắc mắc hoặc đóng góp nào, xin vui lòng liên hệ với chúng tôi theo thông
-                                tin dưới đây. Chúng tôi sẽ phản hồi lại quý khách trong thời gian sớm nhất.</p>
-                            <p class="fzone">Fun Zone</p>
-                            <p>
-                                <span class="fa fa-map-marker"></span>&nbsp Địa chỉ: Đại học FPT - Tôn Thất Thuyết,Cầu Giấy, Hà Nội, Việt Nam</p>
-                            <p>
-                                <span class="fa fa-phone"></span>&nbsp Điện thoại: 123-456-789</p>
-                            <p>
-                                <span class="fa fa-fax"></span>&nbsp Fax: (84-236) 3749 889 | 882 </p>
-                            <p>
-                                <span class="fa fa-envelope"></span>&nbsp E-mail (kinh doanh): <a href="mailto:hoangnvd00536@fpt.edu.vn" target="_top">abc@fpt.edu.vn</a></p>
-                            <p>
-                                <span class="fa fa-tag"></span>&nbsp
-                                <a href="#">funzone.vn</a>
-                            </p>
+
+                    <section class="section-contact bg1-pattern p-b-113">
+                        <div class="topic text-center">
+                            <p>MELA COSMETICS</p>
+                            <h1>CONTACT US</h1>
                         </div>
-                        <div class="col-lg-6 col-sm-12 send-email">
-                        <h4 class="s-e-title">We are here assist you.</h4>
-                        <table class="container-fluid">
-                            <tr>
-                                <td>
-                                    <span class="fa fa-address-card"></span>
-                                </td>
-                                <td class="subject">Name</td>
-                                <td>
-                                    <input type="text" name="name" value="" class="fill name">
-                                    <p class="must mustname">Your Name</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span class="fa fa-map-marker"></span>&nbsp</td>
-                                <td class="subject">Address</td>
-                                <td>
-                                    <input type="text" name="address" value="" class="fill address">
-                                    <p class="must mustaddress">Your address</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span class="fa fa-phone"></span>&nbsp</td>
-                                <td class="subject">Phone Number</td>
-                                <td>
-                                    <input type="text" name="phone" value="" class="fill phone">
-                                    <p class="must mustphone">Your Phone Number</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span class="fa fa-envelope"></span>&nbsp</td>
-                                <td class="subject">Email</td>
-                                <td>
-                                    <input type="text" name="email" value="" class="fill email">
-                                    <p class="must mustemail">Your Email</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span class="fa fa-info"></span>&nbsp</td>
-                                <td class="subject">Title</td>
-                                <td>
-                                    <input type="text" name="title" value="" class="fill">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span class="fa fa-pencil-square-o"></span>&nbsp</td>
-                                <td class="subject"> Message</td>
-                                <td>
-                                    <div class="form-group">
-                                        <textarea class="form-control fillbig info" id="exampleTextarea" rows="3" name="content"></textarea>
+                        <!-- Map -->
+                        <div class="container">
+                            <div class="map bo8 bo-rad-10 of-hidden">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.1186727365266!2d105.78188298381623!3d21.027937099878503!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454b3aa600d69%3A0x11275455cd98079!2zVMO0biBUaOG6pXQgVGh1eeG6v3QsIEjDoCBO4buZaSwgVmlldG5hbQ!5e0!3m2!1sen!2s!4v1512029986933"
+                                        frameborder="0" style="border:0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+
+                        <div class="container">
+                            <h3 class="tit7 t-center p-b-62 p-t-105">
+                                Send us a Message
+                            </h3>
+
+                            <form class="wrap-form-reservation size22 m-l-r-auto">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <!-- Name -->
+                                        <span class="txt9">
+							Name
+						</span>
+
+                                        <div class="wrap-inputname size12 bo2 bo-rad-10 m-t-3 m-b-23">
+                                            <input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="name" placeholder="Name">
+                                        </div>
                                     </div>
-                                    <p class="must mustinfo">Your Message</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <button type="button" class="send btn btn-danger" id="submitBtn">Submit</button>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
+
+                                    <div class="col-md-4">
+                                        <!-- Email -->
+                                        <span class="txt9">
+							Email
+						</span>
+
+                                        <div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
+                                            <input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="email" placeholder="Email">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <!-- Phone -->
+                                        <span class="txt9">
+							Phone
+						</span>
+
+                                        <div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">
+                                            <input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="phone" placeholder="Phone">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <!-- Message -->
+                                        <span class="txt9">
+							Message
+						</span>
+                                        <textarea class="bo-rad-10 size35 bo2 txt10 p-l-20 p-t-15 m-b-10 m-t-3" name="message" placeholder="Message"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="wrap-btn-booking flex-c-m m-t-13">
+                                    <!-- Button3 -->
+                                    <button type="submit" class="btn3 flex-c-m size36 txt11 trans-0-4">
+                                        Submit
+                                    </button>
+                                </div>
+                            </form>
+
+                        </div>
         </div>
-        </div>
-        <div class="span8">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.1186727365266!2d105.78188298381623!3d21.027937099878503!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454b3aa600d69%3A0x11275455cd98079!2zVMO0biBUaOG6pXQgVGh1eeG6v3QsIEjDoCBO4buZaSwgVmlldG5hbQ!5e0!3m2!1sen!2s!4v1512029986933"
-                    frameborder="0" style="border:0" allowfullscreen></iframe>
         </div>
         <div class="bottom text-center">
             <p>VĂN PHÒNG ĐẠI DIỆN & KINH DOANH</p>
