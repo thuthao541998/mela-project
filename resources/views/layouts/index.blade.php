@@ -625,31 +625,35 @@
                                         class="close" title="Close Modal">&times;</span>
 
             <!-- Modal Content -->
-            <form class="modal-content modal-dialog animate" action="#">
-                <div class="imgcontainer">
-                    <img src="{{asset('images/icons/img_avatar2.jpg')}}" alt="Avatar" class="avatar">
+            <div class="modal-content" style="width: 50%; margin: auto;">
+                <div class="modal-header">
+                    <h3>Login</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                 </div>
-
-                <div>
-                    <label for="uname"><b>Username</b></label>
-                    <input type="text" placeholder="Enter Username" name="uname" required>
-
-                    <label for="psw"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="psw" required>
-
-                    <button type="submit">Login</button>
-                    <label>
-                        <input type="checkbox" checked="checked" name="remember"> Remember me
-                    </label>
+                <div class="modal-body">
+                    <form class="form" role="form" autocomplete="off" id="formLogin" novalidate="" method="POST">
+                        <div class="form-group">
+                            <a href="" class="float-right">New user?</a>
+                            <label for="uname1">Username</label>
+                            <input type="text" class="form-control form-control-lg" name="uname1" id="uname1" required="">
+                            <div class="invalid-feedback">Oops, you missed this one.</div>
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" class="form-control form-control-lg" id="pwd1" required="" autocomplete="new-password">
+                            <div class="invalid-feedback">Enter your password too!</div>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="rememberMe">
+                            <label class="custom-control-label" for="rememberMe">Remember me on this computer</label>
+                        </div>
+                        <div class="form-group py-4">
+                            <button class="btn btn-outline-secondary btn-lg" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                            <button type="submit" class="btn btn-success btn-lg float-right" id="btnLogin">Login</button>
+                        </div>
+                    </form>
                 </div>
-
-                <div style="background-color:#f1f1f1">
-                    <button type="button" onclick="document.getElementById('id01').style.display='none'"
-                            class="cancelbtn">Cancel
-                    </button>
-                    <span class="psw">Forgot <a href="#">password?</a></span>
-                </div>
-            </form>
+            </div>
         </div>
         <!--===============================================================================================-->
         <script type="text/javascript" src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
