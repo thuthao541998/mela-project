@@ -2831,6 +2831,7 @@ ul.dropdown-menu6 li a {
 .css-treeview ul,
 .css-treeview li
 {
+    line-height: 2;
     list-style: none;
 }
 
@@ -2848,6 +2849,7 @@ ul.dropdown-menu6 li a {
 }
 
 .css-treeview a {
+    font-weight: bold;
     color: #999;
     text-decoration: none;
 }
@@ -5599,3 +5601,17 @@ p.w3ls_para {
     font-weight: bold;
     letter-spacing: 2px;
 }
+.all-product {
+    color: #f05050;
+    text-align: center;
+    background: #f7f7f7;
+    padding: 17px 0;
+    font-size: 1.2em;
+    font-weight: 700;
+    border: 1px solid #d2d2d2;
+    border-bottom: 0px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    line-height: 1.7px;
+}
+
