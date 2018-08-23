@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('page-title', 'Edit Category - Admin Page')
 @section('content')
-    <link rel="stylesheet" href="{{asset('css/form.css')}}">
+    <link rel="stylesheet" href="{{asset('form')}}">
     <div class="row">
         <div class="col-lg-12">
             <section class="panel">

@@ -317,7 +317,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <span>Client Manager</span>
                         </a>
                         <ul class="sub">
-                            <!-- Có nên cho add client vào không? -->
+                            <!-- Có nên cho add form vào không? -->
                             <!-- <li><a href="#">Add Client</a></li> -->
                             <li><a href="/admin/client">List All Clients</a></li>
                         </ul>
