@@ -222,7 +222,7 @@
         }
 
         function _(e, t, n, r) {
-            return Math.max(t["offset" + e], t["scroll" + e], n["client" + e], n["offset" + e], n["scroll" + e], d(10) ? n["offset" + e] + r["margin" + ("Height" === e ? "Top" : "Left")] + r["margin" + ("Height" === e ? "Bottom" : "Right")] : 0)
+            return Math.max(t["offset" + e], t["scroll" + e], n["form" + e], n["offset" + e], n["scroll" + e], d(10) ? n["offset" + e] + r["margin" + ("Height" === e ? "Top" : "Left")] + r["margin" + ("Height" === e ? "Bottom" : "Right")] : 0)
         }
 
         function b() {
@@ -3170,7 +3170,7 @@
                         s = n || (!0 === i || !0 === o ? "margin" : "border");
                     return z(this, function (t, n, i) {
                         var o;
-                        return _(t) ? 0 === r.indexOf("outer") ? t["inner" + e] : t.document.documentElement["client" + e] : 9 === t.nodeType ? (o = t.documentElement, Math.max(t.body["scroll" + e], o["scroll" + e], t.body["offset" + e], o["offset" + e], o["client" + e])) : void 0 === i ? C.css(t, n, s) : C.style(t, n, i, s)
+                        return _(t) ? 0 === r.indexOf("outer") ? t["inner" + e] : t.document.documentElement["form" + e] : 9 === t.nodeType ? (o = t.documentElement, Math.max(t.body["scroll" + e], o["scroll" + e], t.body["offset" + e], o["offset" + e], o["form" + e])) : void 0 === i ? C.css(t, n, s) : C.style(t, n, i, s)
                     }, t, a ? i : void 0, a)
                 }
             })

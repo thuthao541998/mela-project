@@ -166,7 +166,7 @@
 		if (!$(elem).is('html,body'))
 			return elem[scroll] - $(elem)[Dim.toLowerCase()]();
 		
-		var size = 'client' + Dim,
+		var size = 'form' + Dim,
 			html = elem.ownerDocument.documentElement,
 			body = elem.ownerDocument.body;
 

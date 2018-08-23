@@ -67,7 +67,7 @@ class ProductController extends Controller
                 'brandID'=> $choosedBrandId
             ]) -> paginate($limit);
         }
-        return view('client.product.list')
+        return view('form.product.list')
             ->with('list_obj', $list_obj)
             ->with('brands',$brands)
             ->with('categories',$categories)
