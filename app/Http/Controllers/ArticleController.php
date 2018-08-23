@@ -76,6 +76,16 @@ class ArticleController extends Controller
             ->with('obj', $obj);
     }
 
+    public function showClient($id)
+    {
+        $obj = Article::find($id);
+        if ($obj == null) {
+            return view('admin.404.404');
+        }
+        return view('client.article.show')
+            ->with('obj', $obj);
+    }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -137,6 +147,12 @@ class ArticleController extends Controller
         return response('Deleted', 200);
     }
 
+    public function destroyMany()
+    {
+
+        Article::destroy(Input::get('ids'));
+        return Input::get('ids');
+    }
 
 
     public function showJson($id)
