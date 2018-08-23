@@ -69,6 +69,16 @@ class ArticleController extends Controller
             ->with('obj', $obj);
     }
 
+    public function showClient($id)
+    {
+        $obj = Article::find($id);
+        if ($obj == null) {
+            return view('admin.404.404');
+        }
+        return view('client.article.show')
+            ->with('obj', $obj);
+    }
+
 
     /**
      * Show the form for editing the specified resource.
