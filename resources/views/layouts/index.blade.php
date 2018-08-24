@@ -326,11 +326,11 @@
 
                             <div class="wrap-text-blo1 p-t-35">
                                 <a href="blog-detail.html"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
-                                        Best Places for Wine
+                                        Không chỉ là làm đẹp
                                     </h4></a>
 
                                 <p class="m-b-20">
-                                    Phasellus lorem enim, luctus ut velit eget, con-vallis egestas eros.
+                                    Với son môi của Mela shop thì không chỉ là son môi làm đẹp bình thường, mà còn là ...
                                 </p>
 
                                 <a href="blog-detail.html" class="txt4">
@@ -354,11 +354,11 @@
 
                             <div class="wrap-text-blo1 p-t-35">
                                 <a href="blog-detail.html"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
-                                        Eggs and Cheese
+                                        Bóng Tối
                                     </h4></a>
 
                                 <p class="m-b-20">
-                                    Duis elementum, risus sit amet lobortis nunc justo condimentum ligula, vitae feugiat
+                                    Son môi của Mela Shop luôn làm bạn nổi bật cho dù không đủ ảnh sáng, bởi ...
                                 </p>
 
                                 <a href="blog-detail.html" class="txt4">
@@ -382,11 +382,11 @@
 
                             <div class="wrap-text-blo1 p-t-35">
                                 <a href="blog-detail.html"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
-                                        Style the Wedding Party
+                                        Đời thường
                                     </h4></a>
 
                                 <p class="m-b-20">
-                                    Sed ornare ligula eget tortor tempor, quis porta tellus dictum.
+                                    Với Mela Shop thì khái niệm người mẫu dùng son môi mới đẹp, mà chỉ cần ...
                                 </p>
 
                                 <a href="blog-detail.html" class="txt4">
@@ -446,7 +446,7 @@
 
                             <li class="txt14 m-b-14">
                                 <i class="fa fa-envelope fs-13 dis-inline-block size19" aria-hidden="true"></i>
-                                contact@site.com
+                                Melashop@gmail.com
                             </li>
                         </ul>
 
@@ -477,7 +477,7 @@
                             <i class="fa fa-twitter" aria-hidden="true"></i>
                         </span>
                             <a href="#" class="txt15">
-                                @colorlib
+                                @mela
                             </a>
 
                             <p class="txt14 m-b-18">
@@ -498,7 +498,7 @@
                             <i class="fa fa-twitter" aria-hidden="true"></i>
                         </span>
                             <a href="#" class="txt15">
-                                @colorlib
+                                @mela
                             </a>
 
                             <p class="txt14 m-b-18">

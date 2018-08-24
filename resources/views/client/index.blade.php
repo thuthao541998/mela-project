@@ -16,12 +16,12 @@
                         </h3>
 
                         <p class="t-center m-b-22 size3 m-l-r-auto">
-                            Donec quis lorem nulla. Nunc eu odio mi. Morbi nec lobortis est. Sed fringilla, nunc sed
-                            imperdiet lacinia, nisl ante egestas mi, ac facilisis ligula sem id neque.
+                            Chào mừng bạn đến với hội thánh Mela Shop, hãy để shop cho bọn biết thế nào là sức mạnh cửa Son môi.
+                            Hãy để chúng tôi khai sáng cho bạn về "Thánh Son Môi".
                         </p>
 
                         <a href="about.html" class="txt4">
-                            Our Story
+                            Tìm Hiểu Thêm
                             <i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
                         </a>
                     </div>
@@ -61,15 +61,16 @@
 
                             <div class="wrap-text-blo1 p-t-35">
                                 <a href="#"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
-                                        Romantic Restaurant
+                                        Khai sáng suy nghĩ
                                     </h4></a>
 
                                 <p class="m-b-20">
-                                    Phasellus lorem enim, luctus ut velit eget, con-vallis egestas eros.
+                                    Bạn đã từng nghĩ là: "Son Môi thì chỉ là mỹ phẩm bôi lên Môi mà thôi ?!"
+                                    vậy thì bạn đã nhầm, hãy để Mela khai sáng cho bạn từ suy nghĩ nào
                                 </p>
 
                                 <a href="#" class="txt4">
-                                    Learn More
+                                    Tìm Hiểu
                                     <i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
                                 </a>
                             </div>
@@ -85,15 +86,16 @@
 
                             <div class="wrap-text-blo1 p-t-35">
                                 <a href="#"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
-                                        Delicious Food
+                                        Khai sáng trải nghiệm
                                     </h4></a>
 
                                 <p class="m-b-20">
-                                    Aliquam eget aliquam magna, quis posuere risus ac justo ipsum nibh urna
+                                    "Son Môi chỉ là Hóa Chất mà thôi ?!" bạn đã nghĩ sai rồi, Son Môi
+                                    có thể là trái cây, hoa, lá,...Hãy để Mela khai sáng cho bạn về trải nghiệm nào.
                                 </p>
 
                                 <a href="#" class="txt4">
-                                    Learn More
+                                    Tìm hiểu
                                     <i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
                                 </a>
                             </div>
@@ -109,15 +111,16 @@
 
                             <div class="wrap-text-blo1 p-t-35">
                                 <a href="#"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
-                                        Red Wines You Love
+                                        Khai sáng về nhận thức
                                     </h4></a>
 
                                 <p class="m-b-20">
-                                    Sed ornare ligula eget tortor tempor, quis porta tellus dictum.
+                                    "Chỉ có Son Môi đắt tiền thì mới tốt ?!" nếu suy nghĩ như vậy thì bạn đã nhầm.
+                                    Hãy để Mela khai sáng cho bạn về nhận thức nào.
                                 </p>
 
                                 <a href="#" class="txt4">
-                                    Learn More
+                                    Tìm Hiểu
                                     <i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
                                 </a>
                             </div>
@@ -196,12 +199,11 @@
                                 <!-- Text block2 -->
                                 <div class="wrap-text-blo2 flex-col-c-m p-l-40 p-r-40 p-t-45 p-b-30">
                                     <h4 class="tit7 t-center m-b-10">
-                                        Wines during specific nights
+                                        Son môi và bé
                                     </h4>
 
                                     <p class="t-center">
-                                        Donec quis lorem nulla. Nunc eu odio mi. Morbi nec lobortis est. Sed fringilla,
-                                        nunc sed imperdiet lacinia
+                                        Hãy cho bé yêu nhà bạn được vui chơi thỏa thích mà không sợ có hóa chất độc hại đối với bé
                                     </p>
 
                                     <div class="flex-sa-m flex-w w-full m-t-40">
@@ -247,7 +249,7 @@
                                     </div>
 
                                     <a href="#" class="txt4 m-t-40">
-                                        View Details
+                                        Tìm Hiểu
                                         <i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
                                     </a>
                                 </div>
@@ -287,12 +289,11 @@
                                 <!-- Text block2 -->
                                 <div class="wrap-text-blo2 flex-col-c-m p-l-40 p-r-40 p-t-45 p-b-30">
                                     <h4 class="tit7 t-center m-b-10">
-                                        Wines during specific nights
+                                        Sắc màu son môi
                                     </h4>
 
                                     <p class="t-center">
-                                        Donec quis lorem nulla. Nunc eu odio mi. Morbi nec lobortis est. Sed fringilla,
-                                        nunc sed imperdiet lacinia
+                                        Hãy đến tham gia cùng chúng tôi để biết thế giới son môi nó rộng lớn ra sao nào !!
                                     </p>
 
                                     <div class="flex-sa-m flex-w w-full m-t-40">
@@ -338,7 +339,7 @@
                                     </div>
 
                                     <a href="#" class="txt4 m-t-40">
-                                        View Details
+                                        Tìm Hiểu
                                         <i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
                                     </a>
                                 </div>
@@ -378,12 +379,11 @@
                                 <!-- Text block2 -->
                                 <div class="wrap-text-blo2 flex-col-c-m p-l-40 p-r-40 p-t-45 p-b-30">
                                     <h4 class="tit7 t-center m-b-10">
-                                        Wines during specific nights
-                                    </h4>
+                                        Ăn uống không còn là kẻ thù của Son Môi                                    </h4>
 
                                     <p class="t-center">
-                                        Donec quis lorem nulla. Nunc eu odio mi. Morbi nec lobortis est. Sed fringilla,
-                                        nunc sed imperdiet lacinia
+                                        Hãy cũng đến và tham gia bữa tiệc để khẳng định vấn đề ăn uống không còn là kẻ thù
+                                        của Son Môi nào !!
                                     </p>
 
                                     <div class="flex-sa-m flex-w w-full m-t-40">
@@ -470,8 +470,8 @@
 
                             <div class="content-review m-t-33 animated visible-false" data-appear="fadeInUp">
                                 <p class="t-center txt12 size15 m-l-r-auto">
-                                    “ We are lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tellus sem,
-                                    mattis in pre-tium nec, fermentum viverra dui ”
+                                    “ Tôi đã mua và sử dụng hàng ngày, son của Mela rất tốt, cho dù ăn uống thì son cũng rất khó để bay màu ,
+                                    nhất định sẽ mua tặng cho mẹ mình và chị em mình nữa !!”
                                 </p>
 
                                 <div class="star-review fs-18 color0 flex-c-m m-t-12">
@@ -484,7 +484,7 @@
 
                                 <div class="more-review txt4 t-center animated visible-false m-t-32"
                                      data-appear="fadeInUp">
-                                    Marie Simmons ˗ New York
+                                    Phương Anh ˗ Cổ Mộ
                                 </div>
                             </div>
                         </div>
@@ -501,8 +501,8 @@
 
                             <div class="content-review m-t-33 animated visible-false" data-appear="fadeInUp">
                                 <p class="t-center txt12 size15 m-l-r-auto">
-                                    “ We are lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tellus sem,
-                                    mattis in pre-tium nec, fermentum viverra dui ”
+                                    “ Không chỉ là son môi bình thường, nó giúp tôi tự tin hơn trong cuộc sống, nhất định mình sẽ giới thiệu hội thánh Mela
+                                     cho thật nhiều người nữa ”
                                 </p>
 
                                 <div class="star-review fs-18 color0 flex-c-m m-t-12">
@@ -515,7 +515,7 @@
 
                                 <div class="more-review txt4 t-center animated visible-false m-t-32"
                                      data-appear="fadeInUp">
-                                    Marie Simmons ˗ New York
+                                    Thảo Móm ˗ Nga My
                                 </div>
                             </div>
                         </div>
@@ -532,8 +532,8 @@
 
                             <div class="content-review m-t-33 animated visible-false" data-appear="fadeInUp">
                                 <p class="t-center txt12 size15 m-l-r-auto">
-                                    “ We are lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tellus sem,
-                                    mattis in pre-tium nec, fermentum viverra dui ”
+                                    “ Nhờ hội thánh Mela khai sáng, mà mình đã hiểu biết thêm rất nhiều về son môi, giúp mình luôn nổi bật
+                                     trong các cuộc trò chuyện về son môi với các đồng nghiệp”
                                 </p>
 
                                 <div class="star-review fs-18 color0 flex-c-m m-t-12">
@@ -546,7 +546,7 @@
 
                                 <div class="more-review txt4 t-center animated visible-false m-t-32"
                                      data-appear="fadeInUp">
-                                    Marie Simmons ˗ New York
+                                    Trà Hacker ˗ Côn Lôn
                                 </div>
                             </div>
                         </div>
