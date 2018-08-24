@@ -3858,10 +3858,3 @@ div#graph10, div#graph11 {
     }
 
 }
-.cate-img {
-    object-fit: cover; /* Do not scale the image */
-    object-position: center; /* Center the image within the element */
-    width: fit-content;
-    max-height: 250px;
-    margin-bottom: 1rem;
-}
