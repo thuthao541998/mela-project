@@ -15,11 +15,11 @@ class CartController extends Controller
         $id = Input::get('id');
         $quantity = Input::get('quantity');
         if ($id == null || $quantity == null) {
-            return view('error.404');// làm trang lỗi 400, bad request.
+            return view('admin.404.404');// làm trang lỗi 400, bad request.
         }
         $product = Product::find($id);
         if ($product == null || $product->status != 1) {
-            return view('error.404');
+            return view('admin.404.404');
         }
         // validate quantity.
         $cart = new Cart();
