@@ -59,7 +59,7 @@
                             </li>
 
                             <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Product
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Product</a>
                             </li>
 
                             <li>
@@ -112,7 +112,7 @@
             <a href="#"><i class="fab fa-line fa-2x" aria-hidden="true"></i></a>
         </li>
 
-        
+
         <li class="t-center m-b-13">
             <a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
         </li>
