@@ -1,5 +1,7 @@
 @extends("layouts.index")
 @section('content')
+@section('page-topic','CART')
+    
     <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Montserrat:300' rel='stylesheet' type='text/css'>
     <!--===============================================================================================-->
