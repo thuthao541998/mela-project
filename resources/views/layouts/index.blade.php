@@ -30,7 +30,7 @@
         <!--===============================================================================================-->
         <link rel="stylesheet" type="text/css" href="{{asset('css/lightbox.min.css')}}">
         <!--===============================================================================================-->
-        {{--<link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">--}}
+        <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
         <!--===============================================================================================-->
         <link rel="stylesheet" type="text/css" href="{{asset('css/util.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
