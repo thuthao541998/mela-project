@@ -8,4 +8,15 @@ class Product extends Model
 {
     protected $table = 'products';
     public $timestamps = true;
+
+    public function getBrand()
+    {
+        $brand = Brand::find($this->brandId);
+        return $brand->name;
+    }
+    public function getCategory()
+    {
+        $category = Category::find($this->categoryId);
+        return $category->name;
+    }
 }

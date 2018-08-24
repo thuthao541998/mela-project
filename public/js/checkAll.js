@@ -2,14 +2,15 @@ $('#check-all').click(function () {
     $('.check-item').prop('checked', $(this).is(':checked'));
 });
 $('#btn-apply-product').click(function () {
-    switch ($('#select-action').val()){
+    var value = ($('select[name="select-action"]').val());
+    switch (value){
         case '0':
             alert('Please choose an action before click "Apply".');
             break;
         case '1':
             var arrayId = [];
             $('.check-item:checked').each(function(index, item) {
-                arrayId.push(item.closest('.row').id.replace('row-item-', ''));
+                arrayId.push(parseInt(item.closest('.row').id.replace('row-item-', '')));
             });
             if(arrayId.length == 0){
                 alert('Please choose at least 1 item.');
@@ -17,13 +18,15 @@ $('#btn-apply-product').click(function () {
             }
             if (confirm('Are you sure want to delete these product?')) {
                 $.ajax({
-                    method: 'DELETE',
+                    method: 'POST',
                     url: '/admin/product/destroy-many',
                     data: {
+
                         '_token': $('meta[name="csrf-token"]').attr('content'),
                         'ids': arrayId
                     },
                     success: function (resp) {
+                        console.log(1);
                         $('#messageSuccess').text('Action success!');
                         $('#messageSuccess').removeClass('hidden');
                         for (var i = 0; i < arrayId.length; i++) {
@@ -32,10 +35,11 @@ $('#btn-apply-product').click(function () {
                         if($('.check-item').length == 0){
                             setTimeout(function(){
                                 window.location.reload(1);
-                            }, 3*1000);
+                            }, 2*1000);
                         }
                     },
-                    error: function () {
+                    error: function (r) {
+                        console.log(r);
                         $('#messageError').removeClass('hidden');
                         $('#messageError').text('Action fails! Please try again later!');
                     }
@@ -46,12 +50,13 @@ $('#btn-apply-product').click(function () {
             alert('Coming soon! Please try again later.');
             break;
         default:
-            alert('Invalid action.');
+            alert('Invalid action! Please try again');
             break;
     }
 })
 
 $('#btn-apply-article').click(function () {
+    alert($('#select-action').val());
     switch ($('#select-action').val()){
         case '0':
             alert('Please choose an action before click "Apply".');
@@ -67,13 +72,14 @@ $('#btn-apply-article').click(function () {
             }
             if (confirm('Are you sure want to delete these product?')) {
                 $.ajax({
-                    method: 'DELETE',
+                    method: 'POST',
                     url: '/admin/article/destroy-many',
                     data: {
                         '_token': $('meta[name="csrf-token"]').attr('content'),
                         'ids': arrayId
                     },
                     success: function (resp) {
+                        console.log(1);
                         $('#messageSuccess').text('Action success!');
                         $('#messageSuccess').removeClass('hidden');
                         for (var i = 0; i < arrayId.length; i++) {
@@ -102,6 +108,7 @@ $('#btn-apply-article').click(function () {
 });
 
 $('#btn-apply-category').click(function () {
+
     switch ($('#select-action').val()){
         case '0':
             alert('Please choose an action before click "Apply".');
@@ -117,7 +124,7 @@ $('#btn-apply-category').click(function () {
             }
             if (confirm('Are you sure want to delete these product?')) {
                 $.ajax({
-                    method: 'DELETE',
+                    method: 'POST',
                     url: '/admin/category/destroy-many',
                     data: {
                         '_token': $('meta[name="csrf-token"]').attr('content'),
@@ -167,7 +174,7 @@ $('#btn-apply-brand').click(function () {
             }
             if (confirm('Are you sure want to delete these product?')) {
                 $.ajax({
-                    method: 'DELETE',
+                    method: 'POST',
                     url: '/admin/brand/destroy-many',
                     data: {
                         '_token': $('meta[name="csrf-token"]').attr('content'),
