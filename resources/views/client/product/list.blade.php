@@ -59,8 +59,9 @@
                                                 <span class="txt22 m-t-10">
                                             {{$obj->price}}
                                             </span>
-                                                <button class="add-cart-large m-t-10"><i
-                                                            class="fas fa-cart-plus fa-2x"></i></button>
+                                                <a href="/cart?id={{$product->id}}&quantity=1"><button class="add-cart-large m-t-10"><i
+                                                                class="fas fa-cart-plus fa-2x"></i></button></a>
+
                                             </div>
                                         </div>
                                         <div class="line-item-mainmenu bg3-pattern"></div>
