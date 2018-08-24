@@ -52,3 +52,8 @@ Route::get('/product/{id}',"ProductController@show");
 Route::get('/cart',function (){
     return view('client.cart.cart');
 });
+
+
+Route::get('/test',function (){
+    return view('client.product.detail');
+});
