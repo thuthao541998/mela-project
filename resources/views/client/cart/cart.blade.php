@@ -1,7 +1,6 @@
 @extends("layouts.index")
 @section('content')
 @section('page-topic','CART')
-    
     <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Montserrat:300' rel='stylesheet' type='text/css'>
     <!--===============================================================================================-->
@@ -13,8 +12,9 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{asset('css/select2.min.css')}}">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{asset('css/cart.css')}}">
+
     <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/cart.css')}}">
     <div style="background-color: white;">
         <div class="container">
             <div class="row" style="margin: 50px;">
