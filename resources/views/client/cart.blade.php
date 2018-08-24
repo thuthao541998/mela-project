@@ -1,4 +1,4 @@
-@extends('layout.client-layout-v2')
+@extends('layouts.index')
 @section('content')
     <section class="bg1-pattern">
         <section class="bg-title-page p-t-40 p-b-50 flex-col-c-m" style="background-image: url('images/heading-pages-01.jpg');">
