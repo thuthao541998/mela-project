@@ -33,7 +33,9 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{asset('css/util.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/cart.css')}}">
     <!--===============================================================================================-->
+    <script type="text/javascript" src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
 </head>
 <body class="animsition">
 
@@ -59,27 +61,24 @@
                             </li>
 
                             <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Product
+                                <a href="/list-product">Product</a>
                             </li>
 
                             <li>
-                                <a href="gallery.html">Gallery</a>
+                                <a href="/list-article">Article</a>
                             </li>
 
                             <li>
-                                <a href="blog.html">Blog</a>
+                                <a href="/contact-us">Contact</a>
                             </li>
 
                             <li>
-                                <a href="reservation.html">Cart</a>
+                                <a href="/about-us">About</a>
                             </li>
 
                             <li>
-                                <a href="about.html">About</a>
-                            </li>
-
-                            <li>
-                                <a href="contact.html">Contact</a>
+                                <a href="/cart">Cart</a>
+                                <span class="header-icons-noti">0</span>
                             </li>
                             <li>
                                 <a href="#"><i class="fas fa-user-circle fa-2x" aria-hidden="true" ></i></a>
@@ -122,34 +121,25 @@
         </li>
 
         <li class="t-center m-b-13">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">PRODUCT
-                    <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">All </a></li>
-                    <li><a href="#">Category </a></li>
-                    <li><a href="#">Brand </a></li>
-                </ul>
+                <a href="/list-product">PRODUCT
+                </a>
         </li>
 
         <li class="t-center m-b-13">
-            <a href="gallery.html" class="txt19">Gallery</a>
+            <a href="/about-us" class="txt19">About</a>
         </li>
 
         <li class="t-center m-b-13">
-            <a href="about.html" class="txt19">About</a>
-        </li>
-
-        <li class="t-center m-b-13">
-            <a href="blog.html" class="txt19">Blog</a>
+            <a href="/list-article" class="txt19">Article</a>
         </li>
 
         <li class="t-center m-b-33">
-            <a href="contact.html" class="txt19">Contact</a>
+            <a href="/contact-us" class="txt19">Contact</a>
         </li>
 
         <li class="t-center">
             <!-- Button3 -->
-            <a href="reservation.html" class="btn3 flex-c-m size13 txt11 trans-0-4 m-l-r-auto">
+            <a href="/cart" class="btn3 flex-c-m size13 txt11 trans-0-4 m-l-r-auto">
                 Cart
             </a>
         </li>
@@ -577,7 +567,7 @@
 <div id="dropDownSelect1"></div>
 
 <!--===============================================================================================-->
-<script type="text/javascript" src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
+{{--<script type="text/javascript" src="{{asset('js/jquery-3.2.1.min.js')}}"></script>--}}
 <!--===============================================================================================-->
 <script type="text/javascript" src="{{asset('js/animsition.min.js')}}"></script>
 <!--===============================================================================================-->

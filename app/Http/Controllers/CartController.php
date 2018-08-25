@@ -43,6 +43,6 @@ class CartController extends Controller
         if (Session::has('cart')) {
             $cart = Session::get('cart');
         }
-        return view('client.cart')->with('cart', $cart);
+        return view('client.cart.cart')->with('cart', $cart);
     }
 }
