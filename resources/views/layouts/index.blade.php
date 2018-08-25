@@ -32,6 +32,7 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{asset('css/util.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/cart.css')}}">
     <!--===============================================================================================-->
     <script type="text/javascript" src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
 </head>
@@ -78,6 +79,7 @@
 
                             <li>
                                 <a href="reservation.html">Cart</a>
+                                <span class="header-icons-noti">0</span>
                             </li>
 
                             <li>

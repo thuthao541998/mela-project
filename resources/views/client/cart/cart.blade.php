@@ -3,18 +3,7 @@
 @section('page-topic','CART')
     <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Montserrat:300' rel='stylesheet' type='text/css'>
-    <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="{{asset('images/icons/favicon.png')}}"/>
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{asset('css/select2.min.css')}}">
-    <!--===============================================================================================-->
 
-    <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('css/cart.css')}}">
     <div style="background-color: white;">
         <div class="container">
             <div class="row" style="margin: 50px;">
@@ -45,7 +34,7 @@
                                 </td>
                                 <td class="column-2">Men Tshirt</td>
                                 <td class="column-3">$36.00</td>
-                                <td class="column-4">
+                                <td class="column-4 ml-2">
                                     <div class="flex-w bo5 of-hidden w-size17">
                                         <button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2">
                                             <i class="fs-12 fa fa-minus" aria-hidden="true"></i>
