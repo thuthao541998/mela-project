@@ -3,15 +3,15 @@
 @section('page-topic','CART')
     <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Montserrat:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="{{asset('css/cart.css')}}">
 
-    <div style="background-color: white;">
+<div style="background-color: white;">
         <div class="container">
             <div class="row" style="margin: 50px;">
                 <div class="col-sm-12 col-md-10 col-md-offset-1" style="margin-top: 20px;">
                     <h1 style="font-family: 'Lobster', cursive; text-align: center; font-size: 5em;">Shopping Cart</h1>
                 </div>
             </div>
-            </hr>
 
             <div class="container">
                 <!-- Cart item -->
@@ -32,8 +32,13 @@
                                         <img src="images/item-10.jpg" alt="IMG-PRODUCT">
                                     </div>
                                 </td>
+<<<<<<< HEAD
                                 <td class="column-2">{{$cart->$item->name}}</td>
                                 <td class="column-3">${{$cart->$item->price}}</td>
+=======
+                                <td class="column-2">Men Tshirt</td>
+                                <td class="column-3">$36.00</td>
+>>>>>>> 443c8e82a8eb4ac4e8994a4d3f1f81cceb5418d4
                                 <td class="column-4 ml-2">
                                     <div class="flex-w bo5 of-hidden w-size17">
                                         <button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2">
@@ -49,7 +54,11 @@
                                 </td>
                                 <td class="column-5">$36.00</td>
                             </tr>
+<<<<<<< HEAD
                             
+=======
+
+>>>>>>> 443c8e82a8eb4ac4e8994a4d3f1f81cceb5418d4
                             </tbody></table>
                     </div>
                 </div>
