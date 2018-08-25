@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Home</title>
+    <title>@yield('page-topic')</title>
     <meta charset="UTF-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
     <link rel="icon" type="image/png" href="{{asset('images/icons/favicon.png')}}"/>
@@ -59,12 +60,6 @@
 
                             <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Product
-                                    <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">All </a></li>
-                                    <li><a href="#">Category </a></li>
-                                    <li><a href="#">Brand </a></li>
-                                </ul>
                             </li>
 
                             <li>
@@ -212,7 +207,7 @@
 <section class="section-slide">
     <div class="wrap-slick1">
         <div class="slick1">
-            <div class="item-slick1 item1-slick1" style="background-image:url( {{asset('images/slide1-01.jpg')}});">
+            <div class="item-slick1 item1-slick1 bg-1" style="background-image:url({{asset('images/master-slides-01.jpg')}});">
                 <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
                         <span class="caption1-slide1 txt1 t-center animated visible-false m-b-15" data-appear="fadeInDown">
                             Welcome to
@@ -225,13 +220,13 @@
                     <div class="wrap-btn-slide1 animated visible-false" data-appear="zoomIn">
                         <!-- Button1 -->
                         <a href="menu.html" class="btn1 flex-c-m size1 txt3 trans-0-4">
-                            Look Product
+                            @yield('page-topic')
                         </a>
                     </div>
                 </div>
             </div>
 
-            <div class="item-slick1 item2-slick1" style="background-image: url({{asset('images/master-slides-02.jpg')}});">
+            <div class="item-slick1 item2-slick1 bg-2" style="background-image: url({{asset('images/master-slides-02.jpg')}});">
                 <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
                         <span class="caption1-slide1 txt1 t-center animated visible-false m-b-15" data-appear="rollIn">
                             Welcome to
@@ -244,13 +239,13 @@
                     <div class="wrap-btn-slide1 animated visible-false" data-appear="slideInUp">
                         <!-- Button1 -->
                         <a href="menu.html" class="btn1 flex-c-m size1 txt3 trans-0-4">
-                            Look Product
+                            @yield('page-topic')
                         </a>
                     </div>
                 </div>
             </div>
 
-            <div class="item-slick1 item3-slick1" style="background-image: url({{asset('images/master-slides-01.jpg')}});">
+            <div class="item-slick1 item3-slick1 bg-3" style="background-image: url({{asset('images/master-slides-01.jpg')}});">
                 <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
                         <span class="caption1-slide1 txt1 t-center animated visible-false m-b-15" data-appear="rotateInDownLeft">
                             Welcome to
@@ -263,7 +258,7 @@
                     <div class="wrap-btn-slide1 animated visible-false" data-appear="rotateIn">
                         <!-- Button1 -->
                         <a href="menu.html" class="btn1 flex-c-m size1 txt3 trans-0-4">
-                            Look Product
+                            @yield('page-topic')
                         </a>
                     </div>
                 </div>

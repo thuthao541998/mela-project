@@ -67,7 +67,7 @@ class ProductController extends Controller
                 'brandID'=> $choosedBrandId
             ]) -> paginate($limit);
         }
-        return view('client.product')
+        return view('client.product.list')
             ->with('list_obj', $list_obj)
             ->with('brands',$brands)
             ->with('categories',$categories)
@@ -146,7 +146,7 @@ class ProductController extends Controller
         $choosedBrandId = $obj->brandId;
         $choosedCategoryId = $obj->categoryId;
         if ($obj == null) {
-            return view('404');
+            return view('admin.404.404');
         }
         return view('admin.product.edit')
             ->with('obj', $obj)
@@ -169,7 +169,7 @@ class ProductController extends Controller
         $request->validated();
         $obj = Product::find($id);
         if ($obj == null) {
-            return view('404');
+            return view('admin.404.404');
         }
         $obj->name = Input::get('name');
         $obj->price = Input::get('price');
@@ -203,6 +203,7 @@ class ProductController extends Controller
     }
     public function destroyMany()
     {
+
         Product::destroy(Input::get('ids'));
         return Input::get('ids');
     }

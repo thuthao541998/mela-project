@@ -9,10 +9,10 @@
                 <div class="panel-heading">
                     List Product
                 </div>
-                <div class="alert alert-success hidden mt-2" role="alert" id="messageSuccess"></div>
-                <div class="alert alert-danger hidden mt-2" role="alert" id="messageError"></div>
+                <div class="alert alert-success hidden mt-2 ml-2 mr-2" role="alert" id="messageSuccess"></div>
+                <div class="alert alert-danger hidden mt-2 ml-2 mr-2" role="alert" id="messageError"></div>
                 <div>
-                    <div class="filter-btn col-md-8 form-inline" action="/admin/product" method="GET">
+                    <div class="filter-btn form-inline" action="/admin/product" method="GET">
                         <div class="form-group mx-sm-4 mb-3">
                             <label for="chooseCategory">Category</label>
                             <select id="select-action" name="categoryId" class="form-control">
@@ -33,6 +33,7 @@
                         </div>
                     </div>
                 </div>
+                @if(count($list_obj)>0)
                 <div>
                     <table class="table table-light pl-4 float-lg-none">
                         <thead>
@@ -86,7 +87,7 @@
                         <div class="col-md-12 form-inline">
                             <div class="form-check ml-2">
                                 <input class="form-check-input" type="checkbox" value="" id="check-all">
-                                <select id="select-action" class="form-control">
+                                <select class="form-control" id="select-action" name="select-action">
                                     <option selected value="0">Action</option>
                                     <option value="1">Delete All</option>
                                     <option value="2">Another Action</option>
@@ -99,6 +100,11 @@
                         {!! $list_obj->links() !!}
                     </div>
                 </div>
+                @else
+                    <div class="alert alert-secondary" role="alert">
+                       <h6>Have no product, click <a href="/admin/product/create">here</a> to create new.</h6>
+                    </div>
+                @endif
             </div>
         </section>
     </section>
