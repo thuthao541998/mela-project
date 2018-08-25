@@ -17,6 +17,7 @@ Route::get('/',function (){
 
 Route::get('/admin', 'ProductController@index');
 
+// ROUTE ADMIN
 Route::resource('admin/product','ProductController');
 
 Route::resource('admin/order','OrderController');
@@ -29,10 +30,10 @@ Route::resource('admin/category', 'CategoryController');
 
 Route::resource('admin/brand','BrandController');
 
-Route::delete("/admin/product/destroy-many", "ProductController@destroyMany");
-Route::delete("/admin/category/destroy-many", "CategoryController@destroyMany");
-Route::delete("/admin/article/destroy-many", "ProductController@destroyMany");
-Route::delete("/admin/brand/destroy-many", "CategoryController@destroyMany");
+Route::post("admin/product/destroy-many",'ProductController@destroyMany');
+Route::post("admin/category/destroy-many", "CategoryController@destroyMany");
+Route::post("admin/article/destroy-many", "ArticleController@destroyMany");
+Route::post("admin/brand/destroy-many", "CategoryController@destroyMany");
 
 Route::get('admin/404',function (){
     return view('admin.404.404');
@@ -44,8 +45,6 @@ Route::put("/admin/article/update-json/{id}", "ArticleController@quickUpdate");
 Route::get("/admin/product/get-json/{id}", "ProductController@showJson");
 Route::put("/admin/product/update-json/{id}", "ProductController@quickUpdate");
 
-
-// Route client
 Route::get('/list-product',"ProductController@indexClient");
 Route::get('/product/{id}',"ProductController@show");
 
@@ -53,7 +52,19 @@ Route::get('/cart',function (){
     return view('client.cart.cart');
 });
 
-
 Route::get('/test',function (){
     return view('client.product.detail');
 });
+
+
+Route::get('/about-us',function (){
+    return view('client.aboutUs');
+});
+
+Route::get('/contact-us',function (){
+    return view('client.contactUs');
+});
+
+Route::get('/list-article', "ArticleController@indexClient");
+Route::get('/article/{id}', 'ArticleController@showClient');
+
