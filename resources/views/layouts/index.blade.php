@@ -33,6 +33,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/util.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
     <!--===============================================================================================-->
+    <script type="text/javascript" src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
 </head>
 <body class="animsition">
 
@@ -582,7 +583,7 @@
 <div id="dropDownSelect1"></div>
 
 <!--===============================================================================================-->
-<script type="text/javascript" src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
+{{--<script type="text/javascript" src="{{asset('js/jquery-3.2.1.min.js')}}"></script>--}}
 <!--===============================================================================================-->
 <script type="text/javascript" src="{{asset('js/animsition.min.js')}}"></script>
 <!--===============================================================================================-->
