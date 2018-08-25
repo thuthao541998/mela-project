@@ -1624,15 +1624,3 @@ body {padding-right: 0px !important;}
   border-radius: 10px;
   background-color: #ec1d25;
 }
-html, body {
-   background: url(../images/bg.jpg) no-repeat 0px 0px;
-   background-size: cover;
- }
-.cate-img {
-  object-fit: cover; /* Do not scale the image */
-  object-position: center; /* Center the image within the element */
-  width: fit-content;
-  max-height: 250px;
-  margin-bottom: 1rem;
-}
-

@@ -11,7 +11,9 @@
 |
 */
 
-Route::get('/','CategoryController@indexClient');
+Route::get('/',function (){
+    return view('client.index');
+});
 
 Route::get('/admin', 'ProductController@index');
 
