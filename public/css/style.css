@@ -3174,24 +3174,3 @@ div#graph1, div#graph4, div#graph5, div#graph6, div#graph7, div#graph8, div#grap
         padding: 0;
     }
 }
-span.header-icons-noti {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background-color: #bd3112;
-    color: #fff;
-    font-family: Montserrat-Medium;
-    font-size: 12px;
-    position: absolute;
-    top: 25px;
-}
-.cate-img {
-    object-fit: cover; /* Do not scale the image */
-    object-position: center; /* Center the image within the element */
-    width: fit-content;
-    max-height: 250px;
-    margin-bottom: 1rem;
-}
