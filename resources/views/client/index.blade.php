@@ -567,7 +567,7 @@
             <div class="btn-play ab-center size16 hov-pointer m-l-r-auto m-t-43 m-b-33" data-toggle="modal"
                  data-target="#modal-video-01">
                 <div class="flex-c-m sizefull bo-cir bgwhite color1 hov1 trans-0-4">
-                    <i class="fa fa-play fs-18 m-l-2" aria-hidden="true"></i>
+                    <i data-video="https://www.youtube.com/embed/HBdcL7YsdBY" class="fa fa-play fs-18 m-l-2" aria-hidden="true"></i>
                 </div>
             </div>
         </div>
