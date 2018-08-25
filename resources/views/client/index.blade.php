@@ -1,6 +1,7 @@
 @extends("layouts.index")
 @section('content')
 @section('page-topic','MELA')
+
     <!-- Welcome -->
     <section class="section-welcome bg1-pattern p-t-120 p-b-105">
         <div class="container">
