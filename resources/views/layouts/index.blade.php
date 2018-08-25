@@ -326,11 +326,11 @@
 
                             <div class="wrap-text-blo1 p-t-35">
                                 <a href="blog-detail.html"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
-                                        Không chỉ là làm đẹp
+                                        Not only is beauty
                                     </h4></a>
 
                                 <p class="m-b-20">
-                                    Với son môi của Mela shop thì không chỉ là son môi làm đẹp bình thường, mà còn là ...
+                                    Mela shop with lipstick is not just a normal lipstick beauty, but also ...
                                 </p>
 
                                 <a href="blog-detail.html" class="txt4">
@@ -354,11 +354,11 @@
 
                             <div class="wrap-text-blo1 p-t-35">
                                 <a href="blog-detail.html"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
-                                        Bóng Tối
+                                        Darkness
                                     </h4></a>
 
                                 <p class="m-b-20">
-                                    Son môi của Mela Shop luôn làm bạn nổi bật cho dù không đủ ảnh sáng, bởi ...
+                                    Mela lipstick always makes you stand out Shop though not enough light, by ...
                                 </p>
 
                                 <a href="blog-detail.html" class="txt4">
@@ -382,11 +382,11 @@
 
                             <div class="wrap-text-blo1 p-t-35">
                                 <a href="blog-detail.html"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
-                                        Đời thường
+                                        Daily life
                                     </h4></a>
 
                                 <p class="m-b-20">
-                                    Với Mela Shop thì khái niệm người mẫu dùng son môi mới đẹp, mà chỉ cần ...
+                                    Mela Shop with the concept new lipstick model nice, but just ...
                                 </p>
 
                                 <a href="blog-detail.html" class="txt4">

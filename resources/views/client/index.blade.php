@@ -16,12 +16,11 @@
                         </h3>
 
                         <p class="t-center m-b-22 size3 m-l-r-auto">
-                            Chào mừng bạn đến với hội thánh Mela Shop, hãy để shop cho bọn biết thế nào là sức mạnh cửa Son môi.
-                            Hãy để chúng tôi khai sáng cho bạn về "Thánh Son Môi".
+                            Welcome to Mela Shop, let shop tell you what is the power of Lipstick. Let us enlighten you on "Saint Lipstick"
                         </p>
 
                         <a href="about.html" class="txt4">
-                            Tìm Hiểu Thêm
+                            Learn more
                             <i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
                         </a>
                     </div>
@@ -61,16 +60,15 @@
 
                             <div class="wrap-text-blo1 p-t-35">
                                 <a href="#"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
-                                        Khai sáng suy nghĩ
+                                        Enlightenment thinking
                                     </h4></a>
 
                                 <p class="m-b-20">
-                                    Bạn đã từng nghĩ là: "Son Môi thì chỉ là mỹ phẩm bôi lên Môi mà thôi ?!"
-                                    vậy thì bạn đã nhầm, hãy để Mela khai sáng cho bạn từ suy nghĩ nào
+                                    Have you ever thought: "Lipstick is just cosmetics applied to the lips alone?" So, you're wrong, let Mela enlighten you from thoughts
                                 </p>
 
                                 <a href="#" class="txt4">
-                                    Tìm Hiểu
+                                    Learn more
                                     <i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
                                 </a>
                             </div>
@@ -86,16 +84,15 @@
 
                             <div class="wrap-text-blo1 p-t-35">
                                 <a href="#"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
-                                        Khai sáng trải nghiệm
+                                        Enlightening experience
                                     </h4></a>
 
                                 <p class="m-b-20">
-                                    "Son Môi chỉ là Hóa Chất mà thôi ?!" bạn đã nghĩ sai rồi, Son Môi
-                                    có thể là trái cây, hoa, lá,...Hãy để Mela khai sáng cho bạn về trải nghiệm nào.
+                                    "Lipstick just Chemical alone?" You have thought wrong, Lipstick can be fruit, flowers, leaves, ... Let Mela enlighten you about the experience.
                                 </p>
 
                                 <a href="#" class="txt4">
-                                    Tìm hiểu
+                                    Learn more
                                     <i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
                                 </a>
                             </div>
@@ -111,16 +108,15 @@
 
                             <div class="wrap-text-blo1 p-t-35">
                                 <a href="#"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
-                                        Khai sáng về nhận thức
+                                        Enlightened awareness
                                     </h4></a>
 
                                 <p class="m-b-20">
-                                    "Chỉ có Son Môi đắt tiền thì mới tốt ?!" nếu suy nghĩ như vậy thì bạn đã nhầm.
-                                    Hãy để Mela khai sáng cho bạn về nhận thức nào.
+                                    "Only expensive lipstick is good!" if think so, you're wrong. Let Mela enlighten you about public perception.
                                 </p>
 
                                 <a href="#" class="txt4">
-                                    Tìm Hiểu
+                                    Learn more
                                     <i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
                                 </a>
                             </div>
@@ -199,11 +195,11 @@
                                 <!-- Text block2 -->
                                 <div class="wrap-text-blo2 flex-col-c-m p-l-40 p-r-40 p-t-45 p-b-30">
                                     <h4 class="tit7 t-center m-b-10">
-                                        Son môi và bé
+                                        Lipstick and baby
                                     </h4>
 
                                     <p class="t-center">
-                                        Hãy cho bé yêu nhà bạn được vui chơi thỏa thích mà không sợ có hóa chất độc hại đối với bé
+                                        Let your baby love to enjoy your home without fear of toxic chemicals to the baby
                                     </p>
 
                                     <div class="flex-sa-m flex-w w-full m-t-40">
@@ -249,7 +245,7 @@
                                     </div>
 
                                     <a href="#" class="txt4 m-t-40">
-                                        Tìm Hiểu
+                                        Learn more
                                         <i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
                                     </a>
                                 </div>
@@ -289,11 +285,11 @@
                                 <!-- Text block2 -->
                                 <div class="wrap-text-blo2 flex-col-c-m p-l-40 p-r-40 p-t-45 p-b-30">
                                     <h4 class="tit7 t-center m-b-10">
-                                        Sắc màu son môi
+                                        Lipstick colors
                                     </h4>
 
                                     <p class="t-center">
-                                        Hãy đến tham gia cùng chúng tôi để biết thế giới son môi nó rộng lớn ra sao nào !!
+                                        Come join us to know how big the lipstick it is !!
                                     </p>
 
                                     <div class="flex-sa-m flex-w w-full m-t-40">
@@ -339,7 +335,7 @@
                                     </div>
 
                                     <a href="#" class="txt4 m-t-40">
-                                        Tìm Hiểu
+                                        Learn more
                                         <i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
                                     </a>
                                 </div>
@@ -379,11 +375,10 @@
                                 <!-- Text block2 -->
                                 <div class="wrap-text-blo2 flex-col-c-m p-l-40 p-r-40 p-t-45 p-b-30">
                                     <h4 class="tit7 t-center m-b-10">
-                                        Ăn uống không còn là kẻ thù của Son Môi                                    </h4>
+                                        Eating is no longer the enemy of Lipstick                                    </h4>
 
                                     <p class="t-center">
-                                        Hãy cũng đến và tham gia bữa tiệc để khẳng định vấn đề ăn uống không còn là kẻ thù
-                                        của Son Môi nào !!
+                                        Come and join the party to confirm that eating is no longer an enemy of Lipstick!
                                     </p>
 
                                     <div class="flex-sa-m flex-w w-full m-t-40">
@@ -470,8 +465,7 @@
 
                             <div class="content-review m-t-33 animated visible-false" data-appear="fadeInUp">
                                 <p class="t-center txt12 size15 m-l-r-auto">
-                                    “ Tôi đã mua và sử dụng hàng ngày, son của Mela rất tốt, cho dù ăn uống thì son cũng rất khó để bay màu ,
-                                    nhất định sẽ mua tặng cho mẹ mình và chị em mình nữa !!”
+                                    "I buy and use everyday, son of Mela very good, even eating the lipstick color is very difficult to fly, will definitely buy gifts for his mother and his sister anymore !!"
                                 </p>
 
                                 <div class="star-review fs-18 color0 flex-c-m m-t-12">
@@ -484,7 +478,7 @@
 
                                 <div class="more-review txt4 t-center animated visible-false m-t-32"
                                      data-appear="fadeInUp">
-                                    Phương Anh ˗ Cổ Mộ
+                                    Phuong Anh ˗ Co Mo
                                 </div>
                             </div>
                         </div>
@@ -501,8 +495,7 @@
 
                             <div class="content-review m-t-33 animated visible-false" data-appear="fadeInUp">
                                 <p class="t-center txt12 size15 m-l-r-auto">
-                                    “ Không chỉ là son môi bình thường, nó giúp tôi tự tin hơn trong cuộc sống, nhất định mình sẽ giới thiệu hội thánh Mela
-                                     cho thật nhiều người nữa ”
+                                    "Not just the usual lipstick, it helped me feel more confident in life, I will introduce certain church for so many more people Mela"
                                 </p>
 
                                 <div class="star-review fs-18 color0 flex-c-m m-t-12">
@@ -515,7 +508,7 @@
 
                                 <div class="more-review txt4 t-center animated visible-false m-t-32"
                                      data-appear="fadeInUp">
-                                    Thảo Móm ˗ Nga My
+                                    Thao Mom ˗ Nga My
                                 </div>
                             </div>
                         </div>
@@ -532,8 +525,7 @@
 
                             <div class="content-review m-t-33 animated visible-false" data-appear="fadeInUp">
                                 <p class="t-center txt12 size15 m-l-r-auto">
-                                    “ Nhờ hội thánh Mela khai sáng, mà mình đã hiểu biết thêm rất nhiều về son môi, giúp mình luôn nổi bật
-                                     trong các cuộc trò chuyện về son môi với các đồng nghiệp”
+                                    "Thanks to the enlightened church Mela, they have far more knowledge about lipstick, help yourself stand out in conversations about lipstick with colleagues"
                                 </p>
 
                                 <div class="star-review fs-18 color0 flex-c-m m-t-12">
@@ -546,7 +538,7 @@
 
                                 <div class="more-review txt4 t-center animated visible-false m-t-32"
                                      data-appear="fadeInUp">
-                                    Trà Hacker ˗ Côn Lôn
+                                    Tra Hacker ˗ Thieu Lam
                                 </div>
                             </div>
                         </div>
