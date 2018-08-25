@@ -11579,7 +11579,7 @@ li.sale-noti > a {
     padding-top: 10px;
     padding-bottom: 10px;
     background-color: #fff;
-    display: none
+    /*display: none*/
 }
 
 .logo-mobile {
