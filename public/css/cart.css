@@ -11413,21 +11413,6 @@ li.sale-noti > a {
     cursor: pointer
 }
 
-.header-icons-noti {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background-color: #111;
-    color: #fff;
-    font-family: Montserrat-Medium;
-    font-size: 12px;
-    position: absolute;
-    top: 0;
-    right: -10px
-}
 
 .linedivide1 {
     display: block;

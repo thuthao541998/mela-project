@@ -33,7 +33,6 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{asset('css/util.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('css/cart.css')}}">
     <!--===============================================================================================-->
     <script type="text/javascript" src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
 </head>
@@ -75,13 +74,10 @@
                             <li>
                                 <a href="/about-us">About</a>
                             </li>
-
-                            <li>
-                                <a href="/cart">Cart</a>
-                                <span class="header-icons-noti">0</span>
-                            </li>
                             <li>
                                 <a href="#"><i class="fas fa-user-circle fa-2x" aria-hidden="true" ></i></a>
+
+
                             </li>
                         </ul>
                     </nav>
@@ -90,6 +86,10 @@
                 <!-- Social -->
                 <div class="social flex-w flex-l-m p-r-20">
                     <button class="btn-show-sidebar m-l-33 trans-0-4"></button>
+                    <span class="p-l-30">
+                        <a href="/cart" class="fa fa-shopping-cart fa-2x"></a>
+                        <span class="header-icons-noti m-l-30">0</span>
+                    </span>
                 </div>
             </div>
         </div>
@@ -111,7 +111,7 @@
             <a href="#"><i class="fab fa-line fa-2x" aria-hidden="true"></i></a>
         </li>
 
-        
+
         <li class="t-center m-b-13">
             <a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
         </li>
