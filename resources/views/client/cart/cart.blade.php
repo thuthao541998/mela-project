@@ -32,13 +32,9 @@
                                         <img src="images/item-10.jpg" alt="IMG-PRODUCT">
                                     </div>
                                 </td>
-<<<<<<< HEAD
                                 <td class="column-2">{{$cart->$item->name}}</td>
                                 <td class="column-3">${{$cart->$item->price}}</td>
-=======
-                                <td class="column-2">Men Tshirt</td>
-                                <td class="column-3">$36.00</td>
->>>>>>> 443c8e82a8eb4ac4e8994a4d3f1f81cceb5418d4
+
                                 <td class="column-4 ml-2">
                                     <div class="flex-w bo5 of-hidden w-size17">
                                         <button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2">
@@ -54,12 +50,8 @@
                                 </td>
                                 <td class="column-5">$36.00</td>
                             </tr>
-<<<<<<< HEAD
-                            
-=======
-
->>>>>>> 443c8e82a8eb4ac4e8994a4d3f1f81cceb5418d4
-                            </tbody></table>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
 
