@@ -82,7 +82,7 @@ class ArticleController extends Controller
         if ($obj == null) {
             return view('admin.404.404');
         }
-        return view('client.article.show')
+        return view('client.article.detail')
             ->with('obj', $obj);
     }
 
