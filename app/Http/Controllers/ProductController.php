@@ -67,7 +67,7 @@ class ProductController extends Controller
                 'brandID'=> $choosedBrandId
             ]) -> paginate($limit);
         }
-        return view('client.product')
+        return view('client.product.list')
             ->with('list_obj', $list_obj)
             ->with('brands',$brands)
             ->with('categories',$categories)
@@ -128,7 +128,7 @@ class ProductController extends Controller
         if ($obj == null) {
             return view('404');
         }
-        return view('admin.product.show')
+        return view('client.product.detail')
             ->with('obj', $obj);
     }
 
