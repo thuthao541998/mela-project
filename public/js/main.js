@@ -192,6 +192,42 @@
         });
     });
 
-    
+    /*[ Show menu mobile ]
+    ===========================================================*/
+    $('.btn-show-menu-mobile').on('click', function(){
+        $(this).toggleClass('is-active');
+        $('.wrap-side-menu').slideToggle();
+    });
+
+    var arrowMainMenu = $('.arrow-main-menu');
+
+    for(var i=0; i<arrowMainMenu.length; i++){
+        $(arrowMainMenu[i]).on('click', function(){
+            $(this).parent().find('.sub-menu').slideToggle();
+            $(this).toggleClass('turn-arrow');
+        })
+    }
+
+    $(window).resize(function(){
+        if($(window).width() >= 992){
+            if($('.wrap-side-menu').css('display') == 'block'){
+                $('.wrap-side-menu').css('display','none');
+                $('.btn-show-menu-mobile').toggleClass('is-active');
+            }
+            if($('.sub-menu').css('display') == 'block'){
+                $('.sub-menu').css('display','none');
+                $('.arrow-main-menu').removeClass('turn-arrow');
+            }
+        }
+    });
+
+
+    /*[ remove top noti ]
+    ===========================================================*/
+    $('.btn-romove-top-noti').on('click', function(){
+        $(this).parent().remove();
+    })
+
+
 
 })(jQuery);
