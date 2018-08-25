@@ -128,7 +128,7 @@ class ProductController extends Controller
         if ($obj == null) {
             return view('404');
         }
-        return view('admin.product.show')
+        return view('client.product.detail')
             ->with('obj', $obj);
     }
 

@@ -33,7 +33,9 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{asset('css/util.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/cart.css')}}">
     <!--===============================================================================================-->
+    <script type="text/javascript" src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
 </head>
 <body class="animsition">
 
@@ -76,7 +78,7 @@
 
                             <li>
                                 <a href="/cart">Cart</a>
-                                <span class="header-icons-noti"></span>
+                                <span class="header-icons-noti">0</span>
                             </li>
                             <li>
                                 <a href="#"><i class="fas fa-user-circle fa-2x" aria-hidden="true" ></i></a>
@@ -565,7 +567,7 @@
 <div id="dropDownSelect1"></div>
 
 <!--===============================================================================================-->
-<script type="text/javascript" src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
+{{--<script type="text/javascript" src="{{asset('js/jquery-3.2.1.min.js')}}"></script>--}}
 <!--===============================================================================================-->
 <script type="text/javascript" src="{{asset('js/animsition.min.js')}}"></script>
 <!--===============================================================================================-->
