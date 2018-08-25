@@ -67,7 +67,7 @@
                             </li>
 
                             <li>
-                                <a href="/cart">Cart</a>
+                                <a href="/contact-us">Contact</a>
                             </li>
 
                             <li>
@@ -75,7 +75,8 @@
                             </li>
 
                             <li>
-                                <a href="/contact-us">Contact</a>
+                                <a href="/cart">Cart</a>
+                                <span class="header-icons-noti"></span>
                             </li>
                             <li>
                                 <a href="#"><i class="fas fa-user-circle fa-2x" aria-hidden="true" ></i></a>
