@@ -24,7 +24,6 @@ class Cart extends Model
         return sprintf('%s', number_format($this->getTotalMoney(), 0));
     }
 
-
     public static function getCart()
     {
         if (Session::has('cart')) {

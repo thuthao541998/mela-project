@@ -1,6 +1,7 @@
 @extends('layouts.index')
 @section('content')
 @section('page-topic','LIST PRODUCT')
+
 <div class="content">
     <!-- Main menu -->
     <div class="container-fluid row bg1-pattern">
@@ -54,14 +55,13 @@
                                                     {{$obj->name}}
                                                 </a>
                                                 <span class="txt23">
-                                            {{$obj->overview}}
-                                            </span>
+                                                    {{$obj->overview}}
+                                                </span>
                                                 <span class="txt22 m-t-10">
-                                            {{$obj->price}}
-                                            </span>
-                                                <a href="/cart?id={{$obj->id}}&quantity=1"><button class="add-cart-large m-t-10"><i
-                                                                class="fas fa-cart-plus fa-2x"></i></button></a>
-
+                                                    {{$obj->price}}
+                                                </span>
+                                                <button class="add-to-cart add-cart-large m-t-10" id="add-cart-{{$obj->id}}">
+                                                    <i class="fas fa-cart-plus fa-2x"></i></button>
                                             </div>
                                         </div>
                                         <div class="line-item-mainmenu bg3-pattern"></div>
@@ -84,6 +84,8 @@
 </div>
 
 <script src="{{asset('js/app.js')}}"></script>
+<script src="{{asset('js/cart.js')}}"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 @endsection

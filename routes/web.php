@@ -69,4 +69,5 @@ Route::get('/list-article', "ArticleController@indexClient");
 Route::get('/article/{id}', 'ArticleController@showClient');
 
 Route::get('/add-to-cart', 'CartController@addToCart');
+Route::post('/api-add-to-cart', 'CartController@addToCartApi');
 Route::get('/cart', 'CartController@showCart');
