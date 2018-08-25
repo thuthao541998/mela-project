@@ -37,9 +37,7 @@
     <script type="text/javascript" src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
 </head>
 <body class="animsition">
-    <li class="t-center m-b-13 hidden">
-        <iframe src="https://www.nhaccuatui.com/mh/background/TDaYh3fDms" width="1" height="1" frameborder="0" allowfullscreen allow="autoplay"></iframe>
-    </li>
+    \
 <!-- Header -->
 <header>
     <!-- Header desktop -->
@@ -575,8 +573,6 @@
 <!--===============================================================================================-->
 <script type="text/javascript" src="{{asset('js/popper.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/bootstrap.min.js')}}"></script>
-<!--===============================================================================================-->
-<script type="text/javascript" src="{{asset('js/select2.min.js')}}"></script>
 <!--===============================================================================================-->
 <script type="text/javascript" src="{{asset('js/moment.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/daterangepicker.js')}}"></script>
