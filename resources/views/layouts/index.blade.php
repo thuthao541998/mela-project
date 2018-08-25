@@ -1,54 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>@yield('page-topic')</title>
-    <meta charset="UTF-8">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <title>Home</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--===============================================================================================-->
+        <link rel="icon" type="image/png" href="{{asset('images/icons/favicon.png')}}"/>
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+              integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+              crossorigin="anonymous">
+    {{--<link rel="stylesheet" type="text/css" href="{{asset('fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}">--}}
     <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="{{asset('images/icons/favicon.png')}}"/>
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-{{--<link rel="stylesheet" type="text/css" href="{{asset('fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}">--}}
-<!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{asset('fonts/themify/themify-icons.css')}}">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{asset('css/animate.css')}}">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{asset('css/hamburgers.min.css')}}">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{asset('css/animsition.min.css')}}">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{asset('css/select2.min.css')}}">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{asset('css/daterangepicker.css')}}">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{asset('css/slick.css')}}">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{asset('css/lightbox.min.css')}}">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{asset('css/util.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
-    <!--===============================================================================================-->
-    <script type="text/javascript" src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
-</head>
-<body class="animsition">
+        <link rel="stylesheet" type="text/css" href="{{asset('fonts/themify/themify-icons.css')}}">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="{{asset('css/animate.css')}}">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="{{asset('css/hamburgers.min.css')}}">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="{{asset('css/animsition.min.css')}}">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="{{asset('css/select2.min.css')}}">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="{{asset('css/daterangepicker.css')}}">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="{{asset('css/slick.css')}}">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="{{asset('css/lightbox.min.css')}}">
+        <!--===============================================================================================-->
+        {{--<link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">--}}
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="{{asset('css/util.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
+        <!--===============================================================================================-->
+    </head>
+    <body class="animsition">
 
-<!-- Header -->
-<header>
-    <!-- Header desktop -->
-    <div class="wrap-menu-header gradient1 trans-0-4">
-        <div class="container h-full">
-            <div class="wrap_header trans-0-3">
-                <!-- Logo -->
-                <div class="logo">
-                    <a href="/">
-                        <img src="{{asset('images/logo.png')}}" alt="IMG-LOGO" data-logofixed="{{asset('images/logo.png')}}">
-                    </a>
+        <!-- Header -->
+        <header>
+            <!-- Header desktop -->
+            <div class="wrap-menu-header gradient1 trans-0-4">
+                <div class="container h-full">
+                    <div class="wrap_header trans-0-3">
+                        <!-- Logo -->
+                        <div class="logo">
+                            <a href="/">
+                                <img src="{{asset('images/logo.png')}}" alt="IMG-LOGO"
+                                     data-logofixed="{{asset('images/logo.png')}}">
+                            </a>
+                        </div>
+
+                        <!-- Menu -->
+                        <div class="wrap_menu p-l-45 p-l-0-xl">
+                            <nav class="menu">
+                                <ul class="main_menu">
+                                    <li>
+                                        <a href="/">Home</a>
+                                    </li>
+
+                                    <li class="dropdown">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Product
+                                            <span class="caret"></span></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#">All </a></li>
+                                            <li><a href="#">Category </a></li>
+                                            <li><a href="#">Brand </a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        <a href="gallery.html">Gallery</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="blog.html">Blog</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="reservation.html">Cart</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="about.html">About</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="contact.html">Contact</a>
+                                    </li>
+                                    <li>
+                                        <!-- Button to open the modal login form -->
+                                        <a onclick="document.getElementById('id01').style.display='block'"><i
+                                                    class="fas fa-user-circle fa-2x" aria-hidden="true"></i></a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+
+                        <!-- Social -->
+                        <div class="social flex-w flex-l-m p-r-20">
+                            <button class="btn-show-sidebar m-l-33 trans-0-4"></button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </header>
@@ -57,191 +111,187 @@
         <aside class="sidebar trans-0-4">
             <!-- Button Hide sidebar -->
             <button class="btn-hide-sidebar ti-close color0-hov trans-0-4"></button>
-                            <li class="dropdown">
-                                <a href="/list-product">Product</a>
-                            </li>
 
-                            <li>
-                                <a href="/list-article">Article</a>
-                            </li>
+            <!-- - -->
+            <ul class="menu-sidebar p-t-95 p-b-70">
+                <li class="t-center m-b-13">
+                    <a href="#"><i class="fab fa-facebook-square fa-2x" aria-hidden="true"></i></a>
+                    &nbsp;
+                    <a href="#"><i class="fab fa-snapchat-square fa-2x" aria-hidden="true"></i></a>
+                    &nbsp;
+                    <a href="#"><i class="fab fa-line fa-2x" aria-hidden="true"></i></a>
+                </li>
 
-                            <li>
-                                <a href="/contact-us">Contact</a>
-                            </li>
+                <li class="t-center m-b-13">
+                    <iframe src="https://www.nhaccuatui.com/mh/background/TDaYh3fDms" width="1" height="1" frameborder="0" allowfullscreen allow="autoplay"></iframe>
+                </li>
 
-                            <li>
-                                <a href="/about-us">About</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fas fa-user-circle fa-2x" aria-hidden="true" ></i></a>
+                <li class="t-center m-b-13">
+                    <a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
+                </li>
 
+                <li class="t-center m-b-13">
+                    <a href="/" class="txt19">Home</a>
+                </li>
 
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
+                <li class="t-center m-b-13">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">PRODUCT
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">All </a></li>
+                        <li><a href="#">Category </a></li>
+                        <li><a href="#">Brand </a></li>
+                    </ul>
+                </li>
 
-                <!-- Social -->
-                <div class="social flex-w flex-l-m p-r-20">
-                    <button class="btn-show-sidebar m-l-33 trans-0-4"></button>
-                    <span class="p-l-30">
-                        <a href="/cart" class="fa fa-shopping-cart fa-2x"></a>
-                        <span class="header-icons-noti m-l-30">0</span>
-                    </span>
+                <li class="t-center m-b-13">
+                    <a href="gallery.html" class="txt19">Gallery</a>
+                </li>
+
+                <li class="t-center m-b-13">
+                    <a href="about.html" class="txt19">About</a>
+                </li>
+
+                <li class="t-center m-b-13">
+                    <a href="blog.html" class="txt19">Blog</a>
+                </li>
+
+                <li class="t-center m-b-33">
+                    <a href="contact.html" class="txt19">Contact</a>
+                </li>
+
+                <li class="t-center">
+                    <!-- Button3 -->
+                    <a href="reservation.html" class="btn3 flex-c-m size13 txt11 trans-0-4 m-l-r-auto">
+                        Cart
+                    </a>
+                </li>
+            </ul>
+
+            <!-- - -->
+            <div class="gallery-sidebar t-center p-l-60 p-r-60 p-b-40">
+                <!-- - -->
+                <h4 class="txt20 m-b-33">
+                    Gallery
+                </h4>
+
+                <!-- Gallery -->
+                <div class="wrap-gallery-sidebar flex-w">
+                    <a class="item-gallery-sidebar wrap-pic-w" href="{{asset('images/photo-gallery-01.jpg')}}"
+                       data-lightbox="gallery-footer">
+                        <img src="{{asset('images/photo-gallery-01.jpg')}}" alt="GALLERY">
+                    </a>
+
+                    <a class="item-gallery-sidebar wrap-pic-w" href="{{asset('images/photo-gallery-02.jpg')}}"
+                       data-lightbox="gallery-footer">
+                        <img src="{{asset('images/photo-gallery-thumb-02.jpg')}}" alt="GALLERY">
+                    </a>
+
+                    <a class="item-gallery-sidebar wrap-pic-w" href="{{asset('images/photo-gallery-03.jpg')}}"
+                       data-lightbox="gallery-footer">
+                        <img src="{{asset('images/photo-gallery-thumb-03.jpg')}}" alt="GALLERY">
+                    </a>
+
+                    <a class="item-gallery-sidebar wrap-pic-w" href="{{asset('images/photo-gallery-05.jpg')}}"
+                       data-lightbox="gallery-footer">
+                        <img src="{{asset('images/photo-gallery-thumb-05.jpg')}}" alt="GALLERY">
+                    </a>
+
+                    <a class="item-gallery-sidebar wrap-pic-w" href="{{asset('images/photo-gallery-06.jpg')}}"
+                       data-lightbox="gallery-footer">
+                        <img src="{{asset('images/photo-gallery-thumb-06.jpg')}}" alt="GALLERY">
+                    </a>
+
+                    <a class="item-gallery-sidebar wrap-pic-w" href="{{asset('')}}images/photo-gallery-07.jpg"
+                       data-lightbox="gallery-footer">
+                        <img src="{{asset('images/photo-gallery-thumb-07.jpg')}}" alt="GALLERY">
+                    </a>
+
+                    <a class="item-gallery-sidebar wrap-pic-w" href="{{asset('images/photo-gallery-09.jpg')}}"
+                       data-lightbox="gallery-footer">
+                        <img src="{{asset('images/photo-gallery-thumb-09.jpg')}}" alt="GALLERY">
+                    </a>
+
+                    <a class="item-gallery-sidebar wrap-pic-w" href="{{asset('images/photo-gallery-10.jpg')}}"
+                       data-lightbox="gallery-footer">
+                        <img src="{{asset('images/photo-gallery-thumb-10.jpg')}}" alt="GALLERY">
+                    </a>
+
+                    <a class="item-gallery-sidebar wrap-pic-w" href="{{asset('images/photo-gallery-11.jpg')}}"
+                       data-lightbox="gallery-footer">
+                        <img src="{{asset('images/photo-gallery-thumb-11.jpg')}}" alt="GALLERY">
+                    </a>
                 </div>
             </div>
-        </div>
-    </div>
-</header>
+        </aside>
 
-<!-- Sidebar -->
-<aside class="sidebar trans-0-4">
-    <!-- Button Hide sidebar -->
-    <button class="btn-hide-sidebar ti-close color0-hov trans-0-4"></button>
-
-    <!-- - -->
-    <ul class="menu-sidebar p-t-95 p-b-70">
-        <li class="t-center m-b-13">
-            <a href="#"><i class="fab fa-facebook-square fa-2x" aria-hidden="true"></i></a>
-            &nbsp;
-            <a href="#"><i class="fab fa-snapchat-square fa-2x" aria-hidden="true"></i></a>
-            &nbsp;
-            <a href="#"><i class="fab fa-line fa-2x" aria-hidden="true"></i></a>
-        </li>
-
-
-        <li class="t-center m-b-13">
-            <a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
-        </li>
-
-        <li class="t-center m-b-13">
-            <a href="/" class="txt19">Home</a>
-        </li>
-
-        <li class="t-center m-b-13">
-                <a href="/list-product">PRODUCT
-                </a>
-        </li>
-
-        <li class="t-center m-b-13">
-            <a href="/about-us" class="txt19">About</a>
-        </li>
-
-        <li class="t-center m-b-13">
-            <a href="/list-article" class="txt19">Article</a>
-        </li>
-
-        <li class="t-center m-b-33">
-            <a href="/contact-us" class="txt19">Contact</a>
-        </li>
-
-        <li class="t-center">
-            <!-- Button3 -->
-            <a href="/cart" class="btn3 flex-c-m size13 txt11 trans-0-4 m-l-r-auto">
-                Cart
-            </a>
-        </li>
-    </ul>
-
-    <!-- - -->
-    <div class="gallery-sidebar t-center p-l-60 p-r-60 p-b-40">
-        <!-- - -->
-        <h4 class="txt20 m-b-33">
-            Gallery
-        </h4>
-
-        <!-- Gallery -->
-        <div class="wrap-gallery-sidebar flex-w">
-            <a class="item-gallery-sidebar wrap-pic-w" href="{{asset('images/photo-gallery-01.jpg')}}" data-lightbox="gallery-footer">
-                <img src="{{asset('images/photo-gallery-01.jpg')}}" alt="GALLERY">
-            </a>
-
-            <a class="item-gallery-sidebar wrap-pic-w" href="{{asset('images/photo-gallery-02.jpg')}}" data-lightbox="gallery-footer">
-                <img src="{{asset('images/photo-gallery-thumb-02.jpg')}}" alt="GALLERY">
-            </a>
-
-            <a class="item-gallery-sidebar wrap-pic-w" href="{{asset('images/photo-gallery-03.jpg')}}" data-lightbox="gallery-footer">
-                <img src="{{asset('images/photo-gallery-thumb-03.jpg')}}" alt="GALLERY">
-            </a>
-
-            <a class="item-gallery-sidebar wrap-pic-w" href="{{asset('images/photo-gallery-05.jpg')}}" data-lightbox="gallery-footer">
-                <img src="{{asset('images/photo-gallery-thumb-05.jpg')}}" alt="GALLERY">
-            </a>
-
-            <a class="item-gallery-sidebar wrap-pic-w" href="{{asset('images/photo-gallery-06.jpg')}}" data-lightbox="gallery-footer">
-                <img src="{{asset('images/photo-gallery-thumb-06.jpg')}}" alt="GALLERY">
-            </a>
-
-            <a class="item-gallery-sidebar wrap-pic-w" href="{{asset('')}}images/photo-gallery-07.jpg" data-lightbox="gallery-footer">
-                <img src="{{asset('images/photo-gallery-thumb-07.jpg')}}" alt="GALLERY">
-            </a>
-
-            <a class="item-gallery-sidebar wrap-pic-w" href="{{asset('images/photo-gallery-09.jpg')}}" data-lightbox="gallery-footer">
-                <img src="{{asset('images/photo-gallery-thumb-09.jpg')}}" alt="GALLERY">
-            </a>
-
-            <a class="item-gallery-sidebar wrap-pic-w" href="{{asset('images/photo-gallery-10.jpg')}}" data-lightbox="gallery-footer">
-                <img src="{{asset('images/photo-gallery-thumb-10.jpg')}}" alt="GALLERY">
-            </a>
-
-            <a class="item-gallery-sidebar wrap-pic-w" href="{{asset('images/photo-gallery-11.jpg')}}" data-lightbox="gallery-footer">
-                <img src="{{asset('images/photo-gallery-thumb-11.jpg')}}" alt="GALLERY">
-            </a>
-        </div>
-    </div>
-</aside>
-
-<!-- Slide1 -->
-<section class="section-slide">
-    <div class="wrap-slick1">
-        <div class="slick1">
-            <div class="item-slick1 item1-slick1 bg-1" style="background-image:url({{asset('images/master-slides-01.jpg')}});">
-                <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
-                        <span class="caption1-slide1 txt1 t-center animated visible-false m-b-15" data-appear="fadeInDown">
+        <!-- Slide1 -->
+        <section class="section-slide">
+            <div class="wrap-slick1">
+                <div class="slick1">
+                    <div class="item-slick1 item1-slick1"
+                         style="background-image:url( {{asset('images/slide1-01.jpg')}});">
+                        <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
+                        <span class="caption1-slide1 txt1 t-center animated visible-false m-b-15"
+                              data-appear="fadeInDown">
                             Welcome to
                         </span>
 
-                    <h2 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="fadeInUp">
-                        Mela Shop
-                    </h2>
+                            <h2 class="caption2-slide1 tit1 t-center animated visible-false m-b-37"
+                                data-appear="fadeInUp">
+                                Mela Shop
+                            </h2>
 
-                    <div class="wrap-btn-slide1 animated visible-false" data-appear="zoomIn">
-                        <!-- Button1 -->
-                        <a href="menu.html" class="btn1 flex-c-m size1 txt3 trans-0-4">
-                            @yield('page-topic')
-                        </a>
+                            <div class="wrap-btn-slide1 animated visible-false" data-appear="zoomIn">
+                                <!-- Button1 -->
+                                <a href="menu.html" class="btn1 flex-c-m size1 txt3 trans-0-4">
+                                    Look Product
+                                </a>
+                            </div>
+                        </div>
                     </div>
-            <div class="item-slick1 item2-slick1 bg-2" style="background-image: url({{asset('images/master-slides-02.jpg')}});">
-                <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
+
+                    <div class="item-slick1 item2-slick1"
+                         style="background-image: url({{asset('images/master-slides-02.jpg')}});">
+                        <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
                         <span class="caption1-slide1 txt1 t-center animated visible-false m-b-15" data-appear="rollIn">
                             Welcome to
                         </span>
 
-                    <h2 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="lightSpeedIn">
-                        Mela Shop
-                    </h2>
+                            <h2 class="caption2-slide1 tit1 t-center animated visible-false m-b-37"
+                                data-appear="lightSpeedIn">
+                                Mela Shop
+                            </h2>
 
-                    <div class="wrap-btn-slide1 animated visible-false" data-appear="slideInUp">
-                        <!-- Button1 -->
-                        <a href="menu.html" class="btn1 flex-c-m size1 txt3 trans-0-4">
-                            @yield('page-topic')
+                            <div class="wrap-btn-slide1 animated visible-false" data-appear="slideInUp">
+                                <!-- Button1 -->
+                                <a href="menu.html" class="btn1 flex-c-m size1 txt3 trans-0-4">
+                                    Look Product
+                                </a>
+                            </div>
+                        </div>
                     </div>
 
-            <div class="item-slick1 item3-slick1 bg-3" style="background-image: url({{asset('images/master-slides-01.jpg')}});">
-                <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
-                        <span class="caption1-slide1 txt1 t-center animated visible-false m-b-15" data-appear="rotateInDownLeft">
+                    <div class="item-slick1 item3-slick1"
+                         style="background-image: url({{asset('images/master-slides-01.jpg')}});">
+                        <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
+                        <span class="caption1-slide1 txt1 t-center animated visible-false m-b-15"
+                              data-appear="rotateInDownLeft">
                             Welcome to
                         </span>
 
-                    <h2 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="rotateInUpRight">
-                        Mela Shop
-                    </h2>
+                            <h2 class="caption2-slide1 tit1 t-center animated visible-false m-b-37"
+                                data-appear="rotateInUpRight">
+                                Mela Shop
+                            </h2>
 
-                    <div class="wrap-btn-slide1 animated visible-false" data-appear="rotateIn">
-                        <!-- Button1 -->
-                        <a href="menu.html" class="btn1 flex-c-m size1 txt3 trans-0-4">
-                            @yield('page-topic')
-                        </a>
+                            <div class="wrap-btn-slide1 animated visible-false" data-appear="rotateIn">
+                                <!-- Button1 -->
+                                <a href="menu.html" class="btn1 flex-c-m size1 txt3 trans-0-4">
+                                    Look Product
+                                </a>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
@@ -644,5 +694,4 @@
         </script>
 
     </body>
-
 </html>

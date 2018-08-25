@@ -24,8 +24,7 @@ class CreateProductsTable extends Migration
             $table->foreign('categoryId')->references('id')->on('categories');
             $table->integer('brandId')->unsigned();
             $table->foreign('brandId')->references('id')->on('brands');
-            $table->timestamp('created_at')->default(\DB::raw('CURRENT_TIMESTAMP'));
-            $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
+            $table->timestamps(true);
             $table->string('status')->default(1);
         });
     }

@@ -13,9 +13,8 @@
 
 Route::get('/','CategoryController@indexClient');
 
-Route::get('/admin', 'ProductController@index');
+//Route::get('/', 'ProductController@index');
 
-// ROUTE ADMIN
 Route::resource('admin/product','ProductController');
 
 Route::resource('admin/order','OrderController');
@@ -43,26 +42,6 @@ Route::put("/admin/article/update-json/{id}", "ArticleController@quickUpdate");
 Route::get("/admin/product/get-json/{id}", "ProductController@showJson");
 Route::put("/admin/product/update-json/{id}", "ProductController@quickUpdate");
 
+
+// Route client
 Route::get('/list-product',"ProductController@indexClient");
-Route::get('/product/{id}',"ProductController@show");
-
-Route::get('/cart',function (){
-    return view('client.cart.cart');
-});
-
-Route::get('/test',function (){
-    return view('client.product.detail');
-});
-
-
-Route::get('/about-us',function (){
-    return view('client.aboutUs');
-});
-
-Route::get('/contact-us',function (){
-    return view('client.contactUs');
-});
-
-Route::get('/list-article', "ArticleController@indexClient");
-Route::get('/article/{id}', 'ArticleController@showClient');
-

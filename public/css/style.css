@@ -3858,18 +3858,3 @@ div#graph10, div#graph11 {
     }
 
 }
-}
-span.header-icons-noti {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background-color: #bd3112;
-    color: #fff;
-    font-family: Montserrat-Medium;
-    font-size: 12px;
-    position: absolute;
-    top: 25px;
-}

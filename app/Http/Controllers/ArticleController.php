@@ -21,13 +21,6 @@ class ArticleController extends Controller
         return view('admin.article.list', compact('article'))->with('list_obj', $list_obj);
     }
 
-    public function indexClient()
-    {
-        $limit = 10;
-        $list_obj = Article::paginate($limit);
-        return view('client.article.list', compact('article'))->with('list_obj', $list_obj);
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -73,16 +66,6 @@ class ArticleController extends Controller
             return view('admin.404.404');
         }
         return view('admin.article.show')
-            ->with('obj', $obj);
-    }
-
-    public function showClient($id)
-    {
-        $obj = Article::find($id);
-        if ($obj == null) {
-            return view('admin.404.404');
-        }
-        return view('client.article.show')
             ->with('obj', $obj);
     }
 

@@ -18,8 +18,7 @@ class CreateBrandsTable extends Migration
             $table->string('name',3000);
             $table->string('description',3000);
             $table->string('images',3000);
-            $table->timestamp('created_at')->default(\DB::raw('CURRENT_TIMESTAMP'));
-            $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
+            $table->timestamps(true);
             $table->integer('status')->default(1);
         });
     }
