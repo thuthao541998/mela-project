@@ -10,11 +10,10 @@ $('.add-to-cart').click(function () {
             _token: $('meta[name="csrf-token"]').attr('content')
         },
         success: function (resp) {
-            swal("Hello world");
             console.log(resp);
-            var new_count = resp.shopping_cart.count;
-            var new_total_money = resp.shopping_cart.total_money;
-            var new_items = resp.shopping_cart.items;
+            var new_count = resp.cart.count;
+            var new_total_money = resp.cart.total_money;
+            var new_items = resp.cart.items;
             var new_content = '';
             for (var i in new_items) {
                 new_content += '<li class="header-cart-item">';

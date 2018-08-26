@@ -115,7 +115,7 @@
                                                                     </a>
 
                                                                     <span class="header-cart-item-info">
-                                                                        {{$item->quantity}} x {{$item->product->discountPriceString}}
+                                                                        {{$item->quantity}} x {{$item->product->price}}
                                                                     </span>
                                                                 </div>
                                                             </li>
@@ -149,60 +149,9 @@
                                     </div>
                                 </div>
                             </div>
-
-
-
-
-
-
-                        {{--<div class="header-cart header-dropdown">--}}
-                            {{--<ul class="header-cart-wrapitem" id="header-cart-wrapitem">--}}
-                                {{--@if(count(\App\Cart::getCart()->items)>0)--}}
-                                    {{--@foreach(\App\Cart::getCart()->items as $item)--}}
-                                        {{--<li class="header-cart-item">--}}
-                                        {{--<div class="header-cart-item-img">--}}
-                                            {{--<img src="{{$item->product->images}}" alt="IMG">--}}
-                                        {{--</div>--}}
-
-                                        {{--<div class="header-cart-item-txt">--}}
-                                            {{--<a href="#" class="header-cart-item-name">--}}
-                                                {{--{{$item->product->name}}--}}
-                                            {{--</a>--}}
-
-                                            {{--<span class="header-cart-item-info">--}}
-                                                    {{--{{$item->quantity}} x {{$item->product->discountPriceString}}--}}
-                                                {{--</span>--}}
-                                        {{--</div>--}}
-                                    {{--</li>--}}
-                                    {{--@endforeach--}}
-                                {{--@else--}}
-                                    {{--'Hiện tại không có sản phẩm nào trong giỏ hàng'--}}
-                                {{--@endif--}}
-                            {{--</ul>--}}
-                            {{--<div class="header-cart-total">--}}
-                                {{--Tổng cộng: <span id="header-cart-total">{{\App\Cart::getCart()->getTotalMoneyString()}}</span>--}}
-                            {{--</div>--}}
-
-                            {{--<div class="header-cart-buttons">--}}
-                                {{--<div class="header-cart-wrapbtn"></div>--}}
-                                {{--<div class="header-cart-wrapbtn">--}}
-                                    {{--<!-- Button -->--}}
-                                    {{--<a href="/cart" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">--}}
-                                        {{--Đơn hàng--}}
-                                    {{--</a>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-
-
-
-
-
                         </div>
                     </span>
                 </div>
-
-
             </div>
         </div>
     </div>
@@ -213,7 +162,6 @@
     <!-- Button Hide sidebar -->
     <button class="btn-hide-sidebar ti-close color0-hov trans-0-4"></button>
 
-    <!-- - -->
     <ul class="menu-sidebar p-t-95 p-b-70">
         <li class="t-center m-b-13">
             <a href="#"><i class="fab fa-facebook-square fa-2x" aria-hidden="true"></i></a>
@@ -233,8 +181,7 @@
         </li>
 
         <li class="t-center m-b-13">
-                <a href="/list-product">PRODUCT
-                </a>
+            <a href="/list-product">PRODUCT</a>
         </li>
 
         <li class="t-center m-b-13">

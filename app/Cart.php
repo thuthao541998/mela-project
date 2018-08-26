@@ -17,7 +17,7 @@ class Cart extends Model
     }
     function __construct()
     {
-        $this->items = array();
+        $this->items = Array();
     }
     public static function getTotalItem()
     {
