@@ -64,7 +64,7 @@ class CartController extends Controller
         $cart->count = Cart::calculateTotalItem($cart);
         $cart->total_money = $cart->getTotalMoneyString();
         Session::put('cart', $cart);
-        return response()->json(['msg' => 'Thêm vào giỏ hàng thành công', 'shopping_cart' => $cart], 200);
+        return response()->json(['msg' => 'Thêm vào giỏ hàng thành công', 'cart' => $cart], 200);
     }
 
 
