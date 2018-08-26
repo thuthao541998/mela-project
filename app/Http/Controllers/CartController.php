@@ -58,13 +58,15 @@ class CartController extends Controller
         }
         $item = new CartItem();
         $item->product = $product;
+        $item->product->price = $product->price;
         $item->quantity = $quantity;
         $cart->items[$id] = $item;
         $cart->count = Cart::calculateTotalItem($cart);
         $cart->total_money = $cart->getTotalMoneyString();
         Session::put('cart', $cart);
-        return response()->json(['msg' => 'Thêm vào giỏ hàng thành công', 'cart' => $cart], 200);
+        return response()->json(['msg' => 'Thêm vào giỏ hàng thành công', 'shopping_cart' => $cart], 200);
     }
+
 
     public function showCart()
     {

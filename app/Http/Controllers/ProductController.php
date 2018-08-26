@@ -73,8 +73,7 @@ class ProductController extends Controller
             ->with('categories',$categories)
             ->with('choosedBrandId',$choosedBrandId)
             ->with('choosedCategoryId',$choosedCategoryId)
-            ->with('null',null)
-            ;
+            ->with('null',null);
     }
     /**
      * Show the form for creating a new resource.

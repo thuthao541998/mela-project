@@ -7,22 +7,6 @@ use Illuminate\Support\Facades\Session;
 
 class Cart extends Model
 {
-    function __construct()
-    {
-        $this->items = array();
-    }
-
-    function getTotalMoney(){
-        $total_money = 0;
-        foreach ($this->items as $item){
-            $total_money += $item->product->price * $item->quantity;
-        }
-        return $total_money;
-    }
-
-    function getTotalMoneyWithFormat(){
-        return sprintf('%s', number_format($this->getTotalMoney(), 0));
-    }
 
     public static function getCart()
     {
@@ -31,7 +15,10 @@ class Cart extends Model
         }
         return new Cart();
     }
-
+    function __construct()
+    {
+        $this->items = array();
+    }
     public static function getTotalItem()
     {
         $count = 0;
@@ -49,9 +36,20 @@ class Cart extends Model
         }
         return $count;
     }
-
+    function getTotalMoney()
+    {
+        $total_money = 0;
+        foreach ($this->items as $item) {
+            $total_money += $item->product->price * $item->quantity;
+        }
+        return $total_money;
+    }
+    function getTotalMoneyWithFormat()
+    {
+        return sprintf('%s', number_format($this->getTotalMoney(), 0));
+    }
     function getTotalMoneyString()
     {
-        return sprintf('%s (VNĐ)', number_format($this->getTotalMoney(), 0));
+        return sprintf('%s (VND)', number_format($this->getTotalMoney(), 0));
     }
 }
