@@ -17,20 +17,26 @@ class OrderDetailsTableSeeder extends Seeder
             [
                 'productId' => 1,
                 'quantity' => 3,
-                'unitprice' => \App\Product::find('productId')->getPrice(),
-                'orderId' => 1
+                'unitprice' => \App\Product::find('productId')->discountPriceWithFormat,
+                'orderId' => 1,
+                'ship_name' => 'John Smith',
+                'ship_address' => '48 Calie St , LA',
+                'ship_phone' => '09837525635'
             ],
             [
                 'productId' => 2,
                 'quantity' => 1,
-                'unitprice' => \App\Product::find('productId')->getPrice(),
+                'unitprice' => \App\Product::find('productId')->discountPriceWithFormat,
                 'orderId' => 1
             ],
             [
                 'productId' => 4,
                 'quantity' => 2,
-                'unitprice' => \App\Product::find('productId')->getPrice(),
-                'orderId' => 1
+                'unitprice' => \App\Product::find('productId')->discountPriceWithFormat,
+                'orderId' => 1,
+                'ship_name' => 'Alex Karlie',
+                'ship_address' => '50 Calie St , Vegas',
+                'ship_phone' => '07346434343'
             ]
         ]);
     }

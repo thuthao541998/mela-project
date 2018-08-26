@@ -13,16 +13,17 @@ class CreateOrderDetailsTable extends Migration
      */
     public function up()
     {
+
         Schema::create('order_details', function (Blueprint $table) {
-            $table->increments('id');
+            $table->integer('product_id')->unsigned();
+            $table->foreign('product_id')->references('id')->on('products');
+            $table->integer('order_id')->unsigned();
+            $table->foreign('order_id')->references('id')->on('orders');;
+            $table->primary(['order_id', 'product_id']);
+            $table->integer('quantity');
+            $table->integer('unit_price');
             $table->timestamp('created_at')->default(\DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
-            $table->integer('productId')->unsigned();
-            $table->integer('productId')->references('id')->on('products');;
-            $table->integer('quantity');
-            $table->integer('unitprice');
-            $table->integer('orderId')->unsigned();
-            $table->foreign('orderId')->references('id')->on('orders');
         });
     }
 

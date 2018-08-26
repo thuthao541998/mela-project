@@ -15,7 +15,10 @@ class OrdersTableSeeder extends Seeder
         \Illuminate\Support\Facades\DB::table('orders')->truncate();
         \Illuminate\Support\Facades\DB::table('orders')->insert([
             [
-                'total' => \App\Order::
+                'total_price' => '',
+                'ship_name' => 'Sam Smith',
+                'ship_address' => '49 Cam St , Cali',
+                'ship_phone' => '02374354374'
             ]
         ]);
     }

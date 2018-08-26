@@ -57,8 +57,15 @@
                                     <input type="checkbox" class="check-item">
                                 </td>
                                 <td class="col-xsm-1">{{$item->id}}</td>
-                                <td class="col-md-1 col-sm-1" style="width: 5%">{{$item->name}}</td>
-                                <td class="col-md-1 col-sm-1">{{$item->price}}</td>
+                                <td class="col-md-1 col-sm-1" style="width: 5%">
+                                    <div class="font-weight-bold">{{$item->name}}</div>
+                                    <div>Discount : {{$item->discount}}%</div>
+                                </td>
+                                <td class="col-md-1 col-sm-1">
+                                    <div>Original Price: {{$item->originalPriceString}}</div>
+                                    <div>Discount Price: {{$item->discountPriceString}}</div>
+
+                                </td>
                                 <td class="col-md-1 col-sm-1">
                                     <div class="card"
                                          style="background-image: url('{{$item->images}}'); background-size: cover; width: 60px; height: 60px;">
