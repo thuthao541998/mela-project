@@ -26,6 +26,13 @@ class Cart extends Model
         }
         return $count;
     }
+    public static function getRemoveItem($id)
+    {
+        $cart = Session::get('cart');
+        $cart->quantity -= $cart->items[$id]['quantity'];
+        $cart->price -= $cart->items[$id]['price'];
+        unset($cart->items[$id]);
+    }
     public static function calculateTotalItem($cart)
     {
         $count = 0;

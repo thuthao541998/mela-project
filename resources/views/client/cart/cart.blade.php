@@ -25,6 +25,7 @@
                             <th class="column-3">Price</th>
                             <th class="column-4 p-l-70">Quantity</th>
                             <th class="column-5">Total</th>
+                            <th class="column-6"></th>
                         </tr>
                         @foreach($items as $item)
                             <tr class="table-row">
@@ -52,6 +53,9 @@
                                     </div>
                                 </td>
                                 <td class="column-5 total-unit-price">{{$item->quantity * $item->product->price}}</td>
+                                <td class="column-6 cart_delete">
+                                    <a class="cart_quantity_delete" href="/cart-remove/{{$item->product->id}}"><i class="fa fa-times"></i></a>
+                                </td>
                             </tr>
                         @endforeach
                         </tbody>

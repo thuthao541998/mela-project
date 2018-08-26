@@ -71,3 +71,4 @@ Route::get('/article/{id}', 'ArticleController@showClient');
 Route::get('/add-to-cart', 'CartController@addToCart');
 Route::post('/api-add-to-cart', 'CartController@addToCartApi');
 Route::get('/cart', 'CartController@showCart');
+Route::get('/cart-remove/{id}', 'CartController@removeCart');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Cart;
 use App\CartItem;
 use App\Product;
+use Foo\DataProviderIssue2922\SecondHelloWorldTest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
@@ -77,5 +78,11 @@ class CartController extends Controller
             $items = $cart->items;
         }
         return view('client.cart.cart')->with('cart', $cart)->with('items', $items);
+    }
+
+    public function removeCart($id)
+    {
+        Cart::getRemoveItem($id);
+        return redirect('/cart');
     }
 }
