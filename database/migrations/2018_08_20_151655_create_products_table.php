@@ -26,6 +26,7 @@ class CreateProductsTable extends Migration
             $table->foreign('brandId')->references('id')->on('brands');
             $table->timestamp('created_at')->default(\DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
+            $table->integer('discount')->default(0);
             $table->string('status')->default(1);
         });
     }

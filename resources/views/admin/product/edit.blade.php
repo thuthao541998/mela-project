@@ -89,6 +89,15 @@
                                         <img class="mt-2 img-fluid mb-5" style="background-size: cover; width: 260px;" src="{{$obj->images}}">
                                     </div>
                                 </div>
+                                <div class="form-group mb-0 mt-2 ml-3">
+                                    <label class="control-label col-lg-2">Discount</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control ml-1" rows="10" name="discount" type="number" value="{{$obj->discount}}"></input>
+                                        @foreach ($errors->get('discount') as $title)
+                                            <p class="text-danger help-block">{{$title}}</p>
+                                        @endforeach
+                                    </div>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-lg-offset-3 col-lg-6">
