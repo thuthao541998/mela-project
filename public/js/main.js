@@ -43,7 +43,7 @@
 
     /*[ Select ]
     ===========================================================*/
-    $(".selection-1").select2({
+    $(".selection-1").select({
         minimumResultsForSearch: 20,
         dropdownParent: $('#dropDownSelect1')
     });
