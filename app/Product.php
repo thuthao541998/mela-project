@@ -19,4 +19,7 @@ class Product extends Model
         $category = Category::find($this->categoryId);
         return $category->name;
     }
+    public function getPrice(){
+       return $this->price;
+    }
 }

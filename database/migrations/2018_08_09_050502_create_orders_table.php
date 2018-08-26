@@ -18,7 +18,8 @@ class CreateOrdersTable extends Migration
             $table->timestamp('created_at')->default(\DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
             $table->integer('total');
-            $table->integer('clientId');
+            $table->string('ship_name');
+            
             $table->integer('status')->default(1);
         });
     }
