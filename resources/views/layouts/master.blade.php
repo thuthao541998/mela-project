@@ -348,7 +348,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </section>
     <!--main content end-->
 </section>
-<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="{{asset('js/app.js')}}"></script>
 <script src="{{asset('js/bootstrap.js')}}"></script>
 <script src="{{asset('js/jquery.dcjqaccordion.2.7.js')}}"></script>
 <script src="{{asset('js/scripts.js')}}"></script>

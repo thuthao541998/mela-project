@@ -1,6 +1,6 @@
-.container{
-    padding:5%;
-}
+/*.container{*/
+    /*padding:5%;*/
+/*}*/
 a.morelink {
     outline: none;
     color: black !important;
@@ -20,4 +20,7 @@ a.morelinkview {
 .morecontent span {
     display: none;
 
+}
+.fa-2x {
+    font-size: 3em;
 }

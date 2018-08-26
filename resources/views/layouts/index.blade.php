@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Home</title>
+    <title>@yield('page-topic')</title>
     <meta charset="UTF-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
     <link rel="icon" type="image/png" href="{{asset('images/icons/favicon.png')}}"/>
@@ -28,15 +29,16 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{asset('css/lightbox.min.css')}}">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
+    {{--<link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">--}}
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{asset('css/util.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
     <link rel="stylesheet" href="{{asset('css/brand-detail.css')}}">
     <!--===============================================================================================-->
+    <script type="text/javascript" src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
 </head>
 <body class="animsition">
-
+    \
 <!-- Header -->
 <header>
     <!-- Header desktop -->
@@ -59,36 +61,24 @@
                             </li>
 
                             <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Product
-                                    <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">All </a></li>
-                                    <li><a href="#">Category </a></li>
-                                    <li><a href="#">Brand </a></li>
-                                </ul>
+                                <a href="/list-product">Product</a>
                             </li>
 
                             <li>
-                                <a href="gallery.html">Gallery</a>
+                                <a href="/list-article">Article</a>
                             </li>
 
                             <li>
-                                <a href="blog.html">Blog</a>
+                                <a href="/contact-us">Contact</a>
                             </li>
 
                             <li>
-                                <a href="reservation.html">Cart</a>
-                            </li>
-
-                            <li>
-                                <a href="about.html">About</a>
-                            </li>
-
-                            <li>
-                                <a href="contact.html">Contact</a>
+                                <a href="/about-us">About</a>
                             </li>
                             <li>
                                 <a href="#"><i class="fas fa-user-circle fa-2x" aria-hidden="true" ></i></a>
+
+
                             </li>
                         </ul>
                     </nav>
@@ -97,6 +87,10 @@
                 <!-- Social -->
                 <div class="social flex-w flex-l-m p-r-20">
                     <button class="btn-show-sidebar m-l-33 trans-0-4"></button>
+                    <span class="p-l-30">
+                        <a href="/cart" class="fa fa-shopping-cart fa-2x"></a>
+                        <span class="header-icons-noti m-l-30">0</span>
+                    </span>
                 </div>
             </div>
         </div>
@@ -118,7 +112,7 @@
             <a href="#"><i class="fab fa-line fa-2x" aria-hidden="true"></i></a>
         </li>
 
-        
+
         <li class="t-center m-b-13">
             <a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
         </li>
@@ -128,34 +122,25 @@
         </li>
 
         <li class="t-center m-b-13">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">PRODUCT
-                    <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">All </a></li>
-                    <li><a href="#">Category </a></li>
-                    <li><a href="#">Brand </a></li>
-                </ul>
+                <a href="/list-product">PRODUCT
+                </a>
         </li>
 
         <li class="t-center m-b-13">
-            <a href="gallery.html" class="txt19">Gallery</a>
+            <a href="/about-us" class="txt19">About</a>
         </li>
 
         <li class="t-center m-b-13">
-            <a href="about.html" class="txt19">About</a>
-        </li>
-
-        <li class="t-center m-b-13">
-            <a href="blog.html" class="txt19">Blog</a>
+            <a href="/list-article" class="txt19">Article</a>
         </li>
 
         <li class="t-center m-b-33">
-            <a href="contact.html" class="txt19">Contact</a>
+            <a href="/contact-us" class="txt19">Contact</a>
         </li>
 
         <li class="t-center">
             <!-- Button3 -->
-            <a href="reservation.html" class="btn3 flex-c-m size13 txt11 trans-0-4 m-l-r-auto">
+            <a href="/cart" class="btn3 flex-c-m size13 txt11 trans-0-4 m-l-r-auto">
                 Cart
             </a>
         </li>
@@ -213,7 +198,7 @@
 <section class="section-slide">
     <div class="wrap-slick1">
         <div class="slick1">
-            <div class="item-slick1 item1-slick1" style="background-image:url( {{asset('images/slide1-01.jpg')}});">
+            <div class="item-slick1 item1-slick1 bg-1" style="background-image:url({{asset('images/master-slides-01.jpg')}});">
                 <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
                         <span class="caption1-slide1 txt1 t-center animated visible-false m-b-15" data-appear="fadeInDown">
                             Welcome to
@@ -226,13 +211,13 @@
                     <div class="wrap-btn-slide1 animated visible-false" data-appear="zoomIn">
                         <!-- Button1 -->
                         <a href="menu.html" class="btn1 flex-c-m size1 txt3 trans-0-4">
-                            Look Product
+                            @yield('page-topic')
                         </a>
                     </div>
                 </div>
             </div>
 
-            <div class="item-slick1 item2-slick1" style="background-image: url({{asset('images/master-slides-02.jpg')}});">
+            <div class="item-slick1 item2-slick1 bg-2" style="background-image: url({{asset('images/master-slides-02.jpg')}});">
                 <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
                         <span class="caption1-slide1 txt1 t-center animated visible-false m-b-15" data-appear="rollIn">
                             Welcome to
@@ -245,13 +230,13 @@
                     <div class="wrap-btn-slide1 animated visible-false" data-appear="slideInUp">
                         <!-- Button1 -->
                         <a href="menu.html" class="btn1 flex-c-m size1 txt3 trans-0-4">
-                            Look Product
+                            @yield('page-topic')
                         </a>
                     </div>
                 </div>
             </div>
 
-            <div class="item-slick1 item3-slick1" style="background-image: url({{asset('images/master-slides-01.jpg')}});">
+            <div class="item-slick1 item3-slick1 bg-3" style="background-image: url({{asset('images/slide1-02.jpg')}});">
                 <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
                         <span class="caption1-slide1 txt1 t-center animated visible-false m-b-15" data-appear="rotateInDownLeft">
                             Welcome to
@@ -264,7 +249,7 @@
                     <div class="wrap-btn-slide1 animated visible-false" data-appear="rotateIn">
                         <!-- Button1 -->
                         <a href="menu.html" class="btn1 flex-c-m size1 txt3 trans-0-4">
-                            Look Product
+                            @yield('page-topic')
                         </a>
                     </div>
                 </div>
@@ -583,14 +568,12 @@
 <div id="dropDownSelect1"></div>
 
 <!--===============================================================================================-->
-<script type="text/javascript" src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
+{{--<script type="text/javascript" src="{{asset('js/jquery-3.2.1.min.js')}}"></script>--}}
 <!--===============================================================================================-->
 <script type="text/javascript" src="{{asset('js/animsition.min.js')}}"></script>
 <!--===============================================================================================-->
 <script type="text/javascript" src="{{asset('js/popper.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/bootstrap.min.js')}}"></script>
-<!--===============================================================================================-->
-<script type="text/javascript" src="{{asset('js/select2.min.js')}}"></script>
 <!--===============================================================================================-->
 <script type="text/javascript" src="{{asset('js/moment.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/daterangepicker.js')}}"></script>
