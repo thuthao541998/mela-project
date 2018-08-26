@@ -48,6 +48,6 @@ class Cart extends Model
     }
     function getTotalMoneyString()
     {
-        return sprintf('%s (VND)', number_format($this->getTotalMoney(), 0));
+        return sprintf('%s', number_format($this->getTotalMoney(), 0));
     }
 }

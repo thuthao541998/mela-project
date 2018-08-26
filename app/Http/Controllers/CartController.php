@@ -65,7 +65,7 @@ class CartController extends Controller
         $cart->count = Cart::calculateTotalItem($cart);
         $cart->total_money = $cart->getTotalMoneyString();
         Session::put('cart', $cart);
-        return response()->json(['msg' => 'Thêm vào giỏ hàng thành công', 'cart' => $cart , 'items' => $cart->items], 200);
+        return response()->json(['msg' => 'Thêm vào giỏ hàng thành công', 'cart' => $cart,'items'=>$cart->items], 200);
     }
 
 
@@ -74,7 +74,8 @@ class CartController extends Controller
         $cart = new Cart();
         if (Session::has('cart')) {
             $cart = Session::get('cart');
+            $items = $cart->items;
         }
-        return view('client.cart.cart')->with('cart', $cart);
+        return view('client.cart.cart')->with('cart', $cart)->with('items', $items);
     }
 }
