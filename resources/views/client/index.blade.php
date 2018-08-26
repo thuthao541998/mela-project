@@ -2,9 +2,6 @@
 @section('content')
 @section('page-topic','MELA')
     <!-- Welcome -->
-<li class="t-center m-b-13 hidden">
-    <iframe src="https://www.nhaccuatui.com/mh/background/TDaYh3fDms" allow="autoplay"></iframe>
-</li>
     <section class="section-welcome bg1-pattern p-t-120 p-b-105">
         <div class="container">
             <div class="row">

@@ -29,7 +29,7 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{asset('css/lightbox.min.css')}}">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
+    {{--<link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">--}}
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{asset('css/util.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
@@ -235,7 +235,7 @@
                 </div>
             </div>
 
-            <div class="item-slick1 item3-slick1 bg-3" style="background-image: url({{asset('images/master-slides-01.jpg')}});">
+            <div class="item-slick1 item3-slick1 bg-3" style="background-image: url({{asset('images/slide1-02.jpg')}});">
                 <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
                         <span class="caption1-slide1 txt1 t-center animated visible-false m-b-15" data-appear="rotateInDownLeft">
                             Welcome to
