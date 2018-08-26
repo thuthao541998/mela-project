@@ -90,13 +90,7 @@
                     <button class="btn-show-sidebar m-l-33 trans-0-4"></button>
                     <span class="p-l-30">
                         <div class="btn-show-menu">
-
-
-
-
                             <div class="wrap_header_mobile" style="background-color: transparent; color: #fff;">
-                                
-
                                 <!-- Button show menu -->
                                 <div class="btn-show-menu">
                                     <!-- Header Icon mobile -->
@@ -184,11 +178,6 @@
                                         </div>
                                     </div>
 
-                                    <div class="btn-show-menu-mobile hamburger hamburger--squeeze">
-                                        <span class="hamburger-box">
-                                            <span class="hamburger-inner"></span>
-                                        </span>
-                                    </div>
                                 </div>
                             </div>
 
