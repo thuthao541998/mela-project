@@ -60,10 +60,11 @@
                                     <td class="col-md-1 col-sm-1" style="width: 5%">
                                         <div class="font-weight-bold">{{$item->name}}</div>
                                         @if($item->isDiscount())
-                                            <div class="text-danger font-weight-bold">- {{$item->discount}}%</div>
+                                            <div class="font-weight-bold text-center" style="background-color: red; color:white;">- {{$item->discount}}%</div>
                                         @else
-                                            <div class="text-danger font-weight-bold">NOT SALE</div>
+                                            <div class="text-danger font-weight-bold text-center">NOT SALE</div>
                                         @endif
+
                                     </td>
                                     <td class="col-md-1 col-sm-1">
                                         @if($item->isDiscount())
@@ -71,7 +72,7 @@
                                                 *{{$item->originalPriceString}}</div>
                                             <div class="text-danger">*{{$item->discountPriceString}}</div>
                                         @else
-                                            <div class="font-weight-bold text-primary">{{$item->price}}(vnd)</div>
+                                            <div class="font-weight-bold text-primary ">{{$item->originalPriceString}}</div>
                                         @endif
                                     </td>
                                     <td class="col-md-1 col-sm-1">

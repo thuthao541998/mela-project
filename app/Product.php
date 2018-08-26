@@ -36,9 +36,6 @@ class Product extends Model
     }
     public function getOriginalPriceStringAttribute()
     {
-        if ($this->discount == 0) {
-            return '';
-        }
         return sprintf('%s (vnd)', number_format($this->price, 0));
     }
     public function getDiscountPriceAttribute()
