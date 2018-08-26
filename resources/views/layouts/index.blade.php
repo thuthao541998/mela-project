@@ -651,6 +651,7 @@
 <script type="text/javascript" src="{{asset('js/lightbox.min.js')}}"></script>
 <!--===============================================================================================-->
 <script src="{{asset('js/main.js')}}"></script>
+<script src="{{asset('js/cart.js')}}"></script>
 
 </body>
 </html>

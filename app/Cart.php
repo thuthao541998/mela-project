@@ -15,10 +15,11 @@ class Cart extends Model
         }
         return new Cart();
     }
-    function __construct()
-    {
-        $this->items = Array();
-    }
+    public $items = array();
+//    function __construct()
+//    {
+//        $this->items = array();
+//    }
     public static function getTotalItem()
     {
         $count = 0;
