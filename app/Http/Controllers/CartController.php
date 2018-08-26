@@ -8,6 +8,7 @@ use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
+use function Sodium\add;
 
 class CartController extends Controller
 {
@@ -64,7 +65,7 @@ class CartController extends Controller
         $cart->count = Cart::calculateTotalItem($cart);
         $cart->total_money = $cart->getTotalMoneyString();
         Session::put('cart', $cart);
-        return response()->json(['msg' => 'Thêm vào giỏ hàng thành công', 'cart' => $cart], 200);
+        return response()->json(['msg' => 'Thêm vào giỏ hàng thành công', 'cart' => $cart , 'items' => $cart->items], 200);
     }
 
 
