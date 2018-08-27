@@ -147,20 +147,15 @@
     });
     $('.btn-num-product-up').click(function () {
         var oldTotal = parseInt($(this).parent().parent().next().text());
-
         var value = parseInt($(this).prev().val());
         $(this).prev().val(value += 1);
         $(this).parent().parent().next().text($(this).prev().val() * parseInt($(this).parent().parent().prev().text()));
         var currentTotal = parseInt($(this).parent().parent().next().text());
         var plus = currentTotal - oldTotal;
         var totalMoney = parseInt($('.total-money').text());
-        console.log(oldTotal + " " + currentTotal + " " + totalMoney);
         $('.total-money').text(totalMoney + plus);
 
     });
-    // $('.btn-num-product-down').next().val().change(function () {
-    //     $('.total-unit-price').text($('.btn-num-product-down').next().val()* parseInt($('.unit-price').text));
-    // })
     $(".cart_delete").click(function () {
         var id = $(this).children().attr('id').replace('delete-', '');
         var deleteTotal = parseInt($('#unit-total-'+id).text());

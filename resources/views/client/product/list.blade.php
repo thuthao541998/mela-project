@@ -77,7 +77,7 @@
                                                         </span>
                                                     @endif
                                             </span>
-                                                <button class="add-cart-large m-t-10"><i
+                                                <button class="add-cart-large add-to-cart m-t-10"  id="add-cart-{{$obj->id}}"><i
                                                             class="fas fa-cart-plus fa-2x"></i></button>
                                             </div>
                                         </div>

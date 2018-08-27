@@ -15,7 +15,7 @@
                             Welcome
                         </h3>
 
-                        <p class="t-center m-b-22 size3 m-l-r-auto">
+                        <p class="t-center m-b-22 m-l-r-auto">
                             Welcome to Mela Shop, let shop tell you what is the power of Lipstick. Let us enlighten you on "Saint Lipstick"
                         </p>
 
@@ -27,7 +27,7 @@
                 </div>
 
                 <div class="col-md-6 p-b-30">
-                    <div class="wrap-pic-welcome size2 bo-rad-10 hov-img-zoom m-l-r-auto">
+                    <div class="wrap-pic-welcome bo-rad-10 hov-img-zoom m-l-r-auto">
                         <img src="images/our-story-01.jpg" alt="IMG-OUR">
                     </div>
                 </div>

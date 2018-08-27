@@ -30,10 +30,11 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/lightbox.min.css')}}">
     <!--===============================================================================================-->
     {{--<link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">--}}
+    <link rel="stylesheet" type="text/css" href="{{asset('css/cart.css')}}">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{asset('css/util.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('css/cart.css')}}">
+
     <!--===============================================================================================-->
     <script type="text/javascript" src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
 </head>
@@ -55,7 +56,7 @@
                 <!-- Menu -->
                 <div class="wrap_menu p-l-45 p-l-0-xl">
                     <nav class="menu">
-                        <ul class="main_menu">
+                        <ul class="main_menu m-l-94">
                             <li>
                                 <a href="/">Home</a>
                             </li>
@@ -132,7 +133,7 @@
                                                 <div class="header-cart-buttons">
                                                     <div class="header-cart-wrapbtn">
                                                         <!-- Button -->
-                                                        <a href="cart.html" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+                                                        <a href="/cart" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
                                                             View Cart
                                                         </a>
                                                     </div>
@@ -268,7 +269,7 @@
 
                     <div class="wrap-btn-slide1 animated visible-false" data-appear="zoomIn">
                         <!-- Button1 -->
-                        <a href="menu.html" class="btn1 flex-c-m size1 txt3 trans-0-4">
+                        <a href="/" class="btn1 flex-c-m size1 txt3 trans-0-4">
                             @yield('page-topic')
                         </a>
                     </div>
@@ -287,7 +288,7 @@
 
                     <div class="wrap-btn-slide1 animated visible-false" data-appear="slideInUp">
                         <!-- Button1 -->
-                        <a href="menu.html" class="btn1 flex-c-m size1 txt3 trans-0-4">
+                        <a href="/" class="btn1 flex-c-m size1 txt3 trans-0-4">
                             @yield('page-topic')
                         </a>
                     </div>
@@ -306,7 +307,7 @@
 
                     <div class="wrap-btn-slide1 animated visible-false" data-appear="rotateIn">
                         <!-- Button1 -->
-                        <a href="menu.html" class="btn1 flex-c-m size1 txt3 trans-0-4">
+                        <a href="/" class="btn1 flex-c-m size1 txt3 trans-0-4">
                             @yield('page-topic')
                         </a>
                     </div>
@@ -347,7 +348,7 @@
                     </div>
 
                     <div class="wrap-text-blo1 p-t-35">
-                        <a href="blog-detail.html"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
+                        <a href="/list-artcle"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
                                 Best Places for Wine
                             </h4></a>
 
@@ -355,7 +356,7 @@
                             Phasellus lorem enim, luctus ut velit eget, con-vallis egestas eros.
                         </p>
 
-                        <a href="blog-detail.html" class="txt4">
+                        <a href="/list-artcle" class="txt4">
                             Continue Reading
                             <i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
                         </a>
@@ -367,7 +368,7 @@
                 <!-- Block1 -->
                 <div class="blo1">
                     <div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom pos-relative">
-                        <a href="blog-detail.html"><img src="images/blog-02.jpg" alt="IMG-INTRO"></a>
+                        <a href="/list-artcle"><img src="images/blog-02.jpg" alt="IMG-INTRO"></a>
 
                         <div class="time-blog">
                             15 Dec 2017
@@ -375,7 +376,7 @@
                     </div>
 
                     <div class="wrap-text-blo1 p-t-35">
-                        <a href="blog-detail.html"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
+                        <a href="/list-artcle"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
                                 Eggs and Cheese
                             </h4></a>
 
@@ -383,7 +384,7 @@
                             Duis elementum, risus sit amet lobortis nunc justo condimentum ligula, vitae feugiat
                         </p>
 
-                        <a href="blog-detail.html" class="txt4">
+                        <a href="/list-artcle" class="txt4">
                             Continue Reading
                             <i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
                         </a>
@@ -395,7 +396,7 @@
                 <!-- Block1 -->
                 <div class="blo1">
                     <div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom pos-relative">
-                        <a href="blog-detail.html"><img src="images/blog-03.jpg" alt="IMG-INTRO"></a>
+                        <a href="/list-artcle"><img src="images/blog-03.jpg" alt="IMG-INTRO"></a>
 
                         <div class="time-blog">
                             12 Dec 2017
@@ -403,7 +404,7 @@
                     </div>
 
                     <div class="wrap-text-blo1 p-t-35">
-                        <a href="blog-detail.html"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
+                        <a href="/list-artcle"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
                                 Style the Wedding Party
                             </h4></a>
 
@@ -411,7 +412,7 @@
                             Sed ornare ligula eget tortor tempor, quis porta tellus dictum.
                         </p>
 
-                        <a href="blog-detail.html" class="txt4">
+                        <a href="/list-artcle" class="txt4">
                             Continue Reading
                             <i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
                         </a>
@@ -437,7 +438,7 @@
         </div>
 
         <!-- Button3 -->
-        <button type="submit" class="btn3 flex-c-m size18 txt11 trans-0-4 m-10">
+        <button type="submit" class="btn3 flex-c-m size2 txt11 trans-0-4 m-10">
             Sign-up
         </button>
     </form>
