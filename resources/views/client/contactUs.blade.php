@@ -1,6 +1,8 @@
 @extends("layouts.index")
 @section('content')
-    <link href="{{asset('css/contactUs.css')}}" rel='stylesheet' type='text/css' />
+@section('page-topic','CONTACT US')
+
+<link href="{{asset('css/contactUs.css')}}" rel='stylesheet' type='text/css' />
 
                     <section class="section-contact bg1-pattern p-b-113">
                         <div class="topic text-center">

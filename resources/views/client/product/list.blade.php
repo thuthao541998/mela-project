@@ -47,21 +47,38 @@
                                     @foreach($list_obj as $obj)
                                         <div class="blo3 flex-w flex-col-l-sm m-t-30 m-b-20">
                                             <div class="pic-blo3 size20 bo-rad-10 hov-img-zoom m-r-28">
-                                                <a href="#"><img src="{{$obj->images}}" alt="IMG-MENU"
+
+                                                <a href=""><img src="{{$obj->images}}" alt="IMG-MENU"
                                                                  style="width: 180px; height: 180px"></a>
                                             </div>
                                             <div class="text-blo3 size21 flex-col-l-m">
                                                 <a href="#" class="txt21 m-b-3">
                                                     {{$obj->name}}
+                                                    @if($obj->isDiscount())
+                                                        <span style="background-color: red; color:white;"
+                                                              class="p-l-6 p-r-5">SALE {{$obj->discount}}%</span>
+                                                    @endif
+                                                    @if($obj->isNew())
+                                                        <span class="font-weight-bold" style="background-color: green; color:white;">NEW</span>
+                                                    @endif
                                                 </a>
                                                 <span class="txt23">
                                                     {{$obj->overview}}
                                                 </span>
                                                 <span class="txt22 m-t-10">
-                                                    {{$obj->price}}
-                                                </span>
-                                                <button class="add-to-cart add-cart-large m-t-10" id="add-cart-{{$obj->id}}">
-                                                    <i class="fas fa-cart-plus fa-2x"></i></button>
+                                                    @if($obj->isDiscount())
+                                                        <span class="font-weight-bold">{{$obj->discountPriceString}}
+                                                        </span>
+                                                        <del class="text-muted">
+                                                            <small>{{$obj->originalPriceString}}</small>
+                                                        </del>
+                                                    @else
+                                                        <span class="font-weight-bold">{{$obj->originalPriceString}}
+                                                        </span>
+                                                    @endif
+                                            </span>
+                                                <button class="add-cart-large m-t-10"><i
+                                                            class="fas fa-cart-plus fa-2x"></i></button>
                                             </div>
                                         </div>
                                         <div class="line-item-mainmenu bg3-pattern"></div>
@@ -85,6 +102,4 @@
 
 <script src="{{asset('js/app.js')}}"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
 @endsection

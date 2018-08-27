@@ -34,7 +34,7 @@
                             <li class="clearfix ">
                                 <div class="blog-item-image col-lg-3">
                                     <a href="/article/{{$item->id}}">
-                                        <div style="background-image:url('{{$item->images}}'); width:100% ; height: 140px;"></div>
+                                        <div style="background-image:url('{{$item->images}}');background-position: center; width:100% ; height: 140px;"></div>
                                     </a>
                                 </div>
                                 <div class="blog-item-title ml-2">

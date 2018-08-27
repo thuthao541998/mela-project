@@ -64,32 +64,29 @@
                     </div>
                 </div>
 
+            </div>
+            <div class="flex-w flex-sb-m p-t-25 p-b-25 bo8 p-l-35 p-r-60 p-lr-15-sm">
+                <div class="size10 trans-0-4 m-t-10 m-b-10">
+                    <!-- Button -->
+                    <input class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4" value="Save changes" type="submit">
+                </div>
+            </div>
 
                 <!-- Total -->
                 <div class="bo9 w-size18 p-l-40 p-r-40 p-t-30 p-b-38 m-t-30 m-r-0 m-l-auto p-lr-15-sm">
                     <h5 class="m-text20 p-b-24">
                         Cart Totals
                     </h5>
-
-                    <!--  -->
-                    <div class="flex-w flex-sb-m p-b-12">
-					<span class="s-text18 w-size19 w-full-sm">
-						Subtotal:
-					</span>
-
-                        <span class="m-text21 w-size20 w-full-sm">{{$cart->total_money}}</span>
-                    </div>
-
-                    <!--  -->
-                    <div class="flex-w flex-sb bo10 p-t-15 p-b-20">
-					<span class="s-text18 w-size19 w-full-sm">
-						Shipping:
-					</span>
+                <!--  -->
+                <div class="flex-w flex-sb bo10 p-t-15 p-b-20">
+                        <span class="s-text18 w-size19 w-full-sm">
+                          Shipping:
+                        </span>
 
                         <div class="w-size20 w-full-sm">
-                        <span class="s-text19">
-							Calculate Shipping
-						</span>
+                            <span class="s-text19">
+                              Calculate Shipping
+                            </span>
 
                             <div class="size13 bo4 m-b-12">
                                 <input class="sizefull s-text7 p-l-15 p-r-15" name="ship_name" placeholder="Buyer"
@@ -141,7 +138,7 @@
             var value = $(this).next().val();
             $(this).next().val(value -= 1);
             $(this).parent().parent().next().text($(this).next().val() * parseInt($(this).parent().parent().prev().text()));
-            var currentTotal = $(this).parent().parent().next().text();
+            var currentTotal = parseInt($(this).parent().parent().next().text());
             var minus = oldTotal - currentTotal;
             var totalMoney = parseInt($('.total-money').text());
             $('.total-money').text(totalMoney - minus);
@@ -149,13 +146,15 @@
 
     });
     $('.btn-num-product-up').click(function () {
-        var oldTotal = $(this).parent().parent().next().text();
+        var oldTotal = parseInt($(this).parent().parent().next().text());
+
         var value = parseInt($(this).prev().val());
         $(this).prev().val(value += 1);
         $(this).parent().parent().next().text($(this).prev().val() * parseInt($(this).parent().parent().prev().text()));
-        var currentTotal = $(this).parent().parent().next().text();
+        var currentTotal = parseInt($(this).parent().parent().next().text());
         var plus = currentTotal - oldTotal;
         var totalMoney = parseInt($('.total-money').text());
+        console.log(oldTotal + " " + currentTotal + " " + totalMoney);
         $('.total-money').text(totalMoney + plus);
 
     });

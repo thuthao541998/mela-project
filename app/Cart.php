@@ -17,6 +17,11 @@ class Cart extends Model
     }
     public $items = array();
 
+//    function __construct()
+//    {
+//        $this->items[] = array();
+//    }
+
     public static function getTotalItem()
     {
         $count = 0;
@@ -55,6 +60,6 @@ class Cart extends Model
     }
     function getTotalMoneyString()
     {
-        return sprintf('%s', number_format($this->getTotalMoney(), 0));
+        return sprintf('%s', $this->getTotalMoney());
     }
 }
