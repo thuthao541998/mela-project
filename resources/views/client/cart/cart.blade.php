@@ -14,68 +14,74 @@
         </div>
         @if(count($items)>0)
             <div class="container">
+                <form action="/sua-gio-hang" method="post" name="update-cart-form">
+                {{csrf_field()}}
+                @method('PUT')
                 <!-- Cart item -->
-                <div class="container-table-cart pos-relative">
-                    <div class="wrap-table-shopping-cart bgwhite">
-                        <table class="table-shopping-cart">
-                            <tbody>
-                            <tr class="table-head">
-                                <th class="column-1"></th>
-                                <th class="column-2">Product</th>
-                                <th class="column-3">Price</th>
-                                <th class="column-4 p-l-70">Quantity</th>
-                                <th class="column-5">Total</th>
-                                <th class="column-6"></th>
-                            </tr>
-                            @foreach($items as $item)
-                                <tr class="table-row-{{$item->product->id}}">
-                                    <td class="column-1">
-                                        <div class="cart-img-product b-rad-4 o-f-hidden">
-                                            <img src="{{$item->product->images}}" alt="IMG-PRODUCT">
-                                        </div>
-                                    </td>
-                                    <td class="column-2">{{$item->product->name}}</td>
-                                    @if($item->product->isDiscount())
-                                        <td class="column-3 unit-price">
-                                            <div>{{$item->product->discountPriceWithFormat}}</div>
-                                            <span class="text-danger">-{{$item->product->discount}}%</span>
-                                            <del class="text-danger small">{{$item->product->originalPriceWithFormat}}</del>
-                                        </td>
-                                    @else
-                                        <td class="column-2">{{$item->product->originalPriceWithFormat}}</td>
-                                    @endif
-                                    <td class="column-4 ml-2">
-                                        <div class="flex-w bo5 of-hidden w-size17 quantity" style="margin-left: 40px;">
-                                            <button class="btn-num btn-num-product-down color1 flex-c-m size7 bg8 eff2">
-                                                <i class="fs-12 fa fa-minus" aria-hidden="true"></i>
-                                            </button>
-
-                                            <input class="size8 m-text18 t-center num-product"
-                                                   name="products[{{$item->product->id}}]"
-                                                   value="{{$item->quantity}}" type="number">
-
-                                            <button class="btn-num btn-num-product-up color1 flex-c-m size7 bg8 eff2">
-                                                <i class="fs-12 fa fa-plus" aria-hidden="true"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                    <td class="column-5 total-unit-price"
-                                        id="unit-total-{{$item->product->id}}">{{$item->getTotalPriceWithFormat()}}</td>
-                                    <td class="column-6 cart_delete" id="row-{{$item->product->id}}">
-                                        <a class="cart_quantity_delete" id="delete-{{$item->product->id}}" href="#"><i
-                                                    class="fa fa-times"></i></a>
-                                    </td>
+                    <div class="container-table-cart pos-relative">
+                        <div class="wrap-table-shopping-cart bgwhite">
+                            <table class="table-shopping-cart">
+                                <tbody>
+                                <tr class="table-head">
+                                    <th class="column-1"></th>
+                                    <th class="column-2">Product</th>
+                                    <th class="column-3">Price</th>
+                                    <th class="column-4 p-l-70">Quantity</th>
+                                    <th class="column-5">Total</th>
+                                    <th class="column-6"></th>
                                 </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
+                                @foreach($items as $item)
+                                    <tr class="table-row-{{$item->product->id}}">
+                                        <td class="column-1">
+                                            <div class="cart-img-product b-rad-4 o-f-hidden">
+                                                <img src="{{$item->product->images}}" alt="IMG-PRODUCT">
+                                            </div>
+                                        </td>
+                                        <td class="column-2">{{$item->product->name}}</td>
+                                        @if($item->product->isDiscount())
+                                            <td class="column-3 unit-price">
+                                                <div>{{$item->product->discountPriceWithFormat}}</div>
+                                                <span class="text-danger">-{{$item->product->discount}}%</span>
+                                                <del class="text-danger small">{{$item->product->originalPriceWithFormat}}</del>
+                                            </td>
+                                        @else
+                                            <td class="column-2">{{$item->product->originalPriceWithFormat}}</td>
+                                        @endif
+                                        <td class="column-4 ml-2">
+                                            <div class="flex-w bo5 of-hidden w-size17 quantity"
+                                                 style="margin-left: 40px;">
+                                                <button class="btn-num btn-num-product-down color1 flex-c-m size7 bg8 eff2">
+                                                    <i class="fs-12 fa fa-minus" aria-hidden="true"></i>
+                                                </button>
+
+                                                <input class="size8 m-text18 t-center num-product"
+                                                       name="products[{{$item->product->id}}]"
+                                                       value="{{$item->quantity}}" type="number">
+
+                                                <button class="btn-num btn-num-product-up color1 flex-c-m size7 bg8 eff2">
+                                                    <i class="fs-12 fa fa-plus" aria-hidden="true"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                        <td class="column-5 total-unit-price"
+                                            id="unit-total-{{$item->product->id}}">{{$item->getTotalPriceWithFormat()}}</td>
+                                        <td class="column-6 cart_delete" id="row-{{$item->product->id}}">
+                                            <a class="cart_quantity_delete" id="delete-{{$item->product->id}}" href="#"><i
+                                                        class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
             <div class="flex-w flex-sb-m p-t-25 p-b-25 p-l-35 p-r-60 p-lr-15-sm">
                 <div class="size10 trans-0-4 m-t-10 m-b-10">
                     <!-- Button -->
-                    <input name="save-changes" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4" value="Save changes"
+                    <input name="save-changes" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4"
+                           value="Save changes"
                            type="submit">
                 </div>
             </div>
@@ -201,18 +207,14 @@
                         error: function (r) {
                             console.log(r)
                         }
-                    })
+                    });
                 } else {
                     swal("This product is safe!");
                 }
+                ;
             });
 
     });
-    $('input[name="save-changes"]').click(function () {
-        var id = [];
-        id.push($('.quantity input').attr('name'))
-        console.log(id);
 
-    });
 </script>
 @endsection
