@@ -28,7 +28,7 @@
                                 <th class="column-6"></th>
                             </tr>
                             @foreach($items as $item)
-                                <tr class="table-row">
+                                <tr class="table-row-{{$item->product->id}}">
                                     <td class="column-1">
                                         <div class="cart-img-product b-rad-4 o-f-hidden">
                                             <img src="{{$item->product->images}}" alt="IMG-PRODUCT">
@@ -45,13 +45,12 @@
                                         <td class="column-2">{{$item->product->originalPriceWithFormat}}</td>
                                     @endif
                                     <td class="column-4 ml-2">
-                                        <div class="flex-w bo5 of-hidden w-size17" style="margin-left: 40px;">
+                                        <div class="flex-w bo5 of-hidden w-size17 quantity" style="margin-left: 40px;">
                                             <button class="btn-num btn-num-product-down color1 flex-c-m size7 bg8 eff2">
                                                 <i class="fs-12 fa fa-minus" aria-hidden="true"></i>
                                             </button>
 
                                             <input class="size8 m-text18 t-center num-product"
-                                                   id="quality-number"
                                                    name="products[{{$item->product->id}}]"
                                                    value="{{$item->quantity}}" type="number">
 
@@ -211,7 +210,7 @@
     });
     $('input[name="save-changes"]').click(function () {
         var id = [];
-        id.push($('input#quality-number').attr('name'))
+        id.push($('.quantity input').attr('name'))
         console.log(id);
 
     });
