@@ -41,7 +41,7 @@
                                         <del class="text-danger small">{{$item->product->originalPriceWithFormat}}</del>
                                     </td>
                                     @else
-                                        <td class="column-2">{{$item->product->name}}</td>
+                                        <td class="column-2">{{$item->product->originalPriceWithFormat}}</td>
                                     @endif
                                         <td class="column-4 ml-2">
                                         <div class="flex-w bo5 of-hidden w-size17" style="margin-left: 40px;">
@@ -140,32 +140,32 @@
 <script src="{{asset('js/jquery.formatNumber-0.1.1.min.js')}}"></script>
 <script type="text/javascript">
     $('.btn-num-product-down').click(function () {
-        var oldTotal = $(this).parent().parent().next().text().replace(',','');
+        var oldTotal = $(this).parent().parent().next().text().replace(/\,/g,'');
         if ($(this).next().val() > 1) {
             var value = $(this).next().val();
             $(this).next().val(value -= 1);
-            $(this).parent().parent().next().text($(this).next().val().replace(',','') * parseInt($(this).parent().parent().prev().text().replace(',',''))).formatNumber();
-            var currentTotal = parseInt($(this).parent().parent().next().text().replace(',',''));
+            $(this).parent().parent().next().text($(this).next().val().replace(/\,/g,'') * parseInt($(this).parent().parent().prev().text().replace(/\,/g,''))).formatNumber();
+            var currentTotal = parseInt($(this).parent().parent().next().text().replace(/\,/g,''));
             var minus = oldTotal - currentTotal;
-            var totalMoney = parseInt($('.total-money').text().replace(',','').replace(',',''));
+            var totalMoney = parseInt($('.total-money').text().replace(/\,/g,''));
             $('.total-money').text(totalMoney - minus).formatNumber();
         }
 
     });
     $('.btn-num-product-up').click(function () {
-        var oldTotal = parseInt($(this).parent().parent().next().text().replace(',',''));
+        var oldTotal = parseInt($(this).parent().parent().next().text().replace(/\,/g,''));
         var value = parseInt($(this).prev().val());
         $(this).prev().val(value += 1);
-        $(this).parent().parent().next().text($(this).prev().val().replace(',','') * parseInt($(this).parent().parent().prev().text().replace(',',''))).formatNumber();
-        var currentTotal = parseInt($(this).parent().parent().next().text().replace(',',''));
+        $(this).parent().parent().next().text($(this).prev().val().replace(/\,/g,'') * parseInt($(this).parent().parent().prev().text().replace(/\,/g,''))).formatNumber();
+        var currentTotal = parseInt($(this).parent().parent().next().text().replace(/\,/g,''));
         var plus = currentTotal - oldTotal;
-        var totalMoney = parseInt($('.total-money').text().replace(',','').replace(',',''));
+        var totalMoney = parseInt($('.total-money').text().replace(/\,/g,'').replace(/\,/g,''));
         $('.total-money').text(totalMoney + plus).formatNumber();
     });
     $(".cart_delete").click(function () {
         var id = $(this).children().attr('id').replace('delete-', '');
-        var deleteTotal = parseInt($('#unit-total-'+id).text().replace(',',''));
-        var totalMoney = parseInt($('.total-money').text().replace(',','').replace(',',''));
+        var deleteTotal = parseInt($('#unit-total-'+id).text().replace(/\,/g,''));
+        var totalMoney = parseInt($('.total-money').text().replace(/\,/g,''));
         swal({
             title: "Are you sure?",
             text: "Once deleted, you will not be able to recover this product",
