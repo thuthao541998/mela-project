@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Product;
 
 class OrderDetailsTableSeeder extends Seeder
 {
@@ -17,19 +18,19 @@ class OrderDetailsTableSeeder extends Seeder
             [
                 'productId' => 1,
                 'quantity' => 3,
-                'unitprice' => \App\Product::find('productId')->discountPriceWithFormat,
+                'unitprice' => \App\Product::find('productId')-> getDiscountPriceWithFormatAttribute(),
                 'orderId' => 1
             ],
             [
                 'productId' => 2,
                 'quantity' => 1,
-                'unitprice' => \App\Product::find('productId')->discountPriceWithFormat,
+                'unitprice' => \App\Product::find('productId')-> getDiscountPriceWithFormatAttribute(),
                 'orderId' => 1
             ],
             [
                 'productId' => 4,
                 'quantity' => 2,
-                'unitprice' => \App\Product::find('productId')->discountPriceWithFormat,
+                'unitprice' => \App\Product::find('productId')-> getDiscountPriceWithFormatAttribute(),
                 'orderId' => 1
             ]
         ]);

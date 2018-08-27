@@ -16,12 +16,14 @@ class DatabaseSeeder extends Seeder
         
         $this -> call(
             [
+
                 ArticlesTableSeeder::class,
                 BrandsTableSeeder::class,
                 ProductTableSeeder::class,
                 CategoriesTableSeeder::class,
-                OrderDetailsTableSeeder::class,
-                OrdersTableSeeder::class
+//                OrdersTableSeeder::class,
+//                OrderDetailsTableSeeder::class,
+
             ]
         );
 
