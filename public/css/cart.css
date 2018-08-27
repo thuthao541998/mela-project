@@ -11414,8 +11414,6 @@ li.sale-noti > a {
 .header-icon1:hover, .header-icon2:hover {
     cursor: pointer
 }
-
-
 .linedivide1 {
     display: block;
     height: 20px;
@@ -11583,7 +11581,7 @@ li.sale-noti > a {
     padding-top: 10px;
     padding-bottom: 10px;
     background-color: #fff;
-    display: none
+    /*display: none*/
 }
 
 .logo-mobile {

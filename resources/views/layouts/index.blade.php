@@ -33,6 +33,7 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{asset('css/util.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/cart.css')}}">
     <!--===============================================================================================-->
     <script type="text/javascript" src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
 </head>
@@ -73,6 +74,7 @@
 
                             <li>
                                 <a href="/about-us">About</a>
+
                             </li>
                             <li>
                                 <a href="#"><i class="fas fa-user-circle fa-2x" aria-hidden="true" ></i></a>
@@ -87,8 +89,67 @@
                 <div class="social flex-w flex-l-m p-r-20">
                     <button class="btn-show-sidebar m-l-33 trans-0-4"></button>
                     <span class="p-l-30">
-                        <a href="/cart" class="fa fa-shopping-cart fa-2x"></a>
-                        <span class="header-icons-noti m-l-30">0</span>
+                        <div class="btn-show-menu">
+                            <div class="wrap_header_mobile" style="background-color: transparent; color: #fff;">
+                                <!-- Button show menu -->
+                                <div class="btn-show-menu">
+                                    <!-- Header Icon mobile -->
+                                    <div class="header-icons-mobile">
+                                        <div class="header-wrapicon2">
+                                            <a href="#" class="fa fa-shopping-cart fa-2x js-show-header-dropdown m-t-10"></a>
+                                            <span class="header-icons-noti" style="left: 35px; bottom: 20px; top: 0px;" id="header-icons-noti">{{\App\Cart::getTotalItem()}}</span>
+
+                                            <!-- Header cart noti -->
+                                            <div class="header-cart header-dropdown">
+                                                <ul class="header-cart-wrapitem">
+                                                    @if(count(\App\Cart::getCart()->items)>0)
+                                                        @foreach(\App\Cart::getCart()->items as $item)
+                                                            <li class="header-cart-item">
+                                                                <div class="header-cart-item-img">
+                                                                    <img src="{{$item->product->images}}" alt="IMG">
+                                                                </div>
+
+                                                                <div class="header-cart-item-txt">
+                                                                    <a href="#" class="header-cart-item-name">
+                                                                        {{$item->product->name}}
+                                                                    </a>
+
+                                                                    <span class="header-cart-item-info">
+                                                                        {{$item->quantity}} x {{$item->product->price}}
+                                                                    </span>
+                                                                </div>
+                                                            </li>
+                                                        @endforeach
+                                                    @else
+                                                        'Hiện tại không có sản phẩm nào trong giỏ hàng'
+                                                    @endif
+                                                </ul>
+
+                                                <div class="header-cart-total">
+                                                    Total: <span id="header-cart-total">{{\App\Cart::getCart()->getTotalMoneyString()}}</span>
+                                                </div>
+
+                                                <div class="header-cart-buttons">
+                                                    <div class="header-cart-wrapbtn">
+                                                        <!-- Button -->
+                                                        <a href="cart.html" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+                                                            View Cart
+                                                        </a>
+                                                    </div>
+
+                                                    <div class="header-cart-wrapbtn">
+                                                        <!-- Button -->
+                                                        <a href="#" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+                                                            Check Out
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </span>
                 </div>
             </div>
@@ -101,7 +162,6 @@
     <!-- Button Hide sidebar -->
     <button class="btn-hide-sidebar ti-close color0-hov trans-0-4"></button>
 
-    <!-- - -->
     <ul class="menu-sidebar p-t-95 p-b-70">
         <li class="t-center m-b-13">
             <a href="#"><i class="fab fa-facebook-square fa-2x" aria-hidden="true"></i></a>
@@ -121,8 +181,7 @@
         </li>
 
         <li class="t-center m-b-13">
-                <a href="/list-product">PRODUCT
-                </a>
+            <a href="/list-product">PRODUCT</a>
         </li>
 
         <li class="t-center m-b-13">
@@ -589,7 +648,9 @@
 <!--===============================================================================================-->
 <script type="text/javascript" src="{{asset('js/lightbox.min.js')}}"></script>
 <!--===============================================================================================-->
+<script src="{{asset('js/sweetalert.min.js')}}"></script>
 <script src="{{asset('js/main.js')}}"></script>
+<script src="{{asset('js/cart.js')}}"></script>
 
 </body>
 </html>

@@ -1,6 +1,7 @@
 @extends('layouts.index')
 @section('content')
 @section('page-topic','LIST PRODUCT')
+
 <div class="content">
     <!-- Main menu -->
     <div class="container-fluid row bg1-pattern">
@@ -62,8 +63,8 @@
                                                     @endif
                                                 </a>
                                                 <span class="txt23">
-                                            {{$obj->overview}}
-                                            </span>
+                                                    {{$obj->overview}}
+                                                </span>
                                                 <span class="txt22 m-t-10">
                                                     @if($obj->isDiscount())
                                                         <span class="font-weight-bold">{{$obj->discountPriceString}}
@@ -101,5 +102,4 @@
 
 <script src="{{asset('js/app.js')}}"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
-
 @endsection
