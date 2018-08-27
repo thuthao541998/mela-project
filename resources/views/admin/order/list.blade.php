@@ -9,52 +9,61 @@
                         List Order
                     </div>
                     <div>
+                        @if($orders->count()>0)
                         <table class="table table-striped">
                             <thead>
                             <tr>
-                                <th class="col-md-1"></th>
                                 <th class="col-md-1">ID</th>
-                                <th class="col-md-3">Client</th>
+                                <th class="col-md-3">Buyer</th>
+                                <th class="col-md-2">Address</th>
+                                <th class="col-md-2">Phone Number</th>
+                                <th class="col-md-4">Order Detail</th>
                                 <th class="col-md-3">Total</th>
-                                <th class="col-md-4">Action</th>
+                                <th class="col-md-1">Status</th>
+                                <th class="col-md-3">Action</th>
                             </thead>
                             <tbody>
-                            @foreach($list_obj as $item)
+                            @foreach($orders as $item)
                                 <tr class="row" id="row-item-{{$item->id}}">
-                                    <td class="col-md-1 text-center">
-                                        <input type="checkbox" class="check-item">
-                                    </td>
                                     <td class="col-md-1">{{$item->id}}</td>
-                                    <td class="col-md-3">{{$item->clientId}}</td>
-                                    <td class="col-md-3">{{$item->total}}</td>
+                                    <td class="col-md-3">{{$item->ship_name}}</td>
+                                    <td class="col-md-2">{{$item->ship_address}}</td>
+                                    <td class="col-md-2">{{$item->ship_phone}}</td>
                                     <td class="col-md-4">
-                                        <a href="#" class="btn btn-link btn-quick-edit"><span class="fa fa-eraser"></span> Quick Edit</a>&nbsp;&nbsp;
-                                        <a href="/admin/order/{{$item -> id}}/edit" class="btn btn-link btn-edit"><span class="fa fa-edit"></span> Edit</a>&nbsp;&nbsp;
-                                        <a href="/admin/order/{{$item -> id}}" class="btn btn-link btn-delete"><span class="fa fa-trash"></span> Delete</a>
+                                        @foreach($item->details as $order_detail)
+                                            <li>{{$order_detail->product->name}} - {{$order_detail->quantity}}</li>
+                                        @endforeach
+                                    </td>
+                                    <td class="col-md-3">{{$item->total}}</td>
+                                    <td class="col-1">{{$item->statusLabel}}</td>
+                                    <td class="col-3">
+                                        @if($item->status==0)
+                                            <a href="/admin/order/change-status?id={{$item->id}}&status=1" onclick="return confirm('Bạn có chắc muốn xác nhận đơn hàng?')"
+                                               class="btn btn-simple btn-success btn-icon edit"><i
+                                                        class="material-icons">how_to_reg</i></a>
+                                        @elseif($item->status==1)
+                                            <a href="/admin/order/change-status?id={{$item->id}}&status=2" onclick="return confirm('Bạn có chắc muốn hoàn thành đơn hàng?')"
+                                               class="btn btn-simple btn-success btn-icon edit"><i
+                                                        class="material-icons">done</i></a>
+                                        @endif
+                                        @if($item->status==0)
+                                            <a href="{{$item->id}}" class="btn btn-simple btn-danger btn-icon remove btn-delete"><i
+                                                        class="material-icons">close</i></a>
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach
                             </tbody>
                         </table>
-                        <div class="row">
-                            <div class="col-md-8 form-inline">
-                                <div class="form-check mb-2">
-                                    <input class="form-check-input" type="checkbox" value="" id="check-all">
-                                    <select id="select-action" class="form-control">
-                                        <option selected value="0">Action</option>
-                                        <option value="1">Delete All</option>
-                                        <option value="2">Another Action</option>
-                                    </select>
-                                    <button type="submit" class="btn btn-primary mb-2" id="btn-apply">Submit</button>
-                                </div>
+                        @else
+                            <div class="alert alert-info">Havent't order in here.
                             </div>
-                        </div>
+                        @endif
                         <div class="pagination pull-right">
-                            {!! $list_obj->links() !!}
+                            {!! $orders->links() !!}
                         </div>
                     </div>
                 </div>
         </section>
     </section>
-    <script src="{{asset('js/delete.js')}}"></script>
 @endsection

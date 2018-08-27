@@ -16,7 +16,7 @@ class OrderController extends Controller
     public function index()
     {
         $orders = Order::paginate(10);
-        return view('admin.order.list')->with('orders_in_view', $orders);
+        return view('admin.order.list')->with('orders', $orders);
     }
 
     /**
