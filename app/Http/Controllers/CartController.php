@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Cart;
 use App\CartItem;
+use App\Http\Requests\StoreCheckoutPost;
 use App\Product;
 use Foo\DataProviderIssue2922\SecondHelloWorldTest;
 use Illuminate\Http\Request;
@@ -84,5 +85,9 @@ class CartController extends Controller
     {
         Cart::getRemoveItem($id);
         return redirect('/cart');
+    }
+
+    public function checkoutCart(StoreCheckoutPost $request){
+        $request->validated();
     }
 }

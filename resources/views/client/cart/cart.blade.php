@@ -213,7 +213,7 @@
         if ($('input[name="ship_name"]').length < 7) {
             $('span[name="ship_name"]').html('Your name has to be longer than 7.')
         };
-        if ($('input[name="ship_address"]').length < 7){
+        if ($('input[name="ship_address"]').length < 10){
             $('span[name="ship_address"]').html('Your address has to be longer than 7.');
         };
         if (isNaN($('input[name="ship_phone"]'))){
