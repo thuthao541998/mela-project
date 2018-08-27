@@ -111,7 +111,7 @@
                                                                 </div>
 
                                                                 <div class="header-cart-item-txt">
-                                                                    <a href="#" class="header-cart-item-name">
+                                                                    <a href="#" class="header-cart-item-name" style="color: #555; ">
                                                                         {{$item->product->name}}
                                                                     </a>
 
