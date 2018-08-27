@@ -19,7 +19,7 @@ $('.btn-quick-edit-article').click(function () {
             alert('error');
         }
     });
-    $('#modal-edit').modal();
+    $('#modal-edit').modal('show');
     return false;
 });
 

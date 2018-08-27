@@ -8,24 +8,9 @@
                     <div class="panel-heading">
                         List Brand
                     </div>
-                    <div class="col-md-8 form-inline">
-                        <div class="form-group mx-sm-4 mb-3">
-                            <label for="chooseCategory">Brand</label>
-                            <select id="select-action" class="form-control">
-                                <option selected value="0">Brand</option>
-                                <option value="1">Urban Decay</option>
-                                <option value="2">NARS</option>
-                                <option value="3">Kylie Cosmetics</option>
-                                <option value="4">NYX</option>
-                                <option value="5">Maybelline</option>
-                                <option value="6">Stila</option>
-                                <option value="7">MAC</option>
-                                <option value="8">ColourPop</option>
-                                <option value="9">Dior</option>
-                                <option value="10">Anastasia Beverly Hills</option>
-                            </select>
-                        </div>
-                    </div>
+                    <div class="alert alert-success hidden mt-2" role="alert" id="messageSuccess"></div>
+                    <div class="alert alert-danger hidden mt-2" role="alert" id="messageError"></div>
+                    @if(count($list_obj)>0)
                     <div>
                         <table class="table table-light" >
                             <thead>
@@ -54,7 +39,7 @@
                                     </td>
                                     <td class="col-md-3 text-center">
                                         <a href="/admin/brand/{{$item -> id}}/edit" class="btn btn-link btn-edit" data-toggle="tooltip" title="Edit" data-placement="top"><span class="fa fa-edit"></span></a>
-                                        <a href="#" id="{{$item-> id}}" class="btn btn-link btn-delete" data-toggle="tooltip" title="Delete" data-placement="top"><span class="fa fa-trash"></span></a>
+                                        <a href="javascript:void(0)" id="{{$item-> id}}" class="btn btn-link btn-delete-brand" data-toggle="tooltip" title="Delete" data-placement="top"><span class="fa fa-trash"></span></a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -69,7 +54,7 @@
                                         <option value="1">Delete All</option>
                                         <option value="2">Another Action</option>
                                     </select>
-                                    <button type="submit" class="btn btn-primary ml-2" id="btn-apply">Submit</button>
+                                    <button type="submit" class="btn btn-primary ml-2" id="btn-apply-brand">Submit</button>
                                 </div>
                             </div>
                         </div>
@@ -77,8 +62,15 @@
                     <div class="pagination pull-right">
                         {!! $list_obj->links() !!}
                     </div>
+                    @else
+                        <div class="alert alert-info" role="alert">
+                            Have no brand, click <a href="/admin/brand/create">here</a> to create new.
+                        </div>
+                    @endif
                 </div>
         </section>
     </section>
+    <script src="{{asset('js/delete.js')}}"></script>
+    <script src="{{asset('js/checkAll.js')}}"></script>
 @endsection
 

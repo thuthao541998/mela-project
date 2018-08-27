@@ -1,3 +1,7 @@
 .fa-chevron-down {
     color: #fff !important;
 }
+.error{
+    color:#FF5555;
+    font-style: italic;
+}

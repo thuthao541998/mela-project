@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Article;
+use App\Http\Requests\StoreArticlePost;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use JD\Cloudder\Facades\Cloudder;
 
@@ -19,6 +19,13 @@ class ArticleController extends Controller
     {
         $list_obj = Article::paginate(5);
         return view('admin.article.list', compact('article'))->with('list_obj', $list_obj);
+    }
+
+    public function indexClient()
+    {
+        $limit = 10;
+        $list_obj = Article::paginate($limit);
+        return view('client.article.list', compact('article'))->with('list_obj', $list_obj);
     }
 
     /**
@@ -37,10 +44,10 @@ class ArticleController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(StoreArticlePost $request)
     {
+        $request->validated();
         $obj = new Article();
-        $obj->name = Input::get('name');
         $obj->author = Input::get('author');
         $obj->title = Input::get('title');
         $obj->content = Input::get('content');
@@ -65,7 +72,17 @@ class ArticleController extends Controller
         if ($obj == null) {
             return view('admin.404.404');
         }
-        return view('admin.article.show')
+        return view('admin.article.detail')
+            ->with('obj', $obj);
+    }
+
+    public function showClient($id)
+    {
+        $obj = Article::find($id);
+        if ($obj == null) {
+            return view('admin.404.404');
+        }
+        return view('client.article.detail')
             ->with('obj', $obj);
     }
 
@@ -93,13 +110,13 @@ class ArticleController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update($id)
+    public function update($id, StoreArticlePost $request)
     {
+        $request->validated();
         $obj = Article::find($id);
         if ($obj == null) {
             return view('admin.404.404');
         }
-        $obj->name = Input::get('name');
         $obj->author = Input::get('author');
         $obj->title = Input::get('title');
         $obj->content = Input::get('content');
@@ -118,6 +135,8 @@ class ArticleController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
+
+
     public function destroy($id)
     {
         $obj = Article::find($id);
@@ -128,6 +147,12 @@ class ArticleController extends Controller
         return response('Deleted', 200);
     }
 
+    public function destroyMany()
+    {
+
+        Article::destroy(Input::get('ids'));
+        return Input::get('ids');
+    }
 
 
     public function showJson($id)

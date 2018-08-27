@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Brand;
+use App\Http\Requests\StoreBrandPost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use JD\Cloudder\Facades\Cloudder;
@@ -36,8 +37,9 @@ class BrandController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreBrandPost $request)
     {
+        $request->validated();
         $obj = new Brand();
         $obj->name = Input::get('name');
         $obj->description = Input::get('description');
@@ -89,8 +91,9 @@ class BrandController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreBrandPost $request, $id)
     {
+        $request->validated();
         $obj = Brand::find($id);
         if ($obj == null) {
             return view('admin.404.404');
@@ -116,9 +119,15 @@ class BrandController extends Controller
     {
         $obj = Brand::find($id);
         if ($obj == null) {
-            return response('brand not found or has been deleted!', 404);
+            return response('Brand not found or has been deleted!', 404);
         }
         $obj->delete();
         return response('Deleted', 200);
+    }
+
+    public function destroyMany()
+    {
+        Brand::destroy(Input::get('ids'));
+        return Input::get('ids');
     }
 }
