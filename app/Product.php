@@ -38,6 +38,14 @@ class Product extends Model
     {
         return sprintf('%s (vnd)', number_format($this->price, 0));
     }
+    public function getOriginalPriceWithFormatAttribute()
+    {
+        return sprintf('%s', number_format($this->price, 0));
+    }
+    public function getTotalPriceWithFormatAttribute()
+    {
+        return sprintf('%s', number_format($this->price * (100-$this->discount)/100, 0));
+    }
     public function getDiscountPriceAttribute()
     {
         return $this->price - ($this->price * $this->discount / 100);

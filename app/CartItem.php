@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class CartItem extends Model
 {
     public function getTotalPriceWithFormat(){
-        return sprintf('%s', $this->product->price * $this->quantity);
+        return sprintf('%s', number_format($this->product->discountPrice * $this->quantity,0));
     }
 }

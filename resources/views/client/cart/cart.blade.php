@@ -35,9 +35,15 @@
                                         </div>
                                     </td>
                                     <td class="column-2">{{$item->product->name}}</td>
-                                    <td class="column-3 unit-price">{{$item->product->price}}</td>
-
-                                    <td class="column-4 ml-2">
+                                    @if($item->product->isDiscount())
+                                    <td class="column-3 unit-price">
+                                        <div>{{$item->product->discountPriceWithFormat}}</div><span class="text-danger">-{{$item->product->discount}}%</span>
+                                        <del class="text-danger small">{{$item->product->originalPriceWithFormat}}</del>
+                                    </td>
+                                    @else
+                                        <td class="column-2">{{$item->product->name}}</td>
+                                    @endif
+                                        <td class="column-4 ml-2">
                                         <div class="flex-w bo5 of-hidden w-size17" style="margin-left: 40px;">
                                             <button class="btn-num btn-num-product-down color1 flex-c-m size7 bg8 eff2">
                                                 <i class="fs-12 fa fa-minus" aria-hidden="true"></i>
@@ -52,7 +58,7 @@
                                             </button>
                                         </div>
                                     </td>
-                                    <td class="column-5 total-unit-price" id="unit-total-{{$item->product->id}}">{{$item->quantity * $item->product->price}}</td>
+                                    <td class="column-5 total-unit-price" id="unit-total-{{$item->product->id}}">{{$item->getTotalPriceWithFormat()}}</td>
                                     <td class="column-6 cart_delete" id="row-{{$item->product->id}}">
                                         <a class="cart_quantity_delete" id="delete-{{$item->product->id}}" href="#"><i
                                                     class="fa fa-times"></i></a>
@@ -65,7 +71,7 @@
                 </div>
 
             </div>
-            <div class="flex-w flex-sb-m p-t-25 p-b-25 bo8 p-l-35 p-r-60 p-lr-15-sm">
+            <div class="flex-w flex-sb-m p-t-25 p-b-25 p-l-35 p-r-60 p-lr-15-sm">
                 <div class="size10 trans-0-4 m-t-10 m-b-10">
                     <!-- Button -->
                     <input class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4" value="Save changes" type="submit">
@@ -105,12 +111,12 @@
                     </div>
 
                     <!--  -->
-                    <div class="flex-w flex-sb-m p-t-26 p-b-30">
+                    <div class="p-t-26 p-b-30">
 					<span class="m-text22 w-size19 w-full-sm">
 						Total:
 					</span>
-
-                        <span class="m-text21 w-size20 w-full-sm total-money">{{$cart->total_money}}</span>
+                        <span class="m-text21 w-size20 w-full-sm total-money p-l-30">{{$cart->getTotalMoneyWithFormat()}}</span>
+                        <span>(VND)</span>
                     </div>
 
                     <div class="size15 trans-0-4">
@@ -131,35 +137,35 @@
     </div>
 </div>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="{{asset('js/jquery.formatNumber-0.1.1.min.js')}}"></script>
 <script type="text/javascript">
     $('.btn-num-product-down').click(function () {
-        var oldTotal = $(this).parent().parent().next().text();
+        var oldTotal = $(this).parent().parent().next().text().replace(',','');
         if ($(this).next().val() > 1) {
             var value = $(this).next().val();
             $(this).next().val(value -= 1);
-            $(this).parent().parent().next().text($(this).next().val() * parseInt($(this).parent().parent().prev().text()));
-            var currentTotal = parseInt($(this).parent().parent().next().text());
+            $(this).parent().parent().next().text($(this).next().val().replace(',','') * parseInt($(this).parent().parent().prev().text().replace(',',''))).formatNumber();
+            var currentTotal = parseInt($(this).parent().parent().next().text().replace(',',''));
             var minus = oldTotal - currentTotal;
-            var totalMoney = parseInt($('.total-money').text());
-            $('.total-money').text(totalMoney - minus);
+            var totalMoney = parseInt($('.total-money').text().replace(',','').replace(',',''));
+            $('.total-money').text(totalMoney - minus).formatNumber();
         }
 
     });
     $('.btn-num-product-up').click(function () {
-        var oldTotal = parseInt($(this).parent().parent().next().text());
+        var oldTotal = parseInt($(this).parent().parent().next().text().replace(',',''));
         var value = parseInt($(this).prev().val());
         $(this).prev().val(value += 1);
-        $(this).parent().parent().next().text($(this).prev().val() * parseInt($(this).parent().parent().prev().text()));
-        var currentTotal = parseInt($(this).parent().parent().next().text());
+        $(this).parent().parent().next().text($(this).prev().val().replace(',','') * parseInt($(this).parent().parent().prev().text().replace(',',''))).formatNumber();
+        var currentTotal = parseInt($(this).parent().parent().next().text().replace(',',''));
         var plus = currentTotal - oldTotal;
-        var totalMoney = parseInt($('.total-money').text());
-        $('.total-money').text(totalMoney + plus);
-
+        var totalMoney = parseInt($('.total-money').text().replace(',','').replace(',',''));
+        $('.total-money').text(totalMoney + plus).formatNumber();
     });
     $(".cart_delete").click(function () {
         var id = $(this).children().attr('id').replace('delete-', '');
-        var deleteTotal = parseInt($('#unit-total-'+id).text());
-        var totalMoney = parseInt($('.total-money').text());
+        var deleteTotal = parseInt($('#unit-total-'+id).text().replace(',',''));
+        var totalMoney = parseInt($('.total-money').text().replace(',','').replace(',',''));
         swal({
             title: "Are you sure?",
             text: "Once deleted, you will not be able to recover this product",
@@ -177,8 +183,8 @@
                             'id': id
                         },
                         success: function (resp) {
-                            $('.total-money').text(totalMoney - deleteTotal);
-                            swal("Poof! Your imaginary file has been deleted!", {
+                            $('.total-money').text(totalMoney - deleteTotal).formatNumber();
+                            swal("Poof! This product has been remove!", {
                                 icon: "success",
                             });
                             $('#row-' + id).closest('tr').remove();
@@ -195,7 +201,7 @@
                         }
                     })
                 } else {
-                    swal("Your product file is safe!");
+                    swal("This product is safe!");
                 }
             });
 
