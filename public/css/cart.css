@@ -12542,7 +12542,7 @@ li.sale-noti > a {
 }
 
 .table-shopping-cart .column-4 {
-    width: 355px;
+    width: 270px;
     padding-right: 30px
 }
 
@@ -12550,6 +12550,9 @@ li.sale-noti > a {
     padding-right: 30px
 }
 
+.table-shopping-cart .column-6 {
+    padding-right: 30px
+}
 .table-shopping-cart .table-head th {
     font-family: Montserrat-Bold;
     font-size: 13px;
