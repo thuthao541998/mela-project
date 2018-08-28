@@ -155,7 +155,7 @@ class CartController extends Controller
                 return 'Có lỗi xảy ra.' . $exception->getMessage();
             }
         } else {
-            return view('cart')->with('message', 'Hiện tại chưa có sản phẩm nào trong giỏ hàng.');
+            return view('admin.404.404')->with('message', 'Hiện tại chưa có sản phẩm nào trong giỏ hàng.');
         }
     }
 }
