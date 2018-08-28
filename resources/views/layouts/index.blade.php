@@ -34,7 +34,7 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{asset('css/util.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
-
+    <link rel="stylesheet" href="{{asset('css/brand-detail.css')}}">
     <!--===============================================================================================-->
     <script type="text/javascript" src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
 </head>
@@ -111,7 +111,7 @@
                                                                 </div>
 
                                                                 <div class="header-cart-item-txt">
-                                                                    <a href="#" class="header-cart-item-name">
+                                                                    <a href="#" class="header-cart-item-name" style="color: #555; ">
                                                                         {{$item->product->name}}
                                                                     </a>
 
@@ -212,35 +212,35 @@
             </a>
 
             <a class="item-gallery-sidebar wrap-pic-w" href="{{asset('images/photo-gallery-02.jpg')}}" data-lightbox="gallery-footer">
-                <img src="{{asset('images/photo-gallery-thumb-02.jpg')}}" alt="GALLERY">
+                <img src="{{asset('images/photo-gallery-02.jpg')}}" alt="GALLERY">
             </a>
 
             <a class="item-gallery-sidebar wrap-pic-w" href="{{asset('images/photo-gallery-03.jpg')}}" data-lightbox="gallery-footer">
-                <img src="{{asset('images/photo-gallery-thumb-03.jpg')}}" alt="GALLERY">
+                <img src="{{asset('images/photo-gallery-03.jpg')}}" alt="GALLERY">
             </a>
 
             <a class="item-gallery-sidebar wrap-pic-w" href="{{asset('images/photo-gallery-05.jpg')}}" data-lightbox="gallery-footer">
-                <img src="{{asset('images/photo-gallery-thumb-05.jpg')}}" alt="GALLERY">
+                <img src="{{asset('images/photo-gallery-05.jpg')}}" alt="GALLERY">
             </a>
 
             <a class="item-gallery-sidebar wrap-pic-w" href="{{asset('images/photo-gallery-06.jpg')}}" data-lightbox="gallery-footer">
-                <img src="{{asset('images/photo-gallery-thumb-06.jpg')}}" alt="GALLERY">
+                <img src="{{asset('images/photo-gallery-06.jpg')}}" alt="GALLERY">
             </a>
 
             <a class="item-gallery-sidebar wrap-pic-w" href="{{asset('')}}images/photo-gallery-07.jpg" data-lightbox="gallery-footer">
-                <img src="{{asset('images/photo-gallery-thumb-07.jpg')}}" alt="GALLERY">
+                <img src="{{asset('images/photo-gallery-07.jpg')}}" alt="GALLERY">
             </a>
 
             <a class="item-gallery-sidebar wrap-pic-w" href="{{asset('images/photo-gallery-09.jpg')}}" data-lightbox="gallery-footer">
-                <img src="{{asset('images/photo-gallery-thumb-09.jpg')}}" alt="GALLERY">
+                <img src="{{asset('images/photo-gallery-09.jpg')}}" alt="GALLERY">
             </a>
 
             <a class="item-gallery-sidebar wrap-pic-w" href="{{asset('images/photo-gallery-10.jpg')}}" data-lightbox="gallery-footer">
-                <img src="{{asset('images/photo-gallery-thumb-10.jpg')}}" alt="GALLERY">
+                <img src="{{asset('images/photo-gallery-10.jpg')}}" alt="GALLERY">
             </a>
 
             <a class="item-gallery-sidebar wrap-pic-w" href="{{asset('images/photo-gallery-11.jpg')}}" data-lightbox="gallery-footer">
-                <img src="{{asset('images/photo-gallery-thumb-11.jpg')}}" alt="GALLERY">
+                <img src="{{asset('images/photo-gallery-11.jpg')}}" alt="GALLERY">
             </a>
         </div>
     </div>
@@ -537,52 +537,52 @@
 
                 <!-- Gallery footer -->
                 <div class="wrap-gallery-footer flex-w">
-                    <a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-01.jpg" data-lightbox="gallery-footer">
-                        <img src="images/photo-gallery-thumb-01.jpg" alt="GALLERY">
+                    <a class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
+                        <img src="{{asset('images/photo-gallery-thumb-01.jpg')}}" alt="GALLERY">
                     </a>
 
-                    <a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-02.jpg" data-lightbox="gallery-footer">
-                        <img src="images/photo-gallery-thumb-02.jpg" alt="GALLERY">
+                    <a class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
+                        <img src="{{asset('images/photo-gallery-thumb-02.jpg')}}" alt="GALLERY">
                     </a>
 
-                    <a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-03.jpg" data-lightbox="gallery-footer">
-                        <img src="images/photo-gallery-thumb-03.jpg" alt="GALLERY">
+                    <a class="item-gallery-footer wrap-pic-w"data-lightbox="gallery-footer">
+                        <img src="{{asset('images/photo-gallery-thumb-03.jpg')}}" alt="GALLERY">
                     </a>
 
-                    <a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-04.jpg" data-lightbox="gallery-footer">
-                        <img src="images/photo-gallery-thumb-04.jpg" alt="GALLERY">
+                    <a class="item-gallery-footer wrap-pic-w"data-lightbox="gallery-footer">
+                        <img src="{{asset('images/photo-gallery-thumb-04.jpg')}}" alt="GALLERY">
                     </a>
 
-                    <a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-05.jpg" data-lightbox="gallery-footer">
-                        <img src="images/photo-gallery-thumb-05.jpg" alt="GALLERY">
+                    <a class="item-gallery-footer wrap-pic-w"data-lightbox="gallery-footer">
+                        <img src="{{asset('images/photo-gallery-thumb-05.jpg')}}" alt="GALLERY">
                     </a>
 
-                    <a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-06.jpg" data-lightbox="gallery-footer">
-                        <img src="images/photo-gallery-thumb-06.jpg" alt="GALLERY">
+                    <a class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
+                        <img src="{{asset('images/photo-gallery-thumb-06.jpg')}}" alt="GALLERY">
                     </a>
 
-                    <a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-07.jpg" data-lightbox="gallery-footer">
-                        <img src="images/photo-gallery-thumb-07.jpg" alt="GALLERY">
+                    <a class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
+                        <img src="{{asset('images/photo-gallery-thumb-07.jpg')}}" alt="GALLERY">
                     </a>
 
-                    <a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-08.jpg" data-lightbox="gallery-footer">
-                        <img src="images/photo-gallery-thumb-08.jpg" alt="GALLERY">
+                    <a class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
+                        <img src="{{asset('images/photo-gallery-thumb-08.jpg')}}" alt="GALLERY">
                     </a>
 
-                    <a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-09.jpg" data-lightbox="gallery-footer">
-                        <img src="images/photo-gallery-thumb-09.jpg" alt="GALLERY">
+                    <a class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
+                        <img src="{{asset('images/photo-gallery-thumb-09.jpg')}}" alt="GALLERY">
                     </a>
 
-                    <a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-10.jpg" data-lightbox="gallery-footer">
-                        <img src="images/photo-gallery-thumb-10.jpg" alt="GALLERY">
+                    <a class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
+                        <img src="{{asset('images/photo-gallery-thumb-10.jpg')}}" alt="GALLERY">
                     </a>
 
-                    <a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-11.jpg" data-lightbox="gallery-footer">
-                        <img src="images/photo-gallery-thumb-11.jpg" alt="GALLERY">
+                    <a class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
+                        <img src="{{asset('images/photo-gallery-thumb-11.jpg')}}" alt="GALLERY">
                     </a>
 
-                    <a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-12.jpg" data-lightbox="gallery-footer">
-                        <img src="images/photo-gallery-thumb-12.jpg" alt="GALLERY">
+                    <a class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
+                        <img src="{{asset('images/photo-gallery-thumb-12.jpg')}}" alt="GALLERY">
                     </a>
                 </div>
 
