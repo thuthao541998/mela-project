@@ -48,11 +48,11 @@
                                         <div class="blo3 flex-w flex-col-l-sm m-t-30 m-b-20">
                                             <div class="pic-blo3 size20 bo-rad-10 hov-img-zoom m-r-28">
 
-                                                <a href=""><img src="{{$obj->images}}" alt="IMG-MENU"
+                                                <a href="/product/{{$obj->id}}"><img src="{{$obj->images}}" alt="IMG-MENU"
                                                                  style="width: 180px; height: 180px"></a>
                                             </div>
                                             <div class="text-blo3 size21 flex-col-l-m">
-                                                <a href="#" class="txt21 m-b-3">
+                                                <a href="/product/{{$obj->id}}" class="txt21 m-b-3">
                                                     {{$obj->name}}
                                                     @if($obj->isDiscount())
                                                         <span style="background-color: red; color:white;"

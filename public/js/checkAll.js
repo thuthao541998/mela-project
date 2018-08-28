@@ -56,7 +56,6 @@ $('#btn-apply-product').click(function () {
 })
 
 $('#btn-apply-article').click(function () {
-    alert($('#select-action').val());
     switch ($('#select-action').val()){
         case '0':
             alert('Please choose an action before click "Apply".');

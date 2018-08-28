@@ -18,11 +18,7 @@
                         <p class="t-center m-b-22 m-l-r-auto">
                             Welcome to Mela Shop, let shop tell you what is the power of Lipstick. Let us enlighten you on "Saint Lipstick"
                         </p>
-
-                        <a href="about.html" class="txt4">
-                            Learn more
-                            <i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
-                        </a>
+                        <button style="padding: 10px;" class="btn-danger bo-rad-5" href="/list-product">Click here to get your boyfriend a perfect KISS</button>
                     </div>
                 </div>
 
