@@ -43,7 +43,7 @@ class OrderController extends Controller
     public function index()
     {
         $orders = Order::paginate(10);
-        return view('admin.order.list')->with('orders_in_view', $orders);
+        return view('admin.order.list')->with('list_obj', $orders);
     }
 
     /**
@@ -104,7 +104,7 @@ class OrderController extends Controller
             return view('404');
         }
         return view('admin.order.edit')
-            ->with('admin', $order);
+            ->with('obj', $order);
     }
 
     /**
