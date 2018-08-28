@@ -10,33 +10,34 @@
                     </div>
                     <div>
                         @if($orders->count()>0)
-                        <table class="table table-striped">
+                        <table class="table">
                             <thead>
                             <tr>
-                                <th class="col-md-1">ID</th>
-                                <th class="col-md-3">Buyer</th>
-                                <th class="col-md-2">Address</th>
-                                <th class="col-md-2">Phone Number</th>
-                                <th class="col-md-4">Order Detail</th>
-                                <th class="col-md-3">Total</th>
-                                <th class="col-md-1">Status</th>
-                                <th class="col-md-3">Action</th>
+                                <th class="column-1">ID</th>
+                                <th class="column-2">Buyer</th>
+                                <th class="column-3">Address</th>
+                                <th class="column-4">Phone Number</th>
+                                <th class="column-5">Order Detail</th>
+                                <th class="column-6">Total</th>
+                                <th class="column-7">Status</th>
+                                <th class="column-8">Action</th>
+                            </tr>
                             </thead>
                             <tbody>
                             @foreach($orders as $item)
-                                <tr class="row" id="row-item-{{$item->id}}">
-                                    <td class="col-md-1">{{$item->id}}</td>
-                                    <td class="col-md-3">{{$item->ship_name}}</td>
-                                    <td class="col-md-2">{{$item->ship_address}}</td>
-                                    <td class="col-md-2">{{$item->ship_phone}}</td>
-                                    <td class="col-md-4">
+                                <tr id="row-item-{{$item->id}}">
+                                    <td class="column-1">{{$item->id}}</td>
+                                    <td class="column-2">{{$item->ship_name}}</td>
+                                    <td class="column-3">{{$item->ship_address}}</td>
+                                    <td class="column-4">{{$item->ship_phone}}</td>
+                                    <td class="column-5">
                                         @foreach($item->details as $order_detail)
                                             <li>{{$order_detail->product->name}} - {{$order_detail->quantity}}</li>
                                         @endforeach
                                     </td>
-                                    <td class="col-md-3">{{$item->total}}</td>
-                                    <td class="col-1">{{$item->statusLabel}}</td>
-                                    <td class="col-3">
+                                    <td class="column-6">{{$item->total}}</td>
+                                    <td class="column-7">{{$item->statusLabel}}</td>
+                                    <td class="column-8">
                                         @if($item->status==0)
                                             <a href="/admin/order/change-status?id={{$item->id}}&status=1" onclick="return confirm('Bạn có chắc muốn xác nhận đơn hàng?')"
                                                class="btn btn-simple btn-success btn-icon edit"><i
