@@ -8,18 +8,21 @@
                     <div class="panel-heading">
                         List Order
                     </div>
+                    <div id="linechart_material" style="margin: 30px;"></div>
                     @if (Session::has('message'))
                         <div class="alert {{ Session::get('message-class') }}">{{ Session::get('message') }}</div>
                     @endif
                     <div>
-                        <table class="table table-striped">
+                        <table class="table table-light">
                             <thead>
-                            <tr>
+                            <tr class="row">
                                 <th class="col-md-1"></th>
                                 <th class="col-md-1">ID</th>
-                                <th class="col-md-3">Client</th>
-                                <th class="col-md-3">Total</th>
-                                <th class="col-md-4">Action</th>
+                                <th class="col-md-2">Client Name</th>
+                                <th class="col-md-2">Client Address</th>
+                                <th class="col-md-2">Client Phone</th>
+                                <th class="col-md-2">Total Price</th>
+                                <th class="col-md-2">Action</th>
                             </thead>
                             <tbody>
                             @foreach($list_obj as $item)
@@ -28,9 +31,11 @@
                                         <input type="checkbox" class="check-item">
                                     </td>
                                     <td class="col-md-1">{{$item->id}}</td>
-                                    <td class="col-md-3">{{$item->clientId}}</td>
-                                    <td class="col-md-3">{{$item->total}}</td>
-                                    <td class="col-md-4">
+                                    <td class="col-md-2">{{$item->ship_name}}</td>
+                                    <td class="col-md-2">{{$item->ship_address}}</td>
+                                    <td class="col-md-2">{{$item->ship_phone}}</td>
+                                    <td class="col-md-2">{{$item->total_price}}</td>
+                                    <td class="col-md-2">
                                         <a href="#" class="btn btn-link btn-quick-edit"><span class="fa fa-eraser"></span> Quick Edit</a>&nbsp;&nbsp;
                                         <a href="/admin/order/{{$item -> id}}/edit" class="btn btn-link btn-edit"><span class="fa fa-edit"></span> Edit</a>&nbsp;&nbsp;
                                         <a href="/admin/order/{{$item -> id}}" class="btn btn-link btn-delete"><span class="fa fa-trash"></span> Delete</a>
