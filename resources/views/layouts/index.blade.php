@@ -116,7 +116,7 @@
                                                                     </a>
 
                                                                     <span class="header-cart-item-info">
-                                                                        {{$item->quantity}} x {{$item->product->price}}
+                                                                        {{$item->quantity}} x {{$item->product->discountPrice}}
                                                                     </span>
                                                                 </div>
                                                             </li>
