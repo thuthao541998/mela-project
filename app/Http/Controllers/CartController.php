@@ -110,9 +110,8 @@ class CartController extends Controller
         Cart::getRemoveItem($id);
         return redirect('/cart');
     }
+    
     public function checkoutCart(StoreCheckoutPost $request){
-        $request->validated();
-
         if (Session::has('cart')) {
             try {
                 DB::beginTransaction();
