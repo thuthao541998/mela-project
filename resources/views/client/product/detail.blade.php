@@ -1,5 +1,3 @@
-{{--Truyền thêm biến brand--}}
-
 @extends("layouts.index")
 @section('content')
 @section('page-topic', $obj->name)
@@ -57,8 +55,7 @@
                 </aside> <!-- col.// -->
             </div> <!-- row.// -->
         </div> <!-- card.// -->
-
-    </div>
+   </div>
 </div>
 
 @endsection
