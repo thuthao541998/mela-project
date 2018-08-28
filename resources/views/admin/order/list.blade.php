@@ -12,16 +12,16 @@
                         @if($orders->count()>0)
                         <table class="table">
                             <thead>
-                            <tr>
-                                <th class="column-1">ID</th>
-                                <th class="column-2">Buyer</th>
-                                <th class="column-3">Address</th>
-                                <th class="column-4">Phone Number</th>
-                                <th class="column-5">Order Detail</th>
-                                <th class="column-6">Total</th>
-                                <th class="column-7">Status</th>
-                                <th class="column-8">Action</th>
-                            </tr>
+                                <tr>
+                                    <th class="column-1">ID</th>
+                                    <th class="column-2">Buyer</th>
+                                    <th class="column-3">Address</th>
+                                    <th class="column-4">Phone Number</th>
+                                    <th class="column-5">Order Detail</th>
+                                    <th class="column-6">Total</th>
+                                    <th class="column-7">Status</th>
+                                    <th class="column-8">Action</th>
+                                </tr>
                             </thead>
                             <tbody>
                             @foreach($orders as $item)
