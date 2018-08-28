@@ -79,11 +79,20 @@
                             </div>
                             <div class="col-lg-5">
                                 <div class="custom-file">
-                                    <label class="control-label col-lg-2">Images</label>
+                                    <label class="control-label col-lg-3">Images</label>
                                     <div class="col-lg-9">
                                         <input type="file" class="custom-file-input" name="images" id="img">
                                         <label class="custom-file-label text-truncate" for="img">Choose file</label>
                                         @foreach ($errors->get('images') as $title)
+                                            <p class="text-danger help-block">{{$title}}</p>
+                                        @endforeach
+                                    </div>
+                                </div>
+                                <div class="form-group mb-0 mt-2 ml-3">
+                                    <label class="control-label col-lg-2">Discount</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control ml-1" rows="10" name="discount" type="number"></input>
+                                        @foreach ($errors->get('description') as $title)
                                             <p class="text-danger help-block">{{$title}}</p>
                                         @endforeach
                                     </div>

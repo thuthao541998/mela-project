@@ -30,6 +30,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/lightbox.min.css')}}">
     <!--===============================================================================================-->
     {{--<link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">--}}
+    <link rel="stylesheet" type="text/css" href="{{asset('css/cart.css')}}">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{asset('css/util.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
@@ -55,7 +56,7 @@
                 <!-- Menu -->
                 <div class="wrap_menu p-l-45 p-l-0-xl">
                     <nav class="menu">
-                        <ul class="main_menu">
+                        <ul class="main_menu m-l-94">
                             <li>
                                 <a href="/">Home</a>
                             </li>
@@ -74,6 +75,7 @@
 
                             <li>
                                 <a href="/about-us">About</a>
+
                             </li>
                             <li>
                                 <a href="#"><i class="fas fa-user-circle fa-2x" aria-hidden="true" ></i></a>
@@ -88,8 +90,60 @@
                 <div class="social flex-w flex-l-m p-r-20">
                     <button class="btn-show-sidebar m-l-33 trans-0-4"></button>
                     <span class="p-l-30">
-                        <a href="/cart" class="fa fa-shopping-cart fa-2x"></a>
-                        <span class="header-icons-noti m-l-30">0</span>
+                        <div class="btn-show-menu">
+                            <div class="wrap_header_mobile" style="background-color: transparent; color: #fff;">
+                                <!-- Button show menu -->
+                                <div class="btn-show-menu">
+                                    <!-- Header Icon mobile -->
+                                    <div class="header-icons-mobile">
+                                        <div class="header-wrapicon2">
+                                            <a href="#" class="fa fa-shopping-cart fa-2x js-show-header-dropdown m-t-10"></a>
+                                            <span class="header-icons-noti" style="left: 35px; bottom: 20px; top: 0px;" id="header-icons-noti">{{\App\Cart::getTotalItem()}}</span>
+
+                                            <!-- Header cart noti -->
+                                            <div class="header-cart header-dropdown">
+                                                <ul class="header-cart-wrapitem">
+                                                    @if(count(\App\Cart::getCart()->items)>0)
+                                                        @foreach(\App\Cart::getCart()->items as $item)
+                                                            <li class="header-cart-item">
+                                                                <div class="header-cart-item-img">
+                                                                    <img src="{{$item->product->images}}" alt="IMG">
+                                                                </div>
+
+                                                                <div class="header-cart-item-txt">
+                                                                    <a href="#" class="header-cart-item-name">
+                                                                        {{$item->product->name}}
+                                                                    </a>
+
+                                                                    <span class="header-cart-item-info">
+                                                                        {{$item->quantity}} x {{$item->product->discountPrice}}
+                                                                    </span>
+                                                                </div>
+                                                            </li>
+                                                        @endforeach
+                                                    @else
+                                                        'Hiện tại không có sản phẩm nào trong giỏ hàng'
+                                                    @endif
+                                                </ul>
+
+                                                <div class="header-cart-total">
+                                                    Total: <span id="header-cart-total">{{\App\Cart::getCart()->getTotalMoneyString()}}</span>
+                                                </div>
+
+                                                <div class="header-cart-buttons">
+                                                    <div class="header-cart-wrapbtn">
+                                                        <!-- Button -->
+                                                        <a href="/cart" class="flex-c-m bg1 bo-rad-20 hov1 s-text1 trans-0-4" style="color:white">
+                                                            View Cart
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </span>
                 </div>
             </div>
@@ -102,7 +156,6 @@
     <!-- Button Hide sidebar -->
     <button class="btn-hide-sidebar ti-close color0-hov trans-0-4"></button>
 
-    <!-- - -->
     <ul class="menu-sidebar p-t-95 p-b-70">
         <li class="t-center m-b-13">
             <a href="#"><i class="fab fa-facebook-square fa-2x" aria-hidden="true"></i></a>
@@ -122,8 +175,7 @@
         </li>
 
         <li class="t-center m-b-13">
-                <a href="/list-product">PRODUCT
-                </a>
+            <a href="/list-product">PRODUCT</a>
         </li>
 
         <li class="t-center m-b-13">
@@ -210,7 +262,7 @@
 
                     <div class="wrap-btn-slide1 animated visible-false" data-appear="zoomIn">
                         <!-- Button1 -->
-                        <a href="menu.html" class="btn1 flex-c-m size1 txt3 trans-0-4">
+                        <a href="/" class="btn1 flex-c-m size1 txt3 trans-0-4">
                             @yield('page-topic')
                         </a>
                     </div>
@@ -229,7 +281,7 @@
 
                     <div class="wrap-btn-slide1 animated visible-false" data-appear="slideInUp">
                         <!-- Button1 -->
-                        <a href="menu.html" class="btn1 flex-c-m size1 txt3 trans-0-4">
+                        <a href="/" class="btn1 flex-c-m size1 txt3 trans-0-4">
                             @yield('page-topic')
                         </a>
                     </div>
@@ -248,7 +300,7 @@
 
                     <div class="wrap-btn-slide1 animated visible-false" data-appear="rotateIn">
                         <!-- Button1 -->
-                        <a href="menu.html" class="btn1 flex-c-m size1 txt3 trans-0-4">
+                        <a href="/" class="btn1 flex-c-m size1 txt3 trans-0-4">
                             @yield('page-topic')
                         </a>
                     </div>
@@ -289,7 +341,7 @@
                     </div>
 
                     <div class="wrap-text-blo1 p-t-35">
-                        <a href="blog-detail.html"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
+                        <a href="/list-artcle"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
                                 Best Places for Wine
                             </h4></a>
 
@@ -297,7 +349,7 @@
                             Phasellus lorem enim, luctus ut velit eget, con-vallis egestas eros.
                         </p>
 
-                        <a href="blog-detail.html" class="txt4">
+                        <a href="/list-artcle" class="txt4">
                             Continue Reading
                             <i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
                         </a>
@@ -309,7 +361,7 @@
                 <!-- Block1 -->
                 <div class="blo1">
                     <div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom pos-relative">
-                        <a href="blog-detail.html"><img src="images/blog-02.jpg" alt="IMG-INTRO"></a>
+                        <a href="/list-artcle"><img src="images/blog-02.jpg" alt="IMG-INTRO"></a>
 
                         <div class="time-blog">
                             15 Dec 2017
@@ -317,7 +369,7 @@
                     </div>
 
                     <div class="wrap-text-blo1 p-t-35">
-                        <a href="blog-detail.html"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
+                        <a href="/list-artcle"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
                                 Eggs and Cheese
                             </h4></a>
 
@@ -325,7 +377,7 @@
                             Duis elementum, risus sit amet lobortis nunc justo condimentum ligula, vitae feugiat
                         </p>
 
-                        <a href="blog-detail.html" class="txt4">
+                        <a href="/list-artcle" class="txt4">
                             Continue Reading
                             <i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
                         </a>
@@ -337,7 +389,7 @@
                 <!-- Block1 -->
                 <div class="blo1">
                     <div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom pos-relative">
-                        <a href="blog-detail.html"><img src="images/blog-03.jpg" alt="IMG-INTRO"></a>
+                        <a href="/list-artcle"><img src="images/blog-03.jpg" alt="IMG-INTRO"></a>
 
                         <div class="time-blog">
                             12 Dec 2017
@@ -345,7 +397,7 @@
                     </div>
 
                     <div class="wrap-text-blo1 p-t-35">
-                        <a href="blog-detail.html"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
+                        <a href="/list-artcle"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
                                 Style the Wedding Party
                             </h4></a>
 
@@ -353,7 +405,7 @@
                             Sed ornare ligula eget tortor tempor, quis porta tellus dictum.
                         </p>
 
-                        <a href="blog-detail.html" class="txt4">
+                        <a href="/list-artcle" class="txt4">
                             Continue Reading
                             <i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
                         </a>
@@ -379,7 +431,7 @@
         </div>
 
         <!-- Button3 -->
-        <button type="submit" class="btn3 flex-c-m size18 txt11 trans-0-4 m-10">
+        <button type="submit" class="btn3 flex-c-m size2 txt11 trans-0-4 m-10">
             Sign-up
         </button>
     </form>
@@ -590,7 +642,9 @@
 <!--===============================================================================================-->
 <script type="text/javascript" src="{{asset('js/lightbox.min.js')}}"></script>
 <!--===============================================================================================-->
+<script src="{{asset('js/sweetalert.min.js')}}"></script>
 <script src="{{asset('js/main.js')}}"></script>
+<script src="{{asset('js/cart.js')}}"></script>
 
 </body>
 </html>

@@ -28,6 +28,7 @@ class StoreProductPost extends FormRequest
             'price'=>'required|numeric|gt:0',
             'overview'=>'required|min:70',
             'description'=>'required|min:250',
+            'discount' => 'gte:0'
         ];
     }
 }

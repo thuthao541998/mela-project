@@ -15,7 +15,7 @@
                             Welcome
                         </h3>
 
-                        <p class="t-center m-b-22 size3 m-l-r-auto">
+                        <p class="t-center m-b-22 m-l-r-auto">
                             Welcome to Mela Shop, let shop tell you what is the power of Lipstick. Let us enlighten you on "Saint Lipstick"
                         </p>
 
@@ -27,7 +27,7 @@
                 </div>
 
                 <div class="col-md-6 p-b-30">
-                    <div class="wrap-pic-welcome size2 bo-rad-10 hov-img-zoom m-l-r-auto">
+                    <div class="wrap-pic-welcome bo-rad-10 hov-img-zoom m-l-r-auto">
                         <img src="images/our-story-01.jpg" alt="IMG-OUR">
                     </div>
                 </div>
@@ -439,117 +439,117 @@
         </div>
     </section>
 
-    <!-- Review -->
-    <section class="section-review p-t-115">
-        <!-- - -->
-        <div class="title-review t-center m-b-2">
-            <span class="tit2 p-l-15 p-r-15">
-                Customers Say
-            </span>
+    {{--<!-- Review -->--}}
+    {{--<section class="section-review p-t-115">--}}
+        {{--<!-- - -->--}}
+        {{--<div class="title-review t-center m-b-2">--}}
+            {{--<span class="tit2 p-l-15 p-r-15">--}}
+                {{--Customers Say--}}
+            {{--</span>--}}
 
-            <h3 class="tit8 t-center p-l-20 p-r-15 p-t-3">
-                Review
-            </h3>
-        </div>
+            {{--<h3 class="tit8 t-center p-l-20 p-r-15 p-t-3">--}}
+                {{--Review--}}
+            {{--</h3>--}}
+        {{--</div>--}}
 
-        <!-- - -->
-        <div class="wrap-slick3">
-            <div class="slick3">
-                <div class="item-slick3 item1-slick3">
-                    <div class="wrap-content-slide3 p-b-50 p-t-50">
-                        <div class="container">
-                            <div class="pic-review size14 bo4 wrap-cir-pic m-l-r-auto animated visible-false"
-                                 data-appear="zoomIn">
-                                <img src="images/avatar-01.jpg" alt="IGM-AVATAR">
-                            </div>
+        {{--<!-- - -->--}}
+        {{--<div class="wrap-slick3">--}}
+            {{--<div class="slick3">--}}
+                {{--<div class="item-slick3 item1-slick3">--}}
+                    {{--<div class="wrap-content-slide3 p-b-50 p-t-50">--}}
+                        {{--<div class="container">--}}
+                            {{--<div class="pic-review size14 bo4 wrap-cir-pic m-l-r-auto animated visible-false"--}}
+                                 {{--data-appear="zoomIn">--}}
+                                {{--<img src="images/avatar-01.jpg" alt="IGM-AVATAR">--}}
+                            {{--</div>--}}
 
-                            <div class="content-review m-t-33 animated visible-false" data-appear="fadeInUp">
-                                <p class="t-center txt12 size15 m-l-r-auto">
-                                    "I buy and use everyday, son of Mela very good, even eating the lipstick color is very difficult to fly, will definitely buy gifts for his mother and his sister anymore !!"
-                                </p>
+                            {{--<div class="content-review m-t-33 animated visible-false" data-appear="fadeInUp">--}}
+                                {{--<p class="t-center txt12 size15 m-l-r-auto">--}}
+                                    {{--"I buy and use everyday, son of Mela very good, even eating the lipstick color is very difficult to fly, will definitely buy gifts for his mother and his sister anymore !!"--}}
+                                {{--</p>--}}
 
-                                <div class="star-review fs-18 color0 flex-c-m m-t-12">
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star p-l-1" aria-hidden="true"></i>
-                                    <i class="fa fa-star p-l-1" aria-hidden="true"></i>
-                                    <i class="fa fa-star p-l-1" aria-hidden="true"></i>
-                                    <i class="fa fa-star p-l-1" aria-hidden="true"></i>
-                                </div>
+                                {{--<div class="star-review fs-18 color0 flex-c-m m-t-12">--}}
+                                    {{--<i class="fa fa-star" aria-hidden="true"></i>--}}
+                                    {{--<i class="fa fa-star p-l-1" aria-hidden="true"></i>--}}
+                                    {{--<i class="fa fa-star p-l-1" aria-hidden="true"></i>--}}
+                                    {{--<i class="fa fa-star p-l-1" aria-hidden="true"></i>--}}
+                                    {{--<i class="fa fa-star p-l-1" aria-hidden="true"></i>--}}
+                                {{--</div>--}}
 
-                                <div class="more-review txt4 t-center animated visible-false m-t-32"
-                                     data-appear="fadeInUp">
-                                    Phuong Anh ˗ Co Mo
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                                {{--<div class="more-review txt4 t-center animated visible-false m-t-32"--}}
+                                     {{--data-appear="fadeInUp">--}}
+                                    {{--Phuong Anh ˗ Co Mo--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
 
-                <div class="item-slick3 item2-slick3">
-                    <div class="wrap-content-slide3 p-b-50 p-t-50">
-                        <div class="container">
-                            <div class="pic-review size14 bo4 wrap-cir-pic m-l-r-auto animated visible-false"
-                                 data-appear="zoomIn">
-                                <img src="images/avatar-04.jpg" alt="IGM-AVATAR">
-                            </div>
+                {{--<div class="item-slick3 item2-slick3">--}}
+                    {{--<div class="wrap-content-slide3 p-b-50 p-t-50">--}}
+                        {{--<div class="container">--}}
+                            {{--<div class="pic-review size14 bo4 wrap-cir-pic m-l-r-auto animated visible-false"--}}
+                                 {{--data-appear="zoomIn">--}}
+                                {{--<img src="images/avatar-04.jpg" alt="IGM-AVATAR">--}}
+                            {{--</div>--}}
 
-                            <div class="content-review m-t-33 animated visible-false" data-appear="fadeInUp">
-                                <p class="t-center txt12 size15 m-l-r-auto">
-                                    "Not just the usual lipstick, it helped me feel more confident in life, I will introduce certain church for so many more people Mela"
-                                </p>
+                            {{--<div class="content-review m-t-33 animated visible-false" data-appear="fadeInUp">--}}
+                                {{--<p class="t-center txt12 size15 m-l-r-auto">--}}
+                                    {{--"Not just the usual lipstick, it helped me feel more confident in life, I will introduce certain church for so many more people Mela"--}}
+                                {{--</p>--}}
 
-                                <div class="star-review fs-18 color0 flex-c-m m-t-12">
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star p-l-1" aria-hidden="true"></i>
-                                    <i class="fa fa-star p-l-1" aria-hidden="true"></i>
-                                    <i class="fa fa-star p-l-1" aria-hidden="true"></i>
-                                    <i class="fa fa-star p-l-1" aria-hidden="true"></i>
-                                </div>
+                                {{--<div class="star-review fs-18 color0 flex-c-m m-t-12">--}}
+                                    {{--<i class="fa fa-star" aria-hidden="true"></i>--}}
+                                    {{--<i class="fa fa-star p-l-1" aria-hidden="true"></i>--}}
+                                    {{--<i class="fa fa-star p-l-1" aria-hidden="true"></i>--}}
+                                    {{--<i class="fa fa-star p-l-1" aria-hidden="true"></i>--}}
+                                    {{--<i class="fa fa-star p-l-1" aria-hidden="true"></i>--}}
+                                {{--</div>--}}
 
-                                <div class="more-review txt4 t-center animated visible-false m-t-32"
-                                     data-appear="fadeInUp">
-                                    Thao Mom ˗ Nga My
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                                {{--<div class="more-review txt4 t-center animated visible-false m-t-32"--}}
+                                     {{--data-appear="fadeInUp">--}}
+                                    {{--Thao Mom ˗ Nga My--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
 
-                <div class="item-slick3 item3-slick3">
-                    <div class="wrap-content-slide3 p-b-50 p-t-50">
-                        <div class="container">
-                            <div class="pic-review size14 bo4 wrap-cir-pic m-l-r-auto animated visible-false"
-                                 data-appear="zoomIn">
-                                <img src="images/avatar-05.jpg" alt="IGM-AVATAR">
-                            </div>
+                {{--<div class="item-slick3 item3-slick3">--}}
+                    {{--<div class="wrap-content-slide3 p-b-50 p-t-50">--}}
+                        {{--<div class="container">--}}
+                            {{--<div class="pic-review size14 bo4 wrap-cir-pic m-l-r-auto animated visible-false"--}}
+                                 {{--data-appear="zoomIn">--}}
+                                {{--<img src="images/avatar-05.jpg" alt="IGM-AVATAR">--}}
+                            {{--</div>--}}
 
-                            <div class="content-review m-t-33 animated visible-false" data-appear="fadeInUp">
-                                <p class="t-center txt12 size15 m-l-r-auto">
-                                    "Thanks to the enlightened church Mela, they have far more knowledge about lipstick, help yourself stand out in conversations about lipstick with colleagues"
-                                </p>
+                            {{--<div class="content-review m-t-33 animated visible-false" data-appear="fadeInUp">--}}
+                                {{--<p class="t-center txt12 size15 m-l-r-auto">--}}
+                                    {{--"Thanks to the enlightened church Mela, they have far more knowledge about lipstick, help yourself stand out in conversations about lipstick with colleagues"--}}
+                                {{--</p>--}}
 
-                                <div class="star-review fs-18 color0 flex-c-m m-t-12">
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star p-l-1" aria-hidden="true"></i>
-                                    <i class="fa fa-star p-l-1" aria-hidden="true"></i>
-                                    <i class="fa fa-star p-l-1" aria-hidden="true"></i>
-                                    <i class="fa fa-star p-l-1" aria-hidden="true"></i>
-                                </div>
+                                {{--<div class="star-review fs-18 color0 flex-c-m m-t-12">--}}
+                                    {{--<i class="fa fa-star" aria-hidden="true"></i>--}}
+                                    {{--<i class="fa fa-star p-l-1" aria-hidden="true"></i>--}}
+                                    {{--<i class="fa fa-star p-l-1" aria-hidden="true"></i>--}}
+                                    {{--<i class="fa fa-star p-l-1" aria-hidden="true"></i>--}}
+                                    {{--<i class="fa fa-star p-l-1" aria-hidden="true"></i>--}}
+                                {{--</div>--}}
 
-                                <div class="more-review txt4 t-center animated visible-false m-t-32"
-                                     data-appear="fadeInUp">
-                                    Tra Hacker ˗ Thieu Lam
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                                {{--<div class="more-review txt4 t-center animated visible-false m-t-32"--}}
+                                     {{--data-appear="fadeInUp">--}}
+                                    {{--Tra Hacker ˗ Thieu Lam--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
 
-            </div>
+            {{--</div>--}}
 
-            <div class="wrap-slick3-dots m-t-30"></div>
-        </div>
-    </section>
+            {{--<div class="wrap-slick3-dots m-t-30"></div>--}}
+        {{--</div>--}}
+    {{--</section>--}}
 
 
     <!-- Video -->

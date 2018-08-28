@@ -10183,9 +10183,10 @@
 }
 
 .size17 {
-    width: 120px;
-    height: 30px
+    width: 270px;
+    height: 50px;
 }
+
 
 .size18, .size20, .size21, .size22 {
     width: 100%
@@ -11414,8 +11415,6 @@ li.sale-noti > a {
 .header-icon1:hover, .header-icon2:hover {
     cursor: pointer
 }
-
-
 .linedivide1 {
     display: block;
     height: 20px;
@@ -11583,7 +11582,7 @@ li.sale-noti > a {
     padding-top: 10px;
     padding-bottom: 10px;
     background-color: #fff;
-    display: none
+    /*display: none*/
 }
 
 .logo-mobile {
@@ -12544,7 +12543,7 @@ li.sale-noti > a {
 }
 
 .table-shopping-cart .column-4 {
-    width: 355px;
+    width: 270px;
     padding-right: 30px
 }
 
@@ -12552,6 +12551,9 @@ li.sale-noti > a {
     padding-right: 30px
 }
 
+.table-shopping-cart .column-6 {
+    padding-right: 30px
+}
 .table-shopping-cart .table-head th {
     font-family: Montserrat-Bold;
     font-size: 13px;
