@@ -15,22 +15,22 @@ class OrderDetailsTableSeeder extends Seeder
         \Illuminate\Support\Facades\DB::table('order_details')->truncate();
         \Illuminate\Support\Facades\DB::table('order_details')->insert([
             [
-                'productId' => 1,
+                'product_id' => 1,
                 'quantity' => 3,
-                'unitprice' => \App\Product::find('productId')->discountPriceWithFormat,
-                'orderId' => 1
+                'unit_price' => \App\Product::where('id', 1)->first()->discountPrice,
+                'order_id' => 1
             ],
             [
-                'productId' => 2,
+                'product_id' => 2,
                 'quantity' => 1,
-                'unitprice' => \App\Product::find('productId')->discountPriceWithFormat,
-                'orderId' => 1
+                'unit_price' => \App\Product::where('id', 2)->first()->discountPrice,
+                'order_id' => 1
             ],
             [
-                'productId' => 4,
+                'product_id' => 4,
                 'quantity' => 2,
-                'unitprice' => \App\Product::find('productId')->discountPriceWithFormat,
-                'orderId' => 1
+                'unit_price' => \App\Product::where('id', 4)->first()->discountPrice,
+                'order_id' => 1
             ]
         ]);
     }

@@ -42,10 +42,32 @@ class CartController extends Controller
         $item = new CartItem();
         $item->product = $product;
         $item->quantity = $quantity;
+        $item->product->dicountPriceString = $product->discountPriceString;
         $cart->items[$id] = $item;
+        $cart->count = Cart::calculateTotalItem($cart);
         Session::put('cart', $cart);
         return redirect('/cart');
     }
+    public function updateCart()
+    {
+        $cart = new Cart();
+        $products = Input::get('products');
+        if (is_array($products)) {
+            foreach (array_keys($products) as $key) {
+                $product = Product::find($key);
+                if ($product == null || $product->status != 1) {
+                    return view('admin.404.404');
+                }
+                $item = new CartItem();
+                $item->product = $product;
+                $item->quantity = $products[$key];
+                $cart->items[$key] = $item;
+            }
+        }
+        Session::put('cart', $cart);
+        return redirect('/cart');
+    }
+
     public function updateCart()
     {
         $cart = new Cart();
@@ -110,6 +132,7 @@ class CartController extends Controller
         Cart::getRemoveItem($id);
         return redirect('/cart');
     }
+
     public function checkoutCart(StoreCheckoutPost $request){
         $request->validated();
 
@@ -155,6 +178,7 @@ class CartController extends Controller
                 return 'Có lỗi xảy ra.' . $exception->getMessage();
             }
         } else {
+            return view('cart')->with('message', 'Hiện tại chưa có sản phẩm nào trong giỏ hàng.');
             return view('admin.404.404')->with('message', 'Hiện tại chưa có sản phẩm nào trong giỏ hàng.');
         }
     }
