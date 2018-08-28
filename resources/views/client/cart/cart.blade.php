@@ -102,15 +102,18 @@
                             <div class="size13 bo4 m-b-12">
                                 <input class="sizefull s-text7 p-l-15 p-r-15" name="ship_name" placeholder="Buyer"
                                        type="text">
+                                <span name="ship_name" class="text-danger m-t-5" style="display: block; font-size: 12px"></span>
                             </div>
 
-                            <div class="size13 bo4 m-b-22">
+                            <div class="size15 bo4 m-b-30">
                                 <input class="sizefull s-text7 p-l-15 p-r-15" name="ship_address" placeholder="Address"
                                        type="text">
+                                <span name="ship_address" class="text-danger m-t-5" style="display: block; font-size: 12px;"></span>
                             </div>
-                            <div class="size13 bo4 m-b-22">
+                            <div class="size15 bo4 m-b-30">
                                 <input class="sizefull s-text7 p-l-15 p-r-15" name="ship_phone" placeholder="Phone"
                                        type="text">
+                                <span name="ship_phone" class="text-danger m-t-5" style="display: block; font-size: 12px"></span>
                             </div>
                         </form>
                     </div>
@@ -143,7 +146,9 @@
     @endif
 </div>
 </div>
+
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+{{--<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>--}}
 <script src="{{asset('js/jquery.formatNumber-0.1.1.min.js')}}"></script>
 <script type="text/javascript">
     $('.btn-num-product-down').click(function () {
@@ -199,9 +204,7 @@
                                 setTimeout(function () {
                                     window.location.reload(1);
                                 }, 1 * 1000);
-                            }
-                            ;
-
+                            };
 
                         },
                         error: function (r) {
@@ -213,7 +216,20 @@
                 }
                 ;
             });
+    });
 
+    $('.checkout').click(function () {
+        if ($('input[name="ship_name"]').length < 7) {
+            $('span[name="ship_name"]').html('Your name has to be longer than 7.')
+        };
+        if ($('input[name="ship_address"]').length < 10){
+            $('span[name="ship_address"]').html('Your address has to be longer than 7.');
+        };
+        if (isNaN($('input[name="ship_phone"]'))){
+            $('span[name="ship_phone"]').html('This field has to be number');
+        } else if ($('input[name="ship_phone"]').length < 10){
+            $('span[name="ship_phone"]').html('Your phone has to have 10 letters.');
+        };
     });
 
 </script>
