@@ -71,3 +71,5 @@ Route::get('/add-to-cart', 'CartController@addToCart');
 Route::post('/api-add-to-cart', 'CartController@addToCartApi');
 Route::get('/cart', 'CartController@showCart');
 Route::get('/cart-remove/{id}', 'CartController@removeCart');
+Route::post('/check-out','CartController@checkoutCart');
+Route::put('/sua-gio-hang', 'CartController@updateCart');
