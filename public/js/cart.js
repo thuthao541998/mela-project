@@ -21,7 +21,7 @@ $('.add-to-cart').click(function () {
                 new_content += '<img src="' + new_items[i].product.images + '" alt="IMG">';
                 new_content += '</div>';
                 new_content += '<div class="header-cart-item-txt">';
-                new_content += '<a href="#" class="header-cart-item-name">';
+                new_content += '<a href="#" class="header-cart-item-name" style="color: #555;">';
                 new_content += new_items[i].product.name;
                 new_content += '</a>';
                 new_content += '<span class="header-cart-item-info">';

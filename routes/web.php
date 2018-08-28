@@ -45,13 +45,14 @@ Route::put("/admin/product/update-json/{id}", "ProductController@quickUpdate");
 
 Route::get('/list-product',"ProductController@indexClient");
 Route::get('/product/{id}',"ProductController@show");
+Route::get('/brand/{id}',"BrandController@detailBrand");
 
 Route::get('/cart',function (){
     return view('client.cart.cart');
 });
 
 Route::get('/test',function (){
-    return view('client.product.detail');
+    return view('client.product.test');
 });
 
 
