@@ -38,7 +38,9 @@ class CartController extends Controller
         $item = new CartItem();
         $item->product = $product;
         $item->quantity = $quantity;
+        $item->product->dicountPriceString = $product->discountPriceString;
         $cart->items[$id] = $item;
+        $cart->count = Cart::calculateTotalItem($cart);
         Session::put('cart', $cart);
         return redirect('/cart');
     }
