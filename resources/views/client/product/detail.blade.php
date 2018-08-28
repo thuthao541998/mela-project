@@ -4,7 +4,8 @@
 {{-- $category = tên category của product --}}
 @extends('layouts.index')
 @section('content')
-    <div class="container">
+@section('page-topic',$obj->name)
+    <div class="container m-t-100">
         <div class="row">
             {{--<h1>{{$category}}</h1>--}}
         </div>
@@ -39,7 +40,7 @@
                 <p class="text-justify">{{$obj->overview}}</p>
                 <p class="text-justify">{{$obj->description}}</p>
                 <br>
-                <h4 class="text-xs-right">Current price: <span style="color: #197BB5; font-size: 35px;">VND {{$obj->price}}</span></h4>
+                <h4 class="text-xs-right">Current price: <span style="color: #197BB5; font-size: 35px;">VND {{$obj->discountPrice}}</span></h4>
                 {{-- 89% người dùng thích sản phẩm này!--}}
                 {{--<p class="text-xs-right"><strong>89%</strong> of buyers enjoyed this product! <strong>(107 votes)</strong></p>--}}
                 <br />
@@ -53,9 +54,9 @@
                 {{--</h4>--}}
                 <br />
                 <br />
-                <button type="button" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Add To Card</button>
+                <button type="button" class="btn btn-danger"><i class="fa fa-shopping-cart add-to-cart" id="add-cart-{{$obj->id}}"></i> Add To Card</button>
                 {{-- Có thể có chức năng thích sản phẩm sau này --}}
-                <button type="button" class="btn btn-primary"><i class="fa fa-heart"></i></button>
+                <button type="button" class="btn btn-danger"><i class="fa fa-heart"></i></button>
             </div>
         </div>
     </div>
@@ -119,4 +120,5 @@
             background: #D3AF37;
         }
     </style>
+
 @endsection
