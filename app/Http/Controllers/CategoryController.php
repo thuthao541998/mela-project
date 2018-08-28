@@ -20,7 +20,11 @@ class CategoryController extends Controller
         $list_obj = Category::paginate(3);
         return view('admin.category.list')->with('list_obj', $list_obj);
     }
-
+    public function indexClient()
+    {
+        $list_obj = Category::all();
+        return view('client.index')->with('list_obj', $list_obj);
+    }
     /**
      * Show the form for creating a new resource.
      *

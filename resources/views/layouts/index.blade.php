@@ -29,14 +29,17 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{asset('css/lightbox.min.css')}}">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
+    {{--<link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">--}}
+    <link rel="stylesheet" type="text/css" href="{{asset('css/cart.css')}}">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{asset('css/util.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
+
     <!--===============================================================================================-->
+    <script type="text/javascript" src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
 </head>
 <body class="animsition">
-
+    \
 <!-- Header -->
 <header>
     <!-- Header desktop -->
@@ -53,36 +56,31 @@
                 <!-- Menu -->
                 <div class="wrap_menu p-l-45 p-l-0-xl">
                     <nav class="menu">
-                        <ul class="main_menu">
+                        <ul class="main_menu m-l-94">
                             <li>
                                 <a href="/">Home</a>
                             </li>
 
                             <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Product
+                                <a href="/list-product">Product</a>
                             </li>
 
                             <li>
-                                <a href="gallery.html">Gallery</a>
+                                <a href="/list-article">Article</a>
                             </li>
 
                             <li>
-                                <a href="blog.html">Blog</a>
+                                <a href="/contact-us">Contact</a>
                             </li>
 
                             <li>
-                                <a href="reservation.html">Cart</a>
-                            </li>
+                                <a href="/about-us">About</a>
 
-                            <li>
-                                <a href="about.html">About</a>
-                            </li>
-
-                            <li>
-                                <a href="contact.html">Contact</a>
                             </li>
                             <li>
                                 <a href="#"><i class="fas fa-user-circle fa-2x" aria-hidden="true" ></i></a>
+
+
                             </li>
                         </ul>
                     </nav>
@@ -91,6 +89,62 @@
                 <!-- Social -->
                 <div class="social flex-w flex-l-m p-r-20">
                     <button class="btn-show-sidebar m-l-33 trans-0-4"></button>
+                    <span class="p-l-30">
+                        <div class="btn-show-menu">
+                            <div class="wrap_header_mobile" style="background-color: transparent; color: #fff;">
+                                <!-- Button show menu -->
+                                <div class="btn-show-menu">
+                                    <!-- Header Icon mobile -->
+                                    <div class="header-icons-mobile">
+                                        <div class="header-wrapicon2">
+                                            <a href="#" class="fa fa-shopping-cart fa-2x js-show-header-dropdown m-t-10"></a>
+                                            <span class="header-icons-noti" style="left: 35px; bottom: 20px; top: 0px;" id="header-icons-noti">{{\App\Cart::getTotalItem()}}</span>
+
+                                            <!-- Header cart noti -->
+                                            <div class="header-cart header-dropdown">
+                                                <ul class="header-cart-wrapitem">
+                                                    @if(count(\App\Cart::getCart()->items)>0)
+                                                        @foreach(\App\Cart::getCart()->items as $item)
+                                                            <li class="header-cart-item">
+                                                                <div class="header-cart-item-img">
+                                                                    <img src="{{$item->product->images}}" alt="IMG">
+                                                                </div>
+
+                                                                <div class="header-cart-item-txt">
+                                                                    <a href="#" class="header-cart-item-name">
+                                                                        {{$item->product->name}}
+                                                                    </a>
+
+                                                                    <span class="header-cart-item-info">
+                                                                        {{$item->quantity}} x {{$item->product->price}}
+                                                                    </span>
+                                                                </div>
+                                                            </li>
+                                                        @endforeach
+                                                    @else
+                                                        'Hiện tại không có sản phẩm nào trong giỏ hàng'
+                                                    @endif
+                                                </ul>
+
+                                                <div class="header-cart-total">
+                                                    Total: <span id="header-cart-total">{{\App\Cart::getCart()->getTotalMoneyString()}}</span>
+                                                </div>
+
+                                                <div class="header-cart-buttons">
+                                                    <div class="header-cart-wrapbtn">
+                                                        <!-- Button -->
+                                                        <a href="/cart" class="flex-c-m bg1 bo-rad-20 hov1 s-text1 trans-0-4" style="color:white">
+                                                            View Cart
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </span>
                 </div>
             </div>
         </div>
@@ -102,7 +156,6 @@
     <!-- Button Hide sidebar -->
     <button class="btn-hide-sidebar ti-close color0-hov trans-0-4"></button>
 
-    <!-- - -->
     <ul class="menu-sidebar p-t-95 p-b-70">
         <li class="t-center m-b-13">
             <a href="#"><i class="fab fa-facebook-square fa-2x" aria-hidden="true"></i></a>
@@ -112,7 +165,7 @@
             <a href="#"><i class="fab fa-line fa-2x" aria-hidden="true"></i></a>
         </li>
 
-        
+
         <li class="t-center m-b-13">
             <a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
         </li>
@@ -122,34 +175,24 @@
         </li>
 
         <li class="t-center m-b-13">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">PRODUCT
-                    <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">All </a></li>
-                    <li><a href="#">Category </a></li>
-                    <li><a href="#">Brand </a></li>
-                </ul>
+            <a href="/list-product">PRODUCT</a>
         </li>
 
         <li class="t-center m-b-13">
-            <a href="gallery.html" class="txt19">Gallery</a>
+            <a href="/about-us" class="txt19">About</a>
         </li>
 
         <li class="t-center m-b-13">
-            <a href="about.html" class="txt19">About</a>
-        </li>
-
-        <li class="t-center m-b-13">
-            <a href="blog.html" class="txt19">Blog</a>
+            <a href="/list-article" class="txt19">Article</a>
         </li>
 
         <li class="t-center m-b-33">
-            <a href="contact.html" class="txt19">Contact</a>
+            <a href="/contact-us" class="txt19">Contact</a>
         </li>
 
         <li class="t-center">
             <!-- Button3 -->
-            <a href="reservation.html" class="btn3 flex-c-m size13 txt11 trans-0-4 m-l-r-auto">
+            <a href="/cart" class="btn3 flex-c-m size13 txt11 trans-0-4 m-l-r-auto">
                 Cart
             </a>
         </li>
@@ -216,10 +259,10 @@
                     <h2 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="fadeInUp">
                         Mela Shop
                     </h2>
-
+                    <h3 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="fadeInUp">SALE UP TO 40%</h3>
                     <div class="wrap-btn-slide1 animated visible-false" data-appear="zoomIn">
                         <!-- Button1 -->
-                        <a href="menu.html" class="btn1 flex-c-m size1 txt3 trans-0-4">
+                        <a href="/" class="btn1 flex-c-m size1 txt3 trans-0-4">
                             @yield('page-topic')
                         </a>
                     </div>
@@ -235,17 +278,17 @@
                     <h2 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="lightSpeedIn">
                         Mela Shop
                     </h2>
-
+                    <h3 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="fadeInUp">SALE UP TO 40%</h3>
                     <div class="wrap-btn-slide1 animated visible-false" data-appear="slideInUp">
                         <!-- Button1 -->
-                        <a href="menu.html" class="btn1 flex-c-m size1 txt3 trans-0-4">
+                        <a href="/" class="btn1 flex-c-m size1 txt3 trans-0-4">
                             @yield('page-topic')
                         </a>
                     </div>
                 </div>
             </div>
 
-            <div class="item-slick1 item3-slick1 bg-3" style="background-image: url({{asset('images/master-slides-01.jpg')}});">
+            <div class="item-slick1 item3-slick1 bg-3" style="background-image: url({{asset('images/slide1-02.jpg')}});">
                 <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
                         <span class="caption1-slide1 txt1 t-center animated visible-false m-b-15" data-appear="rotateInDownLeft">
                             Welcome to
@@ -254,10 +297,10 @@
                     <h2 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="rotateInUpRight">
                         Mela Shop
                     </h2>
-
+                    <h3 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="fadeInUp">SALE UP TO 40%</h3>
                     <div class="wrap-btn-slide1 animated visible-false" data-appear="rotateIn">
                         <!-- Button1 -->
-                        <a href="menu.html" class="btn1 flex-c-m size1 txt3 trans-0-4">
+                        <a href="/" class="btn1 flex-c-m size1 txt3 trans-0-4">
                             @yield('page-topic')
                         </a>
                     </div>
@@ -298,7 +341,7 @@
                     </div>
 
                     <div class="wrap-text-blo1 p-t-35">
-                        <a href="blog-detail.html"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
+                        <a href="/list-artcle"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
                                 Best Places for Wine
                             </h4></a>
 
@@ -306,7 +349,7 @@
                             Phasellus lorem enim, luctus ut velit eget, con-vallis egestas eros.
                         </p>
 
-                        <a href="blog-detail.html" class="txt4">
+                        <a href="/list-artcle" class="txt4">
                             Continue Reading
                             <i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
                         </a>
@@ -318,7 +361,7 @@
                 <!-- Block1 -->
                 <div class="blo1">
                     <div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom pos-relative">
-                        <a href="blog-detail.html"><img src="images/blog-02.jpg" alt="IMG-INTRO"></a>
+                        <a href="/list-artcle"><img src="images/blog-02.jpg" alt="IMG-INTRO"></a>
 
                         <div class="time-blog">
                             15 Dec 2017
@@ -326,7 +369,7 @@
                     </div>
 
                     <div class="wrap-text-blo1 p-t-35">
-                        <a href="blog-detail.html"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
+                        <a href="/list-artcle"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
                                 Eggs and Cheese
                             </h4></a>
 
@@ -334,7 +377,7 @@
                             Duis elementum, risus sit amet lobortis nunc justo condimentum ligula, vitae feugiat
                         </p>
 
-                        <a href="blog-detail.html" class="txt4">
+                        <a href="/list-artcle" class="txt4">
                             Continue Reading
                             <i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
                         </a>
@@ -346,7 +389,7 @@
                 <!-- Block1 -->
                 <div class="blo1">
                     <div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom pos-relative">
-                        <a href="blog-detail.html"><img src="images/blog-03.jpg" alt="IMG-INTRO"></a>
+                        <a href="/list-artcle"><img src="images/blog-03.jpg" alt="IMG-INTRO"></a>
 
                         <div class="time-blog">
                             12 Dec 2017
@@ -354,7 +397,7 @@
                     </div>
 
                     <div class="wrap-text-blo1 p-t-35">
-                        <a href="blog-detail.html"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
+                        <a href="/list-artcle"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
                                 Style the Wedding Party
                             </h4></a>
 
@@ -362,7 +405,7 @@
                             Sed ornare ligula eget tortor tempor, quis porta tellus dictum.
                         </p>
 
-                        <a href="blog-detail.html" class="txt4">
+                        <a href="/list-artcle" class="txt4">
                             Continue Reading
                             <i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
                         </a>
@@ -388,7 +431,7 @@
         </div>
 
         <!-- Button3 -->
-        <button type="submit" class="btn3 flex-c-m size18 txt11 trans-0-4 m-10">
+        <button type="submit" class="btn3 flex-c-m size2 txt11 trans-0-4 m-10">
             Sign-up
         </button>
     </form>
@@ -577,14 +620,12 @@
 <div id="dropDownSelect1"></div>
 
 <!--===============================================================================================-->
-<script type="text/javascript" src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
+{{--<script type="text/javascript" src="{{asset('js/jquery-3.2.1.min.js')}}"></script>--}}
 <!--===============================================================================================-->
 <script type="text/javascript" src="{{asset('js/animsition.min.js')}}"></script>
 <!--===============================================================================================-->
 <script type="text/javascript" src="{{asset('js/popper.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/bootstrap.min.js')}}"></script>
-<!--===============================================================================================-->
-<script type="text/javascript" src="{{asset('js/select2.min.js')}}"></script>
 <!--===============================================================================================-->
 <script type="text/javascript" src="{{asset('js/moment.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/daterangepicker.js')}}"></script>
@@ -601,7 +642,9 @@
 <!--===============================================================================================-->
 <script type="text/javascript" src="{{asset('js/lightbox.min.js')}}"></script>
 <!--===============================================================================================-->
+<script src="{{asset('js/sweetalert.min.js')}}"></script>
 <script src="{{asset('js/main.js')}}"></script>
+<script src="{{asset('js/cart.js')}}"></script>
 
 </body>
 </html>

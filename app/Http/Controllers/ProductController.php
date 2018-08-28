@@ -73,8 +73,7 @@ class ProductController extends Controller
             ->with('categories',$categories)
             ->with('choosedBrandId',$choosedBrandId)
             ->with('choosedCategoryId',$choosedCategoryId)
-            ->with('null',null)
-            ;
+            ->with('null',null);
     }
     /**
      * Show the form for creating a new resource.
@@ -107,6 +106,7 @@ class ProductController extends Controller
         $obj->description = Input::get('description');
         $obj->brandId = Input::get('brandId');
         $obj->categoryId = Input::get('categoryId');
+        $obj->discount = Input::get('discount');
         if(Input::hasFile('images')){
             $image_id = time();
             Cloudder::upload(Input::file('images')->getRealPath(), $image_id);
@@ -128,7 +128,7 @@ class ProductController extends Controller
         if ($obj == null) {
             return view('404');
         }
-        return view('admin.product.show')
+        return view('client.product.detail')
             ->with('obj', $obj);
     }
 
@@ -177,6 +177,7 @@ class ProductController extends Controller
         $obj->description = Input::get('description');
         $obj->brandId = Input::get('brandId');
         $obj->categoryId = Input::get('categoryId');
+        $obj->discount = Input::get('discount');
         if(Input::hasFile('images')){
             $image_id = time();
             Cloudder::upload(Input::file('images')->getRealPath(), $image_id);
