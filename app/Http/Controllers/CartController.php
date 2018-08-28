@@ -4,8 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Cart;
 use App\CartItem;
+
+use App\Http\Requests\StoreCheckoutPost;
+
 use App\Order;
 use App\OrderDetail;
+
 use App\Product;
 use Foo\DataProviderIssue2922\SecondHelloWorldTest;
 use Illuminate\Http\Request;
@@ -106,8 +110,9 @@ class CartController extends Controller
         Cart::getRemoveItem($id);
         return redirect('/cart');
     }
-    public function checkoutCart()
-    {
+    public function checkoutCart(StoreCheckoutPost $request){
+        $request->validated();
+
         if (Session::has('cart')) {
             try {
                 DB::beginTransaction();
@@ -150,7 +155,7 @@ class CartController extends Controller
                 return 'Có lỗi xảy ra.' . $exception->getMessage();
             }
         } else {
-            return view('cart')->with('message', 'Hiện tại chưa có sản phẩm nào trong giỏ hàng.');
+            return view('admin.404.404')->with('message', 'Hiện tại chưa có sản phẩm nào trong giỏ hàng.');
         }
     }
 }
