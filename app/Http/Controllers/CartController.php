@@ -42,7 +42,9 @@ class CartController extends Controller
         $item = new CartItem();
         $item->product = $product;
         $item->quantity = $quantity;
+        $item->product->dicountPriceString = $product->discountPriceString;
         $cart->items[$id] = $item;
+        $cart->count = Cart::calculateTotalItem($cart);
         Session::put('cart', $cart);
         return redirect('/cart');
     }
@@ -65,6 +67,8 @@ class CartController extends Controller
         Session::put('cart', $cart);
         return redirect('/cart');
     }
+
+
     public function addToCartApi()
     {
         $id = Input::get('id');
@@ -110,7 +114,6 @@ class CartController extends Controller
         Cart::getRemoveItem($id);
         return redirect('/cart');
     }
-    
     public function checkoutCart(StoreCheckoutPost $request){
         if (Session::has('cart')) {
             try {
@@ -154,7 +157,8 @@ class CartController extends Controller
                 return 'Có lỗi xảy ra.' . $exception->getMessage();
             }
         } else {
-            return view('admin.404.404')->with('message', 'Hiện tại chưa có sản phẩm nào trong giỏ hàng.');
+            return view('cart')->with('message', 'Hiện tại chưa có sản phẩm nào trong giỏ hàng.');
+//            return view('admin.404.404')->with('message', 'Hiện tại chưa có sản phẩm nào trong giỏ hàng.');
         }
     }
 }

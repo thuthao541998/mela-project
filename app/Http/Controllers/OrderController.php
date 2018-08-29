@@ -5,9 +5,36 @@ namespace App\Http\Controllers;
 use App\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
+
+    public function getChartDataApi()
+    {
+        $start_date = '2018-07-20';
+        $end_date = '2018-08-30';
+        $chart_data = Order::select(DB::raw('sum(total_price) as revenue'), DB::raw('date(created_at) as day'))
+            ->whereBetween('created_at', array($start_date, $end_date))
+            ->groupBy('day')
+            ->orderBy('day', 'desc')
+            ->get();
+        return $chart_data;
+    }
+
+    public function changeStatus()
+    {
+        $id = Input::get('id');
+        $status = Input::get('status');
+        $order = Order::find($id);
+        if ($order == null) {
+            return view('errors.404');
+        }
+        $order->status = $status;
+        $order->save();
+        return redirect('/admin/order');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +43,7 @@ class OrderController extends Controller
     public function index()
     {
         $orders = Order::paginate(10);
-        return view('admin.order.list')->with('orders_in_view', $orders);
+        return view('admin.order.list')->with('list_obj', $orders);
     }
 
     /**
@@ -77,7 +104,7 @@ class OrderController extends Controller
             return view('404');
         }
         return view('admin.order.edit')
-            ->with('admin', $order);
+            ->with('obj', $order);
     }
 
     /**
