@@ -75,3 +75,7 @@ Route::post('/check-out','CartController@checkoutCart');
 Route::put('/sua-gio-hang', 'CartController@updateCart');
 
 Route::get('/api-get-chart-data', 'OrderController@getChartDataApi');
+
+Route::get('/login',function (){
+    return view('client.login');
+});
