@@ -103,6 +103,7 @@ class CartController extends Controller
     public function showCart()
     {
         $cart = new Cart();
+        $items = [];
         if (Session::has('cart')) {
             $cart = Session::get('cart');
             $items = $cart->items;

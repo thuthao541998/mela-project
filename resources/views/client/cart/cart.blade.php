@@ -30,6 +30,7 @@
                                     <th class="column-5">Total</th>
                                     <th class="column-6"></th>
                                 </tr>
+                                @if(isset($items))
                                 @foreach($items as $item)
                                     <tr class="table-row-{{$item->product->id}}">
                                         <td class="column-1">
@@ -71,6 +72,9 @@
                                         </td>
                                     </tr>
                                 @endforeach
+
+
+                                @endif
                                 </tbody>
                             </table>
                         </div>
