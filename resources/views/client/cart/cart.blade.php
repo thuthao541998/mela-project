@@ -51,7 +51,7 @@
                                         <td class="column-4 ml-2">
                                             <div class="flex-w bo5 of-hidden w-size17 quantity"
                                                  style="margin-left: 40px;">
-                                                <button type="button" class="btn-num btn-num-product-down color1 flex-c-m size7 bg8 eff2">
+                                                <button  class="btn-num btn-num-product-down color1 flex-c-m size7 bg8 eff2">
                                                     <i class="fs-12 fa fa-minus" aria-hidden="true"></i>
                                                 </button>
 
@@ -59,7 +59,7 @@
                                                        name="products[{{$item->product->id}}]"
                                                        value="{{$item->quantity}}" type="number">
 
-                                                <button type="button" class="btn-num btn-num-product-up color1 flex-c-m size7 bg8 eff2">
+                                                <button  class="btn-num btn-num-product-up color1 flex-c-m size7 bg8 eff2">
                                                     <i class="fs-12 fa fa-plus" aria-hidden="true"></i>
                                                 </button>
                                             </div>
@@ -73,7 +73,6 @@
                                     </tr>
                                 @endforeach
 
-
                                 @endif
                                 </tbody>
                             </table>
@@ -81,15 +80,7 @@
                     </div>
                 </form>
             </div>
-            <div class="flex-w flex-sb-m p-t-25 p-b-25 p-l-35 p-r-60 p-lr-15-sm">
-                <div class="size10 trans-0-4 m-t-10 m-b-10">
-                    <!-- Button -->
 
-                    <input name="save-changes" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4"
-                           value="Save changes"
-                           type="submit">
-                </div>
-            </div>
             <form action="/check-out" name="order-form" method="POST">
                 @csrf();
                 <!-- Total -->

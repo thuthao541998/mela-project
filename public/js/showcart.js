@@ -79,24 +79,3 @@ $('.checkout-btn').click(function () {
         $('span[name="ship_phone"]').html('Your phone has to have 10 letters.');
     };
 });
-$('input[name="save-changes"]').click(function () {
-    var array = [];
-    $('.num-product').each(function (index, item) {
-        array.push($(this).attr('name'));
-    });
-    $.ajax({
-        url: '/sua-gio-hang',
-        method : 'PUT',
-        dataType: 'json',
-        data : {
-            '_token': $('meta[name="csrf-token"]').attr('content'),
-            'products' : array
-        },
-        success: function (resp) {
-            alert('success');
-        },
-        error : function () {
-            alert('failed');
-        }
-    })
-});
