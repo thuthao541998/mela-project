@@ -75,3 +75,9 @@ Route::post('/check-out','CartController@checkoutCart');
 Route::put('/sua-gio-hang', 'CartController@updateCart');
 
 Route::get('/api-get-chart-data', 'OrderController@getChartDataApi');
+
+Auth::routes();
+Route::get('/redirect', 'SocialAuthFacebookController@redirect');
+Route::get('/callback', 'SocialAuthFacebookController@callback');
+
+Route::get('/home', 'HomeController@index')->name('home');
