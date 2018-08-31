@@ -57,8 +57,8 @@
                                     <select id="select-action" name="categoryId" class="form-control">
                                         <option selected value="1">A - Z</option>
                                         <option selected value="2">Z - A</option>
-                                        <option selected value="3">Price(low to igh)</option>
-                                        <option selected value="4">Price(high to low)</option>
+                                        <option selected value="3">Price (low to high)</option>
+                                        <option selected value="4">Price (high to low)</option>
                                     </select>
                                 </div>
                             </div>
