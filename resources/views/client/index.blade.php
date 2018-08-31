@@ -435,7 +435,7 @@
         </div>
     </section>
 
-    <!-- Review -->
+    {{--<!-- Review -->--}}
     {{--<section class="section-review p-t-115">--}}
         {{--<!-- - -->--}}
         {{--<div class="title-review t-center m-b-2">--}}

@@ -4,8 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Cart;
 use App\CartItem;
+
+use App\Http\Requests\StoreCheckoutPost;
+
 use App\Order;
 use App\OrderDetail;
+
 use App\Product;
 use Foo\DataProviderIssue2922\SecondHelloWorldTest;
 use Illuminate\Http\Request;
@@ -38,7 +42,9 @@ class CartController extends Controller
         $item = new CartItem();
         $item->product = $product;
         $item->quantity = $quantity;
+        $item->product->dicountPriceString = $product->discountPriceString;
         $cart->items[$id] = $item;
+        $cart->count = Cart::calculateTotalItem($cart);
         Session::put('cart', $cart);
         return redirect('/cart');
     }
@@ -61,6 +67,8 @@ class CartController extends Controller
         Session::put('cart', $cart);
         return redirect('/cart');
     }
+
+
     public function addToCartApi()
     {
         $id = Input::get('id');
@@ -106,8 +114,7 @@ class CartController extends Controller
         Cart::getRemoveItem($id);
         return redirect('/cart');
     }
-    public function checkoutCart()
-    {
+    public function checkoutCart(StoreCheckoutPost $request){
         if (Session::has('cart')) {
             try {
                 DB::beginTransaction();
@@ -151,6 +158,7 @@ class CartController extends Controller
             }
         } else {
             return view('cart')->with('message', 'Hiện tại chưa có sản phẩm nào trong giỏ hàng.');
+//            return view('admin.404.404')->with('message', 'Hiện tại chưa có sản phẩm nào trong giỏ hàng.');
         }
     }
 }

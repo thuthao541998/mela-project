@@ -34,7 +34,7 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{asset('css/util.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
-
+    <link rel="stylesheet" href="{{asset('css/brand-detail.css')}}">
     <!--===============================================================================================-->
     <script type="text/javascript" src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
 </head>
@@ -78,9 +78,7 @@
 
                             </li>
                             <li>
-                                <a href="#"><i class="fas fa-user-circle fa-2x" aria-hidden="true" ></i></a>
-
-
+                                <a href="login"><i class="fas fa-user-circle fa-2x" aria-hidden="true" ></i></a>
                             </li>
                         </ul>
                     </nav>
@@ -111,12 +109,12 @@
                                                                 </div>
 
                                                                 <div class="header-cart-item-txt">
-                                                                    <a href="#" class="header-cart-item-name">
+                                                                    <a href="#" class="header-cart-item-name" style="color: #555; ">
                                                                         {{$item->product->name}}
                                                                     </a>
 
                                                                     <span class="header-cart-item-info">
-                                                                        {{$item->quantity}} x {{$item->product->price}}
+                                                                        {{$item->quantity}} x {{$item->product->discountPrice}}
                                                                     </span>
                                                                 </div>
                                                             </li>
@@ -212,35 +210,35 @@
             </a>
 
             <a class="item-gallery-sidebar wrap-pic-w" href="{{asset('images/photo-gallery-02.jpg')}}" data-lightbox="gallery-footer">
-                <img src="{{asset('images/photo-gallery-thumb-02.jpg')}}" alt="GALLERY">
+                <img src="{{asset('images/photo-gallery-02.jpg')}}" alt="GALLERY">
             </a>
 
             <a class="item-gallery-sidebar wrap-pic-w" href="{{asset('images/photo-gallery-03.jpg')}}" data-lightbox="gallery-footer">
-                <img src="{{asset('images/photo-gallery-thumb-03.jpg')}}" alt="GALLERY">
+                <img src="{{asset('images/photo-gallery-03.jpg')}}" alt="GALLERY">
             </a>
 
             <a class="item-gallery-sidebar wrap-pic-w" href="{{asset('images/photo-gallery-05.jpg')}}" data-lightbox="gallery-footer">
-                <img src="{{asset('images/photo-gallery-thumb-05.jpg')}}" alt="GALLERY">
+                <img src="{{asset('images/photo-gallery-05.jpg')}}" alt="GALLERY">
             </a>
 
             <a class="item-gallery-sidebar wrap-pic-w" href="{{asset('images/photo-gallery-06.jpg')}}" data-lightbox="gallery-footer">
-                <img src="{{asset('images/photo-gallery-thumb-06.jpg')}}" alt="GALLERY">
+                <img src="{{asset('images/photo-gallery-06.jpg')}}" alt="GALLERY">
             </a>
 
             <a class="item-gallery-sidebar wrap-pic-w" href="{{asset('')}}images/photo-gallery-07.jpg" data-lightbox="gallery-footer">
-                <img src="{{asset('images/photo-gallery-thumb-07.jpg')}}" alt="GALLERY">
+                <img src="{{asset('images/photo-gallery-07.jpg')}}" alt="GALLERY">
             </a>
 
             <a class="item-gallery-sidebar wrap-pic-w" href="{{asset('images/photo-gallery-09.jpg')}}" data-lightbox="gallery-footer">
-                <img src="{{asset('images/photo-gallery-thumb-09.jpg')}}" alt="GALLERY">
+                <img src="{{asset('images/photo-gallery-09.jpg')}}" alt="GALLERY">
             </a>
 
             <a class="item-gallery-sidebar wrap-pic-w" href="{{asset('images/photo-gallery-10.jpg')}}" data-lightbox="gallery-footer">
-                <img src="{{asset('images/photo-gallery-thumb-10.jpg')}}" alt="GALLERY">
+                <img src="{{asset('images/photo-gallery-10.jpg')}}" alt="GALLERY">
             </a>
 
             <a class="item-gallery-sidebar wrap-pic-w" href="{{asset('images/photo-gallery-11.jpg')}}" data-lightbox="gallery-footer">
-                <img src="{{asset('images/photo-gallery-thumb-11.jpg')}}" alt="GALLERY">
+                <img src="{{asset('images/photo-gallery-11.jpg')}}" alt="GALLERY">
             </a>
         </div>
     </div>
@@ -317,105 +315,106 @@
 
 <!-- Blog -->
 <section class="section-blog bg-white p-t-115 p-b-123">
-    <div class="container">
-        <div class="title-section-ourmenu t-center m-b-22">
+        <div class="container">
+            <div class="title-section-ourmenu t-center m-b-22">
                 <span class="tit2 t-center">
                     Latest News
                 </span>
 
-            <h3 class="tit5 t-center m-t-2">
-                The Blog
-            </h3>
+                <h3 class="tit5 t-center m-t-2">
+                    The Blog
+                </h3>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 p-t-30">
+                    <!-- Block1 -->
+                    <div class="blo1">
+                        <div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom pos-relative">
+                            <a href="blog-detail.html"><img src="images/blog-01.jpg" alt="IMG-INTRO"></a>
+
+                            <div class="time-blog">
+                                21 Dec 2017
+                            </div>
+                        </div>
+
+                        <div class="wrap-text-blo1 p-t-35">
+                            <a href="blog-detail.html"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
+                                    Not only is beauty
+                                </h4></a>
+
+                            <p class="m-b-20">
+                                Mela shop with lipstick is not just a normal lipstick beauty, but also ...
+                            </p>
+
+                            <a href="blog-detail.html" class="txt4">
+                                Continue Reading
+                                <i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 p-t-30">
+                    <!-- Block1 -->
+                    <div class="blo1">
+                        <div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom pos-relative">
+                            <a href="blog-detail.html"><img src="images/blog-02.jpg" alt="IMG-INTRO"></a>
+
+                            <div class="time-blog">
+                                15 Dec 2017
+                            </div>
+                        </div>
+
+                        <div class="wrap-text-blo1 p-t-35">
+                            <a href="blog-detail.html"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
+                                    Darkness
+                                </h4></a>
+
+                            <p class="m-b-20">
+                                Mela lipstick always makes you stand out Shop though not enough light, by ...
+                            </p>
+
+                            <a href="blog-detail.html" class="txt4">
+                                Continue Reading
+                                <i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 p-t-30">
+                    <!-- Block1 -->
+                    <div class="blo1">
+                        <div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom pos-relative">
+                            <a href="blog-detail.html"><img src="images/blog-03.jpg" alt="IMG-INTRO"></a>
+
+                            <div class="time-blog">
+                                12 Dec 2017
+                            </div>
+                        </div>
+
+                        <div class="wrap-text-blo1 p-t-35">
+                            <a href="blog-detail.html"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
+                                    Daily life
+                                </h4></a>
+
+                            <p class="m-b-20">
+                                Mela Shop with the concept new lipstick model nice, but just ...
+                            </p>
+
+                            <a href="blog-detail.html" class="txt4">
+                                Continue Reading
+                                <i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
+    </section>
 
-        <div class="row">
-            <div class="col-md-4 p-t-30">
-                <!-- Block1 -->
-                <div class="blo1">
-                    <div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom pos-relative">
-                        <a href="blog-detail.html"><img src="images/blog-01.jpg" alt="IMG-INTRO"></a>
-
-                        <div class="time-blog">
-                            21 Dec 2017
-                        </div>
-                    </div>
-
-                    <div class="wrap-text-blo1 p-t-35">
-                        <a href="/list-artcle"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
-                                Best Places for Wine
-                            </h4></a>
-
-                        <p class="m-b-20">
-                            Phasellus lorem enim, luctus ut velit eget, con-vallis egestas eros.
-                        </p>
-
-                        <a href="/list-artcle" class="txt4">
-                            Continue Reading
-                            <i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 p-t-30">
-                <!-- Block1 -->
-                <div class="blo1">
-                    <div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom pos-relative">
-                        <a href="/list-artcle"><img src="images/blog-02.jpg" alt="IMG-INTRO"></a>
-
-                        <div class="time-blog">
-                            15 Dec 2017
-                        </div>
-                    </div>
-
-                    <div class="wrap-text-blo1 p-t-35">
-                        <a href="/list-artcle"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
-                                Eggs and Cheese
-                            </h4></a>
-
-                        <p class="m-b-20">
-                            Duis elementum, risus sit amet lobortis nunc justo condimentum ligula, vitae feugiat
-                        </p>
-
-                        <a href="/list-artcle" class="txt4">
-                            Continue Reading
-                            <i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 p-t-30">
-                <!-- Block1 -->
-                <div class="blo1">
-                    <div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom pos-relative">
-                        <a href="/list-artcle"><img src="images/blog-03.jpg" alt="IMG-INTRO"></a>
-
-                        <div class="time-blog">
-                            12 Dec 2017
-                        </div>
-                    </div>
-
-                    <div class="wrap-text-blo1 p-t-35">
-                        <a href="/list-artcle"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
-                                Style the Wedding Party
-                            </h4></a>
-
-                        <p class="m-b-20">
-                            Sed ornare ligula eget tortor tempor, quis porta tellus dictum.
-                        </p>
-
-                        <a href="/list-artcle" class="txt4">
-                            Continue Reading
-                            <i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
 
 
 <!-- Sign up -->
@@ -536,52 +535,52 @@
 
                 <!-- Gallery footer -->
                 <div class="wrap-gallery-footer flex-w">
-                    <a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-01.jpg" data-lightbox="gallery-footer">
-                        <img src="images/photo-gallery-thumb-01.jpg" alt="GALLERY">
+                    <a class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
+                        <img src="{{asset('images/photo-gallery-thumb-01.jpg')}}" alt="GALLERY">
                     </a>
 
-                    <a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-02.jpg" data-lightbox="gallery-footer">
-                        <img src="images/photo-gallery-thumb-02.jpg" alt="GALLERY">
+                    <a class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
+                        <img src="{{asset('images/photo-gallery-thumb-02.jpg')}}" alt="GALLERY">
                     </a>
 
-                    <a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-03.jpg" data-lightbox="gallery-footer">
-                        <img src="images/photo-gallery-thumb-03.jpg" alt="GALLERY">
+                    <a class="item-gallery-footer wrap-pic-w"data-lightbox="gallery-footer">
+                        <img src="{{asset('images/photo-gallery-thumb-03.jpg')}}" alt="GALLERY">
                     </a>
 
-                    <a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-04.jpg" data-lightbox="gallery-footer">
-                        <img src="images/photo-gallery-thumb-04.jpg" alt="GALLERY">
+                    <a class="item-gallery-footer wrap-pic-w"data-lightbox="gallery-footer">
+                        <img src="{{asset('images/photo-gallery-thumb-04.jpg')}}" alt="GALLERY">
                     </a>
 
-                    <a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-05.jpg" data-lightbox="gallery-footer">
-                        <img src="images/photo-gallery-thumb-05.jpg" alt="GALLERY">
+                    <a class="item-gallery-footer wrap-pic-w"data-lightbox="gallery-footer">
+                        <img src="{{asset('images/photo-gallery-thumb-05.jpg')}}" alt="GALLERY">
                     </a>
 
-                    <a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-06.jpg" data-lightbox="gallery-footer">
-                        <img src="images/photo-gallery-thumb-06.jpg" alt="GALLERY">
+                    <a class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
+                        <img src="{{asset('images/photo-gallery-thumb-06.jpg')}}" alt="GALLERY">
                     </a>
 
-                    <a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-07.jpg" data-lightbox="gallery-footer">
-                        <img src="images/photo-gallery-thumb-07.jpg" alt="GALLERY">
+                    <a class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
+                        <img src="{{asset('images/photo-gallery-thumb-07.jpg')}}" alt="GALLERY">
                     </a>
 
-                    <a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-08.jpg" data-lightbox="gallery-footer">
-                        <img src="images/photo-gallery-thumb-08.jpg" alt="GALLERY">
+                    <a class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
+                        <img src="{{asset('images/photo-gallery-thumb-08.jpg')}}" alt="GALLERY">
                     </a>
 
-                    <a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-09.jpg" data-lightbox="gallery-footer">
-                        <img src="images/photo-gallery-thumb-09.jpg" alt="GALLERY">
+                    <a class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
+                        <img src="{{asset('images/photo-gallery-thumb-09.jpg')}}" alt="GALLERY">
                     </a>
 
-                    <a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-10.jpg" data-lightbox="gallery-footer">
-                        <img src="images/photo-gallery-thumb-10.jpg" alt="GALLERY">
+                    <a class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
+                        <img src="{{asset('images/photo-gallery-thumb-10.jpg')}}" alt="GALLERY">
                     </a>
 
-                    <a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-11.jpg" data-lightbox="gallery-footer">
-                        <img src="images/photo-gallery-thumb-11.jpg" alt="GALLERY">
+                    <a class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
+                        <img src="{{asset('images/photo-gallery-thumb-11.jpg')}}" alt="GALLERY">
                     </a>
 
-                    <a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-12.jpg" data-lightbox="gallery-footer">
-                        <img src="images/photo-gallery-thumb-12.jpg" alt="GALLERY">
+                    <a class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
+                        <img src="{{asset('images/photo-gallery-thumb-12.jpg')}}" alt="GALLERY">
                     </a>
                 </div>
 

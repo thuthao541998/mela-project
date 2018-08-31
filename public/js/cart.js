@@ -21,7 +21,7 @@ $('.add-to-cart').click(function () {
                 new_content += '<img src="' + new_items[i].product.images + '" alt="IMG">';
                 new_content += '</div>';
                 new_content += '<div class="header-cart-item-txt">';
-                new_content += '<a href="#" class="header-cart-item-name">';
+                new_content += '<a href="#" class="header-cart-item-name" style="color: #555;">';
                 new_content += new_items[i].product.name;
                 new_content += '</a>';
                 new_content += '<span class="header-cart-item-info">';
@@ -39,10 +39,10 @@ $('.add-to-cart').click(function () {
             $('#header-cart-wrapitem').html(new_content);
             $('#header-cart-total').text(new_total_money);
             // import swal from 'sweetalert';
-            swal('Thao tác thành công!', 'Sản phẩm đã được thêm vào giỏ hàng!', 'success');
+            swal('Successfully!', 'ADDED TO CART. You can change the quantity of the product in cart later!', 'success');
         },
         error: function (error) {
-            swal('Thao tác thất bại', JSON.parse(error.responseText).msg);
+            swal('FAILED', JSON.parse(error.responseText).msg);
         }
     });
 });
