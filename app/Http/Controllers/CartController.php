@@ -53,7 +53,7 @@ class CartController extends Controller
         $cart = new Cart();
         $products = Input::get('products');
         if (is_array($products)) {
-            return $products[0];
+//            return $products[2];
             foreach (array_keys($products) as $key) {
                 $product = Product::find($key);
                 if ($product == null || $product->status != 1) {
@@ -103,6 +103,7 @@ class CartController extends Controller
     public function showCart()
     {
         $cart = new Cart();
+        $items = [];
         if (Session::has('cart')) {
             $cart = Session::get('cart');
             $items = $cart->items;
