@@ -50,7 +50,8 @@
                                         <td class="column-4 ml-2">
                                             <div class="flex-w bo5 of-hidden w-size17 quantity"
                                                  style="margin-left: 40px;">
-                                                <button type="button" class="btn-num btn-num-product-down color1 flex-c-m size7 bg8 eff2">
+                                                <button type="button"
+                                                        class="btn-num btn-num-product-down color1 flex-c-m size7 bg8 eff2">
                                                     <i class="fs-12 fa fa-minus" aria-hidden="true"></i>
                                                 </button>
 
@@ -58,7 +59,8 @@
                                                        name="products[{{$item->product->id}}]"
                                                        value="{{$item->quantity}}" type="number">
 
-                                                <button type="button" class="btn-num btn-num-product-up color1 flex-c-m size7 bg8 eff2">
+                                                <button type="button"
+                                                        class="btn-num btn-num-product-up color1 flex-c-m size7 bg8 eff2">
                                                     <i class="fs-12 fa fa-plus" aria-hidden="true"></i>
                                                 </button>
                                             </div>
@@ -103,18 +105,21 @@
                             <div class="size13 bo4 m-b-12">
                                 <input class="sizefull s-text7 p-l-15 p-r-15" name="ship_name" placeholder="Buyer"
                                        type="text">
-                                <span name="ship_name" class="text-danger m-t-5" style="display: block; font-size: 12px"></span>
+                                <span name="ship_name" class="text-danger m-t-5"
+                                      style="display: block; font-size: 12px"></span>
                             </div>
 
                             <div class="size15 bo4 m-b-30">
                                 <input class="sizefull s-text7 p-l-15 p-r-15" name="ship_address" placeholder="Address"
                                        type="text">
-                                <span name="ship_address" class="text-danger m-t-5" style="display: block; font-size: 12px;"></span>
+                                <span name="ship_address" class="text-danger m-t-5"
+                                      style="display: block; font-size: 12px;"></span>
                             </div>
                             <div class="size15 bo4 m-b-30">
                                 <input class="sizefull s-text7 p-l-15 p-r-15" name="ship_phone" placeholder="Phone"
                                        type="text">
-                                <span name="ship_phone" class="text-danger m-t-5" style="display: block; font-size: 12px"></span>
+                                <span name="ship_phone" class="text-danger m-t-5"
+                                      style="display: block; font-size: 12px"></span>
                             </div>
                         </form>
                     </div>
