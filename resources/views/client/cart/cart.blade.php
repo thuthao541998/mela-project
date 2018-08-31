@@ -88,24 +88,24 @@
                     </h5>
                     <!--  -->
                     <div class="flex-w flex-sb bo10 p-t-15 p-b-20">
-                        <span class="s-text18 w-size19 w-full-sm">
+                        <span class="s-text18 w-size19 w-full-sm m-b-10">
                           Shipping:
                         </span>
 
                         <form class="w-size20 w-full-sm" method="POST" action="/check-out">
-                            <div class="size13 bo4 m-b-12">
-                                <input class="sizefull s-text7 p-l-15 p-r-15" name="ship_name" placeholder="Buyer"
+                            <div class="size15 bo4 m-b-30">
+                                <input class="sizefull s-text7 p-l-15 p-r-15 p-b-20" name="ship_name" placeholder="Buyer"
                                        type="text">
                                 <span name="ship_name" class="text-danger m-t-5" style="display: block; font-size: 12px"></span>
                             </div>
 
                             <div class="size15 bo4 m-b-30">
-                                <input class="sizefull s-text7 p-l-15 p-r-15" name="ship_address" placeholder="Address"
+                                <input class="sizefull s-text7 p-l-15 p-r-15 p-b-20" name="ship_address" placeholder="Address"
                                        type="text">
                                 <span name="ship_address" class="text-danger m-t-5" style="display: block; font-size: 12px;"></span>
                             </div>
                             <div class="size15 bo4 m-b-30">
-                                <input class="sizefull s-text7 p-l-15 p-r-15" name="ship_phone" placeholder="Phone"
+                                <input class="sizefull s-text7 p-l-15 p-r-15 p-b-20" name="ship_phone" placeholder="Phone"
                                        type="text">
                                 <span name="ship_phone" class="text-danger m-t-5" style="display: block; font-size: 12px"></span>
                             </div>
@@ -142,7 +142,7 @@
 </div>
 
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-{{--<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>--}}
+<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
 <script src="{{asset('js/jquery.formatNumber-0.1.1.min.js')}}"></script>
 <script type="text/javascript">
     $('.btn-num-product-down').click(function () {
@@ -168,6 +168,7 @@
         var totalMoney = parseInt($('.total-money').text().replace(/\,/g, '').replace(/\,/g, ''));
         $('.total-money').text(totalMoney + plus).formatNumber();
     });
+
     $(".cart_delete").click(function () {
         var id = $(this).children().attr('id').replace('delete-', '');
         var deleteTotal = parseInt($('#unit-total-' + id).text().replace(/\,/g, ''));
@@ -211,22 +212,44 @@
             });
     });
 
-    $('.checkout').click(function () {
-        if ($('input[name="ship_name"]').length < 7) {
-            $('span[name="ship_name"]').html('Your name has to be longer than 7.')
-        };
-        if ($('input[name="ship_address"]').length < 10){
-            $('span[name="ship_address"]').html('Your address has to be longer than 7.');
-        };
-        if (isNaN($('input[name="ship_phone"]'))){
-            $('span[name="ship_phone"]').html('This field has to be number');
-        } else if ($('input[name="ship_phone"]').length < 10){
-            $('span[name="ship_phone"]').html('Your phone has to have 10 letters.');
-        };
+    $(document).ready(function() {
+        $('form[name="order-form"]').validate({
+            rules: {
+                ship_name: {
+                    required: true,
+                    minlength: 7
+                },
+                ship_address: {
+                    required: true,
+                    minlength: 7
+                },
+                ship_phone: {
+                    required: true,
+                    number: true,
+                    length: 10
+                },
+            },
+            messages: {
+                name: {
+                    required: "This field is required.",
+                    minlength: "This field has to be longer than 7 characters."
+                },
+                ship_address: {
+                    required: "This field is required.",
+                    minlength: "This field has to be longer than 7 characters."
+                },
+                ship_phone: {
+                    required: "This field is required.",
+                    number: "This field has to be numeric.",
+                    length: "This field has to be 10 digits long."
+                },
+            }
+        });
     });
+
     $('input[name="save-changes"]').click(function () {
         var id = [];
-        id.push($('.quantity input').attr('name'))
+        id.push($('.quantity input').attr('name'));
         console.log(id);
 
     });
