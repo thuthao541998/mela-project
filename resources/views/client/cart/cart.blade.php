@@ -51,25 +51,18 @@
                                         <td class="column-4 ml-2">
                                             <div class="flex-w bo5 of-hidden w-size17 quantity"
                                                  style="margin-left: 40px;">
-<<<<<<< HEAD
                                                 <button type="button"
                                                         class="btn-num btn-num-product-down color1 flex-c-m size7 bg8 eff2">
-=======
-                                                <button  class="btn-num btn-num-product-down color1 flex-c-m size7 bg8 eff2">
->>>>>>> 8dd74f337c52ecc56a65c13c7b475e559517d091
+
                                                     <i class="fs-12 fa fa-minus" aria-hidden="true"></i>
                                                 </button>
 
                                                 <input class="size8 m-text18 t-center num-product"
                                                        name="products[{{$item->product->id}}]"
                                                        value="{{$item->quantity}}" type="number">
-
-<<<<<<< HEAD
                                                 <button type="button"
                                                         class="btn-num btn-num-product-up color1 flex-c-m size7 bg8 eff2">
-=======
-                                                <button  class="btn-num btn-num-product-up color1 flex-c-m size7 bg8 eff2">
->>>>>>> 8dd74f337c52ecc56a65c13c7b475e559517d091
+
                                                     <i class="fs-12 fa fa-plus" aria-hidden="true"></i>
                                                 </button>
                                             </div>
@@ -86,6 +79,14 @@
                                 @endif
                                 </tbody>
                             </table>
+                        </div>
+                        <div class="flex-w flex-sb-m p-t-25 p-b-25 p-l-35 p-r-60 p-lr-15-sm">
+                             <div class="size10 trans-0-4 m-t-10 m-b-10">
+                             <!-- Button -->\
+                                <input name="save-changes" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4"
+                                    value="Save changes"
+                                    type="submit">
+                            </div>
                         </div>
                     </div>
                 </form>
