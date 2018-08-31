@@ -76,6 +76,10 @@ Route::put('/sua-gio-hang', 'CartController@updateCart');
 
 Route::get('/api-get-chart-data', 'OrderController@getChartDataApi');
 
+Route::get('/login',function (){
+    return view('client.login');
+
 Route::get('/admin-login', function (){
     return view('admin.login');
+
 });
