@@ -107,7 +107,7 @@
 
                         <form class="w-size20 w-full-sm" method="POST" action="/check-out">
                             <div class="size15 bo4 m-b-30 m-t-20">
-                                <input class="sizefull s-text7 p-l-15 p-r-15" name="ship_name" placeholder="Buyer"
+                                <input class="sizefull s-text7 p-l-15 p-r-15" name="ship_name" placeholder="Receiver Name"
                                        type="text">
                             </div>
 
