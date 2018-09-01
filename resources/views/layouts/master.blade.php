@@ -264,7 +264,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="leftside-navigation">
                 <ul class="sidebar-menu" id="nav-accordion">
                     <li class="sub-menu">
-                        <a href="/admin/product">
+                        <a href="/admin">
                             <i class="fas fa-home"></i>
                             <span>Home</span>
                         </a>
@@ -289,18 +289,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <li><a href="/admin/category">List All Categories</a></li>
                         </ul>
                     </li>
-                    {{--Brand Manager--}}
 
-                    {{--<li class="sub-menu">--}}
-                        {{--<a href="javascript:;">--}}
-                            {{--<i class="fas fa-trademark"></i>--}}
-                            {{--<span>Brand Manager</span>--}}
-                        {{--</a>--}}
-                        {{--<ul class="sub">--}}
-                            {{--<li><a href="#">Add Brand</a></li>--}}
-                            {{--<li><a href="#">List All Brands</a></li>--}}
-                        {{--</ul>--}}
-                    {{--</li>--}}
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fas fa-trademark"></i>
+                            <span>Brand Manager</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="/admin/brand/create">Add Brand</a></li>
+                            <li><a href="/admin/brand">List All Brands</a></li>
+                        </ul>
+                    </li>
                     <li class="sub-menu">
                         <a href="javascript:;">
                             <i class="fas fa-clipboard"></i>
@@ -322,6 +321,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <li><a href="/admin/client">List All Clients</a></li>
                         </ul>
                     </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="far fa-newspaper"></i>
+                            <span>Article Manager</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="/admin/article/create">Add Article</a></li>
+                            <li><a href="/admin/article">List All Articles</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
             <!-- sidebar menu end-->
@@ -335,7 +344,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             @show
         </section>
         <!-- footer -->
-        <div class="footer" style="margin-left: 7.5em;">
+        <div class="footer">
             <div>
                 <h3 style="color: #744e7d; margin-bottom: 0.3em">MELA PROJECT ©</h3>
                 <p>A product of Untitled 2018 and Nh0kjapan</p>
