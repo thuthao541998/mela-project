@@ -30,7 +30,7 @@ class OrderController extends Controller
     public function getChartDataApi()
     {
         $start_date = '2018-07-20';
-        $end_date = Carbon::now()->toDateTimeString();
+        $end_date = '2018-09-10';
         $chart_data = Order::select(DB::raw('sum(total_price) as revenue'), DB::raw('date(created_at) as day'))
             ->whereBetween('created_at', array($start_date, $end_date))
             ->where('status',2)
