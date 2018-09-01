@@ -73,4 +73,18 @@ Route::get('/cart', 'CartController@showCart');
 Route::get('/cart-remove/{id}', 'CartController@removeCart');
 Route::post('/check-out','CartController@checkoutCart');
 Route::put('/sua-gio-hang', 'CartController@updateCart');
+
 Route::get('/admin/order/update-status/{id}', 'OrderController@updateStatus');
+
+
+Route::get('/api-get-chart-data', 'OrderController@getChartDataApi');
+
+Route::get('/login',function (){
+    return view('client.login');
+});
+
+Route::get('/admin-login', function (){
+    return view('admin.login');
+
+});
+

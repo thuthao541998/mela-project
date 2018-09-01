@@ -41,6 +41,27 @@
                 <div class="container">
                     <div class="row p-t-10 p-b-70">
                         <div class="col-md-10 col-lg-10 p-r-35 p-r-15-lg m-l-r-auto">
+                            <div id="custom-search-input">
+                                <div class="input-group col-md-4">
+                                    <input type="text" class="  search-query form-control" placeholder="Search" />
+                                    <span class="input-group-btn">
+                                    <button class="btn btn-danger" type="button">
+                                        <span class="fa fa-search"></span>
+                                    </button>
+                                </span>
+                                </div>
+                            </div>
+                            <div class=" dropdown filter-btn form-inline">
+                                <div class="form-group mx-sm-4 mb-3">
+                                    <label for="chooseCategory">Sort by</label>
+                                    <select id="select-action" name="categoryId" class="form-control">
+                                        <option selected value="1">A - Z</option>
+                                        <option selected value="2">Z - A</option>
+                                        <option selected value="3">Price (low to high)</option>
+                                        <option selected value="4">Price (high to low)</option>
+                                    </select>
+                                </div>
+                            </div>
                             @if(count($list_obj)>0)
                                 <div class="product-title">PRODUCT LIST [{{count($list_obj)}}]</div>
                                 <div class="wrap-item-mainmenu p-b-22">

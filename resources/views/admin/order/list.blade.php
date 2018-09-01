@@ -21,7 +21,7 @@
                                     <th class="column-5">Order Detail</th>
                                     <th class="column-6">Total</th>
                                     <th class="column-7">Status</th>
-                                    <th class="column-8">Action</th>
+                                    <th class="column-8 text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -41,15 +41,21 @@
                                     </td>
                                     <td class="column-6">{{$item->total_price}}</td>
                                     <td class="column-7 font-weight-bold">{{$item->statusLabel}}</td>
-                                    <td class="column-8">
+                                    <td class="column-8 text-center">
                                         @if($item->status==0)
                                             <a href="/admin/order/update-status/{{$item->id}}?status=1" onclick="return confirm('Are sure to confirm this order?')"
                                                class="btn btn-simple btn-info btn-icon edit" title="Click to have this order confirmed"><i class="fas fa-hourglass"></i></a>
+                                            <a href="/admin/order/update-status/{{$item->id}}?status=-1" onclick="return confirm('Are sure to confirm this order?')"
+                                               class="btn btn-simple btn-danger btn-icon edit" title="Click to cancel this order"><i class="fas fa-times"></i></a>
                                         @elseif($item->status==1)
                                             <a href="/admin/order/update-status/{{$item->id}}?status=2" onclick="return confirm('Are you sure to finish this order?')"
                                                class="btn btn-simple btn-success btn-icon edit" title="Click to have this order finished"><i class="fas fa-check"></i></a>
+                                            <a href="/admin/order/update-status/{{$item->id}}?status=-1" onclick="return confirm('Are sure to cancel this order?')"
+                                               class="btn btn-simple btn-danger btn-icon edit" title="Click to cancel this order"><i class="fas fa-times"></i></a>
                                         @elseif($item->status==2)
                                             <i class="fas fa-check 4x text-danger"></i>
+                                        @elseif($item->status==-1)
+                                            <i class="fas fa-times 4x text-danger"></i>
                                         @endif
                                     </td>
                                 </tr>
