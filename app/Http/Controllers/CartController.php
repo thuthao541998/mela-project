@@ -42,9 +42,7 @@ class CartController extends Controller
         $item = new CartItem();
         $item->product = $product;
         $item->quantity = $quantity;
-        $item->product->dicountPriceString = $product->discountPriceString;
         $cart->items[$id] = $item;
-        $cart->count = Cart::calculateTotalItem($cart);
         Session::put('cart', $cart);
         return redirect('/cart');
     }
@@ -68,8 +66,6 @@ class CartController extends Controller
         Session::put('cart', $cart);
         return redirect('/cart');
     }
-
-
     public function addToCartApi()
     {
         $id = Input::get('id');
@@ -117,6 +113,8 @@ class CartController extends Controller
         return redirect('/cart');
     }
     public function checkoutCart(StoreCheckoutPost $request){
+        $request->validated();
+
         if (Session::has('cart')) {
             try {
                 $request->validated();
