@@ -42,14 +42,16 @@
                     <div class="row p-t-10 p-b-70">
                         <div class="col-md-10 col-lg-10 p-r-35 p-r-15-lg m-l-r-auto">
                             <div id="custom-search-input">
-                                <div class="input-group col-md-4">
-                                    <input type="text" class="  search-query form-control" placeholder="Search" />
-                                    <span class="input-group-btn">
-                                    <button class="btn btn-danger" type="button">
-                                        <span class="fa fa-search"></span>
-                                    </button>
-                                </span>
-                                </div>
+                                <form action="do_search.php">
+                                    <div class="input-group col-md-4">
+                                        <input type="text" class="search search-query form-control" placeholder="Search" />
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-danger btn-search" type="button">
+                                                <span class="fa fa-search"></span>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </form>
                             </div>
                             <div class=" dropdown filter-btn form-inline">
                                 <div class="form-group mx-sm-4 mb-3">
@@ -123,4 +125,28 @@
 
 <script src="{{asset('js/app.js')}}"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+<script>
+    $('.btn-search').click(function () {
+        var searchString = $('.search').val();
+        var data = 'search=' + searchString;
+        if (searchString) {
+            $.ajax({
+                type: "POST",
+                url: "do_search.php",
+                data: data,
+                beforeSend: function(html) { // this happens before actual call
+                    $("#results").html('');
+                    $("#searchresults").show();
+                    $(".word").html(searchString);
+                },
+                success: function(html){ // this happens after we get results
+                    $("#results").show();
+                    $("#results").append(html);
+                }
+            });
+            return false;
+        }
+
+    });
+</script>
 @endsection

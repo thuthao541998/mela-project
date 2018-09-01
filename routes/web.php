@@ -82,5 +82,6 @@ Route::get('/login',function (){
 
 Route::get('/admin-login', function (){
     return view('admin.login');
-
 });
+
+Route::get('/search', 'ProductController@search');
