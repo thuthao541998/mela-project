@@ -91,20 +91,8 @@
                     </div>
                 </form>
             </div>
-<<<<<<< HEAD
-            <div class="flex-w flex-sb-m p-t-25 p-b-25 p-l-35 p-r-60 p-lr-15-sm">
-                <div class="size10 trans-0-4 m-t-10 m-b-10">
-                    <!-- Button -->
-                    <input name="save-changes" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4"
-                           value="Save changes"
-                           type="submit">
-                </div>
-            </div>
-            <form action="/check-out" name="order-form" method="POST">
-=======
 
             <form action="/check-out" name="order-form" method="POST" >
->>>>>>> develope
                 @csrf();
                 <!-- Total -->
                 <div class="bo9 w-size18 p-l-40 p-r-40 p-t-30 p-b-38 m-t-30 m-r-0 m-l-auto p-lr-15-sm m-b-50" style="background: white">
@@ -166,91 +154,7 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
 <script src="{{asset('js/jquery.formatNumber-0.1.1.min.js')}}"></script>
-<<<<<<< HEAD
-<script type="text/javascript">
-    $('.btn-num-product-down').click(function () {
-        var oldTotal = $(this).parent().parent().next().text().replace(/\,/g, '');
-        if ($(this).next().val() > 1) {
-            var value = $(this).next().val();
-            $(this).next().val(value -= 1);
-            $(this).parent().parent().next().text($(this).next().val().replace(/\,/g, '') * parseInt($(this).parent().parent().prev().text().replace(/\,/g, ''))).formatNumber();
-            var currentTotal = parseInt($(this).parent().parent().next().text().replace(/\,/g, ''));
-            var minus = oldTotal - currentTotal;
-            var totalMoney = parseInt($('.total-money').text().replace(/\,/g, ''));
-            $('.total-money').text(totalMoney - minus).formatNumber();
-        }
-
-    });
-    $('.btn-num-product-up').click(function () {
-        var oldTotal = parseInt($(this).parent().parent().next().text().replace(/\,/g, ''));
-        var value = parseInt($(this).prev().val());
-        $(this).prev().val(value += 1);
-        $(this).parent().parent().next().text($(this).prev().val().replace(/\,/g, '') * parseInt($(this).parent().parent().prev().text().replace(/\,/g, ''))).formatNumber();
-        var currentTotal = parseInt($(this).parent().parent().next().text().replace(/\,/g, ''));
-        var plus = currentTotal - oldTotal;
-        var totalMoney = parseInt($('.total-money').text().replace(/\,/g, '').replace(/\,/g, ''));
-        $('.total-money').text(totalMoney + plus).formatNumber();
-    });
-    $(".cart_delete").click(function () {
-        var id = $(this).children().attr('id').replace('delete-', '');
-        var deleteTotal = parseInt($('#unit-total-' + id).text().replace(/\,/g, ''));
-        var totalMoney = parseInt($('.total-money').text().replace(/\,/g, ''));
-        swal({
-            title: "Are you sure?",
-            text: "Once deleted, you will not be able to recover this product",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-        })
-            .then((willDelete) => {
-                if (willDelete) {
-                    $.ajax({
-                        method: 'GET',
-                        url: '/cart-remove/' + id,
-                        data: {
-                            '_token': $('meta[name="csrf-token"]').attr('content'),
-                            'id': id
-                        },
-                        success: function (resp) {
-                            $('.total-money').text(totalMoney - deleteTotal).formatNumber();
-                            swal("Poof! This product has been remove!", {
-                                icon: "success",
-                            });
-                            $('#row-' + id).closest('tr').remove();
-                            if ($('tbody').children().length == 1) {
-                                setTimeout(function () {
-                                    window.location.reload(1);
-                                }, 1 * 1000);
-                            };
-
-                        },
-                        error: function (r) {
-                            console.log(r)
-                        }
-                    });
-                } else {
-                    swal("This product is safe!");
-                }
-                ;
-            });
-    });
-
-    $('.checkout').click(function () {
-        if ($('input[name="ship_name"]').length < 7) {
-            $('span[name="ship_name"]').html('Your name has to be longer than 7.')
-        };
-        if ($('input[name="ship_address"]').length < 10){
-            $('span[name="ship_address"]').html('Your address has to be longer than 7.');
-        };
-        if (isNaN($('input[name="ship_phone"]'))){
-            $('span[name="ship_phone"]').html('This field has to be number');
-        } else if ($('input[name="ship_phone"]').length < 10){
-            $('span[name="ship_phone"]').html('Your phone has to have 10 letters.');
-        };
-    });
-
-=======
 <script type="text/javascript" src="{{asset('js/showcart.js')}}">
->>>>>>> develope
+
 </script>
 @endsection
