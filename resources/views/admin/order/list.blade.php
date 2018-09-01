@@ -13,6 +13,7 @@
                         <table class="table">
                             <thead>
                                 <tr>
+                                    <th class="column-0"></th>
                                     <th class="column-1">ID</th>
                                     <th class="column-2">Buyer</th>
                                     <th class="column-3">Address</th>
@@ -26,6 +27,9 @@
                             <tbody>
                             @foreach($orders as $item)
                                 <tr id="row-item-{{$item->id}}">
+                                    <td class="column-0">
+                                        <input type="checkbox">
+                                    </td>
                                     <td class="column-1">{{$item->id}}</td>
                                     <td class="column-2">{{$item->ship_name}}</td>
                                     <td class="column-3">{{$item->ship_address}}</td>
@@ -35,21 +39,17 @@
                                             <li>{{$order_detail->product->name}} - {{$order_detail->quantity}}</li>
                                         @endforeach
                                     </td>
-                                    <td class="column-6">{{$item->total}}</td>
-                                    <td class="column-7">{{$item->statusLabel}}</td>
+                                    <td class="column-6">{{$item->total_price}}</td>
+                                    <td class="column-7 font-weight-bold">{{$item->statusLabel}}</td>
                                     <td class="column-8">
                                         @if($item->status==0)
-                                            <a href="/admin/order/change-status?id={{$item->id}}&status=1" onclick="return confirm('Bạn có chắc muốn xác nhận đơn hàng?')"
-                                               class="btn btn-simple btn-success btn-icon edit"><i
-                                                        class="material-icons">how_to_reg</i></a>
+                                            <a href="/admin/order/update-status/{{$item->id}}?status=1" onclick="return confirm('Are sure to confirm this order?')"
+                                               class="btn btn-simple btn-info btn-icon edit" title="Click to have this order confirmed"><i class="fas fa-hourglass"></i></a>
                                         @elseif($item->status==1)
-                                            <a href="/admin/order/change-status?id={{$item->id}}&status=2" onclick="return confirm('Bạn có chắc muốn hoàn thành đơn hàng?')"
-                                               class="btn btn-simple btn-success btn-icon edit"><i
-                                                        class="material-icons">done</i></a>
-                                        @endif
-                                        @if($item->status==0)
-                                            <a href="{{$item->id}}" class="btn btn-simple btn-danger btn-icon remove btn-delete"><i
-                                                        class="material-icons">close</i></a>
+                                            <a href="/admin/order/update-status/{{$item->id}}?status=2" onclick="return confirm('Are you sure to finish this order?')"
+                                               class="btn btn-simple btn-success btn-icon edit" title="Click to have this order finished"><i class="fas fa-check"></i></a>
+                                        @elseif($item->status==2)
+                                            <i class="fas fa-check 4x text-danger"></i>
                                         @endif
                                     </td>
                                 </tr>
@@ -67,4 +67,7 @@
                 </div>
         </section>
     </section>
+    <script>
+
+    </script>
 @endsection

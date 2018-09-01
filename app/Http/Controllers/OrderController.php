@@ -92,7 +92,7 @@ class OrderController extends Controller
         $id = Input::get('id');
         $order = Order::find($id);
         if ($order == null) {
-            return view('404');
+            return view('admin.404.404');
         }
         $order->total = Input::get('total');
         $order->clientId = Input::get('clientId');
@@ -137,5 +137,15 @@ class OrderController extends Controller
         $obj->total = Input::get('total');
         $obj->save();
         return response()->json(['item' => $obj], 200);
+    }
+    public function updateStatus($id)
+    {
+        $obj = Order::find($id);
+        if ($obj == null) {
+            return response()->json(['msg' => 'Not found'], 404);
+        }
+        $obj->status = Input::get('status');
+        $obj->save();
+        return redirect()->back();
     }
 }
