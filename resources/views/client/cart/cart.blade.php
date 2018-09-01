@@ -5,7 +5,7 @@
 <link href='https://fonts.googleapis.com/css?family=Montserrat:300' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="{{asset('css/cart.css')}}">
 
-<div style="background-color: white;">
+<div class="cart">
     <div class="container">
         <div class="row" style="margin: 50px;">
             <div class="col-sm-12 col-md-10 col-md-offset-1" style="margin-top: 20px;">
@@ -92,10 +92,10 @@
                 </form>
             </div>
 
-            <form action="/check-out" name="order-form" method="POST">
+            <form action="/check-out" name="order-form" method="POST" >
                 @csrf();
                 <!-- Total -->
-                <div class="bo9 w-size18 p-l-40 p-r-40 p-t-30 p-b-38 m-t-30 m-r-0 m-l-auto p-lr-15-sm">
+                <div class="bo9 w-size18 p-l-40 p-r-40 p-t-30 p-b-38 m-t-30 m-r-0 m-l-auto p-lr-15-sm m-b-50" style="background: white">
                     <h5 class="m-text20 p-b-24">
                         Cart Totals
                     </h5>
@@ -106,24 +106,18 @@
                         </span>
 
                         <form class="w-size20 w-full-sm" method="POST" action="/check-out">
-                            <div class="size13 bo4 m-b-12">
+                            <div class="size15 bo4 m-b-30 m-t-20">
                                 <input class="sizefull s-text7 p-l-15 p-r-15" name="ship_name" placeholder="Buyer"
                                        type="text">
-                                <span name="ship_name" class="text-danger m-t-5"
-                                      style="display: block; font-size: 12px"></span>
                             </div>
 
                             <div class="size15 bo4 m-b-30">
                                 <input class="sizefull s-text7 p-l-15 p-r-15" name="ship_address" placeholder="Address"
                                        type="text">
-                                <span name="ship_address" class="text-danger m-t-5"
-                                      style="display: block; font-size: 12px;"></span>
                             </div>
                             <div class="size15 bo4 m-b-30">
                                 <input class="sizefull s-text7 p-l-15 p-r-15" name="ship_phone" placeholder="Phone"
                                        type="text">
-                                <span name="ship_phone" class="text-danger m-t-5"
-                                      style="display: block; font-size: 12px"></span>
                             </div>
                         </form>
                     </div>
@@ -158,7 +152,7 @@
 </div>
 
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-{{--<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>--}}
+<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
 <script src="{{asset('js/jquery.formatNumber-0.1.1.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/showcart.js')}}">
 </script>
