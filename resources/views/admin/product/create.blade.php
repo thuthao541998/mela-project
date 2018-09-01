@@ -111,4 +111,9 @@
         </div>
     </div>
     <script src="{{asset('js/form.js')}}"></script>
+    <style>
+        .footer {
+            margin-left: 0px;
+        }
+    </style>
 @endsection

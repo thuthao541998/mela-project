@@ -14,7 +14,7 @@
                     <div>
                         <table class="table table-light" >
                             <thead>
-                            <tr class="row pl-4">
+                            <tr class="row col-lg-12 pl-4">
                                 <th class="col-md-1" style="width: 3%"></th>
                                 <th class="col-md-1" style="width: 3%">ID</th>
                                 <th class="col-md-1 text-center">Name</th>
@@ -25,7 +25,7 @@
                             </thead>
                             <tbody>
                             @foreach($list_obj as $item)
-                                <tr class="row pl-4" id="row-item-{{$item->id}}">
+                                <tr class="row col-lg-12 pl-4" id="row-item-{{$item->id}}">
                                     <td class="col-md-1 text-center" style="width: 3%">
                                         <input type="checkbox" class="check-item">
                                     </td>
