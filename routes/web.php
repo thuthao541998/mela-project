@@ -88,3 +88,7 @@ Route::get('/admin-login', function (){
 
 });
 
+Route::get('/admin', function (){
+    return view('admin.dashboard');
+
+});
