@@ -129,6 +129,46 @@
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
 <script>
+    // $(function() {
+    //     $('body').on('click', '.pagination a', function(e) {
+    //         e.preventDefault();
+    //
+    //         $('#load a').css('color', '#dfecf6');
+    //         $('#load').append('<img style="position: absolute; left: 0; top: 0; z-index: 100000;" src="/images/loading.gif" />');
+    //
+    //         var url = $(this).attr('href');
+    //         getProducts(url);
+    //         window.history.pushState("", "", url);
+    //     });
+    //
+    //     function getProducts(url) {
+    //         $.ajax({
+    //             url : url
+    //         }).done(function (data) {
+    //             $('#results').html(data);
+    //         }).fail(function () {
+    //             alert('Articles could not be loaded.');
+    //         });
+    //     }
+    // });
+    // $(document).on('click','.pagination a', function(e){
+    //     e.preventDefault();
+    //     var page = $(this).attr('href').split('page=')[1];
+    //     data.push({page: page}); // Add page variable to post data
+    //     console.log(data);
+    //     getPosts(page);
+    // });
+    //
+    // function getPosts(page)
+    // {
+    //     $.ajax({
+    //         type: "GET",
+    //         url: '?page=' + page,
+    //         success: function (data) {
+    //             $('#results').html(data)
+    //         }
+    //     });
+    // };
     $('.search-query').keypress(function (e) {
         var key = e.which;
         if (key == 13) {
@@ -142,9 +182,10 @@
                     },
                     dataType: 'json',
                     success: function (data) {
-                        console.log(data.list_obj);
+                        console.log(data);
                         var list_obj = data.list_obj;
                         var count = list_obj.length;
+                        var totalPage = Math.ceil(count/5);
                         if (count > 0) {
                             var content = '';
                             for (var i in list_obj) {
@@ -182,11 +223,38 @@
                                 content += '</div>';
                                 content += '</div>';
                                 content += '<div class="line-item-mainmenu bg3-pattern"></div>';
+                            };
+
+                            var page = 1;
+                            var paginateContent = '';
+                            paginateContent += '<ul class="pagination" role="navigation">';
+                            if (page > 1) {
+                                paginateContent += '<li class="page-item"><a class="page-link" href="?page=1&limit=' + limit + '" aria-label="First"><span aria-hidden="true"><<</span></a></li>';
+                                paginateContent += '<li class="page-item"><a class="page-link" href="?page=' + (page - 1) + '&limit=' + limit + '" aria-label="Previous"><span aria-hidden="true"><</span></a></li>';
                             }
-                            ;
+                            if (page > 2) {
+                                paginateContent += '<li class="page-item"><a class="page-link" href="?page=' + (page - 2) + '&limit=' + limit + '">' + (page - 2) + '</a></li>';
+                            }
+                            if (page > 1) {
+                                paginateContent += '<li class="page-item"><a class="page-link" href="?page=' + (page - 1) + '&limit=' + limit + '">' + (page - 1) + '</a></li>';
+                            }
+                            paginateContent += '<li class="active page-item"><a class="page-link" href="?page=' + page + '">' + page + '</a></li>';
+                            if (totalPage > page) {
+                                paginateContent += '<li class="page-item"><a class="page-link" href="?page=' + (page + 1) + '&limit=' + limit + '">' + (page + 1) + '</a></li>';
+                            }
+                            if ((totalPage - 1) > page) {
+                                paginateContent += '<li class="page-item"><a class="page-link" href="?page=' + (page + 2) + '&limit=' + limit + '">' + (page + 2) + '</a></li>';
+                            }
+                            if (page < totalPage) {
+                                paginateContent += '<li class="page-item"><a class="page-link" href="?page=' + (page + 1) + '&limit=' + limit + '" aria-label="Next"><span aria-hidden="true">></span></a></li>';
+                                paginateContent += '<li class="page-item"><a class="page-link" href="?page=' + (totalPage) + '&limit=' + limit + '" aria-label="Last"><span aria-hidden="true">>></span></a></li>';
+                            }
+                            paginateContent += '</ul>';
 
                             $('.product-title').html('PRODUCT LIST [' + count + ']');
                             $('#results').html(content);
+                            $('.pagination').html(paginateContent);
+
                         } else {
                             swal("There is no products matched your search! Please try again!", {
                                 icon: "warning",

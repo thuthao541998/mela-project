@@ -7,8 +7,8 @@ use App\Category;
 use App\Http\Requests\StoreProductPost;
 use App\Product;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Response;
 use JD\Cloudder\Facades\Cloudder;
 
 class ProductController extends Controller
@@ -239,22 +239,24 @@ class ProductController extends Controller
     public function search(Request $request) {
         if($request->ajax())
         {
-            $output = '';
             $query = $request->get('query');
             if($query != '')
             {
-                $data = Product::where('name', 'like', '%'.$query.'%')->get();
+                $list_obj = Product::where('name', 'like', '%'.$query.'%')->get();
             }
             else
             {
-                $data = Product::orderBy('id')
-                    ->get();
+                $list_obj = Product::orderBy('id')->get();
             }
-            $data = array(
-                'list_obj' => $data
-            );
+//            $data = array(
+//                'list_obj' => $data
+//            );
+//            echo json_encode($data);
+//            return Response::json(View::make('client.product.list', array('list_obj' => $list_obj)));
+            return \response()->json([
+                'list_obj' => $list_obj
+            ], 200);
 
-            echo json_encode($data);
         }
     }
 }
