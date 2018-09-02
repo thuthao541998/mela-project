@@ -42,9 +42,10 @@
                     <div class="row p-t-10 p-b-70">
                         <div class="col-md-10 col-lg-10 p-r-35 p-r-15-lg m-l-r-auto">
                             <div id="custom-search-input">
-                                <form action="do_search.php">
+                                <form action="{{route('search.action')}}" method="GET">
                                     <div class="input-group col-md-4">
-                                        <input type="text" class="search search-query form-control" placeholder="Search" />
+                                        <input type="text" class="search search-query form-control" placeholder="Search"
+                                        value="{{isset($search) ? $search : ''}}">
                                         <span class="input-group-btn">
                                             <button class="btn btn-danger btn-search" type="button">
                                                 <span class="fa fa-search"></span>
@@ -69,7 +70,7 @@
                                 <div class="wrap-item-mainmenu p-b-22">
                                     @foreach($list_obj as $obj)
                                         <div class="blo3 flex-w flex-col-l-sm m-t-30 m-b-20">
-                                            <div class="pic-blo3 size20 bo-rad-10 hov-img-zoom m-r-28" id="results">
+                                            <div class="pic-blo3 size20 bo-rad-10 hov-img-zoom m-r-28">
 
                                                 <a href="/product/{{$obj->id}}"><img src="{{$obj->images}}" alt="IMG-MENU"
                                                                  style="width: 180px; height: 180px"></a>
@@ -127,29 +128,33 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
 <script>
     $('.btn-search').click(function () {
-        var searchString = $('.search').val();
-        var data = 'search=' + searchString;
-        if (searchString) {
+        var query = $('.search').val();
+        if (query) {
             $.ajax({
-                type: "GET",
-                url: window.location.pathname,
-                data: {
-                    data: data,
-                    _token: $('meta[name="csrf-token"]').attr('content')
+                url:"{{ route('search.action') }}",
+                method:'GET',
+                data:{
+                    query:query
                 },
-                beforeSend: function(html) { // this happens before actual call
-                    $("#results").html('');
-                    $("#searchresults").show();
-                    $(".word").html(searchString);
+                dataType:'json',
+                beforeSend: function(html) {
+                    // $("#results").html('');
+                    // $("#searchresults").show();
+                    // $(".word").html(searchString);
                 },
-                success: function(html){ // this happens after we get results
-                    $("#results").show();
-                    $("#results").append(html);
+                success: function(data)
+                {
+                    // $('tbody').html(data.table_data);
+                    // $('#total_records').text(data.total_data);
+                    $('#results').html(data.list_obj);
+                },
+                error: function () {
+                    alert('error');
                 }
-            });
-            return false;
+            })
         }
 
     });
+
 </script>
 @endsection

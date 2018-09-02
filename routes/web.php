@@ -84,4 +84,4 @@ Route::get('/admin-login', function (){
     return view('admin.login');
 });
 
-Route::get('/search', 'ProductController@search');
+Route::get('/list-product/search', 'ProductController@search')->name('search.action');

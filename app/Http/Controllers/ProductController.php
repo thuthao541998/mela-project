@@ -7,6 +7,7 @@ use App\Category;
 use App\Http\Requests\StoreProductPost;
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use JD\Cloudder\Facades\Cloudder;
 
@@ -235,26 +236,69 @@ class ProductController extends Controller
     }
 
     public function search(Request $request) {
+//        if($request->ajax())
+//        {
+//            $output="";
+//            $products=DB::table('products')->where('title','LIKE','%'.$request->search."%")->get();
+//            if($products) {
+//                foreach ($products as $key => $product) {
+//                    $output.='<tr>'.
+//                        '<td>'.$product->id.'</td>'.
+//
+//                        '<td>'.$product->title.'</td>'.
+//
+//                        '<td>'.$product->description.'</td>'.
+//
+//                        '<td>'.$product->price.'</td>'.
+//
+//                        '</tr>';
+//
+//                }
+//                return Response($output);
+//            }
+//        }
         if($request->ajax())
         {
-            $output="";
-            $products=DB::table('products')->where('title','LIKE','%'.$request->search."%")->get();
-            if($products) {
-                foreach ($products as $key => $product) {
-                    $output.='<tr>'.
-                        '<td>'.$product->id.'</td>'.
+            $output = '';
+            $query = $request->get('query');
+            if($query != '')
+            {
+                $data = DB::table('products')
+                    ->where('name', 'like', '%'.$query.'%')->get();
 
-                        '<td>'.$product->title.'</td>'.
-
-                        '<td>'.$product->description.'</td>'.
-
-                        '<td>'.$product->price.'</td>'.
-
-                        '</tr>';
-
-                }
-                return Response($output);
             }
+            else
+            {
+                $data = DB::table('products')
+                    ->orderBy('CustomerID', 'desc')
+                    ->get();
+            }
+            $count = $data->count();
+            if($count > 0) {
+                foreach($data as $product)
+                {
+                    $output .= '
+                        <tr>
+                         <td>'.$product->name.'</td>
+                         <td>'.$product->price.'</td>
+                        </tr>
+                    ';
+                }
+            }
+//            else
+//            {
+//                $output = '
+//                    <tr>
+//                        <td align="center" colspan="5">No Data Found</td>
+//                    </tr>
+//                    ';
+//            }
+            $data = array(
+                'list_obj'  => $output,
+//                'total_data'  => $total_row
+            );
+
+            echo json_encode($data);
         }
     }
 }
