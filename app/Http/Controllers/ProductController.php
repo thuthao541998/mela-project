@@ -48,7 +48,7 @@ class ProductController extends Controller
             ;
     }
 
-    public function indexClient()
+    public function indexClient(Request $request)
     {
         $limit = 10;
         $brands = Brand::all();
@@ -56,11 +56,12 @@ class ProductController extends Controller
         $categories = Category::all();
         $choosedCategoryId = Input::get('categoryId');
         $list_obj = null;
+
         if(($choosedCategoryId == null && $choosedBrandId == null)){
             $list_obj = Product::paginate($limit);
-        }else if($choosedBrandId == null || $choosedBrandId == '0'){
+        } else if($choosedBrandId == null || $choosedBrandId == '0'){
             $list_obj = Product::where('categoryId', $choosedCategoryId)-> paginate($limit);
-        }else if ($choosedCategoryId == null || $choosedCategoryId == '0'){
+        } else if ($choosedCategoryId == null || $choosedCategoryId == '0'){
             $list_obj = Product::where('brandId', $choosedBrandId)-> paginate($limit);
         } else {
             $list_obj = Product::where([
@@ -236,27 +237,6 @@ class ProductController extends Controller
     }
 
     public function search(Request $request) {
-//        if($request->ajax())
-//        {
-//            $output="";
-//            $products=DB::table('products')->where('title','LIKE','%'.$request->search."%")->get();
-//            if($products) {
-//                foreach ($products as $key => $product) {
-//                    $output.='<tr>'.
-//                        '<td>'.$product->id.'</td>'.
-//
-//                        '<td>'.$product->title.'</td>'.
-//
-//                        '<td>'.$product->description.'</td>'.
-//
-//                        '<td>'.$product->price.'</td>'.
-//
-//                        '</tr>';
-//
-//                }
-//                return Response($output);
-//            }
-//        }
         if($request->ajax())
         {
             $output = '';
@@ -270,32 +250,11 @@ class ProductController extends Controller
             else
             {
                 $data = DB::table('products')
-                    ->orderBy('CustomerID', 'desc')
+                    ->orderBy('id')
                     ->get();
             }
-            $count = $data->count();
-            if($count > 0) {
-                foreach($data as $product)
-                {
-                    $output .= '
-                        <tr>
-                         <td>'.$product->name.'</td>
-                         <td>'.$product->price.'</td>
-                        </tr>
-                    ';
-                }
-            }
-//            else
-//            {
-//                $output = '
-//                    <tr>
-//                        <td align="center" colspan="5">No Data Found</td>
-//                    </tr>
-//                    ';
-//            }
             $data = array(
-                'list_obj'  => $output,
-//                'total_data'  => $total_row
+                'list_obj' => $data
             );
 
             echo json_encode($data);

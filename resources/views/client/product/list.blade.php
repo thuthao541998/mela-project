@@ -67,7 +67,7 @@
                             </div>
                             @if(count($list_obj)>0)
                                 <div class="product-title">PRODUCT LIST [{{count($list_obj)}}]</div>
-                                <div class="wrap-item-mainmenu p-b-22">
+                                <div class="wrap-item-mainmenu p-b-22" id="results">
                                     @foreach($list_obj as $obj)
                                         <div class="blo3 flex-w flex-col-l-sm m-t-30 m-b-20">
                                             <div class="pic-blo3 size20 bo-rad-10 hov-img-zoom m-r-28">
@@ -137,23 +137,66 @@
                     query:query
                 },
                 dataType:'json',
-                beforeSend: function(html) {
-                    // $("#results").html('');
-                    // $("#searchresults").show();
-                    // $(".word").html(searchString);
-                },
                 success: function(data)
                 {
-                    // $('tbody').html(data.table_data);
-                    // $('#total_records').text(data.total_data);
-                    $('#results').html(data.list_obj);
+                    console.log(data.list_obj);
+                    var list_obj = data.list_obj;
+                    var count = list_obj.length;
+                    if (count > 0){
+                        var content = '';
+
+                        for (var i in list_obj) {
+                            content += '<div class="blo3 flex-w flex-col-l-sm m-t-30 m-b-20">';
+                            content += '<div class="pic-blo3 size20 bo-rad-10 hov-img-zoom m-r-28">';
+
+                            content += '<a href="/product/' + list_obj[i].id + '"><img src="' + list_obj[i].images + '" alt="IMG-MENU" style="width: 180px; height: 180px"></a>';
+                            content += '</div>';
+                            content += '<div class="text-blo3 size21 flex-col-l-m">';
+                            content += '<a href="/product/' + list_obj[i].id + '" class="txt21 m-b-3">';
+                            content += list_obj[i].name;
+                            @if($obj->isDiscount())
+                                content += '<span style="background-color: red; color:white;" class="p-l-6 p-r-5">SALE ' + list_obj[i].discount + '%</span>';
+                            @endif
+                            @if($obj->isNew())
+                                content += '<span class="font-weight-bold" style="background-color: green; color:white;">NEW</span>';
+                            @endif
+                            content += '</a>';
+                            content += '<span class="txt23">';
+                            content += list_obj[i].overview;
+                            content += '</span>';
+                            content += '<span class="txt22 m-t-10">';
+                            @if($obj->isDiscount())
+                                content += '<span class="font-weight-bold">' + list_obj[i].discountPriceString;
+                                content += '</span>'
+                                content += '<del class="text-muted">';
+                                content += '<small>' + list_obj[i].originalPriceString + '</small>';
+                                content += '</del>'
+                            @else
+                                content += '<span class="font-weight-bold">' + list_obj[i].originalPriceString;
+                                content += '</span>';
+                            @endif
+                            content += '</span>';
+                            content += '<button class="add-cart-large add-to-cart m-t-10"  id="add-cart-' + list_obj[i].id + '"><i class="fas fa-cart-plus fa-2x"></i></button>';
+                            content += '</div>';
+                            content += '</div>';
+                            content += '<div class="line-item-mainmenu bg3-pattern"></div>';
+                        };
+
+                        $('.product-title').html('PRODUCT LIST [' + count + ']');
+                        $('#results').html(content);
+                    } else {
+                        swal("There is no products matched your search! Please try again!", {
+                            icon: "warning",
+                        });
+                    }
                 },
                 error: function () {
-                    alert('error');
+                    swal("Please try again!", {
+                        icon: "warning",
+                    });
                 }
             })
         }
-
     });
 
 </script>
