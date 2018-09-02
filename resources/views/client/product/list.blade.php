@@ -69,7 +69,7 @@
                                 <div class="wrap-item-mainmenu p-b-22">
                                     @foreach($list_obj as $obj)
                                         <div class="blo3 flex-w flex-col-l-sm m-t-30 m-b-20">
-                                            <div class="pic-blo3 size20 bo-rad-10 hov-img-zoom m-r-28">
+                                            <div class="pic-blo3 size20 bo-rad-10 hov-img-zoom m-r-28" id="results">
 
                                                 <a href="/product/{{$obj->id}}"><img src="{{$obj->images}}" alt="IMG-MENU"
                                                                  style="width: 180px; height: 180px"></a>
@@ -131,9 +131,12 @@
         var data = 'search=' + searchString;
         if (searchString) {
             $.ajax({
-                type: "POST",
-                url: "do_search.php",
-                data: data,
+                type: "GET",
+                url: window.location.pathname,
+                data: {
+                    data: data,
+                    _token: $('meta[name="csrf-token"]').attr('content')
+                },
                 beforeSend: function(html) { // this happens before actual call
                     $("#results").html('');
                     $("#searchresults").show();
