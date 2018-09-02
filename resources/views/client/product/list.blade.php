@@ -129,46 +129,6 @@
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
 <script>
-    // $(function() {
-    //     $('body').on('click', '.pagination a', function(e) {
-    //         e.preventDefault();
-    //
-    //         $('#load a').css('color', '#dfecf6');
-    //         $('#load').append('<img style="position: absolute; left: 0; top: 0; z-index: 100000;" src="/images/loading.gif" />');
-    //
-    //         var url = $(this).attr('href');
-    //         getProducts(url);
-    //         window.history.pushState("", "", url);
-    //     });
-    //
-    //     function getProducts(url) {
-    //         $.ajax({
-    //             url : url
-    //         }).done(function (data) {
-    //             $('#results').html(data);
-    //         }).fail(function () {
-    //             alert('Articles could not be loaded.');
-    //         });
-    //     }
-    // });
-    // $(document).on('click','.pagination a', function(e){
-    //     e.preventDefault();
-    //     var page = $(this).attr('href').split('page=')[1];
-    //     data.push({page: page}); // Add page variable to post data
-    //     console.log(data);
-    //     getPosts(page);
-    // });
-    //
-    // function getPosts(page)
-    // {
-    //     $.ajax({
-    //         type: "GET",
-    //         url: '?page=' + page,
-    //         success: function (data) {
-    //             $('#results').html(data)
-    //         }
-    //     });
-    // };
     $('.search-query').keypress(function (e) {
         var key = e.which;
         if (key == 13) {

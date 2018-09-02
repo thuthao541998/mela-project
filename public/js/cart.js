@@ -38,7 +38,6 @@ $('.add-to-cart').click(function () {
 
             $('#header-cart-wrapitem').html(new_content);
             $('#header-cart-total').text(new_total_money);
-            // import swal from 'sweetalert';
             swal('Successfully!', 'ADDED TO CART. You can change the quantity of the product in cart later!', 'success');
         },
         error: function (error) {

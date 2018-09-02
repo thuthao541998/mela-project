@@ -248,12 +248,7 @@ class ProductController extends Controller
             {
                 $list_obj = Product::orderBy('id')->get();
             }
-//            $data = array(
-//                'list_obj' => $data
-//            );
-//            echo json_encode($data);
-//            return Response::json(View::make('client.product.list', array('list_obj' => $list_obj)));
-            return \response()->json([
+            return response()->json([
                 'list_obj' => $list_obj
             ], 200);
 
