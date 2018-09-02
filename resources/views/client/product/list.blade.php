@@ -147,7 +147,6 @@
                         var count = list_obj.length;
                         if (count > 0) {
                             var content = '';
-
                             for (var i in list_obj) {
                                 content += '<div class="blo3 flex-w flex-col-l-sm m-t-30 m-b-20">';
                                 content += '<div class="pic-blo3 size20 bo-rad-10 hov-img-zoom m-r-28">';
@@ -183,11 +182,11 @@
                                 content += '</div>';
                                 content += '</div>';
                                 content += '<div class="line-item-mainmenu bg3-pattern"></div>';
-                            };
+                            }
+                            ;
 
                             $('.product-title').html('PRODUCT LIST [' + count + ']');
                             $('#results').html(content);
-                            return false;
                         } else {
                             swal("There is no products matched your search! Please try again!", {
                                 icon: "warning",
@@ -207,5 +206,4 @@
 </script>
 <script src="{{asset('js/app.js')}}"></script>
 <script src="{{asset('js/cart.js')}}"></script>
-
 @endsection
