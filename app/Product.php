@@ -62,7 +62,6 @@ class Product extends Model
     }
     public function isDiscount()
     {
-        // sản phẩm được tạo trong vòng bảy ngày thì là sản phẩm mới.
         return $this->discount > 0;
     }
     public function getBlockStyleAttribute()
