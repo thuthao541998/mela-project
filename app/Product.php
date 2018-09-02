@@ -29,14 +29,19 @@ class Product extends Model
     }
     public function getDiscountPriceStringAttribute()
     {
+        $price = '';
         if ($this->discount == 0) {
-            return sprintf('%s (vnd)', number_format($this->price, 0));
+            $price = sprintf('%s (vnd)', number_format($this->price, 0));
+            return $this->attributes['discountPriceString'] = $price;
         }
-        return sprintf('%s (vnd)', number_format(($this->price - ($this->price * $this->discount / 100)), 0));
+        $price = sprintf('%s (vnd)', number_format(($this->price - ($this->price * $this->discount / 100)), 0));
+        return $this->attributes['discountPriceString'] = $price;
+
     }
     public function getOriginalPriceStringAttribute()
     {
-        return sprintf('%s (vnd)', number_format($this->price, 0));
+        $price = sprintf('%s (vnd)', number_format($this->price, 0));
+        return $this->attributes['originalPriceString'] = $price;
     }
     public function getOriginalPriceWithFormatAttribute()
     {
@@ -72,5 +77,6 @@ class Product extends Model
             return '';
         }
     }
+    protected $appends = ['original_price_string','discount_price_string'];
 
 }

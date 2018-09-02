@@ -42,17 +42,17 @@
                     <div class="row p-t-10 p-b-70">
                         <div class="col-md-10 col-lg-10 p-r-35 p-r-15-lg m-l-r-auto">
                             <div id="custom-search-input">
-                                <form action="{{route('search.action')}}" method="GET">
+                                <div>
                                     <div class="input-group col-md-4">
                                         <input type="text" class="search search-query form-control" placeholder="Search"
-                                        value="{{isset($search) ? $search : ''}}">
+                                               value="{{isset($search) ? $search : ''}}">
                                         <span class="input-group-btn">
                                             <button class="btn btn-danger btn-search" type="button">
                                                 <span class="fa fa-search"></span>
                                             </button>
                                         </span>
                                     </div>
-                                </form>
+                                </div>
                             </div>
                             <div class=" dropdown filter-btn form-inline">
                                 <div class="form-group mx-sm-4 mb-3">
@@ -72,8 +72,9 @@
                                         <div class="blo3 flex-w flex-col-l-sm m-t-30 m-b-20">
                                             <div class="pic-blo3 size20 bo-rad-10 hov-img-zoom m-r-28">
 
-                                                <a href="/product/{{$obj->id}}"><img src="{{$obj->images}}" alt="IMG-MENU"
-                                                                 style="width: 180px; height: 180px"></a>
+                                                <a href="/product/{{$obj->id}}"><img src="{{$obj->images}}"
+                                                                                     alt="IMG-MENU"
+                                                                                     style="width: 180px; height: 180px"></a>
                                             </div>
                                             <div class="text-blo3 size21 flex-col-l-m">
                                                 <a href="/product/{{$obj->id}}" class="txt21 m-b-3">
@@ -83,7 +84,8 @@
                                                               class="p-l-6 p-r-5">SALE {{$obj->discount}}%</span>
                                                     @endif
                                                     @if($obj->isNew())
-                                                        <span class="font-weight-bold" style="background-color: green; color:white;">NEW</span>
+                                                        <span class="font-weight-bold"
+                                                              style="background-color: green; color:white;">NEW</span>
                                                     @endif
                                                 </a>
                                                 <span class="txt23">
@@ -101,7 +103,8 @@
                                                         </span>
                                                     @endif
                                             </span>
-                                                <button class="add-cart-large add-to-cart m-t-10"  id="add-cart-{{$obj->id}}"><i
+                                                <button class="add-cart-large add-to-cart m-t-10"
+                                                        id="add-cart-{{$obj->id}}"><i
                                                             class="fas fa-cart-plus fa-2x"></i></button>
                                             </div>
                                         </div>
@@ -124,80 +127,85 @@
     </div>
 </div>
 
-<script src="{{asset('js/app.js')}}"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
 <script>
-    $('.btn-search').click(function () {
-        var query = $('.search').val();
-        if (query) {
-            $.ajax({
-                url:"{{ route('search.action') }}",
-                method:'GET',
-                data:{
-                    query:query
-                },
-                dataType:'json',
-                success: function(data)
-                {
-                    console.log(data.list_obj);
-                    var list_obj = data.list_obj;
-                    var count = list_obj.length;
-                    if (count > 0){
-                        var content = '';
+    $('.search-query').keypress(function (e) {
+        var key = e.which;
+        if (key == 13) {
+            var query = $('.search').val();
+            if (query) {
+                $.ajax({
+                    url: "{{ route('search.action') }}",
+                    method: 'GET',
+                    data: {
+                        query: query
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data.list_obj);
+                        var list_obj = data.list_obj;
+                        var count = list_obj.length;
+                        if (count > 0) {
+                            var content = '';
 
-                        for (var i in list_obj) {
-                            content += '<div class="blo3 flex-w flex-col-l-sm m-t-30 m-b-20">';
-                            content += '<div class="pic-blo3 size20 bo-rad-10 hov-img-zoom m-r-28">';
+                            for (var i in list_obj) {
+                                content += '<div class="blo3 flex-w flex-col-l-sm m-t-30 m-b-20">';
+                                content += '<div class="pic-blo3 size20 bo-rad-10 hov-img-zoom m-r-28">';
 
-                            content += '<a href="/product/' + list_obj[i].id + '"><img src="' + list_obj[i].images + '" alt="IMG-MENU" style="width: 180px; height: 180px"></a>';
-                            content += '</div>';
-                            content += '<div class="text-blo3 size21 flex-col-l-m">';
-                            content += '<a href="/product/' + list_obj[i].id + '" class="txt21 m-b-3">';
-                            content += list_obj[i].name;
-                            @if($obj->isDiscount())
-                                content += '<span style="background-color: red; color:white;" class="p-l-6 p-r-5">SALE ' + list_obj[i].discount + '%</span>';
-                            @endif
-                            @if($obj->isNew())
-                                content += '<span class="font-weight-bold" style="background-color: green; color:white;">NEW</span>';
-                            @endif
-                            content += '</a>';
-                            content += '<span class="txt23">';
-                            content += list_obj[i].overview;
-                            content += '</span>';
-                            content += '<span class="txt22 m-t-10">';
-                            @if($obj->isDiscount())
-                                content += '<span class="font-weight-bold">' + list_obj[i].discountPriceString;
+                                content += '<a href="/product/' + list_obj[i].id + '"><img src="' + list_obj[i].images + '" alt="IMG-MENU" style="width: 180px; height: 180px"></a>';
+                                content += '</div>';
+                                content += '<div class="text-blo3 size21 flex-col-l-m">';
+                                content += '<a href="/product/' + list_obj[i].id + '" class="txt21 m-b-3">';
+                                content += list_obj[i].name;
+                                @if($obj->isDiscount())
+                                    content += '<span style="background-color: red; color:white;" class="p-l-6 p-r-5">SALE ' + list_obj[i].discount + '%</span>';
+                                @endif
+                                        @if($obj->isNew())
+                                    content += '<span class="p-l-2 p-r-2 font-weight-bold m-l-5" style="background-color: green; color:white;">NEW</span>';
+                                @endif
+                                    content += '</a>';
+                                content += '<span class="txt23">';
+                                content += list_obj[i].overview;
+                                content += '</span>';
+                                content += '<span class="txt22 m-t-10">';
+                                @if($obj->isDiscount())
+                                    content += '<span class="font-weight-bold">' + list_obj[i].discount_price_string;
                                 content += '</span>'
                                 content += '<del class="text-muted">';
-                                content += '<small>' + list_obj[i].originalPriceString + '</small>';
+                                content += '<small>' + list_obj[i].original_price_string + '</small>';
                                 content += '</del>'
-                            @else
-                                content += '<span class="font-weight-bold">' + list_obj[i].originalPriceString;
+                                @else
+                                    content += '<span class="font-weight-bold">' + list_obj[i].original_price_string;
                                 content += '</span>';
-                            @endif
-                            content += '</span>';
-                            content += '<button class="add-cart-large add-to-cart m-t-10"  id="add-cart-' + list_obj[i].id + '"><i class="fas fa-cart-plus fa-2x"></i></button>';
-                            content += '</div>';
-                            content += '</div>';
-                            content += '<div class="line-item-mainmenu bg3-pattern"></div>';
-                        };
+                                @endif
+                                    content += '</span>';
+                                content += '<button class="add-cart-large add-to-cart m-t-10"  id="add-cart-' + list_obj[i].id + '"><i class="fas fa-cart-plus fa-2x"></i></button>';
+                                content += '</div>';
+                                content += '</div>';
+                                content += '<div class="line-item-mainmenu bg3-pattern"></div>';
+                            };
 
-                        $('.product-title').html('PRODUCT LIST [' + count + ']');
-                        $('#results').html(content);
-                    } else {
-                        swal("There is no products matched your search! Please try again!", {
+                            $('.product-title').html('PRODUCT LIST [' + count + ']');
+                            $('#results').html(content);
+                            return false;
+                        } else {
+                            swal("There is no products matched your search! Please try again!", {
+                                icon: "warning",
+                            });
+                        }
+                    },
+                    error: function () {
+                        swal("Please try again!", {
                             icon: "warning",
                         });
                     }
-                },
-                error: function () {
-                    swal("Please try again!", {
-                        icon: "warning",
-                    });
-                }
-            })
+                })
+            }
         }
     });
 
 </script>
+<script src="{{asset('js/app.js')}}"></script>
+<script src="{{asset('js/cart.js')}}"></script>
+
 @endsection

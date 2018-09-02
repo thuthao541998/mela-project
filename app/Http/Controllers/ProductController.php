@@ -243,14 +243,11 @@ class ProductController extends Controller
             $query = $request->get('query');
             if($query != '')
             {
-                $data = DB::table('products')
-                    ->where('name', 'like', '%'.$query.'%')->get();
-
+                $data = Product::where('name', 'like', '%'.$query.'%')->get();
             }
             else
             {
-                $data = DB::table('products')
-                    ->orderBy('id')
+                $data = Product::orderBy('id')
                     ->get();
             }
             $data = array(

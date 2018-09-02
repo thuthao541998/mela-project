@@ -643,7 +643,6 @@
 <!--===============================================================================================-->
 <script src="{{asset('js/sweetalert.min.js')}}"></script>
 <script src="{{asset('js/main.js')}}"></script>
-<script src="{{asset('js/cart.js')}}"></script>
 
 </body>
 </html>
