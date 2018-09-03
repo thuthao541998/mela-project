@@ -129,9 +129,8 @@
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
 <script>
-    $('.search-query').keypress(function (e) {
-        var key = e.which;
-        if (key == 13) {
+    var searchfunction = function(){
+        {
             var query = $('.search').val();
             if (query) {
                 $.ajax({
@@ -143,6 +142,7 @@
                     dataType: 'json',
                     success: function (data) {
                         console.log(data);
+                        var limit = 10;
                         var list_obj = data.list_obj;
                         var count = list_obj.length;
                         var totalPage = Math.ceil(count/5);
@@ -160,7 +160,7 @@
                                 @if($obj->isDiscount())
                                     content += '<span style="background-color: red; color:white;" class="p-l-6 p-r-5">SALE ' + list_obj[i].discount + '%</span>';
                                 @endif
-                                @if($obj->isNew())
+                                        @if($obj->isNew())
                                     content += '<span class="p-l-2 p-r-2 font-weight-bold m-l-5" style="background-color: green; color:white;">NEW</span>';
                                 @endif
                                     content += '</a>';
@@ -229,9 +229,17 @@
                 })
             }
         }
+    };
+
+    $('.search-query').keypress(function (e) {
+        var key = e.which;
+        if (key == 13){
+            searchfunction();
+        }
     });
-
-
+    $('.input-group-btn').click(function () {
+        searchfunction();
+    });
 </script>
 <script src="{{asset('js/app.js')}}"></script>
 <script src="{{asset('js/cart.js')}}"></script>
