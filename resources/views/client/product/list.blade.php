@@ -170,10 +170,10 @@
                                 content += '<span class="txt22 m-t-10">';
                                 @if($obj->isDiscount())
                                     content += '<span class="font-weight-bold">' + list_obj[i].discount_price_string;
-                                content += '</span>'
+                                content += '</span>';
                                 content += '<del class="text-muted">';
                                 content += '<small>' + list_obj[i].original_price_string + '</small>';
-                                content += '</del>'
+                                content += '</del>';
                                 @else
                                     content += '<span class="font-weight-bold">' + list_obj[i].original_price_string;
                                 content += '</span>';
@@ -222,7 +222,7 @@
                         }
                     },
                     error: function () {
-                        swal("Please try again!", {
+                        swal("There's an error! Please try again!", {
                             icon: "warning",
                         });
                     }
@@ -230,6 +230,7 @@
             }
         }
     });
+
 
 </script>
 <script src="{{asset('js/app.js')}}"></script>

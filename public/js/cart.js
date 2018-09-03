@@ -1,4 +1,4 @@
-$('.add-to-cart').click(function () {
+$('body').on('click', '.add-to-cart' ,function () {
     var product_id = $(this).attr('id').replace('add-cart-', '');
     var quantity = 1;
     $.ajax({
