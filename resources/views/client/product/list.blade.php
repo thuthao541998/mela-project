@@ -128,6 +128,9 @@
 </div>
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.3/pagination.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.3/pagination.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
 <script>
     var searchfunction = function(){
         {
@@ -145,11 +148,11 @@
                         var limit = 10;
                         var list_obj = data.list_obj;
                         var count = list_obj.length;
-                        var totalPage = Math.ceil(count/5);
+                        var totalPage = Math.ceil(count/10);
                         if (count > 0) {
                             var content = '';
                             for (var i in list_obj) {
-                                content += '<div class="blo3 flex-w flex-col-l-sm m-t-30 m-b-20">';
+                                content += '<div class="blo3 flex-w flex-col-l-sm m-t-30 m-b-20 show_product">';
                                 content += '<div class="pic-blo3 size20 bo-rad-10 hov-img-zoom m-r-28">';
 
                                 content += '<a href="/product/' + list_obj[i].id + '"><img src="' + list_obj[i].images + '" alt="IMG-MENU" style="width: 180px; height: 180px"></a>';
@@ -182,39 +185,52 @@
                                 content += '<button class="add-cart-large add-to-cart m-t-10"  id="add-cart-' + list_obj[i].id + '"><i class="fas fa-cart-plus fa-2x"></i></button>';
                                 content += '</div>';
                                 content += '</div>';
-                                content += '<div class="line-item-mainmenu bg3-pattern"></div>';
+                                // content += '<div class="line-item-mainmenu bg3-pattern"></div>';
                             };
 
                             var page = 1;
                             var paginateContent = '';
                             paginateContent += '<ul class="pagination" role="navigation">';
-                            if (page > 1) {
-                                paginateContent += '<li class="page-item"><a class="page-link" href="?page=1&limit=' + limit + '" aria-label="First"><span aria-hidden="true"><<</span></a></li>';
-                                paginateContent += '<li class="page-item"><a class="page-link" href="?page=' + (page - 1) + '&limit=' + limit + '" aria-label="Previous"><span aria-hidden="true"><</span></a></li>';
-                            }
                             if (page > 2) {
-                                paginateContent += '<li class="page-item"><a class="page-link" href="?page=' + (page - 2) + '&limit=' + limit + '">' + (page - 2) + '</a></li>';
+                                paginateContent += '<li class="page-item"><a class="page-link" href="#">' + (page - 2) + '</a></li>';
                             }
                             if (page > 1) {
-                                paginateContent += '<li class="page-item"><a class="page-link" href="?page=' + (page - 1) + '&limit=' + limit + '">' + (page - 1) + '</a></li>';
+                                paginateContent += '<li class="page-item"><a class="page-link" href="#">' + (page - 1) + '</a></li>';
                             }
-                            paginateContent += '<li class="active page-item"><a class="page-link" href="?page=' + page + '">' + page + '</a></li>';
+                            paginateContent += '<li class="active page-item"><a class="page-link" href="#">' + page + '</a></li>';
                             if (totalPage > page) {
-                                paginateContent += '<li class="page-item"><a class="page-link" href="?page=' + (page + 1) + '&limit=' + limit + '">' + (page + 1) + '</a></li>';
+                                paginateContent += '<li class="page-item"><a class="page-link" href="#">' + (page + 1) + '</a></li>';
                             }
                             if ((totalPage - 1) > page) {
-                                paginateContent += '<li class="page-item"><a class="page-link" href="?page=' + (page + 2) + '&limit=' + limit + '">' + (page + 2) + '</a></li>';
-                            }
-                            if (page < totalPage) {
-                                paginateContent += '<li class="page-item"><a class="page-link" href="?page=' + (page + 1) + '&limit=' + limit + '" aria-label="Next"><span aria-hidden="true">></span></a></li>';
-                                paginateContent += '<li class="page-item"><a class="page-link" href="?page=' + (totalPage) + '&limit=' + limit + '" aria-label="Last"><span aria-hidden="true">>></span></a></li>';
+                                paginateContent += '<li class="page-item"><a class="page-link" href="#">' + (page + 2) + '</a></li>';
                             }
                             paginateContent += '</ul>';
+
+
 
                             $('.product-title').html('PRODUCT LIST [' + count + ']');
                             $('#results').html(content);
                             $('.pagination').html(paginateContent);
 
+
+                            // Pagination
+                            var pageSize = 10;
+
+                            showPage = function(page) {
+                                $(".show_product").hide();
+                                $(".show_product").each(function(n) {
+                                    if (n >= pageSize * (page - 1) && n < pageSize * page)
+                                        $(this).show();
+                                });
+                            };
+
+                            showPage(1);
+
+                            $("body").on('click', '.pagination li a',function() {
+                                $(".pagination li").removeClass("active");
+                                $(this).parent().addClass("active");
+                                showPage(parseInt($(this).text()));
+                            });
                         } else {
                             swal("There is no products matched your search! Please try again!", {
                                 icon: "warning",
