@@ -13,7 +13,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         function hideURLbar() {
             window.scrollTo(0, 1);
         } </script>
-
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- bootstrap-css -->
@@ -242,12 +241,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <li class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                         <i class="fas fa-user-alt" style="margin: 0.6em;"></i>
-                        <span class="username">John Doe</span>
+
+                        <span class="username">{{Auth::user() -> name}}</span>
                     </a>
                     <ul class="dropdown-menu extended logout">
                         <li><a href="#"><i class=" fas fa-suitcase"></i>Profile</a></li>
                         <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
-                        <li><a href="#"><i class="fas fa-key"></i> Log Out</a></li>
+                        <li><a href="{{route('logout')}}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"><i class="fas fa-key"></i> Log Out</a></li>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
                     </ul>
                 </li>
                 <!-- user login dropdown end -->
