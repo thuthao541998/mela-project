@@ -13,35 +13,11 @@
 
 Route::get('/','CategoryController@indexClient');
 
-Route::get('/admin', 'ProductController@index');
-
-// ROUTE ADMIN
-Route::resource('admin/product','ProductController');
-
-Route::resource('admin/order','OrderController');
-
-Route::resource('admin/order-detail','OrderDetailController');
-
-Route::resource('admin/article', 'ArticleController');
-
-Route::resource('admin/category', 'CategoryController');
-
-Route::resource('admin/brand','BrandController');
-
-Route::post("admin/product/destroy-many",'ProductController@destroyMany');
-Route::post("admin/category/destroy-many", "CategoryController@destroyMany");
-Route::post("admin/article/destroy-many", "ArticleController@destroyMany");
-Route::post("admin/brand/destroy-many", "CategoryController@destroyMany");
-
 Route::get('admin/404',function (){
     return view('admin.404.404');
 });
 
-Route::get("/admin/article/get-json/{id}", "ArticleController@showJson");
-Route::put("/admin/article/update-json/{id}", "ArticleController@quickUpdate");
 
-Route::get("/admin/product/get-json/{id}", "ProductController@showJson");
-Route::put("/admin/product/update-json/{id}", "ProductController@quickUpdate");
 
 Route::get('/list-product',"ProductController@indexClient");
 Route::get('/product/{id}',"ProductController@show");
@@ -101,3 +77,37 @@ Route::get('/admin', function (){
 });
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['middleware' => ['checkLogin']],function (){
+    // ROUTE ADMIN
+    Route::get('/admin', 'ProductController@index');
+
+    Route::resource('admin/product','ProductController');
+
+    Route::resource('admin/order','OrderController');
+
+    Route::resource('admin/order-detail','OrderDetailController');
+
+    Route::resource('admin/article', 'ArticleController');
+
+    Route::resource('admin/category', 'CategoryController');
+
+    Route::resource('admin/brand','BrandController');
+
+    Route::post("admin/product/destroy-many",'ProductController@destroyMany');
+    Route::post("admin/category/destroy-many", "CategoryController@destroyMany");
+    Route::post("admin/article/destroy-many", "ArticleController@destroyMany");
+    Route::post("admin/brand/destroy-many", "CategoryController@destroyMany");
+
+
+
+    Route::get("/admin/article/get-json/{id}", "ArticleController@showJson");
+    Route::put("/admin/article/update-json/{id}", "ArticleController@quickUpdate");
+
+    Route::get("/admin/product/get-json/{id}", "ProductController@showJson");
+    Route::put("/admin/product/update-json/{id}", "ProductController@quickUpdate");
+});
