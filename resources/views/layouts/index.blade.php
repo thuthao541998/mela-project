@@ -333,7 +333,7 @@
                     <!-- Block1 -->
                     <div class="blo1">
                         <div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom pos-relative">
-                            <a href="blog-detail.html"><img src="images/blog-01.jpg" alt="IMG-INTRO"></a>
+                            <a href="blog-detail.html"><img src="{{asset('images/blog-01.jpg')}}" alt="IMG-INTRO"></a>
 
                             <div class="time-blog">
                                 21 Dec 2017
@@ -361,7 +361,7 @@
                     <!-- Block1 -->
                     <div class="blo1">
                         <div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom pos-relative">
-                            <a href="blog-detail.html"><img src="images/blog-02.jpg" alt="IMG-INTRO"></a>
+                            <a href="blog-detail.html"><img src="{{asset('images/blog-02.jpg')}}" alt="IMG-INTRO"></a>
 
                             <div class="time-blog">
                                 15 Dec 2017
@@ -389,7 +389,7 @@
                     <!-- Block1 -->
                     <div class="blo1">
                         <div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom pos-relative">
-                            <a href="blog-detail.html"><img src="images/blog-03.jpg" alt="IMG-INTRO"></a>
+                            <a href="blog-detail.html"><img src="{{asset('images/blog-03.jpg')}}" alt="IMG-INTRO"></a>
 
                             <div class="time-blog">
                                 12 Dec 2017
