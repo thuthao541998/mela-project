@@ -76,6 +76,8 @@ Route::put('/sua-gio-hang', 'CartController@updateCart');
 
 Route::get('/admin/order/update-status/{id}', 'OrderController@updateStatus');
 
+Route::get('/admin/list-order', 'OrderController@index');
+
 
 Route::get('/api-get-chart-data', 'OrderController@getChartDataApi');
 

@@ -23,7 +23,7 @@
                             </select>
                         </div>
                         <div class="form-group mx-sm-4 mb-3">
-                            <label for="chooseCategory">Brand</label>
+                            <label for="chooseBrand">Brand</label>
                             <select id="select-action" name="brandId" class="form-control">
                                 <option selected value="{{$null}}">All</option>
                                 @foreach($brands as $brand)
