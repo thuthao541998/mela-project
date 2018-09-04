@@ -91,7 +91,7 @@
                                 </div>
                             </div>
                         @else
-                            <div class="alert alert-info">Havent't order in here.
+                            <div class="alert alert-info">Have no order in this fields.
                             </div>
                         @endif
                         <div class="pagination pull-right">
