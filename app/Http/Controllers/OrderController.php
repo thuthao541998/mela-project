@@ -18,13 +18,14 @@ class OrderController extends Controller
     public function index()
     {
         $choosedStatus = Input::get('status');
-
         if(($choosedStatus == null)){
             $orders = Order::paginate(10);
         } else {
             $orders = Order::where(['status' => $choosedStatus])->paginate(10);
         }
-        return view('admin.order.list')->with('orders', $orders);
+        return view('admin.order.list')
+            ->with('choosedStatus', $choosedStatus)
+            ->with('orders', $orders);
     }
 
     /**

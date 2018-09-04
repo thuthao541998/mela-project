@@ -13,11 +13,11 @@
                             <div class="form-group mx-sm-4 mb-3">
                                 <label for="chooseStatus">Status</label>
                                 <select id="select-action" name="status" class="form-control">
-                                    <option selected value="{{$null}}">All</option>
-                                    <option value="0">Confirming</option>
-                                    <option value="1">Confirmed</option>
-                                    <option value="2">Finished</option>
-                                    <option value="-1">Cancelled</option>
+                                    <option selected value="{{null}}">All</option>
+                                    <option value="0" {{0==$choosedStatus?'selected':''}}>Confirming</option>
+                                    <option value="1" {{1==$choosedStatus?'selected':''}}>Confirmed</option>
+                                    <option value="2" {{2==$choosedStatus?'selected':''}}>Finished</option>
+                                    <option value="-1" {{-1==$choosedStatus?'selected':''}}>Cancelled</option>
                                 </select>
                             </div>
                         </div>
@@ -87,17 +87,16 @@
                 </div>
         </section>
     </section>
-@endsection
 
-<script>
-    $('#select-action').change(function () {
-        var status = $('#select-action').val();
-        console.log(status);
-        if (status == null) {
-            window.location.href = $('.filter-btn').attr('action');
-            return false;
-        } else {
-            window.location.href = $('.filter-btn').attr('action') + '?status=' + status;
-        };
-    });
-</script>
+    <script>
+        $('.filter-btn select[name=status]').change(function () {
+            var status = $('.filter-btn select[name=status]').val();
+            if (status == null) {
+                window.location.href = $('.filter-btn').attr('action');
+                return false;
+            } else {
+                window.location.href = $('.filter-btn').attr('action') + '?status=' + status;
+            };
+        });
+    </script>
+@endsection
