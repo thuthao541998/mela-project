@@ -62,6 +62,20 @@
                             @endforeach
                             </tbody>
                         </table>
+                            <div class="row">
+                                <div class="col-md-8 form-inline">
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input col-lg-2" type="checkbox" value="" id="check-all">
+                                        <select id="select-action" class="form-control">
+                                            <option selected value="0">Action</option>
+                                            <option value="1">Confirm All</option>
+                                            <option value="2">Finish Action</option>
+                                            <option value="1">Cancel All</option>
+                                        </select>
+                                        <button type="submit" class="btn btn-primary ml-2" id="btn-apply-brand">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
                         @else
                             <div class="alert alert-info">Havent't order in here.
                             </div>
