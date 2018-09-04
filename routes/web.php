@@ -85,10 +85,10 @@ Route::get('/login',function (){
 
 Route::get('/admin-login', function (){
     return view('admin.login');
-
 });
+Route::get('/list-product/search', 'ProductController@search')->name('search.action');
 
 Route::get('/admin', function (){
     return view('admin.dashboard');
-
 });
+
