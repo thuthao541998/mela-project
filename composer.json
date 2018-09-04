@@ -9,6 +9,7 @@
         "fideloper/proxy": "^4.0",
         "jrm2k6/cloudder": "^0.6.0",
         "laravel/framework": "5.6.*",
+        "laravel/socialite": "^3.1",
         "laravel/tinker": "^1.0"
     },
     "require-dev": {
@@ -48,7 +49,13 @@
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover"
-        ]        
+
+        ],
+        "post-install-cmd":[
+            "php artisan clear-compiled",
+            "chmod -R 777 public/"
+        ]
+
     },
 
     "config": {

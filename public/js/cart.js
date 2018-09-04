@@ -1,4 +1,4 @@
-$('.add-to-cart').click(function () {
+$('body').on('click', '.add-to-cart' ,function () {
     var product_id = $(this).attr('id').replace('add-cart-', '');
     var quantity = 1;
     $.ajax({
@@ -38,8 +38,8 @@ $('.add-to-cart').click(function () {
 
             $('#header-cart-wrapitem').html(new_content);
             $('#header-cart-total').text(new_total_money);
-            // import swal from 'sweetalert';
-            swal('Thao tác thành công!', 'Sản phẩm đã được thêm vào giỏ hàng!', 'success');
+            swal('Successfully!', 'ADDED TO CART. You can change the quantity of the product in cart later!', 'success');
+
         },
         error: function (error) {
             swal('Thao tác thất bại', JSON.parse(error.responseText).msg);

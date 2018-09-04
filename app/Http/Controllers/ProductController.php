@@ -8,6 +8,7 @@ use App\Http\Requests\StoreProductPost;
 use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Response;
 use JD\Cloudder\Facades\Cloudder;
 
 class ProductController extends Controller
@@ -47,7 +48,7 @@ class ProductController extends Controller
             ;
     }
 
-    public function indexClient()
+    public function indexClient(Request $request)
     {
         $limit = 10;
         $brands = Brand::all();
@@ -55,11 +56,12 @@ class ProductController extends Controller
         $categories = Category::all();
         $choosedCategoryId = Input::get('categoryId');
         $list_obj = null;
+
         if(($choosedCategoryId == null && $choosedBrandId == null)){
             $list_obj = Product::paginate($limit);
-        }else if($choosedBrandId == null || $choosedBrandId == '0'){
+        } else if($choosedBrandId == null || $choosedBrandId == '0'){
             $list_obj = Product::where('categoryId', $choosedCategoryId)-> paginate($limit);
-        }else if ($choosedCategoryId == null || $choosedCategoryId == '0'){
+        } else if ($choosedCategoryId == null || $choosedCategoryId == '0'){
             $list_obj = Product::where('brandId', $choosedBrandId)-> paginate($limit);
         } else {
             $list_obj = Product::where([
@@ -232,5 +234,24 @@ class ProductController extends Controller
         $obj->overview = Input::get('overview');
         $obj->save();
         return response()->json(['item' => $obj], 200);
+    }
+
+    public function search(Request $request) {
+        if($request->ajax())
+        {
+            $query = $request->get('query');
+            if($query != '')
+            {
+                $list_obj = Product::where('name', 'like', '%'.$query.'%')->get();
+            }
+            else
+            {
+                $list_obj = Product::orderBy('id')->get();
+            }
+            return response()->json([
+                'list_obj' => $list_obj
+            ], 200);
+
+        }
     }
 }
