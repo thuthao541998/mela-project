@@ -9,6 +9,20 @@
                         List Order
                     </div>
                     <div>
+                        <div class="filter-btn form-inline" action="/admin/order" method="GET">
+                            <div class="form-group mx-sm-4 mb-3">
+                                <label for="chooseStatus">Status</label>
+                                <select id="select-action" name="status" class="form-control">
+                                    <option selected value="{{$null}}">All</option>
+                                    <option value="0">Confirming</option>
+                                    <option value="1">Confirmed</option>
+                                    <option value="2">Finished</option>
+                                    <option value="-1">Cancelled</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
                         @if($orders->count()>0)
                         <table class="table">
                             <thead>
@@ -74,3 +88,16 @@
         </section>
     </section>
 @endsection
+
+<script>
+    $('#select-action').change(function () {
+        var status = $('#select-action').val();
+        console.log(status);
+        if (status == null) {
+            window.location.href = $('.filter-btn').attr('action');
+            return false;
+        } else {
+            window.location.href = $('.filter-btn').attr('action') + '?status=' + status;
+        };
+    });
+</script>
