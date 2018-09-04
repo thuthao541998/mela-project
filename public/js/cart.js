@@ -39,9 +39,10 @@ $('body').on('click', '.add-to-cart' ,function () {
             $('#header-cart-wrapitem').html(new_content);
             $('#header-cart-total').text(new_total_money);
             swal('Successfully!', 'ADDED TO CART. You can change the quantity of the product in cart later!', 'success');
+
         },
         error: function (error) {
-            swal('FAILED', JSON.parse(error.responseText).msg);
+            swal('Thao tác thất bại', JSON.parse(error.responseText).msg);
         }
     });
 });

@@ -66,16 +66,37 @@ $(".cart_delete").click(function () {
         });
 });
 
-$('.checkout-btn').click(function () {
-    if ($('input[name="ship_name"]').length < 7) {
-        $('span[name="ship_name"]').html('Your name has to be longer than 7.')
-    };
-    if ($('input[name="ship_address"]').length < 10){
-        $('span[name="ship_address"]').html('Your address has to be longer than 7.');
-    };
-    if (isNaN($('input[name="ship_phone"]'))){
-        $('span[name="ship_phone"]').html('This field has to be number');
-    } else if ($('input[name="ship_phone"]').length < 10){
-        $('span[name="ship_phone"]').html('Your phone has to have 10 letters.');
-    };
+$(document).ready(function() {
+    $('form[name="order-form"]').validate({
+        rules: {
+            ship_name: {
+                required: true,
+                minlength: 7
+            },
+            ship_address: {
+                required: true,
+                minlength: 7
+            },
+            ship_phone: {
+                required: true,
+                number: true,
+                length: 10
+            },
+        },
+        messages: {
+            name: {
+                required: "This field is required.",
+                minlength: "This field has to be longer than 7 characters."
+            },
+            ship_address: {
+                required: "This field is required.",
+                minlength: "This field has to be longer than 7 characters."
+            },
+            ship_phone: {
+                required: "This field is required.",
+                number: "This field has to be numeric.",
+                length: "This field has to be 10 digits long."
+            },
+        }
+    });
 });
