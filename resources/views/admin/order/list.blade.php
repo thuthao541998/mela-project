@@ -8,6 +8,8 @@
                     <div class="panel-heading">
                         List Order
                     </div>
+                    <div class="alert alert-success hidden mt-2 ml-2 mr-2" role="alert" id="messageSuccess"></div>
+                    <div class="alert alert-danger hidden mt-2 ml-2 mr-2" role="alert" id="messageError"></div>
                     <div>
                         <div class="filter-btn form-inline" action="/admin/order" method="GET">
                             <div class="form-group mx-sm-4 mb-3">
@@ -32,20 +34,6 @@
                             </div>
                         </div>
                     </div>
-                    {{--<div>--}}
-                        {{--<div class="filter-btn form-inline" action="/admin/order" method="GET">--}}
-                            {{--<div class="form-group mx-sm-4 mb-3">--}}
-                                {{--<label for="chooseStatus">Status</label>--}}
-                                {{--<select id="select-action" name="status" class="form-control">--}}
-                                    {{--<option selected value="3" {{3==$choosedStatus?'selected':''}}>All</option>--}}
-                                    {{--<option value="0" {{0==$choosedStatus?'selected':''}}>Confirming</option>--}}
-                                    {{--<option value="1" {{1==$choosedStatus?'selected':''}}>Confirmed</option>--}}
-                                    {{--<option value="2" {{2==$choosedStatus?'selected':''}}>Finished</option>--}}
-                                    {{--<option value="-1" {{-1==$choosedStatus?'selected':''}}>Cancelled</option>--}}
-                                {{--</select>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
                     <div>
                         @if($orders->count()>0)
                         <table class="table">
@@ -64,9 +52,9 @@
                             </thead>
                             <tbody>
                             @foreach($orders as $item)
-                                <tr id="row-item-{{$item->id}}">
+                                <tr class="row-item" id="row-item-{{$item->id}}">
                                     <td class="column-0">
-                                        <input type="checkbox">
+                                        <input type="checkbox" class="check-item">
                                     </td>
                                     <td class="column-1">{{$item->id}}</td>
                                     <td class="column-2">{{$item->ship_name}}</td>
@@ -104,13 +92,13 @@
                                 <div class="col-md-8 form-inline">
                                     <div class="form-check mb-2">
                                         <input class="form-check-input col-lg-2" type="checkbox" value="" id="check-all">
-                                        <select id="select-action" class="form-control">
+                                        <select id="select-action" name="select-action" class="form-control">
                                             <option selected value="0">Action</option>
                                             <option value="1">Confirm All</option>
-                                            <option value="2">Finish Action</option>
-                                            <option value="1">Cancel All</option>
+                                            <option value="2">Finish All</option>
+                                            <option value="-1">Cancel All</option>
                                         </select>
-                                        <button type="submit" class="btn btn-primary ml-2" id="btn-apply-brand">Submit</button>
+                                        <button type="submit" class="btn btn-primary ml-2" id="btn-apply-action">Submit</button>
                                     </div>
                                 </div>
                             </div>
@@ -126,16 +114,144 @@
         </section>
     </section>
 
+    <script src="{{asset('js/sweetalert.min.js')}}"></script>
     <script>
         $('.filter-btn select[name=status]').change(function () {
-            // alert($(this).val());
             window.location.href = $('.filter-btn').attr('action') + '?status=' + $(this).val();
-            // if (status == 'NaN') {
-            //     window.location.href = $('.filter-btn').attr('action');
-            //     return false;
-            // } else {
-            //     window.location.href = $('.filter-btn').attr('action') + '?status=' + status;
-            // };
         });
+
+        $('#check-all').click(function () {
+            $('.check-item').prop('checked', $(this).is(':checked'));
+        });
+
+        $('#btn-apply-action').click(function () {
+            var value = ($('select[name="select-action"]').val());
+            var arrayId = [];
+            $('.check-item:checked').each(function(index, item) {
+                arrayId.push(parseInt(item.closest('.row-item').id.replace('row-item-', '')));
+            });
+            if(arrayId.length == 0){
+                swal("Please choose at least 1 item!", {
+                    icon: "warning",
+                });
+                return;
+            }
+
+            switch (value){
+                case '-1':
+                    swal({
+                        title: "Are you sure?",
+                        text: "Are you sure to cancel these orders?",
+                        icon: "info",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                        .then((willCancel) => {if (willCancel) {
+                            $.ajax({
+                                method: 'POST',
+                                url: '/admin/order/update-status-many',
+                                data: {
+                                    '_token': $('meta[name="csrf-token"]').attr('content'),
+                                    'ids': arrayId,
+                                    'status': -1
+                                },
+                                success: function (resp) {
+                                    for (var i = 0; i < arrayId.length; i++) {
+                                        $('#row-item-' + arrayId[i]).remove();
+                                    }
+                                    if($('.check-item').length == 0){
+                                        setTimeout(function(){
+                                            window.location.reload(1);
+                                        }, 2*500);
+                                    }
+                                },
+                                error: function (r) {
+                                    console.log(r);
+                                    swal("Action fails! Please try again later!", {
+                                        icon: "warning",
+                                    });
+                                }
+                            });
+                        }});
+                    break;
+                case '1':
+                    swal({
+                        title: "Are you sure?",
+                        text: "Are you sure to confirm these orders?",
+                        icon: "info",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                        .then((willConfirm) => {if (willConfirm) {
+                            $.ajax({
+                                method: 'POST',
+                                url: '/admin/order/update-status-many',
+                                data: {
+                                    '_token': $('meta[name="csrf-token"]').attr('content'),
+                                    'ids': arrayId,
+                                    'status': 1
+                                },
+                                success: function (resp) {
+                                    for (var i = 0; i < arrayId.length; i++) {
+                                        $('#row-item-' + arrayId[i]).remove();
+                                    }
+                                    if($('.check-item').length == 0){
+                                        setTimeout(function(){
+                                            window.location.reload(1);
+                                        }, 2*500);
+                                    }
+                                },
+                                error: function (r) {
+                                    console.log(r);
+                                    swal("Action fails! Please try again later!", {
+                                        icon: "warning",
+                                    });
+                                }
+                            });
+                        }});
+                    break;
+                case '2':
+                    swal({
+                        title: "Are you sure?",
+                        text: "Are you sure to finish these orders?",
+                        icon: "info",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                        .then((willCancel) => {if (willCancel) {
+                            $.ajax({
+                                method: 'POST',
+                                url: '/admin/order/update-status-many',
+                                data: {
+                                    '_token': $('meta[name="csrf-token"]').attr('content'),
+                                    'ids': arrayId,
+                                    'status': 2
+                                },
+                                success: function (resp) {
+                                    for (var i = 0; i < arrayId.length; i++) {
+                                        $('#row-item-' + arrayId[i]).remove();
+                                    }
+                                    if($('.check-item').length == 0){
+                                        setTimeout(function(){
+                                            window.location.reload(1);
+                                        }, 2*500);
+                                    }
+                                },
+                                error: function (r) {
+                                    console.log(r);
+                                    swal("Action fails! Please try again later!", {
+                                        icon: "warning",
+                                    });
+                                }
+                            });
+                        }});
+                    break;
+                default:
+                    swal("Invalid action! Please try again!", {
+                        icon: "warning",
+                    });
+                    break;
+            }
+        })
     </script>
 @endsection
