@@ -13,7 +13,7 @@
                             <div class="form-group mx-sm-4 mb-3">
                                 <label for="chooseStatus">Status</label>
                                 <select id="select-action" name="status" class="form-control">
-                                    <option selected value="{{null}}">All</option>
+                                    <option selected value="3" {{3==$choosedStatus?'selected':''}}>All</option>
                                     <option value="0" {{0==$choosedStatus?'selected':''}}>Confirming</option>
                                     <option value="1" {{1==$choosedStatus?'selected':''}}>Confirmed</option>
                                     <option value="2" {{2==$choosedStatus?'selected':''}}>Finished</option>
@@ -90,13 +90,15 @@
 
     <script>
         $('.filter-btn select[name=status]').change(function () {
-            var status = $('.filter-btn select[name=status]').val();
-            if (status == null) {
-                window.location.href = $('.filter-btn').attr('action');
-                return false;
-            } else {
-                window.location.href = $('.filter-btn').attr('action') + '?status=' + status;
-            };
+            // alert($(this).val());
+            // var status = parseInt($('.filter-btn select[name=status]').val());
+            window.location.href = $('.filter-btn').attr('action') + '?status=' + $(this).val();
+            // if (status == 'NaN') {
+            //     window.location.href = $('.filter-btn').attr('action');
+            //     return false;
+            // } else {
+            //     window.location.href = $('.filter-btn').attr('action') + '?status=' + status;
+            // };
         });
     </script>
 @endsection
