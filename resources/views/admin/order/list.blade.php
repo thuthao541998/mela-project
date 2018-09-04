@@ -8,28 +8,6 @@
                     <div class="panel-heading">
                         List Order
                     </div>
-                    <div class=" dropdown filter-btn form-inline">
-                        <div class="form-group mx-sm-4 mb-3">
-                            <label for="chooseStatus">Status</label>
-                            <select id="select-action" name="categoryId" class="form-control">
-                                <option selected value="1">Canceled</option>
-                                <option selected value="2">Confirming</option>
-                                <option selected value="3">Confirmed</option>
-                                <option selected value="4">Finished</option>
-                                <option selected value="5">All</option>
-                            </select>
-                        </div>
-                        <div class="form-group mx-sm-4 mb-3">
-                            <label for="chooseTime">Time</label>
-                            <select id="select-action" name="categoryId" class="form-control">
-                                <option selected value="1">Today</option>
-                                <option selected value="2">Last Week</option>
-                                <option selected value="3">Last Month</option>
-                                <option selected value="4">Last 2 Months</option>
-                                <option selected value="5">All</option>
-                            </select>
-                        </div>
-                    </div>
                     <div>
                         <div class="filter-btn form-inline" action="/admin/order" method="GET">
                             <div class="form-group mx-sm-4 mb-3">
@@ -42,8 +20,32 @@
                                     <option value="-1" {{-1==$choosedStatus?'selected':''}}>Cancelled</option>
                                 </select>
                             </div>
+                            <div class="form-group mx-sm-4 mb-3">
+                                <label for="chooseTime">Time</label>
+                                <select id="select-action" name="categoryId" class="form-control">
+                                    <option selected value="1">Today</option>
+                                    <option selected value="2">Last Week</option>
+                                    <option selected value="3">Last Month</option>
+                                    <option selected value="4">Last 2 Months</option>
+                                    <option selected value="5">All</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
+                    {{--<div>--}}
+                        {{--<div class="filter-btn form-inline" action="/admin/order" method="GET">--}}
+                            {{--<div class="form-group mx-sm-4 mb-3">--}}
+                                {{--<label for="chooseStatus">Status</label>--}}
+                                {{--<select id="select-action" name="status" class="form-control">--}}
+                                    {{--<option selected value="3" {{3==$choosedStatus?'selected':''}}>All</option>--}}
+                                    {{--<option value="0" {{0==$choosedStatus?'selected':''}}>Confirming</option>--}}
+                                    {{--<option value="1" {{1==$choosedStatus?'selected':''}}>Confirmed</option>--}}
+                                    {{--<option value="2" {{2==$choosedStatus?'selected':''}}>Finished</option>--}}
+                                    {{--<option value="-1" {{-1==$choosedStatus?'selected':''}}>Cancelled</option>--}}
+                                {{--</select>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
                     <div>
                         @if($orders->count()>0)
                         <table class="table">
@@ -127,7 +129,6 @@
     <script>
         $('.filter-btn select[name=status]').change(function () {
             // alert($(this).val());
-            // var status = parseInt($('.filter-btn select[name=status]').val());
             window.location.href = $('.filter-btn').attr('action') + '?status=' + $(this).val();
             // if (status == 'NaN') {
             //     window.location.href = $('.filter-btn').attr('action');
