@@ -21,19 +21,19 @@ class Order extends Model
     {
         switch ($this->status) {
             case -1:
-                return 'Đã huỷ';
+                return 'Canceled';
                 break;
             case 0:
-                return 'Chờ xử lý';
+                return 'Confirming';
                 break;
             case 1:
-                return 'Đã xác nhận';
+                return 'Confirmed';
                 break;
             case 2:
-                return 'Hoàn thành';
+                return 'DONE';
                 break;
             default:
-                return 'Không xác định';
+                return 'Unknown';
                 break;
         }
     }

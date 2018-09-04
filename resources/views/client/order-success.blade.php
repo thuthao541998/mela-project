@@ -1,7 +1,6 @@
 @extends("layouts.index")
 @section('content')
 @section('page-topic','CHECK OUT')
-
     <div class="row">
         {{--<div class="col-md-5">--}}
             {{--<div>You have checked out successfully</div>--}}

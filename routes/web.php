@@ -74,7 +74,11 @@ Route::get('/cart-remove/{id}', 'CartController@removeCart');
 Route::post('/check-out','CartController@checkoutCart');
 Route::put('/sua-gio-hang', 'CartController@updateCart');
 
+Route::get('/admin/order/update-status/{id}', 'OrderController@updateStatus');
+
+
 Route::get('/api-get-chart-data', 'OrderController@getChartDataApi');
+
 
 Auth::routes();
 
@@ -82,3 +86,18 @@ Route::get('/redirect', 'SocialAuthFacebookController@redirect');
 Route::get('/callback', 'SocialAuthFacebookController@callback');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/login',function (){
+    return view('client.login');
+});
+
+Route::get('/admin-login', function (){
+    return view('admin.login');
+});
+Route::get('/list-product/search', 'ProductController@search')->name('search.action');
+
+Route::get('/admin', function (){
+    return view('admin.dashboard');
+});
+
+

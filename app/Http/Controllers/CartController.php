@@ -42,9 +42,7 @@ class CartController extends Controller
         $item = new CartItem();
         $item->product = $product;
         $item->quantity = $quantity;
-        $item->product->dicountPriceString = $product->discountPriceString;
         $cart->items[$id] = $item;
-        $cart->count = Cart::calculateTotalItem($cart);
         Session::put('cart', $cart);
         return redirect('/cart');
     }
@@ -53,6 +51,7 @@ class CartController extends Controller
         $cart = new Cart();
         $products = Input::get('products');
         if (is_array($products)) {
+//            return $products[2];
             foreach (array_keys($products) as $key) {
                 $product = Product::find($key);
                 if ($product == null || $product->status != 1) {
@@ -67,8 +66,6 @@ class CartController extends Controller
         Session::put('cart', $cart);
         return redirect('/cart');
     }
-
-
     public function addToCartApi()
     {
         $id = Input::get('id');
@@ -102,6 +99,7 @@ class CartController extends Controller
     public function showCart()
     {
         $cart = new Cart();
+        $items = [];
         if (Session::has('cart')) {
             $cart = Session::get('cart');
             $items = $cart->items;
@@ -115,8 +113,11 @@ class CartController extends Controller
         return redirect('/cart');
     }
     public function checkoutCart(StoreCheckoutPost $request){
+        $request->validated();
+
         if (Session::has('cart')) {
             try {
+                $request->validated();
                 DB::beginTransaction();
                 $cart = Session::get('cart');
                 $ship_name = Input::get('ship_name');
@@ -156,9 +157,6 @@ class CartController extends Controller
                 DB::rollBack();
                 return 'Có lỗi xảy ra.' . $exception->getMessage();
             }
-        } else {
-            return view('cart')->with('message', 'Hiện tại chưa có sản phẩm nào trong giỏ hàng.');
-//            return view('admin.404.404')->with('message', 'Hiện tại chưa có sản phẩm nào trong giỏ hàng.');
         }
     }
 }

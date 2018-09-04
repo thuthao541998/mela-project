@@ -17,19 +17,19 @@ class OrderDetailsTableSeeder extends Seeder
             [
                 'product_id' => 1,
                 'quantity' => 3,
-                'unit_price' => \App\Product::where('id', 1)->first()->discountPrice,
+                'unit_price' => \App\Product::find(1)->getDiscountPriceAttribute(),
                 'order_id' => 1
             ],
             [
                 'product_id' => 2,
                 'quantity' => 1,
-                'unit_price' => \App\Product::where('id', 2)->first()->discountPrice,
+                'unit_price' => \App\Product::find(2)->getDiscountPriceAttribute(),
                 'order_id' => 1
             ],
             [
                 'product_id' => 4,
                 'quantity' => 2,
-                'unit_price' => \App\Product::where('id', 4)->first()->discountPrice,
+                'unit_price' => \App\Product::find(4)-> getDiscountPriceAttribute(),
                 'order_id' => 1
             ]
         ]);

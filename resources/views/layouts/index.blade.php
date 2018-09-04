@@ -61,7 +61,7 @@
                                 <a href="/">Home</a>
                             </li>
 
-                            <li class="dropdown">
+                            <li>
                                 <a href="/list-product">Product</a>
                             </li>
 
