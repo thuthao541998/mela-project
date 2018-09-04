@@ -79,6 +79,14 @@ Route::get('/admin/order/update-status/{id}', 'OrderController@updateStatus');
 
 Route::get('/api-get-chart-data', 'OrderController@getChartDataApi');
 
+
+Auth::routes();
+
+Route::get('/redirect', 'SocialAuthFacebookController@redirect');
+Route::get('/callback', 'SocialAuthFacebookController@callback');
+
+Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get('/login',function (){
     return view('client.login');
 });
@@ -91,4 +99,5 @@ Route::get('/list-product/search', 'ProductController@search')->name('search.act
 Route::get('/admin', function (){
     return view('admin.dashboard');
 });
+
 
