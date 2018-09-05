@@ -65,8 +65,7 @@
                             </div>
                             @if(count($list_obj)>0)
                                 <div class="product-title">PRODUCT LIST [{{count($list_obj)}}]</div>
-                            <div class="product_grid">
-                                <div class="wrap-item-mainmenu p-b-22 grid-item">
+                                <div class="wrap-item-mainmenu p-b-22" id="results">
                                     @foreach($list_obj as $obj)
                                         <div class="sort-item">
                                             <div class="blo3 flex-w flex-col-l-sm m-t-30 m-b-20">
@@ -109,7 +108,6 @@
                                         </div>
                                     @endforeach
                                 </div>
-                            </div>
                                 <div class="pagination">
                                     {!! $list_obj->links() !!}
                                 </div>
@@ -128,7 +126,7 @@
 
 <script src="{{asset('js/app.js')}}"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
-<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
+{{--<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>--}}
 <script>
     $(document).ready(function() {
         $('body').on('change', '.filter-btn select[name=sort-product]',function () {
