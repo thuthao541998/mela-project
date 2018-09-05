@@ -1,6 +1,6 @@
 @extends("layouts.index")
 @section('content')
-@section('page-topic','Shop Now')
+@section('page-topic','Article')
 <section class="bg1-pattern">
     <div class="container">
         <div class="row ">

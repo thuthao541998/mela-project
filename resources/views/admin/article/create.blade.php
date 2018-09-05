@@ -40,9 +40,9 @@
                                         @endforeach
                                     </div>
                                 </div>
-                                <div class="form-group ">
-                                    <label class="control-label col-lg-2">Content</label>
-                                    <div class="col-lg-9">
+                                <div class="form-group">
+                                    <div><label class="control-label col-lg-2">Content</label></div>
+                                    <div class="col-lg-12 ml-3 mt-4 w-full-md">
                                         <textarea class="form-control" rows="10" name="content" type="text" id="editor"></textarea>
                                         {{--Display autosave status--}}
                                         <div id="editor-status" class="help-block"></div>
@@ -76,6 +76,18 @@
             </section>
         </div>
     </div>
+    <style>
+        .footer {
+            margin-left: 0px;
+        }
+        .ck-editor__editable {
+            height: 300px;
+        }
+        .ck-editor.ck-rounded-corners {
+            width: 800px;
+            margin-left: 88px;
+        }
+    </style>
     <script src="{{asset('js/form.js')}}"></script>
     <script src="{{asset('js/ckeditor5/ckeditor.js')}}"></script>
     <script>
