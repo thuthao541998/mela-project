@@ -51,20 +51,27 @@
                                 </span>
                                 </div>
                             </div>
-                            <div class=" dropdown filter-btn form-inline">
-                                <div class="form-group mx-sm-4 mb-3">
-                                    <label for="chooseProduct">Sort by</label>
-                                    <select id="select-action" name="categoryId" class="form-control">
-                                        <option selected value="1">A - Z</option>
-                                        <option selected value="2">Z - A</option>
-                                        <option selected value="3">Price (low to high)</option>
-                                        <option selected value="4">Price (high to low)</option>
-                                    </select>
+                            <div class="sorting_bar d-flex flex-md-row flex-column align-items-md-center justify-content-md-start">
+                                <div class="sorting_container ml-md-auto">
+                                    <div class="sorting">
+                                        <ul class="item_sorting">
+                                            <li>
+                                                <span class="sorting_text">Sort by</span>
+                                                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                                                <ul>
+                                                    <li class="product_sorting_btn" data-isotope-option='{ "sortBy": "original-order" }'><span>Default</span></li>
+                                                    <li class="product_sorting_btn" data-isotope-option='{ "sortBy": "price" }'><span>Price</span></li>
+                                                    <li class="product_sorting_btn" data-isotope-option='{ "sortBy": "stars" }'><span>Name</span></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                             @if(count($list_obj)>0)
                                 <div class="product-title">PRODUCT LIST [{{count($list_obj)}}]</div>
-                                <div class="wrap-item-mainmenu p-b-22">
+                            <div class="product_grid">
+                                <div class="wrap-item-mainmenu p-b-22 grid-item">
                                     @foreach($list_obj as $obj)
                                         <div class="blo3 flex-w flex-col-l-sm m-t-30 m-b-20">
                                             <div class="pic-blo3 size20 bo-rad-10 hov-img-zoom m-r-28">
@@ -88,13 +95,13 @@
                                                 </span>
                                                 <span class="txt22 m-t-10">
                                                     @if($obj->isDiscount())
-                                                        <span class="font-weight-bold">{{$obj->discountPriceString}}
+                                                        <span class="font-weight-bold product_price">{{$obj->discountPriceString}}
                                                         </span>
                                                         <del class="text-muted">
                                                             <small>{{$obj->originalPriceString}}</small>
                                                         </del>
                                                     @else
-                                                        <span class="font-weight-bold">{{$obj->originalPriceString}}
+                                                        <span class="font-weight-bold product_price">{{$obj->originalPriceString}}
                                                         </span>
                                                     @endif
                                             </span>
@@ -105,6 +112,7 @@
                                         <div class="line-item-mainmenu bg3-pattern"></div>
                                     @endforeach
                                 </div>
+                            </div>
                                 <div class="pagination">
                                     {!! $list_obj->links() !!}
                                 </div>
@@ -123,4 +131,62 @@
 
 <script src="{{asset('js/app.js')}}"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
+<script>
+    $(document).ready(function()
+    {
+        initIsotope();
+        function initIsotope()
+        {
+            var sortingButtons = $('.product_sorting_btn');
+            var sortNums = $('.num_sorting_btn');
+
+            if($('.product_grid').length)
+            {
+                var grid = $('.product_grid').isotope({
+                    itemSelector: '.grid-item',
+                    layoutMode: 'fitRows',
+                    fitRows:
+                        {
+                            gutter: 30
+                        },
+                    getSortData:
+                        {
+                            price: function(itemElement)
+                            {
+                                var priceEle = $(itemElement).find('.product_price').text().replace( '', '(VND)' );
+                                return parseFloat(priceEle);
+                            },
+                            name: '.product_title',
+                            stars: function(itemElement)
+                            {
+                                var starsEle = $(itemElement).find('.rating');
+                                var stars = starsEle.attr("data-rating");
+                                return stars;
+                            }
+                        },
+                    animationOptions:
+                        {
+                            duration: 750,
+                            easing: 'linear',
+                            queue: false
+                        }
+                });
+
+                // Sort based on the value from the sorting_type dropdown
+                sortingButtons.each(function()
+                {
+                    $(this).on('click', function()
+                    {
+                        var parent = $(this).parent().parent().find('.sorting_text');
+                        parent.text($(this).text());
+                        var option = $(this).attr('data-isotope-option');
+                        option = JSON.parse( option );
+                        grid.isotope( option );
+                    });
+                });
+            }
+        }
+    });
+</script>
 @endsection
