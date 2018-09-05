@@ -42,7 +42,9 @@
                                 <div class="form-group ">
                                     <label class="control-label col-lg-2">Content</label>
                                     <div class="col-lg-9">
-                                        <textarea class="form-control" rows="10" name="content" type="text">{{$obj->content}}</textarea>
+                                        <textarea class="form-control" rows="10" name="content" type="text" id="editor">{{$obj->content}}</textarea>
+                                        {{--Display autosave status--}}
+                                        <div id="editor-status" class="help-block"></div>
                                         @foreach ($errors->get('content') as $error)
                                             <p class="text-danger help-block">{{$error}}</p>
                                         @endforeach
@@ -61,7 +63,7 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-lg-offset-3 col-lg-6">
-                                    <button class="btn btn-primary" type="submit">Save</button>
+                                    <button class="btn btn-primary" type="submit" id="btn-sumbit">Save</button>
                                     <button class="btn btn-default" type="reset">Reset</button>
                                 </div>
                             </div>
@@ -72,4 +74,23 @@
         </div>
     </div>
     <script src="{{asset('js/form.js')}}"></script>
+    <script src="{{asset('js/ckeditor5/ckeditor.js')}}"></script>
+    <script>
+        let editor;
+
+        ClassicEditor
+            .create( document.querySelector( '#editor' ))
+            .then( newEditor => {
+                editor = newEditor;
+            } )
+            .catch( err => {
+                console.error( err.stack );
+            } );
+
+        document.querySelector( '#btn-submit' ).addEventListener( 'click', () => {
+            const editorData = editor.getData();
+            document.querySelector('#editor').innerHTML(editorData);
+        } );
+
+    </script>
 @endsection
