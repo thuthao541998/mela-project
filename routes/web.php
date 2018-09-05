@@ -56,7 +56,7 @@ Route::get('/admin/order/update-status/{id}', 'OrderController@updateStatus');
 Route::get('/api-get-chart-data', 'OrderController@getChartDataApi');
 
 
-Auth::routes();
+
 
 Route::get('/redirect', 'SocialAuthFacebookController@redirect');
 
@@ -109,3 +109,7 @@ Route::group(['middleware' => ['checkLogin']],function (){
     Route::get("/admin/product/get-json/{id}", "ProductController@showJson");
     Route::put("/admin/product/update-json/{id}", "ProductController@quickUpdate");
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
