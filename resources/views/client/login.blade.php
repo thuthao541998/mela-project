@@ -20,12 +20,25 @@
                     <div class="panel-body" style="margin-top: 20px">
                         <div class="row">
                             <div class="col-lg-12">
-                                <form id="login-form" action="https://phpoll.com/login/process" method="post" role="form" style="display: block;">
+                                <form id="login-form"  method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }}" role="form" style="display: block;">
+                                    @csrf
                                     <div class="form-group">
-                                        <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+                                        <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+
+                                        @if ($errors->has('email'))
+                                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                        @endif
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+                                        <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+
+                                        @if ($errors->has('password'))
+                                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                        @endif
                                     </div>
                                     <div class="form-group text-center" style="margin-top: 20px">
                                         <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
@@ -50,7 +63,7 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <li class="t-center m-b-13">
-                                                <a href="#"><i class="fab fa-facebook-square fa-2x" aria-hidden="true"></i></a>
+                                                <a href="{{url('/redirect')}}"><i class="fab fa-facebook-square fa-2x" aria-hidden="true"></i></a>
                                                 &nbsp;
                                                 <a href="#"><i class="fab fa-google-plus-square fa-2x" aria-hidden="true"></i></a>
                                                 &nbsp;

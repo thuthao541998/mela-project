@@ -78,7 +78,7 @@
 
                             </li>
                             <li>
-                                <a href="#"><i class="fas fa-user-circle fa-2x" aria-hidden="true" ></i></a>
+                                <a href="{{route('client.login')}}"><i class="fas fa-user-circle fa-2x" aria-hidden="true" ></i></a>
 
 
                             </li>

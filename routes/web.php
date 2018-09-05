@@ -11,6 +11,7 @@
 |
 */
 
+
 //**************************Client Zone*********************************
 
 Route::get('/','CategoryController@indexClient');
@@ -44,11 +45,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/list-product/search', 'ProductController@search')->name('search.action');
 
 //*********************************Auth Zone*********************************
-Auth::routes();
+Route::post('/login',['as' => 'login', 'uses' => 'Auth\LoginController@login']);
+Route::post('/logout',['as' => 'logout', 'uses' => 'Auth\LoginController@logout']);
+//Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/client-login',function (){
+Route::get('/client-login',['as' => 'client.login',function (){
     return view('client.login');
-});
+}]);
 Route::get('/redirect', 'SocialAuthFacebookController@redirect');
 Route::get('/callback', 'SocialAuthFacebookController@callback');
 
