@@ -2,7 +2,10 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\AuthenticateSellUser;
+use App\Http\Middleware\ChangeHttpsEnv;
 use App\Http\Middleware\checkLogin;
+use App\Http\Middleware\RedirectIfSellUserAuthenticated;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -20,6 +23,7 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         \App\Http\Middleware\TrustProxies::class,
+        ChangeHttpsEnv::class,
     ];
 
     /**
@@ -36,6 +40,7 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            ChangeHttpsEnv::class,
         ],
 
         'api' => [
@@ -61,5 +66,7 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'checkLogin' => checkLogin::class,
+        'sellUserAuth' => AuthenticateSellUser::class,
+        'sellUserGuest' => RedirectIfSellUserAuthenticated::class,
     ];
 }

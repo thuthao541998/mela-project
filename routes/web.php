@@ -11,6 +11,7 @@
 |
 */
 
+
 //**************************Client Zone*********************************
 
 Route::get('/','CategoryController@indexClient');
@@ -44,20 +45,34 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/list-product/search', 'ProductController@search')->name('search.action');
 
 //*********************************Auth Zone*********************************
-Auth::routes();
+Route::post('/login',['as' => 'login', 'uses' => 'Auth\LoginController@login']);
+Route::post('/logout',['as' => 'logout', 'uses' => 'Auth\LoginController@logout']);
+Route::post('/register',['as' => 'register', 'uses' => 'Auth\RegisterController@register']);
+
+//Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/client-login',function (){
+Route::get('/client-login',['as' => 'client.login',function (){
     return view('client.login');
-});
+}]);
 Route::get('/redirect', 'SocialAuthFacebookController@redirect');
 Route::get('/callback', 'SocialAuthFacebookController@callback');
 
 // *********************************ROUTE ADMIN Zone*********************************
-Route::get('/admin-login', function (){
-    return view('admin.login');
+//Route::get('/admin-login', function (){
+//    return view('admin.login');
+//});
+//    Auth Admin
+Route::group(['middleware' => ['sellUserGuest']],function (){
+
+    Route::get('admin-register', 'AdminAuth\RegisterController@index');
+    Route::post('admin-register', 'AdminAuth\RegisterController@register');
+    Route::get('admin-login','AdminAuth\LoginController@index');
+    Route::post('admin-login','AdminAuth\LoginController@login');
+    Route::post('admin-logout','AdminAuth\LoginController@logout');
 });
 
-Route::group(['middleware' => ['checkLogin']],function (){
+
+Route::group(['middleware' => ['sellUserAuth']],function (){
 
     Route::get('/admin', 'ProductController@index');
 
@@ -91,3 +106,4 @@ Route::group(['middleware' => ['checkLogin']],function (){
 Route::get('admin/404',function (){
     return view('admin.404.404');
 });
+
