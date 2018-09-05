@@ -23,9 +23,9 @@ class RedirectIfSellUserAuthenticated
 
         //If request comes from logged in seller, he will
         //be redirected to seller's home page.
-        if (Auth::guard('web_sellUser')->check()) {
-            return redirect('/admin');
-        }
+//        if (Auth::guard('web_sellUser')->check()) {
+//            return redirect('/admin');
+//        }
         return $next($request);
     }
 }
