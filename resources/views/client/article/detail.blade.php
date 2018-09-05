@@ -27,9 +27,7 @@
                             </a>
                         </div>
 
-                        <div class="text-blo4 p-t-5 p-b-30 col-lg-6">
-                           <p>{{$obj->content}}</p>
-                        </div>
+                        <div class="text-blo4 p-t-5 p-b-30 col-lg-6">{!! $obj->content !!}</div>
                     </div>
                 </div>
             </div>
