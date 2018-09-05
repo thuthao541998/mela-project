@@ -59,7 +59,8 @@ Route::get('/api-get-chart-data', 'OrderController@getChartDataApi');
 Auth::routes();
 
 Route::get('/redirect', 'SocialAuthFacebookController@redirect');
-Route::get('/callback', 'SocialAuthFacebookController@callback');
+
+Route::get('/callback', ['as' => 'callbackLogin','uses' => 'SocialAuthFacebookController@callback']);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -72,13 +73,10 @@ Route::get('/admin-login', function (){
 });
 Route::get('/list-product/search', 'ProductController@search')->name('search.action');
 
-Route::get('/admin', function (){
-    return view('admin.dashboard');
-});
 
 
 
-Auth::routes();
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 
