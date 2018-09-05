@@ -77,11 +77,6 @@
                                 <a href="/about-us">About</a>
 
                             </li>
-                            <li>
-                                <a href="#"><i class="fas fa-user-circle fa-2x" aria-hidden="true" ></i></a>
-
-
-                            </li>
                         </ul>
                     </nav>
                 </div>
@@ -144,6 +139,9 @@
                                 </div>
                             </div>
                         </div>
+                    </span>
+                    <span class="p-l-30 btn-show-menu">
+                        <a href="#"><i class="fas fa-user-circle fa-2x" aria-hidden="true"></i></a>
                     </span>
                 </div>
             </div>
