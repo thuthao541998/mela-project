@@ -8,8 +8,6 @@
                     <div class="panel-heading">
                         List Order
                     </div>
-                    <div class="alert alert-success hidden mt-2 ml-2 mr-2" role="alert" id="messageSuccess"></div>
-                    <div class="alert alert-danger hidden mt-2 ml-2 mr-2" role="alert" id="messageError"></div>
                     <div>
                         <div class="filter-btn form-inline" action="/admin/order" method="GET">
                             <div class="form-group mx-sm-4 mb-3">
