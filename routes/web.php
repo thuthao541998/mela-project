@@ -11,81 +11,54 @@
 |
 */
 
+//**************************Client Zone*********************************
+
 Route::get('/','CategoryController@indexClient');
-
-Route::get('admin/404',function (){
-    return view('admin.404.404');
-});
-
-
-
 Route::get('/list-product',"ProductController@indexClient");
 Route::get('/product/{id}',"ProductController@show");
 Route::get('/brand/{id}',"BrandController@detailBrand");
-
 Route::get('/cart',function (){
     return view('client.cart.cart');
 });
-
 Route::get('/test',function (){
     return view('client.product.test');
 });
-
-
 Route::get('/about-us',function (){
     return view('client.aboutUs');
 });
-
 Route::get('/contact-us',function (){
     return view('client.contactUs');
 });
-
 Route::get('/list-article', "ArticleController@indexClient");
 Route::get('/article/{id}', 'ArticleController@showClient');
-
 Route::get('/add-to-cart', 'CartController@addToCart');
 Route::post('/api-add-to-cart', 'CartController@addToCartApi');
 Route::get('/cart', 'CartController@showCart');
 Route::get('/cart-remove/{id}', 'CartController@removeCart');
 Route::post('/check-out','CartController@checkoutCart');
 Route::put('/sua-gio-hang', 'CartController@updateCart');
-
 Route::get('/admin/order/update-status/{id}', 'OrderController@updateStatus');
-
 Route::get('/admin/list-order', 'OrderController@index');
-
-
 Route::get('/api-get-chart-data', 'OrderController@getChartDataApi');
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/list-product/search', 'ProductController@search')->name('search.action');
 
-
+//*********************************Auth Zone*********************************
 Auth::routes();
-
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/client-login',function (){
+    return view('client.login');
+});
 Route::get('/redirect', 'SocialAuthFacebookController@redirect');
 Route::get('/callback', 'SocialAuthFacebookController@callback');
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/login',function (){
-    return view('client.login');
-});
-
+// *********************************ROUTE ADMIN Zone*********************************
 Route::get('/admin-login', function (){
     return view('admin.login');
 });
-Route::get('/list-product/search', 'ProductController@search')->name('search.action');
-
-Route::get('/admin', function (){
-    return view('admin.dashboard');
-});
-
-
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => ['checkLogin']],function (){
-    // ROUTE ADMIN
+
     Route::get('/admin', 'ProductController@index');
 
     Route::resource('admin/product','ProductController');
@@ -112,4 +85,9 @@ Route::group(['middleware' => ['checkLogin']],function (){
 
     Route::get("/admin/product/get-json/{id}", "ProductController@showJson");
     Route::put("/admin/product/update-json/{id}", "ProductController@quickUpdate");
+});
+
+//*********************************Error Zone*********************************
+Route::get('admin/404',function (){
+    return view('admin.404.404');
 });
