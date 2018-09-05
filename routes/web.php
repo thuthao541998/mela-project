@@ -47,6 +47,8 @@ Route::get('/list-product/search', 'ProductController@search')->name('search.act
 //*********************************Auth Zone*********************************
 Route::post('/login',['as' => 'login', 'uses' => 'Auth\LoginController@login']);
 Route::post('/logout',['as' => 'logout', 'uses' => 'Auth\LoginController@logout']);
+Route::post('/register',['as' => 'register', 'uses' => 'Auth\RegisterController@register']);
+
 //Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/client-login',['as' => 'client.login',function (){

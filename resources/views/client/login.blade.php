@@ -72,18 +72,37 @@
                                         </div>
                                     </div>
                                 </form>
-                                <form id="register-form" action="https://phpoll.com/register/process" method="post" role="form" style="display: none;">
+                                <form id="register-form" method="POST" action="{{ route('register') }}" role="form" style="display: none;">
+                                    @csrf
                                     <div class="form-group">
-                                        <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+                                        <input placeholder="Username" id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
+
+                                        @if ($errors->has('name'))
+                                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                        @endif
                                     </div>
                                     <div class="form-group">
-                                        <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
+                                        <input placeholder="Email Address" id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
+
+                                        @if ($errors->has('email'))
+                                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                        @endif
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+                                        <input placeholder="Password" id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+
+                                        @if ($errors->has('password'))
+                                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                        @endif
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
+                                        <input placeholder="Confirm Password" id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                                     </div>
                                     <div class="form-group" style="margin-top: 50px">
                                         <div class="row">
