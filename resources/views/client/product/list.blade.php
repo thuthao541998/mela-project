@@ -126,7 +126,6 @@
 
 <script src="{{asset('js/app.js')}}"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
-{{--<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>--}}
 <script>
     $(document).ready(function() {
         $('body').on('change', '.filter-btn select[name=sort-product]',function () {
