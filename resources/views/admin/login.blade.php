@@ -16,18 +16,31 @@
                     <h2>Admin Login</h2>
                     <p>Please enter your email and password</p>
                 </div>
-                <form id="Login">
+                <form id="Login" method="POST" action="{{ url('/admin-login') }} ">
+                    {{ csrf_field() }}
+                    <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                        <input  placeholder="Email Address" id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
 
-                    <div class="form-group">
-
-
-                        <input type="email" class="form-control" id="inputEmail" placeholder="Email Address">
+                        <div>
+                            @if ($errors->has('email'))
+                                <span class="help-block">
+                                <strong>{{ $errors->first('email') }}</strong>
+                            </span>
+                            @endif
+                        </div>
 
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                        <input placeholder="Password" id="password" type="password" class="form-control" name="password" required>
 
-                        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                        <div>
+                            @if ($errors->has('password'))
+                                <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                            @endif
+                        </div>
 
                     </div>
                     <div class="forgot">

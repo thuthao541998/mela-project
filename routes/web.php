@@ -58,11 +58,21 @@ Route::get('/redirect', 'SocialAuthFacebookController@redirect');
 Route::get('/callback', 'SocialAuthFacebookController@callback');
 
 // *********************************ROUTE ADMIN Zone*********************************
-Route::get('/admin-login', function (){
-    return view('admin.login');
+//Route::get('/admin-login', function (){
+//    return view('admin.login');
+//});
+//    Auth Admin
+Route::group(['middleware' => ['sellUserGuest']],function (){
+
+    Route::get('admin-register', 'AdminAuth\RegisterController@index');
+    Route::post('admin-register', 'AdminAuth\RegisterController@register');
+    Route::get('admin-login','AdminAuth\LoginController@index');
+    Route::post('admin-login','AdminAuth\LoginController@login');
+    Route::post('admin-logout','AdminAuth\LoginController@logout');
 });
 
-Route::group(['middleware' => ['checkLogin']],function (){
+
+Route::group(['middleware' => ['sellUserAuth']],function (){
 
     Route::get('/admin', 'ProductController@index');
 

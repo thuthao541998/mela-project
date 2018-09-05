@@ -45,6 +45,11 @@ return [
             'driver' => 'token',
             'provider' => 'users',
         ],
+//        sellUser Driver
+        'web_sellUser' => [
+            'driver' => 'session',
+            'provider' => 'sellUsers',
+        ],
     ],
 
     /*
@@ -70,10 +75,10 @@ return [
             'model' => App\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+         'sellUsers' => [
+             'driver' => 'eloquent',
+             'model' => \App\SellUser::class,
+         ],
     ],
 
     /*
