@@ -51,21 +51,16 @@
                                 </span>
                                 </div>
                             </div>
-                            <div class="sorting_bar d-flex flex-md-row flex-column align-items-md-center justify-content-md-start">
-                                <div class="sorting_container ml-md-auto">
-                                    <div class="sorting">
-                                        <ul class="item_sorting">
-                                            <li>
-                                                <span class="sorting_text">Sort by</span>
-                                                <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                                                <ul>
-                                                    <li class="product_sorting_btn" data-isotope-option='{ "sortBy": "original-order" }'><span>Default</span></li>
-                                                    <li class="product_sorting_btn" data-isotope-option='{ "sortBy": "price" }'><span>Price</span></li>
-                                                    <li class="product_sorting_btn" data-isotope-option='{ "sortBy": "stars" }'><span>Name</span></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </div>
+                            <div class=" dropdown filter-btn form-inline">
+                                <div class="form-group mx-sm-4 mb-3">
+                                    <label for="sortProduct">Sort by</label>
+                                    <select id="select-action" name="sort-product" class="form-control">
+                                        <option selected value="0">All</option>
+                                        <option value="1">A - Z</option>
+                                        <option value="2">Z - A</option>
+                                        <option value="3">Price (low to high)</option>
+                                        <option value="4">Price (high to low)</option>
+                                    </select>
                                 </div>
                             </div>
                             @if(count($list_obj)>0)
@@ -73,43 +68,45 @@
                             <div class="product_grid">
                                 <div class="wrap-item-mainmenu p-b-22 grid-item">
                                     @foreach($list_obj as $obj)
-                                        <div class="blo3 flex-w flex-col-l-sm m-t-30 m-b-20">
-                                            <div class="pic-blo3 size20 bo-rad-10 hov-img-zoom m-r-28">
+                                        <div class="sort-item">
+                                            <div class="blo3 flex-w flex-col-l-sm m-t-30 m-b-20">
+                                                <div class="pic-blo3 size20 bo-rad-10 hov-img-zoom m-r-28">
 
-                                                <a href="/product/{{$obj->id}}"><img src="{{$obj->images}}" alt="IMG-MENU"
-                                                                 style="width: 180px; height: 180px"></a>
-                                            </div>
-                                            <div class="text-blo3 size21 flex-col-l-m">
-                                                <a href="/product/{{$obj->id}}" class="txt21 m-b-3">
-                                                    {{$obj->name}}
-                                                    @if($obj->isDiscount())
-                                                        <span style="background-color: red; color:white;"
-                                                              class="p-l-6 p-r-5">SALE {{$obj->discount}}%</span>
-                                                    @endif
-                                                    @if($obj->isNew())
-                                                        <span class="font-weight-bold" style="background-color: green; color:white;">NEW</span>
-                                                    @endif
-                                                </a>
-                                                <span class="txt23">
-                                                    {{$obj->overview}}
+                                                    <a href="/product/{{$obj->id}}"><img src="{{$obj->images}}" alt="IMG-MENU"
+                                                                     style="width: 180px; height: 180px"></a>
+                                                </div>
+                                                <div class="text-blo3 size21 flex-col-l-m">
+                                                    <a href="/product/{{$obj->id}}" class="txt21 m-b-3 product_name">
+                                                        {{$obj->name}}
+                                                        @if($obj->isDiscount())
+                                                            <span style="background-color: red; color:white;"
+                                                                  class="p-l-6 p-r-5">SALE {{$obj->discount}}%</span>
+                                                        @endif
+                                                        @if($obj->isNew())
+                                                            <span class="font-weight-bold" style="background-color: green; color:white;">NEW</span>
+                                                        @endif
+                                                    </a>
+                                                    <span class="txt23">
+                                                        {{$obj->overview}}
+                                                    </span>
+                                                    <span class="txt22 m-t-10">
+                                                        @if($obj->isDiscount())
+                                                            <span class="font-weight-bold product_price">{{$obj->discountPriceString}}
+                                                            </span>
+                                                            <del class="text-muted">
+                                                                <small>{{$obj->originalPriceString}}</small>
+                                                            </del>
+                                                        @else
+                                                            <span class="font-weight-bold product_price">{{$obj->originalPriceString}}
+                                                            </span>
+                                                        @endif
                                                 </span>
-                                                <span class="txt22 m-t-10">
-                                                    @if($obj->isDiscount())
-                                                        <span class="font-weight-bold product_price">{{$obj->discountPriceString}}
-                                                        </span>
-                                                        <del class="text-muted">
-                                                            <small>{{$obj->originalPriceString}}</small>
-                                                        </del>
-                                                    @else
-                                                        <span class="font-weight-bold product_price">{{$obj->originalPriceString}}
-                                                        </span>
-                                                    @endif
-                                            </span>
-                                                <button class="add-cart-large add-to-cart m-t-10"  id="add-cart-{{$obj->id}}"><i
-                                                            class="fas fa-cart-plus fa-2x"></i></button>
+                                                    <button class="add-cart-large add-to-cart m-t-10"  id="add-cart-{{$obj->id}}"><i
+                                                                class="fas fa-cart-plus fa-2x"></i></button>
+                                                </div>
                                             </div>
+                                            <div class="line-item-mainmenu bg3-pattern"></div>
                                         </div>
-                                        <div class="line-item-mainmenu bg3-pattern"></div>
                                     @endforeach
                                 </div>
                             </div>
@@ -133,60 +130,118 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
 <script>
-    $(document).ready(function()
-    {
-        initIsotope();
-        function initIsotope()
-        {
-            var sortingButtons = $('.product_sorting_btn');
-            var sortNums = $('.num_sorting_btn');
+    $(document).ready(function() {
+        $('body').on('change', '.filter-btn select[name=sort-product]',function () {
+            var sortVal = $('.filter-btn select[name=sort-product]').val();
 
-            if($('.product_grid').length)
-            {
-                var grid = $('.product_grid').isotope({
-                    itemSelector: '.grid-item',
-                    layoutMode: 'fitRows',
-                    fitRows:
-                        {
-                            gutter: 30
-                        },
-                    getSortData:
-                        {
-                            price: function(itemElement)
-                            {
-                                var priceEle = $(itemElement).find('.product_price').text().replace( '', '(VND)' );
-                                return parseFloat(priceEle);
-                            },
-                            name: '.product_title',
-                            stars: function(itemElement)
-                            {
-                                var starsEle = $(itemElement).find('.rating');
-                                var stars = starsEle.attr("data-rating");
-                                return stars;
+            switch (sortVal){
+                // Sort by A-Z
+                case '1':
+                    var list, i, switching, b, shouldSwitch;
+                    list = document.getElementsByClassName('product_name');
+
+                    switching = true;
+                    /* Make a loop that will continue until
+                    no switching has been done: */
+                    while (switching) {
+                        // Start by saying: no switching is done:
+                        switching = false;
+                        b = document.getElementsByClassName("sort-item");
+                        // Loop through all list items:
+                        for (i = 0; i < (list.length - 1); i++) {
+                            // Start by saying there should be no switching:
+                            shouldSwitch = false;
+                            /* Check if the next item should
+                            switch place with the current item: */
+                            if (list[i].innerHTML.toLowerCase() > list[i + 1].innerHTML.toLowerCase()) {
+                                /* If next item is alphabetically lower than current item,
+                                mark as a switch and break the loop: */
+                                shouldSwitch = true;
+                                break;
                             }
-                        },
-                    animationOptions:
-                        {
-                            duration: 750,
-                            easing: 'linear',
-                            queue: false
                         }
-                });
+                        if (shouldSwitch) {
+                            /* If a switch has been marked, make the switch
+                            and mark the switch as done: */
+                            b[i].parentNode.insertBefore(b[i + 1], b[i]);
+                            switching = true;
+                        }
+                    }
+                    break;
 
-                // Sort based on the value from the sorting_type dropdown
-                sortingButtons.each(function()
-                {
-                    $(this).on('click', function()
-                    {
-                        var parent = $(this).parent().parent().find('.sorting_text');
-                        parent.text($(this).text());
-                        var option = $(this).attr('data-isotope-option');
-                        option = JSON.parse( option );
-                        grid.isotope( option );
-                    });
-                });
+                // Sort by Z-A
+                case '2':
+                    var list, i, switching, b, shouldSwitch;
+                    list = document.getElementsByClassName('product_name');
+
+                    switching = true;
+                    while (switching) {
+                        switching = false;
+                        b = document.getElementsByClassName("sort-item");
+                        for (i = 0; i < (list.length - 1); i++) {
+                            shouldSwitch = false;
+                            if (list[i].innerHTML.toLowerCase() < list[i + 1].innerHTML.toLowerCase()) {
+                                shouldSwitch = true;
+                                break;
+                            }
+                        }
+                        if (shouldSwitch) {
+                            b[i].parentNode.insertBefore(b[i + 1], b[i]);
+                            switching = true;
+                        }
+                    }
+                    break;
+
+                // Sort by price (low to high)
+                case '3':
+                    var list, i, switching, b, shouldSwitch;
+                    list = document.getElementsByClassName('product_price');
+
+                    switching = true;
+                    while (switching) {
+                        switching = false;
+                        b = document.getElementsByClassName("sort-item");
+                        for (i = 0; i < (list.length - 1); i++) {
+                            shouldSwitch = false;
+                            if (list[i].innerHTML.toLowerCase() > list[i + 1].innerHTML.toLowerCase()) {
+                                shouldSwitch = true;
+                                break;
+                            }
+                        }
+                        if (shouldSwitch) {
+                            b[i].parentNode.insertBefore(b[i + 1], b[i]);
+                            switching = true;
+                        }
+                    }
+                    break;
+
+                // Sort by price (high to low)
+                case '4':
+                    var list, i, switching, b, shouldSwitch;
+                    list = document.getElementsByClassName('product_price');
+
+                    switching = true;
+                    while (switching) {
+                        switching = false;
+                        b = document.getElementsByClassName("sort-item");
+                        for (i = 0; i < (list.length - 1); i++) {
+                            shouldSwitch = false;
+                            if (list[i].innerHTML.toLowerCase() < list[i + 1].innerHTML.toLowerCase()) {
+                                shouldSwitch = true;
+                                break;
+                            }
+                        }
+                        if (shouldSwitch) {
+                            b[i].parentNode.insertBefore(b[i + 1], b[i]);
+                            switching = true;
+                        }
+                    }
+                    break;
+
+                default:
+                    break;
             }
-        }
+        });
     });
 </script>
 @endsection
