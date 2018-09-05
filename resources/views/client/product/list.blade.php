@@ -56,7 +56,7 @@
                             </div>
                             <div class=" dropdown filter-btn form-inline">
                                 <div class="form-group mx-sm-4 mb-3">
-                                    <label for="chooseCategory">Sort by</label>
+                                    <label for="chooseProduct">Sort by</label>
                                     <select id="select-action" name="categoryId" class="form-control">
                                         <option selected value="1">A - Z</option>
                                         <option selected value="2">Z - A</option>
