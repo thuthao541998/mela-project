@@ -336,6 +336,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <li><a href="/admin/article">List All Articles</a></li>
                             </ul>
                         </li>
+                        <li class="sub-menu">
+                            <a href="/admin-register">
+                                <i class="fas fa-registered"></i>
+                                <span>Admin Register</span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 <!-- sidebar menu end-->
