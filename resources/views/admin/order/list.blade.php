@@ -179,9 +179,10 @@
                             content += '<td class="column-3">' + list_obj[i].ship_address + '</td>';
                             content += '<td class="column-4">' + list_obj[i].ship_phone + '</td>';
                             content += '<td class="column-5">';
-                                    @foreach($item->details as $order_detail)
-                                        content += '<li>{{$order_detail->product->name}} - {{$order_detail->quantity}}</li>';
-                                    @endforeach
+                            {{--@foreach($item->details as $order_detail)--}}
+                            jQuery.each(list_obj[i].details, function(i, item) {
+                                content += '<li>' + item.product_id + ' - ' + item.quantity + '</li>';
+                            });
                             content += '</td>';
                             content += '<td class="column-6">' + list_obj[i].total_price + '</td>';
                             content += '<td class="column-7 font-weight-bold">' + list_obj[i].statusLabel + '</td>';
