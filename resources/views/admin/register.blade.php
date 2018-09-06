@@ -71,4 +71,9 @@
             </div>
         </div>
     </div>
+    <style>
+        .footer {
+            margin-left: 0px;
+        }
+    </style>
 @endsection
