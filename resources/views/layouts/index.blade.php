@@ -61,7 +61,7 @@
                                 <a href="/">Home</a>
                             </li>
 
-                            <li class="dropdown">
+                            <li>
                                 <a href="/list-product">Product</a>
                             </li>
 
@@ -76,9 +76,6 @@
                             <li>
                                 <a href="/about-us">About</a>
 
-                            </li>
-                            <li>
-                                <a href="login"><i class="fas fa-user-circle fa-2x" aria-hidden="true" ></i></a>
                             </li>
                         </ul>
                     </nav>
@@ -143,6 +140,27 @@
                             </div>
                         </div>
                     </span>
+                    @if(isset(Auth::user()->name)))
+                        <div class="dropdown" style="background-color: #bd3112;
+                                                        color: white;
+                                                        border-radius: 10px;
+                                                        margin-left: 30px;">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Hi {{Auth::user()->name}} <i class="fas fa-angle-down"></i>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <div class="m-l-20"><a onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"  style="color:black" class="dropdown-item" href="{{ url('/logout') }}" ><i class="fas fa-key"></i>  Log Out</a></div>
+                                <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+                            </div>
+                        </div>
+                    @else
+                    <span class="p-l-30 btn-show-menu">
+                        <a href="{{route('client.login')}}"><i class="fas fa-user-circle fa-2x" aria-hidden="true" ></i></a>
+                    </span>
+                    @endif
                 </div>
             </div>
         </div>
@@ -331,7 +349,7 @@
                     <!-- Block1 -->
                     <div class="blo1">
                         <div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom pos-relative">
-                            <a href="blog-detail.html"><img src="images/blog-01.jpg" alt="IMG-INTRO"></a>
+                            <a href="blog-detail.html"><img src="{{asset('images/blog-01.jpg')}}" alt="IMG-INTRO"></a>
 
                             <div class="time-blog">
                                 21 Dec 2017
@@ -359,7 +377,7 @@
                     <!-- Block1 -->
                     <div class="blo1">
                         <div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom pos-relative">
-                            <a href="blog-detail.html"><img src="images/blog-02.jpg" alt="IMG-INTRO"></a>
+                            <a href="blog-detail.html"><img src="{{asset('images/blog-02.jpg')}}" alt="IMG-INTRO"></a>
 
                             <div class="time-blog">
                                 15 Dec 2017
@@ -387,7 +405,7 @@
                     <!-- Block1 -->
                     <div class="blo1">
                         <div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom pos-relative">
-                            <a href="blog-detail.html"><img src="images/blog-03.jpg" alt="IMG-INTRO"></a>
+                            <a href="blog-detail.html"><img src="{{asset('images/blog-03.jpg')}}" alt="IMG-INTRO"></a>
 
                             <div class="time-blog">
                                 12 Dec 2017
