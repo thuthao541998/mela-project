@@ -19,16 +19,14 @@
                         </div>
                     </div>
 
-
                     <div class="blo4 p-b-63">
-                        <div class="pic-blo4 hov-img-zoom bo-rad-10 pos-relative col-lg-6">
+                        <div class="pic-blo4 hov-img-zoom bo-rad-10 pos-relative text-center">
                             <a href="#">
-                                <img src="{{$obj->images}}" alt="IMG-BLOG" class="img-thumbnail" style="width: 90%">
+                                <img src="{{$obj->images}}" alt="IMG-BLOG" class="img-thumbnail" style="width: 70%; height: 70%">
                             </a>
                         </div>
-
-                        <div class="text-blo4 p-t-5 p-b-30 col-lg-6">{!! $obj->content !!}</div>
                     </div>
+                    <div class="text-blo4 p-t-5 p-b-30 p-l-60 text-center text-justify">{!! $obj->content !!}</div>
                 </div>
             </div>
         </div>
