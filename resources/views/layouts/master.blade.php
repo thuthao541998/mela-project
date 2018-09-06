@@ -394,5 +394,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             }
         }
     </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <script src="{{asset('js/jquery.formatNumber-0.1.1.min.js')}}"></script>
 </body>
 </html>
