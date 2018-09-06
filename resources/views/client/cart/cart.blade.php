@@ -82,7 +82,7 @@
                         </div>
                         <div class="flex-w flex-sb-m p-t-25 p-b-25 p-l-35 p-r-60 p-lr-15-sm">
                              <div class="size10 trans-0-4 m-t-10 m-b-10">
-                             <!-- Button -->\
+                             <!-- Button -->
                                 <input name="save-changes" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4"
                                     value="Save changes"
                                     type="submit">

@@ -15,6 +15,7 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
 
+    'log'=>'errorlog',
     /*
     |--------------------------------------------------------------------------
     | Application Environment
@@ -146,6 +147,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Laravel\Socialite\SocialiteServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -159,6 +161,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Unisharp\Ckeditor\ServiceProvider::class,
         'JD\Cloudder\CloudderServiceProvider'
 
     ],
@@ -209,7 +212,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'Cloudder' => 'JD\Cloudder\Facades\Cloudder'
+        'Cloudder' => 'JD\Cloudder\Facades\Cloudder',
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
 
     ],
 

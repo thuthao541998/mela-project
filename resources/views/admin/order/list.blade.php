@@ -8,28 +8,44 @@
                     <div class="panel-heading">
                         List Order
                     </div>
-                    <div class=" dropdown filter-btn form-inline">
-                        <div class="form-group mx-sm-4 mb-3">
-                            <label for="chooseStatus">Status</label>
-                            <select id="select-action" name="categoryId" class="form-control">
-                                <option selected value="1">Canceled</option>
-                                <option selected value="2">Confirming</option>
-                                <option selected value="3">Confirmed</option>
-                                <option selected value="4">Finished</option>
-                                <option selected value="5">All</option>
-                            </select>
-                        </div>
-                        <div class="form-group mx-sm-4 mb-3">
-                            <label for="chooseTime">Time</label>
-                            <select id="select-action" name="categoryId" class="form-control">
-                                <option selected value="1">Today</option>
-                                <option selected value="2">Last Week</option>
-                                <option selected value="3">Last Month</option>
-                                <option selected value="4">Last 2 Months</option>
-                                <option selected value="5">All</option>
-                            </select>
+                    <div>
+                        <div class="filter-btn form-inline" action="/admin/order" method="GET">
+                            <div class="form-group mx-sm-4 mb-3">
+                                <label for="chooseStatus">Status</label>
+                                <select id="select-action" name="status" class="form-control">
+                                    <option selected value="3" {{3==$choosedStatus?'selected':''}}>All</option>
+                                    <option value="0" {{0==$choosedStatus?'selected':''}}>Confirming</option>
+                                    <option value="1" {{1==$choosedStatus?'selected':''}}>Confirmed</option>
+                                    <option value="2" {{2==$choosedStatus?'selected':''}}>Finished</option>
+                                    <option value="-1" {{-1==$choosedStatus?'selected':''}}>Cancelled</option>
+                                </select>
+                            </div>
+                            <div class="form-group mx-sm-4 mb-3">
+                                <label for="chooseTime">Time</label>
+                                <select id="select-action" name="categoryId" class="form-control">
+                                    <option selected value="1">Today</option>
+                                    <option selected value="2">Last Week</option>
+                                    <option selected value="3">Last Month</option>
+                                    <option selected value="4">Last 2 Months</option>
+                                    <option selected value="5">All</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
+                    {{--<div>--}}
+                        {{--<div class="filter-btn form-inline" action="/admin/order" method="GET">--}}
+                            {{--<div class="form-group mx-sm-4 mb-3">--}}
+                                {{--<label for="chooseStatus">Status</label>--}}
+                                {{--<select id="select-action" name="status" class="form-control">--}}
+                                    {{--<option selected value="3" {{3==$choosedStatus?'selected':''}}>All</option>--}}
+                                    {{--<option value="0" {{0==$choosedStatus?'selected':''}}>Confirming</option>--}}
+                                    {{--<option value="1" {{1==$choosedStatus?'selected':''}}>Confirmed</option>--}}
+                                    {{--<option value="2" {{2==$choosedStatus?'selected':''}}>Finished</option>--}}
+                                    {{--<option value="-1" {{-1==$choosedStatus?'selected':''}}>Cancelled</option>--}}
+                                {{--</select>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
                     <div>
                         @if($orders->count()>0)
                         <table class="table">
@@ -84,8 +100,22 @@
                             @endforeach
                             </tbody>
                         </table>
+                            <div class="row">
+                                <div class="col-md-8 form-inline">
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input col-lg-2" type="checkbox" value="" id="check-all">
+                                        <select id="select-action" class="form-control">
+                                            <option selected value="0">Action</option>
+                                            <option value="1">Confirm All</option>
+                                            <option value="2">Finish Action</option>
+                                            <option value="1">Cancel All</option>
+                                        </select>
+                                        <button type="submit" class="btn btn-primary ml-2" id="btn-apply-brand">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
                         @else
-                            <div class="alert alert-info">Havent't order in here.
+                            <div class="alert alert-info">Have no order in this fields.
                             </div>
                         @endif
                         <div class="pagination pull-right">
@@ -95,4 +125,17 @@
                 </div>
         </section>
     </section>
+
+    <script>
+        $('.filter-btn select[name=status]').change(function () {
+            // alert($(this).val());
+            window.location.href = $('.filter-btn').attr('action') + '?status=' + $(this).val();
+            // if (status == 'NaN') {
+            //     window.location.href = $('.filter-btn').attr('action');
+            //     return false;
+            // } else {
+            //     window.location.href = $('.filter-btn').attr('action') + '?status=' + status;
+            // };
+        });
+    </script>
 @endsection

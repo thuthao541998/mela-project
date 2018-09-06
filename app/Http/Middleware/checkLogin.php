@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Illuminate\Support\Facades\Auth;
 use Closure;
 
-class RedirectIfNotAuthenticateAdmin
+class checkLogin
 {
     /**
      * Handle an incoming request.
@@ -16,13 +16,9 @@ class RedirectIfNotAuthenticateAdmin
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if (Auth::guard($guard)->guest()) {
-            if ($request->ajax( ) || $request->wantsJson()) {
-                return response('Unauthorized.', 401);
-            } else {
-                return redirect()->guest('auth/login');
-            }
-        }
+//        if (Auth::guard($guard)->check() == false) {
+//            return redirect() -> route('login');
+//        }
 
         return $next($request);
     }
