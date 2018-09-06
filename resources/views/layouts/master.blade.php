@@ -241,14 +241,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <!-- user login dropdown start-->
                     <!-- Xử lí login admin ở đây -->
                     <div class="dropdown">
-                        <button onclick="myFunction()" class="dropbtn">{{Auth::user() -> name}} <i class="fas fa-angle-down"></i></button>
+
+                        <button onclick="myFunction()" class="dropbtn">{{Auth::guard('web_sellUser') -> user() -> name}} <i class="fas fa-angle-down"></i></button>
                         <div id="myDropdown" class="dropdown-content">
-                            <a href="{{route('logout')}}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();"><i class="fas fa-key"></i> Log Out</a>
+                            <a href="{{ url('/admin-logout') }}"
+                               onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                Logout
+                            </a>
+
+                            <form id="logout-form" action="{{ url('/admin-logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
                         </div>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
                     </div>
                     <!-- user login dropdown end -->
 

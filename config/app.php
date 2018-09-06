@@ -15,6 +15,7 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
 
+    'log'=>'errorlog',
     /*
     |--------------------------------------------------------------------------
     | Application Environment
@@ -160,6 +161,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Unisharp\Ckeditor\ServiceProvider::class,
         'JD\Cloudder\CloudderServiceProvider'
 
     ],

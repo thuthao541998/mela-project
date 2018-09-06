@@ -77,6 +77,14 @@
                                 <a href="/about-us">About</a>
 
                             </li>
+<<<<<<< HEAD
+=======
+                            <li>
+                                <a href="{{route('client.login')}}"><i class="fas fa-user-circle fa-2x" aria-hidden="true" ></i></a>
+
+
+                            </li>
+>>>>>>> develope
                         </ul>
                     </nav>
                 </div>
