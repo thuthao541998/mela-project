@@ -175,6 +175,7 @@ class OrderController extends Controller
 
     public function updateStatusMany(Request $request)
     {
-        DB::table('orders')->whereIn('id', Input::get('ids'))->update(['status' => $request->get('status')]);
+        DB::table('orders')->where('id', Input::get('ids'))->update(['status' => $request->get('status')]);
+        return redirect()->back();
     }
 }

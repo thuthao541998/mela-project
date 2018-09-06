@@ -64,7 +64,7 @@
                                         @endforeach
                                     </td>
                                     <td class="column-6">{{$item->total_price}}</td>
-                                    <td class="column-7 font-weight-bold">{{$item->statusLabel}}</td>
+                                    <td class="column-7 font-weight-bold status-label">{{$item->statusLabel}}</td>
                                     <td class="column-8 text-center">
                                         @if($item->status==0)
                                             <a href="/admin/order/update-status/{{$item->id}}?status=1" onclick="return confirm('Are sure to confirm this order?')"
@@ -122,7 +122,7 @@
             $('.check-item').prop('checked', $(this).is(':checked'));
         });
 
-        $('#btn-apply-action').click(function () {
+        $('body').on('click', '#btn-apply-action', function () {
             var value = ($('select[name="select-action"]').val());
             var arrayId = [];
             $('.check-item:checked').each(function(index, item) {
@@ -145,6 +145,23 @@
                         dangerMode: true,
                     })
                         .then((willCancel) => {if (willCancel) {
+                            var arrayStatus = [];
+                            for (var k = 0; k < arrayId.length; k++) {
+                                var status = $('#row-item-' + arrayId[k]).children().next().next().next().next().next().next().next().text().trim();
+                                arrayStatus.push(status);
+                            }
+                            for (var j = 0; j < arrayStatus.length; j++){
+                                console.log(arrayStatus[j]);
+                                if (arrayStatus[j] == 'Confirmed' || arrayStatus[j] == 'DONE') {
+                                    delete arrayId[j];
+                                    swal({
+                                        title: "Can't cancel confirmed or finished orders!",
+                                        text: "Please only choose orders that can be canceled",
+                                        icon: "warning",
+                                    });
+                                }
+                            }
+                            arrayId = jQuery.grep(arrayId, function(n){ return (n); });
                             $.ajax({
                                 method: 'POST',
                                 url: '/admin/order/update-status-many',
@@ -157,11 +174,12 @@
                                     for (var i = 0; i < arrayId.length; i++) {
                                         $('#row-item-' + arrayId[i]).remove();
                                     }
-                                    if($('.check-item').length == 0){
-                                        setTimeout(function(){
-                                            window.location.reload(1);
-                                        }, 2*500);
-                                    }
+                                    // if($('.check-item').length == 0){
+                                        // setTimeout(function(){
+                                        //     window.location.reload(1);
+                                        // }, 2*500);
+                                    // }
+                                    window.setTimeout(function(){window.location.reload()}, 1000);
                                 },
                                 error: function (r) {
                                     console.log(r);
@@ -172,6 +190,7 @@
                             });
                         }});
                     break;
+
                 case '1':
                     swal({
                         title: "Are you sure?",
@@ -193,11 +212,7 @@
                                     for (var i = 0; i < arrayId.length; i++) {
                                         $('#row-item-' + arrayId[i]).remove();
                                     }
-                                    if($('.check-item').length == 0){
-                                        setTimeout(function(){
-                                            window.location.reload(1);
-                                        }, 2*500);
-                                    }
+                                    window.setTimeout(function(){window.location.reload()}, 1000);
                                 },
                                 error: function (r) {
                                     console.log(r);
@@ -208,6 +223,7 @@
                             });
                         }});
                     break;
+
                 case '2':
                     swal({
                         title: "Are you sure?",
@@ -216,7 +232,24 @@
                         buttons: true,
                         dangerMode: true,
                     })
-                        .then((willCancel) => {if (willCancel) {
+                        .then((willFinish) => {if (willFinish) {
+                            var arrayStatus = [];
+                            for (var k = 0; k < arrayId.length; k++) {
+                                var status = $('#row-item-' + arrayId[k]).children().next().next().next().next().next().next().next().text().trim();
+                                arrayStatus.push(status);
+                            }
+                            for (var j = 0; j < arrayStatus.length; j++){
+                                console.log(arrayStatus[j]);
+                                if (arrayStatus[j] == 'Confirmed' || arrayStatus[j] == 'DONE') {
+                                    delete arrayId[j];
+                                    swal({
+                                        title: "Can't finish confirmed or canceld orders!",
+                                        text: "Please only choose orders that can be finished",
+                                        icon: "warning",
+                                    });
+                                }
+                            }
+                            arrayId = jQuery.grep(arrayId, function(n){ return (n); });
                             $.ajax({
                                 method: 'POST',
                                 url: '/admin/order/update-status-many',
@@ -229,11 +262,7 @@
                                     for (var i = 0; i < arrayId.length; i++) {
                                         $('#row-item-' + arrayId[i]).remove();
                                     }
-                                    if($('.check-item').length == 0){
-                                        setTimeout(function(){
-                                            window.location.reload(1);
-                                        }, 2*500);
-                                    }
+                                    window.setTimeout(function(){window.location.reload()}, 1000);
                                 },
                                 error: function (r) {
                                     console.log(r);
