@@ -56,12 +56,13 @@
                             </div>
                             <div class=" dropdown filter-btn form-inline">
                                 <div class="form-group mx-sm-4 mb-3">
-                                    <label for="chooseProduct">Sort by</label>
-                                    <select id="select-action" name="categoryId" class="form-control">
-                                        <option selected value="1">A - Z</option>
-                                        <option selected value="2">Z - A</option>
-                                        <option selected value="3">Price (low to high)</option>
-                                        <option selected value="4">Price (high to low)</option>
+                                    <label for="sortProduct">Sort by</label>
+                                    <select id="select-action" name="sort-product" class="form-control">
+                                        <option selected value="0">All</option>
+                                        <option value="1">A - Z</option>
+                                        <option value="2">Z - A</option>
+                                        <option value="3">Price (low to high)</option>
+                                        <option value="4">Price (high to low)</option>
                                     </select>
                                 </div>
                             </div>
@@ -69,15 +70,16 @@
                                 <div class="product-title">PRODUCT LIST [{{count($list_obj)}}]</div>
                                 <div class="wrap-item-mainmenu p-b-22" id="results">
                                     @foreach($list_obj as $obj)
-                                        <div class="blo3 flex-w flex-col-l-sm m-t-30 m-b-20">
-                                            <div class="pic-blo3 size20 bo-rad-10 hov-img-zoom m-r-28">
+                                        <div class="sort-item">
+                                            <div class="blo3 flex-w flex-col-l-sm m-t-30 m-b-20">
+                                                <div class="pic-blo3 size20 bo-rad-10 hov-img-zoom m-r-28">
 
                                                 <a href="/product/{{$obj->id}}"><img src="{{$obj->images}}"
                                                                                      alt="IMG-MENU"
                                                                                      style="width: 180px; height: 180px"></a>
                                             </div>
                                             <div class="text-blo3 size21 flex-col-l-m">
-                                                <a href="/product/{{$obj->id}}" class="txt21 m-b-3">
+                                                <a href="/product/{{$obj->id}}" class="txt21 m-b-3 product_name">
                                                     {{$obj->name}}
                                                     @if($obj->isDiscount())
                                                         <span style="background-color: red; color:white;"
@@ -93,7 +95,7 @@
                                                 </span>
                                                 <span class="txt22 m-t-10">
                                                     @if($obj->isDiscount())
-                                                        <span class="font-weight-bold">{{$obj->discountPriceString}}
+                                                        <span class="font-weight-bold product_price">{{$obj->discountPriceString}}
                                                         </span>
                                                         <del class="text-muted">
                                                             <small>{{$obj->originalPriceString}}</small>
@@ -107,8 +109,8 @@
                                                         id="add-cart-{{$obj->id}}"><i
                                                             class="fas fa-cart-plus fa-2x"></i></button>
                                             </div>
+                                            <div class="line-item-mainmenu bg3-pattern"></div>
                                         </div>
-                                        <div class="line-item-mainmenu bg3-pattern"></div>
                                     @endforeach
                                 </div>
                                 <div class="pagination">
@@ -128,6 +130,122 @@
 </div>
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('body').on('change', '.filter-btn select[name=sort-product]',function () {
+            var sortVal = $('.filter-btn select[name=sort-product]').val();
+
+            switch (sortVal){
+                // Sort by A-Z
+                case '1':
+                    var list, i, switching, b, shouldSwitch;
+                    list = document.getElementsByClassName('product_name');
+
+                    switching = true;
+                    /* Make a loop that will continue until
+                    no switching has been done: */
+                    while (switching) {
+                        // Start by saying: no switching is done:
+                        switching = false;
+                        b = document.getElementsByClassName("sort-item");
+                        // Loop through all list items:
+                        for (i = 0; i < (list.length - 1); i++) {
+                            // Start by saying there should be no switching:
+                            shouldSwitch = false;
+                            /* Check if the next item should
+                            switch place with the current item: */
+                            if (list[i].innerHTML.toLowerCase() > list[i + 1].innerHTML.toLowerCase()) {
+                                /* If next item is alphabetically lower than current item,
+                                mark as a switch and break the loop: */
+                                shouldSwitch = true;
+                                break;
+                            }
+                        }
+                        if (shouldSwitch) {
+                            /* If a switch has been marked, make the switch
+                            and mark the switch as done: */
+                            b[i].parentNode.insertBefore(b[i + 1], b[i]);
+                            switching = true;
+                        }
+                    }
+                    break;
+
+                // Sort by Z-A
+                case '2':
+                    var list, i, switching, b, shouldSwitch;
+                    list = document.getElementsByClassName('product_name');
+
+                    switching = true;
+                    while (switching) {
+                        switching = false;
+                        b = document.getElementsByClassName("sort-item");
+                        for (i = 0; i < (list.length - 1); i++) {
+                            shouldSwitch = false;
+                            if (list[i].innerHTML.toLowerCase() < list[i + 1].innerHTML.toLowerCase()) {
+                                shouldSwitch = true;
+                                break;
+                            }
+                        }
+                        if (shouldSwitch) {
+                            b[i].parentNode.insertBefore(b[i + 1], b[i]);
+                            switching = true;
+                        }
+                    }
+                    break;
+
+                // Sort by price (low to high)
+                case '3':
+                    var list, i, switching, b, shouldSwitch;
+                    list = document.getElementsByClassName('product_price');
+
+                    switching = true;
+                    while (switching) {
+                        switching = false;
+                        b = document.getElementsByClassName("sort-item");
+                        for (i = 0; i < (list.length - 1); i++) {
+                            shouldSwitch = false;
+                            if (list[i].innerHTML.toLowerCase() > list[i + 1].innerHTML.toLowerCase()) {
+                                shouldSwitch = true;
+                                break;
+                            }
+                        }
+                        if (shouldSwitch) {
+                            b[i].parentNode.insertBefore(b[i + 1], b[i]);
+                            switching = true;
+                        }
+                    }
+                    break;
+
+                // Sort by price (high to low)
+                case '4':
+                    var list, i, switching, b, shouldSwitch;
+                    list = document.getElementsByClassName('product_price');
+
+                    switching = true;
+                    while (switching) {
+                        switching = false;
+                        b = document.getElementsByClassName("sort-item");
+                        for (i = 0; i < (list.length - 1); i++) {
+                            shouldSwitch = false;
+                            if (list[i].innerHTML.toLowerCase() < list[i + 1].innerHTML.toLowerCase()) {
+                                shouldSwitch = true;
+                                break;
+                            }
+                        }
+                        if (shouldSwitch) {
+                            b[i].parentNode.insertBefore(b[i + 1], b[i]);
+                            switching = true;
+                        }
+                    }
+                    break;
+
+                default:
+                    break;
+            }
+        });
+    });
+</script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.3/pagination.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.3/pagination.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
