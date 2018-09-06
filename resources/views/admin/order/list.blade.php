@@ -184,7 +184,7 @@
                                     @endforeach
                             content += '</td>';
                             content += '<td class="column-6">' + list_obj[i].total_price + '</td>';
-                            content += '<td class="column-7 font-weight-bold">' + list_obj[i].status + '</td>';
+                            content += '<td class="column-7 font-weight-bold">' + list_obj[i].statusLabel + '</td>';
                             content += '<td class="column-8 text-center">';
 
                             if (list_obj[i].status == 0) {
