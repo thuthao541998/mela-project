@@ -41,6 +41,7 @@ Route::put('/sua-gio-hang', 'CartController@updateCart');
 Route::get('/admin/order/update-status/{id}', 'OrderController@updateStatus');
 Route::get('/admin/list-order', 'OrderController@index');
 Route::get('/api-get-chart-data', 'OrderController@getChartDataApi');
+Route::get('/api-get-data-to-time', 'OrderController@getDataToTimeApi');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/list-product/search', 'ProductController@search')->name('search.action');
 

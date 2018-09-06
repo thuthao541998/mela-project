@@ -172,4 +172,15 @@ class OrderController extends Controller
         $obj->save();
         return redirect()->back();
     }
+
+    public function getDataToTimeApi()
+    {
+        $start_date = Input::get('startDate');
+        $end_date = Input::get('endDate');
+        $chart_data = Order::select()
+            ->whereBetween('created_at', array($start_date .' 00:00:00', $end_date . ' 23:59:59'))
+            ->get();
+//        $chart_data->statusLabel = getStatus;
+        return response()->json(['list_obj' => $chart_data], 200);
+    }
 }
