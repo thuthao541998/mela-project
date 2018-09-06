@@ -19,11 +19,11 @@
                         </div>
                     </div>
 
-                    <div class="blo4 p-b-63">
-                        <div class="pic-blo4 hov-img-zoom bo-rad-10 pos-relative text-center">
-                            <a href="#">
-                                <img src="{{$obj->images}}" alt="IMG-BLOG" class="img-thumbnail" style="width: 70%; height: 70%">
-                            </a>
+                    <div class="blo4 p-b-63 m-l-60 m-b-60" style="background-image: url('{{$obj->images}}'); background-size: cover ; height: 250px; border: solid 5px white;">
+                        <div class="pic-blo4 hov-img-zoom bo-rad-10 pos-relative text-center" >
+                            {{--<a href="#">--}}
+                                {{--<img src="{{}}" alt="IMG-BLOG" class="img-thumbnail" style="width: 70%; height: 70%">--}}
+                            {{--</a>--}}
                         </div>
                     </div>
                     <div class="text-blo4 p-t-5 p-b-30 p-l-60 text-center text-justify">{!! $obj->content !!}</div>
