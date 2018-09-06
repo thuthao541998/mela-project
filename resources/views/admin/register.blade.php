@@ -1,12 +1,7 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+@extends('layouts.master')
+@section('page-title', 'Create Product - Admin Page')
+@section('content')
     <link rel="stylesheet" href="{{asset('css/admin-login.css')}}">
-    <title>Admin - Login</title>
-</head>
-<body>
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
@@ -65,12 +60,9 @@
                                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                                 </div>
                             </div>
-
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">
-                                    <button type="submit" class="btn btn-success">
-                                        Register
-                                    </button>
+                                    <button type="submit" class="btn btn-primary form-control">Register</button>
                                 </div>
                             </div>
                         </form>
@@ -79,6 +71,4 @@
             </div>
         </div>
     </div>
-</body>
-
-</html>
+@endsection
