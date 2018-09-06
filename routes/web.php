@@ -75,7 +75,9 @@ Route::group(['middleware' => ['sellUserGuest']],function (){
 
 Route::group(['middleware' => ['sellUserAuth']],function (){
 
-    Route::get('/admin', 'ProductController@index');
+    Route::get('/admin', function (){
+        return view('admin.dashboard');
+    });
 
     Route::resource('admin/product','ProductController');
 
