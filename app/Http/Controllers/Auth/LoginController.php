@@ -45,7 +45,7 @@ class LoginController extends Controller
     {
 
         $this->performLogout($request);
-        return redirect()->route('login');
+        return redirect('/');
     }
 
 }

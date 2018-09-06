@@ -140,7 +140,7 @@
                             </div>
                         </div>
                     </span>
-                    @if(isset(Auth::user()->name))
+                    @if(isset(Auth::user()->name)))
                         <div class="dropdown" style="background-color: #bd3112;
                                                         color: white;
                                                         border-radius: 10px;
@@ -149,7 +149,11 @@
                               Hi {{Auth::user()->name}} <i class="fas fa-angle-down"></i>
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <div class="m-l-20"><a  style="color:black" class="dropdown-item" href="{{ url('/logout') }}"><i class="fas fa-key"></i>  Log Out</a></div>
+                                <div class="m-l-20"><a onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"  style="color:black" class="dropdown-item" href="{{ url('/logout') }}" ><i class="fas fa-key"></i>  Log Out</a></div>
+                                <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
                             </div>
                         </div>
                     @else
