@@ -9,15 +9,15 @@
                 <div class="panel-heading">
                     DASH BOARD
                 </div>
-                <div class="float-right m-t-20">
+                <div class="float-right mt-3">
                     <div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; width: 100%">
                         <i class="fa fa-calendar"></i>&nbsp;
                         <span></span> <i class="fa fa-caret-down"></i>
                     </div>
 
                 </div>
-                <div>
-                    Total Revenue : <span class="total-revenue"></span>
+                <div class="font-weight-bold ml-4 mt-3 text-uppercase">
+                    Total Revenue : <span class="total-revenue"></span> (VND)
                 </div>
                 <div id="linechart_material" style="margin: 30px;"></div>
                 @if (Session::has('message'))
@@ -107,12 +107,17 @@
                     url: '/api-get-chart-data?startDate=' + startDate + '&endDate=' + endDate,
                     method: 'GET',
                     success: function (resp) {
-                        console.log(resp);
                         if(resp.length ==0){
                             swal('No data exists', 'Please choose another time range.', 'warning');
                             return;
                         };
                         drawChart(resp);
+                        var totalRevenue = 0;
+                        for(var i=0; i<resp.length ; i++){
+                            totalRevenue += parseInt(resp[i].revenue);
+                        };
+                        $('.total-revenue').text(totalRevenue);
+                        $('.total-revenue').formatNumber();
                     },
                     error: function () {
                         swal('Action failed', 'Cannot retrieve data from API', 'error');
