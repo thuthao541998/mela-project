@@ -181,7 +181,9 @@
                             content += '<td class="column-5">';
                             {{--@foreach($item->details as $order_detail)--}}
                             jQuery.each(list_obj[i].details, function(i, item) {
-                                content += '<li>' + item.product_id + ' - ' + item.quantity + '</li>';
+                                if (item.product_id != undefined){
+                                    content += '<li>' + item.product_id + ' - ' + item.quantity + '</li>';
+                                }
                             });
                             content += '</td>';
                             content += '<td class="column-6">' + list_obj[i].total_price + '</td>';

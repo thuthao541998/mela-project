@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Order;
+use App\OrderDetail;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -183,6 +184,11 @@ class OrderController extends Controller
         foreach ($chart_data as $data) {
             $data->statusLabel = $data->getStatusLabelAttribute();
             $data->details[] = $data->details();
+//            $data->details[]->product_name = $data->details()->product();
+//            foreach ($data->details as $detail){
+//                $detail = new OrderDetail();
+//                $detail->product_name = $detail->product();
+//            }
         }
         return response()->json(['list_obj' => $chart_data], 200);
     }
