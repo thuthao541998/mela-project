@@ -27,9 +27,10 @@ Route::get('/test',function (){
 Route::get('/about-us',function (){
     return view('client.aboutUs');
 });
-Route::get('/contact-us',function (){
-    return view('client.contactUs');
-});
+//Contact
+Route::get('/contact-us','ContactController@index');
+Route::post('/contact-us','ContactController@save');
+//
 Route::get('/list-article', "ArticleController@indexClient");
 Route::get('/article/{id}', 'ArticleController@showClient');
 Route::get('/add-to-cart', 'CartController@addToCart');

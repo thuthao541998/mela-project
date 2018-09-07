@@ -1,6 +1,6 @@
 $(document).ready(function (e) {
     $('.send').click(function (e) {
-        var name = $('.name').val();
+        var name = $('#name').val();
         var address = $('.address').val();
         var phone = $('.phone').val();
         var email = $('.email').val();
