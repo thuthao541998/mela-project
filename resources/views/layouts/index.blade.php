@@ -174,9 +174,9 @@
 
     <ul class="menu-sidebar p-t-95 p-b-70">
         <li class="t-center m-b-13">
-            <a href="#"><i class="fab fa-facebook-square fa-2x" aria-hidden="true"></i></a>
+            <a href="{!! route('changeLanguage',['en']) !!}"><i class="fab fa-facebook-square fa-2x" aria-hidden="true"></i></a>
             &nbsp;
-            <a href="#"><i class="fab fa-snapchat-square fa-2x" aria-hidden="true"></i></a>
+            <a href="{!! route('changeLanguage',['vi']) !!}"><i class="fab fa-snapchat-square fa-2x" aria-hidden="true"></i></a>
             &nbsp;
             <a href="#"><i class="fab fa-line fa-2x" aria-hidden="true"></i></a>
         </li>

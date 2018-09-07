@@ -16,4 +16,17 @@ return [
     'failed' => 'These credentials do not match our records.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 
+//    Frontend translate
+    'login' => 'login',
+    'register' => 'register',
+    'remember_me' => 'Remember me',
+    'forgot_password' => 'Forgot Password',
+    'password' => 'PassWord',
+    'email' => 'email',
+    'latest_news' => 'Latest News',
+    'the_blog' => 'THE BLOG',
+    'full_name' => 'Full Name',
+    'register_now' => 'Register Now',
+    'confirm_password' => 'Confirm PassWord',
+
 ];

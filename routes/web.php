@@ -112,6 +112,11 @@ Route::group(['middleware' => ['sellUserAuth']],function (){
     Route::get("/admin/product/get-json/{id}", "ProductController@showJson");
     Route::put("/admin/product/update-json/{id}", "ProductController@quickUpdate");
 });
+//*************************   i18n  Zone *************************************
+Route::group(['middleware' => 'locale'], function() {
+Route::get('/change-language/{language}',['as' => 'changeLanguage','uses' => 'HomeController@changeLanguage']);
+});
+
 
 //*********************************Error Zone*********************************
 Route::get('admin/404',function (){
