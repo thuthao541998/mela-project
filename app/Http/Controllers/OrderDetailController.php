@@ -130,7 +130,7 @@ class OrderDetailController extends Controller
     {
         $start_date = Input::get('startDate');
         $end_date = Input::get('endDate');
-        $chart_data = OrderDetail::selectRaw('sum(quantity) as totalQuantity, product_id as product_id')
+        $chart_data = OrderDetail::select(DB::raw('sum(quantity) as totalQuantity'), DB::raw('product_id as product_id'))
             ->whereRaw('created_at >= "'.$start_date.' 00:00:00" AND created_at <= "'.$end_date . ' 23:59:59"')
             ->groupBy('product_id')
             ->get();

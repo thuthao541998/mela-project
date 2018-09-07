@@ -143,15 +143,13 @@
         });
 
         function drawPieChart(chart_data) {
-            console.log(chart_data[0].product.name);
+            console.log(chart_data[0].totalQuantity);
             var data = new google.visualization.DataTable();
             data.addColumn('string','Product Name');
             data.addColumn('number','Quantity');
-            // for(var i = 0;i < chart_data.length;i++){
-            //     data.addRow([new Varchar(chart_data[i].product.name),Number(chart_data[i].quantity)]);
-            // };
-            data.addRow([chart_data[0].product.name, parseInt(chart_data[0].quantity)]);
-            data.addRow(['Son 2',10]);
+            for(var i = 0;i < chart_data.length;i++){
+                data.addRow([chart_data[i].product.name,Number(chart_data[i].totalQuantity)]);
+            };
 
             var options = {
                 title: '5 Best-sellers'
