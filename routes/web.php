@@ -16,7 +16,7 @@
 
 Route::get('/','CategoryController@indexClient');
 Route::get('/list-product',"ProductController@indexClient");
-Route::get('/product/{id}',"ProductController@show");
+Route::get('/product/{id}',"ProductController@showClient");
 Route::get('/brand/{id}',"BrandController@detailBrand");
 Route::get('/cart',function (){
     return view('client.cart.cart');
