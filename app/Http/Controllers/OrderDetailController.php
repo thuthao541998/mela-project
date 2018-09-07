@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\OrderDetail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 
 class OrderDetailController extends Controller
@@ -124,5 +125,15 @@ class OrderDetailController extends Controller
         $order_detail->delete();
 //        Sửa tiếp redirect
         return redirect('/admin/order_detail');
+    }
+    public function getPieChartDataApi()
+    {
+        $start_date = Input::get('startDate');
+        $end_date = Input::get('endDate');
+        $chart_data = OrderDetail::selectRaw('sum(quantity) as `totalQuantity`, product_id as `product_id`')
+            ->whereRaw('created_at >= "'.$start_date .' 00:00:00" AND created_at <= "'.$end_date . ' 23:59:59"')
+            ->groupBy('product_id')
+            ->get();
+        return $chart_data;
     }
 }

@@ -37,16 +37,16 @@ class OrderController extends Controller
      */
 
     public function getChartDataApi()
-    {
-        $start_date = Input::get('startDate');
-        $end_date = Input::get('endDate');
-        $chart_data = Order::select(DB::raw('sum(total_price) as revenue'), DB::raw('date(created_at) as day'))
-            ->whereBetween('created_at', array($start_date .' 00:00:00', $end_date . ' 23:59:59'))
-            ->groupBy('day')
-            ->orderBy('day', 'desc')
-            ->get();
-        return $chart_data;
-    }
+{
+    $start_date = Input::get('startDate');
+    $end_date = Input::get('endDate');
+    $chart_data = Order::select(DB::raw('sum(total_price) as revenue'), DB::raw('date(created_at) as day'))
+        ->whereBetween('created_at', array($start_date .' 00:00:00', $end_date . ' 23:59:59'))
+        ->groupBy('day')
+        ->orderBy('day', 'desc')
+        ->get();
+    return $chart_data;
+}
 
     public function create()
     {

@@ -20,6 +20,7 @@
                     Total Revenue : <span class="total-revenue"></span> (VND)
                 </div>
                 <div id="linechart_material" style="margin: 30px;"></div>
+                <div id="piechart" style="width: 500px; height: 500px;"></div>
                 @if (Session::has('message'))
                     <div class="alert {{ Session::get('message-class') }}">{{ Session::get('message') }}</div>
                 @endif
@@ -100,7 +101,6 @@
                 $('#reportrange').val('');
             });
             $('#reportrange').on('apply.daterangepicker', function(ev, picker) {
-                console.log(picker.endDate.format('YYYY-MM-DD'));
                 var startDate = picker.startDate.format('YYYY-MM-DD');
                 var endDate = picker.endDate.format('YYYY-MM-DD');
                 $.ajax({
@@ -111,7 +111,7 @@
                             swal('No data exists', 'Please choose another time range.', 'warning');
                             return;
                         };
-                        drawChart(resp);
+                        drawPieChart(resp);
                         var totalRevenue = 0;
                         for(var i=0; i<resp.length ; i++){
                             totalRevenue += parseInt(resp[i].revenue);
@@ -125,5 +125,41 @@
                 });
             });
         });
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(function () {
+            var start = moment().subtract(29, 'days');
+            var end = moment();
+            $.ajax({
+                url: '/api-get-pie-chart-data?startDate='+start.format('YYYY-MM-DD')+'&endDate='+end.format('YYYY-MM-DD'),
+                method: 'GET',
+                success: function (resp) {
+                    console.log(resp);
+                    drawPieChart(resp);
+                },
+                error: function (r) {
+                    swal('Something is wrong', 'Cannot retrieve data from API', 'error');
+                }
+            });
+        });
+
+        function drawPieChart(chart_data) {var
+            console.log(chart_data[0].product.name);
+            var data = new google.visualization.DataTable();
+            data.addColumn('string','Product Name');
+            data.addColumn('number','Quantity');
+            // for(var i = 0;i < chart_data.length;i++){
+            //     data.addRow([new Varchar(chart_data[i].product.name),Number(chart_data[i].quantity)]);
+            // };
+            data.addRow([new String(chart_data[0].product.name),Number(chart_data[0].quantity)]);
+            data.addRow(['Son 2',10]);
+
+            var options = {
+                title: '5 Best-sellers'
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+            chart.draw(data, options);
+        }
     </script>
 @endsection
