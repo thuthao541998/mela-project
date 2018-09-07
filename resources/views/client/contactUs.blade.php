@@ -38,7 +38,7 @@
                                             @endif
                                             >
                                             <div class="mustname" style="display: none">
-                                                sadasd
+                                                Please enter Your Name
                                             </div>
                                         </div>
                                     </div>
@@ -55,6 +55,9 @@
                                                value="{{Auth::user() -> email}}"
                                             @endif
                                             >
+                                            <div class="mustemail" style="display: none">
+                                                Please enter Your Email
+                                            </div>
                                         </div>
                                     </div>
 
@@ -66,6 +69,9 @@
 
                                         <div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">
                                             <input class="bo-rad-10 sizefull txt10 p-l-20 phone" type="text" name="phone" placeholder="Phone">
+                                            <div class="mustphone" style="display: none">
+                                                Please enter Your Phone
+                                            </div>
                                         </div>
                                     </div>
 
@@ -74,7 +80,10 @@
                                         <span class="txt9">
 							Message
 						</span>
-                                        <textarea class="bo-rad-10 size35 bo2 txt10 p-l-20 p-t-15 m-b-10 m-t-3 message" name="message" placeholder="Message"></textarea>
+                                        <textarea class="bo-rad-10 size35 bo2 txt10 p-l-20 p-t-15 m-b-10 m-t-3 message" name="message" placeholder="Message" ></textarea>
+                                        <div class="mustmessage" style="display: none">
+                                            Please enter Your Message
+                                        </div>
                                     </div>
                                 </div>
 

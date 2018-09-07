@@ -1,32 +1,52 @@
 $(document).ready(function (e) {
     $('.send').click(function (e) {
         var name = $('#name').val();
-        var address = $('.address').val();
         var phone = $('.phone').val();
         var email = $('.email').val();
-        var info = $('.info').val();
+        var message = $('.message').val();
+        // Validate data
         if (name == '') {
             $('.mustname').show();
         }
-        else if (address == '') {
-            $('.mustaddress').show();
-            $('.mustname').hide();
-        }
         else if (phone == '') {
             $('.mustphone').show();
-            $('.mustaddress').hide();
+            $('.mustname').hide();
         }
         else if (email == '') {
             $('.mustemail').show();
             $('.mustphone').hide();
         }
-        else if (info == '') {
-            $('.mustinfo').show();
+        else if (message == '') {
+            $('.mustmessage').show();
             $('.mustemail').hide();
         }
         else {
-            $('.mustinfo').hide();
-            alert("Bạn đã gửi thành công")
+            $('.mustmessage').hide();
+            // alert(window.location.pathname)
+            //    Send Request Ajax\
+            var data = {
+                'name': name,
+                'phone' : phone,
+                'email' : email,
+                'message':message
+            }
+            $.ajax({
+                method: 'POST',
+                url: window.location.href,
+                data: {
+                    '_token': $('meta[name="csrf-token"]').attr('content'),
+                    'contactData': JSON.stringify(data)
+                },
+                success: function (resp) {
+                    alert('Success');
+                    console.log(resp)
+                    location.href = '/';
+                },
+                error: function () {
+                    alert('Fail')
+                }
+            })
         };
+
     });
 });
