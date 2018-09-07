@@ -37,7 +37,12 @@ return [
     'facebook' => [
         'client_id' => '1894606873908398',
         'client_secret' => '0c1e8624e0d0396427f3b7773fc05636',
-        'redirect' => '/callback'
-    ]
+        'redirect' => url('/facebook/callback'),
+    ],
+    'google' => [
+        'client_id' => '839748826030-drd0m9v2mh02aanelo2ces56mlfuo27h.apps.googleusercontent.com',
+        'client_secret' => 'Owof9FFaRamkB7ZNNUTdu304',
+        'redirect' => url('/google/callback'),
+    ],
 
 ];

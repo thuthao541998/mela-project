@@ -8,18 +8,18 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Socialite;
-use App\Services\SocialFacebookAccountService;
+use App\Services\SocialAccountService;
 
-class SocialAuthFacebookController extends Controller
+class SocialAuthController extends Controller
 {
     /**
      * Create a redirect method to facebook api.
      *
      * @return void
      */
-    public function redirect()
+    public function redirect($provider)
     {
-        return Socialite::driver('facebook')->redirect();
+        return Socialite::driver($provider)->redirect();
     }
 
     /**
@@ -27,9 +27,10 @@ class SocialAuthFacebookController extends Controller
      *
      * @return callback URL from facebook
      */
-    public function callback(SocialFacebookAccountService $service)
+    public function callback(SocialAccountService $service,$provider )
     {
-        $user = $service->createOrGetUser(Socialite::driver('facebook')->user());
+
+        $user = $service->createOrGetUser($provider);
         auth()->login($user);
         return redirect()->to('/');
     }
