@@ -46,14 +46,17 @@ class SocialAuthFacebookController extends Controller
         $client = new Client('https://graph.zalo.me/v2.0/me?fields=id,name,birthday,gender,picture&access_token='.$access_token -> access_token);
         $res = $client ->get() -> send() -> json();
         $user = json_decode(json_encode($res));
-//          Lưu dữ liệu vào DB
 
-        $user = User::create([
-            'name' => $user -> name,
+//          Lưu dữ liệu vào DB
+        $user = User::firstOrCreate([
             'email' => $user -> id.'@zalo.com',
-            'password' => bcrypt($user -> id),
-            'remember_token' => $access_token,
-        ]);
+        ],
+            [
+                'name' => $user -> name,
+                'password' => bcrypt($user -> id),
+                'remember_token' => $access_token,
+            ]);
+
 //        Đăng nhập
         Auth::guard() -> login($user);
        return redirect('/') ;
