@@ -142,7 +142,7 @@
             });
         });
 
-        function drawPieChart(chart_data) {var
+        function drawPieChart(chart_data) {
             console.log(chart_data[0].product.name);
             var data = new google.visualization.DataTable();
             data.addColumn('string','Product Name');
@@ -150,7 +150,7 @@
             // for(var i = 0;i < chart_data.length;i++){
             //     data.addRow([new Varchar(chart_data[i].product.name),Number(chart_data[i].quantity)]);
             // };
-            data.addRow([new String(chart_data[0].product.name),Number(chart_data[0].quantity)]);
+            data.addRow([chart_data[0].product.name, parseInt(chart_data[0].quantity)]);
             data.addRow(['Son 2',10]);
 
             var options = {
