@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Order;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
@@ -170,6 +169,12 @@ class OrderController extends Controller
         }
         $obj->status = Input::get('status');
         $obj->save();
+        return redirect()->back();
+    }
+
+    public function updateStatusMany(Request $request)
+    {
+        DB::table('orders')->where('id', Input::get('ids'))->update(['status' => $request->get('status')]);
         return redirect()->back();
     }
 }

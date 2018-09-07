@@ -96,7 +96,7 @@ Route::group(['middleware' => ['sellUserAuth']],function (){
     Route::post("admin/article/destroy-many", "ArticleController@destroyMany");
     Route::post("admin/brand/destroy-many", "CategoryController@destroyMany");
 
-
+    Route::post('admin/order/update-status-many','OrderController@updateStatusMany');
 
     Route::get("/admin/article/get-json/{id}", "ArticleController@showJson");
     Route::put("/admin/article/update-json/{id}", "ArticleController@quickUpdate");
