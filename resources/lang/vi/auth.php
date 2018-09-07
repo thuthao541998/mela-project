@@ -24,10 +24,9 @@ return [
     'forgot_password' => 'Quên mật khẩu',
     'password' => 'Mật Khẩu',
     'email' => 'Địa chỉ Email',
-    'latest_news' => 'Tin Mới',
-    'the_blog' => 'THE BLOG',
     'full_name' => 'Họ Và Tên',
     'register_now' => 'Đăng ký ngay',
     'confirm_password' => 'Xác Nhận Mật Khẩu',
+    'logout' => 'Đăng xuất',
 
 ];

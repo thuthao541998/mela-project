@@ -23,10 +23,8 @@ return [
     'forgot_password' => 'Forgot Password',
     'password' => 'PassWord',
     'email' => 'email',
-    'latest_news' => 'Latest News',
-    'the_blog' => 'THE BLOG',
     'full_name' => 'Full Name',
     'register_now' => 'Register Now',
     'confirm_password' => 'Confirm PassWord',
-
+    'logout' => 'Log Out',
 ];

@@ -58,23 +58,23 @@
                     <nav class="menu">
                         <ul class="main_menu m-l-94">
                             <li>
-                                <a href="/">Home</a>
+                                <a href="/">{{__('layoutTranslate.home')}}</a>
                             </li>
 
                             <li>
-                                <a href="/list-product">Product</a>
+                                <a href="/list-product">{{__('layoutTranslate.product')}}</a>
                             </li>
 
                             <li>
-                                <a href="/list-article">Article</a>
+                                <a href="/list-article">{{__('layoutTranslate.article')}}</a>
                             </li>
 
                             <li>
-                                <a href="/contact-us">Contact</a>
+                                <a href="/contact-us">{{__('layoutTranslate.contact')}}</a>
                             </li>
 
                             <li>
-                                <a href="/about-us">About</a>
+                                <a href="/about-us">{{__('layoutTranslate.about')}}</a>
 
                             </li>
                         </ul>
@@ -117,7 +117,7 @@
                                                             </li>
                                                         @endforeach
                                                     @else
-                                                        'Hiện tại không có sản phẩm nào trong giỏ hàng'
+                                                        {{__('layoutTranslate.empty_cart_message')}}
                                                     @endif
                                                 </ul>
 
@@ -129,7 +129,7 @@
                                                     <div class="header-cart-wrapbtn">
                                                         <!-- Button -->
                                                         <a href="/cart" class="flex-c-m bg1 bo-rad-20 hov1 s-text1 trans-0-4" style="color:white">
-                                                            View Cart
+                                                            {{__('layoutTranslate.view_cart')}}
                                                         </a>
                                                     </div>
                                                 </div>
@@ -146,11 +146,11 @@
                                                         border-radius: 10px;
                                                         margin-left: 30px;">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Hi {{Auth::user()->name}} <i class="fas fa-angle-down"></i>
+                              {{__('layoutTranslate.hi')}} {{Auth::user()->name}} <i class="fas fa-angle-down"></i>
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <div class="m-l-20"><a onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();"  style="color:black" class="dropdown-item" href="{{ url('/logout') }}" ><i class="fas fa-key"></i>  Log Out</a></div>
+                                                     document.getElementById('logout-form').submit();"  style="color:black" class="dropdown-item" href="{{ url('/logout') }}" ><i class="fas fa-key"></i> {{__('auth.logout')}}</a></div>
                                 <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
                                     {{ csrf_field() }}
                                 </form>
@@ -187,29 +187,29 @@
         </li>
 
         <li class="t-center m-b-13">
-            <a href="/" class="txt19">Home</a>
+            <a href="/" class="txt19">{{__('layoutTranslate.home')}}</a>
         </li>
 
         <li class="t-center m-b-13">
-            <a href="/list-product">PRODUCT</a>
+            <a href="/list-product">{{__('layoutTranslate.product')}}</a>
         </li>
 
         <li class="t-center m-b-13">
-            <a href="/about-us" class="txt19">About</a>
+            <a href="/about-us" class="txt19">{{__('layoutTranslate.about')}}</a>
         </li>
 
         <li class="t-center m-b-13">
-            <a href="/list-article" class="txt19">Article</a>
+            <a href="/list-article" class="txt19">{{__('layoutTranslate.article')}}</a>
         </li>
 
         <li class="t-center m-b-33">
-            <a href="/contact-us" class="txt19">Contact</a>
+            <a href="/contact-us" class="txt19">{{__('layoutTranslate.contact')}}</a>
         </li>
 
         <li class="t-center">
             <!-- Button3 -->
             <a href="/cart" class="btn3 flex-c-m size13 txt11 trans-0-4 m-l-r-auto">
-                Cart
+                {{__('layoutTranslate.view_cart')}}
             </a>
         </li>
     </ul>
@@ -218,7 +218,7 @@
     <div class="gallery-sidebar t-center p-l-60 p-r-60 p-b-40">
         <!-- - -->
         <h4 class="txt20 m-b-33">
-            Gallery
+            {{__('layoutTranslate.gallery')}}
         </h4>
 
         <!-- Gallery -->
@@ -269,7 +269,7 @@
             <div class="item-slick1 item1-slick1 bg-1" style="background-image:url({{asset('images/master-slides-01.jpg')}});">
                 <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
                         <span class="caption1-slide1 txt1 t-center animated visible-false m-b-15" data-appear="fadeInDown">
-                            Welcome to
+                            {{__('layoutTranslate.welcome')}}
                         </span>
 
                     <h2 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="fadeInUp">
@@ -288,7 +288,7 @@
             <div class="item-slick1 item2-slick1 bg-2" style="background-image: url({{asset('images/master-slides-02.jpg')}});">
                 <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
                         <span class="caption1-slide1 txt1 t-center animated visible-false m-b-15" data-appear="rollIn">
-                            Welcome to
+                            {{__('layoutTranslate.welcome')}}
                         </span>
 
                     <h2 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="lightSpeedIn">
@@ -307,7 +307,7 @@
             <div class="item-slick1 item3-slick1 bg-3" style="background-image: url({{asset('images/slide1-02.jpg')}});">
                 <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
                         <span class="caption1-slide1 txt1 t-center animated visible-false m-b-15" data-appear="rotateInDownLeft">
-                            Welcome to
+                            {{__('layoutTranslate.welcome')}}
                         </span>
 
                     <h2 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="rotateInUpRight">
@@ -336,11 +336,11 @@
         <div class="container">
             <div class="title-section-ourmenu t-center m-b-22">
                 <span class="tit2 t-center">
-                    Latest News
+                    {{__('layoutTranslate.latest_news')}}
                 </span>
 
                 <h3 class="tit5 t-center m-t-2">
-                    The Blog
+                    {{__('layoutTranslate.the_blog')}}
                 </h3>
             </div>
 
