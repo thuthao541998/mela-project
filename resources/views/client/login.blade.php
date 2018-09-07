@@ -67,7 +67,7 @@
                                                 &nbsp;
                                                 <a href="#"><i class="fab fa-google-plus-square fa-2x" aria-hidden="true"></i></a>
                                                 &nbsp;
-                                                <a href="#"><i class="fab fa-pinterest-square fa-2x" aria-hidden="true"></i></a>
+                                                <a href="{{url('/zaloLogin')}}"><i class="fab fa-pinterest-square fa-2x" aria-hidden="true"></i></a>
                                             </li>
                                         </div>
                                     </div>

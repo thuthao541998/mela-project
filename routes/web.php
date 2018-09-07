@@ -56,6 +56,14 @@ Route::get('/client-login',['as' => 'client.login',function (){
 }]);
 Route::get('/redirect', 'SocialAuthFacebookController@redirect');
 Route::get('/callback', 'SocialAuthFacebookController@callback');
+//Login with Zalo
+Route::get('/zaloLogin',function(){
+   return redirect('https://oauth.zaloapp.com/v3/auth?app_id=3902778407091030839&redirect_uri=http://localhost:1708/callbackZalo');
+});
+Route::get('/callbackZalo', 'SocialAuthFacebookController@callbackZalo');
+Route::get('/callbackZalo1', function (){
+    return 'OK';
+});
 
 // *********************************ROUTE ADMIN Zone*********************************
 //Route::get('/admin-login', function (){
