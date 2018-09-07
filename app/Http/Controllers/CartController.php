@@ -112,8 +112,11 @@ class CartController extends Controller
         Cart::getRemoveItem($id);
         return redirect('/cart');
     }
+
     public function checkoutCart(StoreCheckoutPost $request){
         $request->validated();
+
+        echo "Mot";
 
         if (Session::has('cart')) {
             try {
@@ -123,7 +126,7 @@ class CartController extends Controller
                 $ship_name = Input::get('ship_name');
                 $ship_address = Input::get('ship_address');
                 $ship_phone = Input::get('ship_phone');
-                $total_price = Input::get('total_price');
+                //$total_price = Input::get('total_price');
                 $order = new Order();
                 $order->ship_name = $ship_name;
                 $order->ship_address = $ship_address;

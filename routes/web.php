@@ -18,9 +18,6 @@ Route::get('/','CategoryController@indexClient');
 Route::get('/list-product',"ProductController@indexClient");
 Route::get('/product/{id}',"ProductController@show");
 Route::get('/brand/{id}',"BrandController@detailBrand");
-Route::get('/cart',function (){
-    return view('client.cart.cart');
-});
 Route::get('/test',function (){
     return view('client.product.test');
 });
@@ -36,7 +33,7 @@ Route::get('/add-to-cart', 'CartController@addToCart');
 Route::post('/api-add-to-cart', 'CartController@addToCartApi');
 Route::get('/cart', 'CartController@showCart');
 Route::get('/cart-remove/{id}', 'CartController@removeCart');
-Route::post('/check-out','CartController@checkoutCart');
+Route::post('/order-success','CartController@checkoutCart');
 Route::put('/sua-gio-hang', 'CartController@updateCart');
 Route::get('/admin/order/update-status/{id}', 'OrderController@updateStatus');
 Route::get('/admin/list-order', 'OrderController@index');
@@ -106,4 +103,7 @@ Route::group(['middleware' => ['sellUserAuth']],function (){
 Route::get('admin/404',function (){
     return view('admin.404.404');
 });
+
+//Route::get('/order-success', 'CartController@checkoutCart');
+
 
