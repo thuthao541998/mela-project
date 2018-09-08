@@ -72,10 +72,7 @@ Route::get('/callbackZalo1', function (){
 //});
 //    Auth Admin
 Route::group(['middleware' => ['sellUserGuest']],function (){
-    Route::group(['middleware' => ['checkAdminAccount']],function (){
-        Route::get('admin-register', 'AdminAuth\RegisterController@index');
-        Route::post('admin-register', 'AdminAuth\RegisterController@register');
-    });
+
     Route::get('admin-login','AdminAuth\LoginController@index');
     Route::post('admin-login','AdminAuth\LoginController@login');
     Route::post('admin-logout','AdminAuth\LoginController@logout');
@@ -84,6 +81,11 @@ Route::group(['middleware' => ['sellUserGuest']],function (){
 
 Route::group(['middleware' => ['sellUserAuth']],function (){
 
+    Route::group(['middleware' => ['checkAdminAccount']],function (){
+        Route::get('admin-register', 'AdminAuth\RegisterController@index');
+        Route::post('admin-register', 'AdminAuth\RegisterController@register');
+    });
+    
     Route::get('/admin', function (){
         return view('admin.dashboard');
     });
