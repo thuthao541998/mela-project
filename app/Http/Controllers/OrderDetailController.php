@@ -38,7 +38,7 @@ class OrderDetailController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store()
@@ -56,7 +56,7 @@ class OrderDetailController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -73,7 +73,7 @@ class OrderDetailController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -89,8 +89,8 @@ class OrderDetailController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update($id)
@@ -113,7 +113,7 @@ class OrderDetailController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -126,14 +126,23 @@ class OrderDetailController extends Controller
 //        Sửa tiếp redirect
         return redirect('/admin/order_detail');
     }
+
     public function getPieChartDataApi()
     {
+        //DB::connection()->enableQueryLog();
         $start_date = Input::get('startDate');
         $end_date = Input::get('endDate');
-        $chart_data = OrderDetail::select(DB::raw('sum(quantity) as totalQuantity'), DB::raw('product_id as product_id'))
-            ->whereRaw('created_at >= "'.$start_date.' 00:00:00" AND created_at <= "'.$end_date . ' 23:59:59"')
+//        $chart_data = OrderDetail::select(DB::raw('sum(quantity) as totalQuantity'), DB::raw('product_id as product_id'))
+//            ->whereRaw('created_at >= "'.$start_date.' 00:00:00" AND created_at <= "'.$end_date . ' 23:59:59"')
+//            ->groupBy('product_id')
+//            ->get();
+        $chart_data = OrderDetail::select(DB::raw('sum(quantity) as totalQuantity'), 'product_id')
+            ->whereBetween('created_at', array($start_date .' 00:00:00', $end_date . ' 23:59:59'))
             ->groupBy('product_id')
+            ->orderBy('created_at', 'asc')
             ->get();
+//        $chart_data = DB::select("select sum(quantity) as totalQuantity, order_details.product_id, products.name as product_name from order_details inner join products on order_details.product_id = products.id WHERE order_details.created_at BETWEEN '" . $start_date. " 00:00:00' and '" . $end_date . " 23:59:59' group BY product_id, product_name order by order_details.created_at desc");
+        //$queries = \DB::getQueryLog();
         return $chart_data;
     }
 }

@@ -20,7 +20,7 @@
                     Total Revenue : <span class="total-revenue"></span> (VND)
                 </div>
                 <div id="linechart_material" style="margin: 30px;"></div>
-                <div id="piechart" style="width: 500px; height: 500px;"></div>
+                <div id="piechart" style="width: 600px; height: 500px;"></div>
                 @if (Session::has('message'))
                     <div class="alert {{ Session::get('message-class') }}">{{ Session::get('message') }}</div>
                 @endif
@@ -104,7 +104,7 @@
                 var startDate = picker.startDate.format('YYYY-MM-DD');
                 var endDate = picker.endDate.format('YYYY-MM-DD');
                 $.ajax({
-                    url: '/api-get-chart-data?startDate=' + startDate + '&endDate=' + endDate,
+                    url: '/api-get-pie-chart-data?startDate='+startDate+'&endDate='+endDate,
                     method: 'GET',
                     success: function (resp) {
                         if(resp.length ==0){
@@ -112,6 +112,20 @@
                             return;
                         };
                         drawPieChart(resp);
+                    },
+                    error: function (r) {
+                        swal('Something is wrong', 'Cannot retrieve data from API', 'error');
+                    }
+                });
+                $.ajax({
+                    url: '/api-get-chart-data?startDate=' + startDate + '&endDate=' + endDate,
+                    method: 'GET',
+                    success: function (resp) {
+                        if(resp.length ==0){
+                            swal('No data exists', 'Please choose another time range.', 'warning');
+                            return;
+                        };
+                        drawChart(resp);
                         var totalRevenue = 0;
                         for(var i=0; i<resp.length ; i++){
                             totalRevenue += parseInt(resp[i].revenue);
@@ -147,10 +161,14 @@
             var data = new google.visualization.DataTable();
             data.addColumn('string','Product Name');
             data.addColumn('number','Quantity');
-            for(var i = 0;i < chart_data.length;i++){
+            for(var i = 0;i < 5;i++){
                 data.addRow([chart_data[i].product.name,Number(chart_data[i].totalQuantity)]);
             };
-
+            var rest = 0;
+            for(var i = 5;i < chart_data.length;i++){
+                rest += Number(chart_data[i].totalQuantity);
+            };
+            data.addRow(['Other Products',rest]);
             var options = {
                 title: '5 Best-sellers'
             };
