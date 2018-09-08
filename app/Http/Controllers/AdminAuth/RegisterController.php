@@ -24,7 +24,7 @@ class RegisterController extends Controller
         $seller = $this->create($request->all());
 
         //Authenticates seller
-        $this->guard()->login($seller);
+//        $this->guard()->login($seller);
 
         //Redirects sellers
         return redirect($this->redirectPath);

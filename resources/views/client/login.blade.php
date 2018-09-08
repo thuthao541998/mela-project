@@ -63,11 +63,11 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <li class="t-center m-b-13">
-                                                <a href="{{url('/redirect')}}"><i class="fab fa-facebook-square fa-2x" aria-hidden="true"></i></a>
+                                                <a href="{{url('/facebook/redirect')}}"><i class="fab fa-facebook-square fa-2x" aria-hidden="true"></i></a>
                                                 &nbsp;
-                                                <a href="#"><i class="fab fa-google-plus-square fa-2x" aria-hidden="true"></i></a>
+                                                <a href="{{url('/google/redirect')}}"><i class="fab fa-google-plus-square fa-2x" aria-hidden="true"></i></a>
                                                 &nbsp;
-                                                <a href="#"><i class="fab fa-pinterest-square fa-2x" aria-hidden="true"></i></a>
+                                                <a href="{{url('/zaloLogin')}}"><i class="fab fa-pinterest-square fa-2x" aria-hidden="true"></i></a>
                                             </li>
                                         </div>
                                     </div>

@@ -36,12 +36,20 @@
                 <aside class="col-sm-6">
                     <article class="card-body p-5">
                         <h3 class="title mb-3">{{$obj->name}}</h3>
+                        <p class="price-detail-wrap m-t-30 m-b-30">
 
-                        <p class="price-detail-wrap">
-                            <span class="price h3 text-warning">
-                                <span class="currency">VND </span><span class="num">{{$obj->price}}</span>
+                            <span class="txt22 m-t-10">
+                                @if($obj->isDiscount())
+                                    <span class="font-weight-bold h3 text-danger product_price">VND {{$obj->discountPriceWithFormat}}
+                                    </span>
+                                        <del class="text-muted">
+                                        <small>VND {{$obj->originalPriceWithFormat}}</small>
+                                    </del>
+                                @else
+                                    <span class="font-weight-bold h3 text-danger product_price">VND {{$obj->originalPriceWithFormat}}
+                                    </span>
+                                @endif
                             </span>
-                        </p> <!-- price-detail-wrap .// -->
                         <br>
                         <dl class="item-property">
                             <dt>Overview</dt>
@@ -56,9 +64,7 @@
                             {{--<dd>{{$brand}}</dd>--}}
                         {{--</dl>  <!-- item-property-hor .// -->--}}
                         <hr>
-
-                        <a href="#" class="btn btn-lg btn-primary text-uppercase"> Buy now </a>
-                        <a href="#" class="btn btn-lg btn-outline-primary text-uppercase"> <i class="fas fa-shopping-cart"></i> Add to cart </a>
+                        <button class="btn btn-lg btn-danger text-uppercase add-to-cart" id="add-cart-{{$obj->id}}"> <i class="fas fa-shopping-cart"></i> Add to cart </button>
                     </article> <!-- card-body.// -->
                 </aside> <!-- col.// -->
             </div> <!-- row.// -->
