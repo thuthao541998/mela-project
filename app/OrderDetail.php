@@ -13,4 +13,10 @@ class OrderDetail extends Model
     {
         return $this->belongsTo('App\Product', 'product_id');
     }
+
+    public function getProductsAttribute(){
+        $products = Product::where('id','=',$this->product_id)->get();
+        return $this->attributes['products'] = $products;
+    }
+    protected $appends = ['products'];
 }

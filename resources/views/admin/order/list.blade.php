@@ -179,10 +179,11 @@
                             content += '<td class="column-3">' + list_obj[i].ship_address + '</td>';
                             content += '<td class="column-4">' + list_obj[i].ship_phone + '</td>';
                             content += '<td class="column-5">';
-                            {{--@foreach($item->details as $order_detail)--}}
-                            jQuery.each(list_obj[i].details, function(i, item) {
+                            jQuery.each(list_obj[i].order_details, function(i, item) {
                                 if (item.product_id != undefined){
-                                    content += '<li>' + item.product_id + ' - ' + item.quantity + '</li>';
+                                    jQuery.each(item.products, function(k, product){
+                                        content += '<li>' + product.name + ' - ' + item.quantity + '</li>';
+                                    });
                                 }
                             });
                             content += '</td>';

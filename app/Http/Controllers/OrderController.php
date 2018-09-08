@@ -178,18 +178,12 @@ class OrderController extends Controller
     {
         $start_date = Input::get('startDate');
         $end_date = Input::get('endDate');
-        $chart_data = Order::select()
-            ->whereBetween('created_at', array($start_date .' 00:00:00', $end_date . ' 23:59:59'))
+        $orders = Order::select()
+            ->whereBetween('orders.created_at', array($start_date .' 00:00:00', $end_date . ' 23:59:59'))
             ->get();
-        foreach ($chart_data as $data) {
+        foreach ($orders as $data) {
             $data->statusLabel = $data->getStatusLabelAttribute();
-            $data->details[] = $data->details();
-//            $data->details[]->product_name = $data->details()->product();
-//            foreach ($data->details as $detail){
-//                $detail = new OrderDetail();
-//                $detail->product_name = $detail->product();
-//            }
         }
-        return response()->json(['list_obj' => $chart_data], 200);
+        return response()->json(['list_obj' => $orders], 200);
     }
 }
