@@ -20,6 +20,7 @@
                     Total Revenue : <span class="total-revenue"></span> (VND)
                 </div>
                 <div id="linechart_material" style="margin: 30px;"></div>
+                <div id="piechart" style="width: 600px; height: 500px;"></div>
                 @if (Session::has('message'))
                     <div class="alert {{ Session::get('message-class') }}">{{ Session::get('message') }}</div>
                 @endif
@@ -100,9 +101,22 @@
                 $('#reportrange').val('');
             });
             $('#reportrange').on('apply.daterangepicker', function(ev, picker) {
-                console.log(picker.endDate.format('YYYY-MM-DD'));
                 var startDate = picker.startDate.format('YYYY-MM-DD');
                 var endDate = picker.endDate.format('YYYY-MM-DD');
+                $.ajax({
+                    url: '/api-get-pie-chart-data?startDate='+startDate+'&endDate='+endDate,
+                    method: 'GET',
+                    success: function (resp) {
+                        if(resp.length ==0){
+                            swal('No data exists', 'Please choose another time range.', 'warning');
+                            return;
+                        };
+                        drawPieChart(resp);
+                    },
+                    error: function (r) {
+                        swal('Something is wrong', 'Cannot retrieve data from API', 'error');
+                    }
+                });
                 $.ajax({
                     url: '/api-get-chart-data?startDate=' + startDate + '&endDate=' + endDate,
                     method: 'GET',
@@ -125,5 +139,42 @@
                 });
             });
         });
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(function () {
+            var start = moment().subtract(29, 'days');
+            var end = moment();
+            $.ajax({
+                url: '/api-get-pie-chart-data?startDate='+start.format('YYYY-MM-DD')+'&endDate='+end.format('YYYY-MM-DD'),
+                method: 'GET',
+                success: function (resp) {
+                    console.log(resp);
+                    drawPieChart(resp);
+                },
+                error: function (r) {
+                    swal('Something is wrong', 'Cannot retrieve data from API', 'error');
+                }
+            });
+        });
+
+        function drawPieChart(chart_data) {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string','Product Name');
+            data.addColumn('number','Quantity');
+            for(var i = 0;i < 5;i++){
+                data.addRow([chart_data[i].product.name,Number(chart_data[i].totalQuantity)]);
+            };
+            var rest = 0;
+            for(var i = 5;i < chart_data.length;i++){
+                rest += Number(chart_data[i].totalQuantity);
+            };
+            data.addRow(['Other Products',rest]);
+            var options = {
+                title: '5 Best-sellers'
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+            chart.draw(data, options);
+        }
     </script>
 @endsection
