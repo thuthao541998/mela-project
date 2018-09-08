@@ -125,7 +125,7 @@ class ProductController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function showClient($id)
     {
         $obj = Product::find($id);
         if ($obj == null) {
@@ -207,11 +207,9 @@ class ProductController extends Controller
     }
     public function destroyMany()
     {
-
         Product::destroy(Input::get('ids'));
         return Input::get('ids');
     }
-
 
 
     public function showJson($id)
@@ -251,7 +249,6 @@ class ProductController extends Controller
             return response()->json([
                 'list_obj' => $list_obj
             ], 200);
-
         }
     }
 }

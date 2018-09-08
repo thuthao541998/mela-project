@@ -241,7 +241,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <!-- user login dropdown start-->
                     <!-- Xử lí login admin ở đây -->
                     <div class="dropdown">
-
                         <button onclick="myFunction()" class="dropbtn">{{Auth::guard('web_sellUser') -> user() -> name}} <i class="fas fa-angle-down"></i></button>
                         <div id="myDropdown" class="dropdown-content">
                             <a href="{{ url('/admin-logout') }}"
@@ -336,12 +335,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <li><a href="/admin/article">List All Articles</a></li>
                             </ul>
                         </li>
-                        <li class="sub-menu">
-                            <a href="/admin-register">
-                                <i class="fas fa-registered"></i>
-                                <span>Admin Register</span>
-                            </a>
-                        </li>
+                        @if(Auth::guard('web_sellUser') -> user() -> id == 1)
+                            <li class="sub-menu">
+                                <a href="/admin-register">
+                                    <i class="fas fa-registered"></i>
+                                    <span>Admin Register</span>
+                                </a>
+                            </li>
+                        @endif
                     </ul>
                 </div>
                 <!-- sidebar menu end-->
@@ -400,5 +401,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             }
         }
     </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <script src="{{asset('js/jquery.formatNumber-0.1.1.min.js')}}"></script>
 </body>
 </html>

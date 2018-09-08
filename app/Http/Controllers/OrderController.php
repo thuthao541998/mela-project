@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Order;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
@@ -38,11 +37,10 @@ class OrderController extends Controller
 
     public function getChartDataApi()
     {
-        $start_date = '2018-07-20';
-        $end_date = '2018-09-10';
+        $start_date = Input::get('startDate');
+        $end_date = Input::get('endDate');
         $chart_data = Order::select(DB::raw('sum(total_price) as revenue'), DB::raw('date(created_at) as day'))
-            ->whereBetween('created_at', array($start_date, $end_date))
-            ->where('status',2)
+            ->whereBetween('created_at', array($start_date .' 00:00:00', $end_date . ' 23:59:59'))
             ->groupBy('day')
             ->orderBy('day', 'desc')
             ->get();
@@ -171,6 +169,12 @@ class OrderController extends Controller
         }
         $obj->status = Input::get('status');
         $obj->save();
+        return redirect()->back();
+    }
+
+    public function updateStatusMany(Request $request)
+    {
+        DB::table('orders')->where('id', Input::get('ids'))->update(['status' => $request->get('status')]);
         return redirect()->back();
     }
 }
