@@ -75,7 +75,7 @@
                 </h3>
             </div>
 
-        </div>
+        </div>  
         <div class="row blog">
             <div class="col-md-12">
                 <div id="blogCarousel" class="carousel slide" data-ride="carousel" style="margin: 30px;">
