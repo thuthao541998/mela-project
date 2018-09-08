@@ -38,7 +38,7 @@
                                     <div>{{$item->product()->name}}</div>
                                 </td>
                                 <td class="column-2">
-                                    <div>{{$item->product()->discountPrice}}</div>
+                                    <div>{{$item->product->discountPrice}}</div>
                                 </td>
                                 <td class="column-3">
                                     <div>{{$item->unit_price}}</div>
