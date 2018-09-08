@@ -61,8 +61,8 @@
                                     <td class="column-0">
                                         <input type="checkbox">
                                     </td>
-                                    <td class="column-1">{{$item->id}}</td>
-                                    <td class="column-2">{{$item->ship_name}}</td>
+                                    <td class="column-1"><a href="order/{{$item->id}}" style="color: #000000">{{$item->id}}</a></td>
+                                    <td class="column-2"><a href="order/{{$item->id}}" style="color: #000000">{{$item->ship_name}}</a></td>
                                     <td class="column-3">{{$item->ship_address}}</td>
                                     <td class="column-4">{{$item->ship_phone}}</td>
                                     <td class="column-5">

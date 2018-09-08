@@ -85,8 +85,8 @@ class OrderController extends Controller
         if ($order == null) {
             return view('404');
         }
-        return view('admin.order.list')
-            ->with('admin', $order);
+        return view('admin.order.detail')
+            ->with('order', $order);
     }
 
     /**
