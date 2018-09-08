@@ -157,7 +157,6 @@
         });
 
         function drawPieChart(chart_data) {
-            console.log(chart_data[0].totalQuantity);
             var data = new google.visualization.DataTable();
             data.addColumn('string','Product Name');
             data.addColumn('number','Quantity');
