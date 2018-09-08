@@ -40,7 +40,7 @@ return [
     |
     */
 
-    'debug' => env('APP_DEBUG', false),
+    'debug' => env('APP_DEBUG', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -149,7 +149,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
         Unisharp\Ckeditor\ServiceProvider::class,
-        
+
 
         /*
          * Package Service Providers...
