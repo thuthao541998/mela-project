@@ -155,9 +155,11 @@
                         swal('No data exists for pie chart', 'Please choose another time range.', 'warning');
                         return;
                     };
+                    // console.log(resp);
                     drawPieChart(resp);
                 },
                 error: function (r) {
+                    console.log(r);
                     swal('Something is wrong', 'Cannot retrieve data from API', 'error');
                 }
             });

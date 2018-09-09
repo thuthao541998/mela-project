@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Order;
 use App\OrderDetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -136,13 +137,15 @@ class OrderDetailController extends Controller
 //            ->whereRaw('created_at >= "'.$start_date.' 00:00:00" AND created_at <= "'.$end_date . ' 23:59:59"')
 //            ->groupBy('product_id')
 //            ->get();
+        $orders = Order::whereRaw('status=2')->get();
+        $id = $orders->pluck('id')->all();
+
         $chart_data = OrderDetail::select(DB::raw('sum(quantity) as totalQuantity'), 'product_id')
-            ->whereBetween('created_at', array($start_date .' 00:00:00', $end_date . ' 23:59:59'))
+            ->whereRaw('created_at >= "'.$start_date.' 00:00:00" AND created_at <= "'.$end_date . ' 23:59:59"')
+            ->whereIn('order_id',$id)
             ->groupBy('product_id')
             ->orderBy('created_at', 'asc')
             ->get();
-//        $chart_data = DB::select("select sum(quantity) as totalQuantity, order_details.product_id, products.name as product_name from order_details inner join products on order_details.product_id = products.id WHERE order_details.created_at BETWEEN '" . $start_date. " 00:00:00' and '" . $end_date . " 23:59:59' group BY product_id, product_name order by order_details.created_at desc");
-        //$queries = \DB::getQueryLog();
         return $chart_data;
     }
 }

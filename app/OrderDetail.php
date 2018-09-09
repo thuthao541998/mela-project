@@ -13,6 +13,11 @@ class OrderDetail extends Model
     {
         return $this->belongsTo('App\Product', 'product_id')->attributes['product'];
     }
+//    public function getOrderAttribute(){
+//        $order_id = $this->order_id;
+//        $order = Order::find($order_id);
+//        return $this->attributes['order'] = $order;
+//    }
     protected $appends = ['product'];
     public function getProductAttribute(){
         $product = Product::find($this->product_id);
