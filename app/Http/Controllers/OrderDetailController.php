@@ -34,7 +34,7 @@ class OrderDetailController extends Controller
         $order_detail->quantity = Input::get('quantity');
         $order_detail->unitprice = Input::get('unitprice');
 //        Xử lí reference orderId theo cách khác
-        $order_detail->order_id = Input::get('orderId');
+        $order_detail->order_id = Input::get('order_id');
         $order_detail->save();
         return redirect('/admin/order_detail');
     }
