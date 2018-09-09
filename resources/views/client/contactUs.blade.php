@@ -119,5 +119,6 @@
             </p>
         </div>
     </section>
-    <script src="{{asset('js/contactUs.js')}}"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="{{asset('js/contactUs.js')}}"></script>
 @endsection
