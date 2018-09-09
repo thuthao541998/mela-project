@@ -102,7 +102,7 @@
                                                 <ul class="header-cart-wrapitem">
                                                     @if(\App\Cart::getTotalItem()>0)
                                                         @foreach(\App\Cart::getCart()->items as $item)
-                                                            <li class="header-cart-item">
+                                                            <li class="header-cart-item" id="cart-item-{{$item->product->id}}">
                                                                 <div class="header-cart-item-img">
                                                                     <img src="{{$item->product->images}}" alt="IMG">
                                                                 </div>
@@ -112,7 +112,7 @@
                                                                         {{$item->product->name}}
                                                                     </a>
                                                                     <span class="header-cart-item-info">
-                                                                        {{$item->quantity}} x {{$item->product->discountPriceWithFormat}}
+                                                                        <span class="quantity-item-{{$item->product->id}}">{{$item->quantity}}</span> x {{$item->product->discountPriceWithFormat}}
                                                                     </span>
                                                                 </div>
                                                             </li>
@@ -329,7 +329,6 @@
         <div class="wrap-slick1-dots"></div>
     </div>
 </section>
-<div class="thao"></div>
 @yield('content')
 
 <!-- Blog -->

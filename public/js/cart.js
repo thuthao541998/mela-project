@@ -1,4 +1,4 @@
-$('body').on('click', '.add-to-cart' ,function () {
+$('body').on('click', '.add-to-cart', function () {
     var product_id = $(this).attr('id').replace('add-cart-', '');
     var quantity = 1;
     $.ajax({
@@ -12,8 +12,8 @@ $('body').on('click', '.add-to-cart' ,function () {
         success: function (resp) {
             console.log(resp);
             var new_count = resp.cart.count;
-            var new_total_money= resp.cart.total_money;
-            var new_items = resp.cart.items;
+            var new_total_money = resp.cart.total_money;
+            var new_items = resp.items;
             var new_content = '';
             for (var i in new_items) {
                 new_content += '<li class="header-cart-item">';
@@ -29,15 +29,14 @@ $('body').on('click', '.add-to-cart' ,function () {
                 new_content += '</span>';
                 new_content += '</div>';
                 new_content += '</li>';
+
             }
-            if(new_count == undefined){
+            $('.header-cart-wrapitem').html(new_content);
+            if (new_count == undefined) {
                 $('#header-icons-noti').text(1);
-            }else{
+            } else {
                 $('#header-icons-noti').text(new_count);
             }
-            $('#header-cart-wrapitem').html(new_content);
-            $('.thao').html(new_content);
-
             $('#header-cart-total').text(new_total_money).formatNumber();
             swal('Successfully!', 'ADDED TO CART. You can change the quantity of the product in cart later!', 'success');
 
