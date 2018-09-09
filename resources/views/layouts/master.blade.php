@@ -268,7 +268,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="leftside-navigation">
                     <ul class="sidebar-menu" id="nav-accordion">
                         <li class="sub-menu">
-                            <a href="/admin/dash-board">
+                            <a href="/admin">
                                 <i class="fas fa-home"></i>
                                 <span>Home</span>
                             </a>

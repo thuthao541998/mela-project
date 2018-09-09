@@ -23,7 +23,7 @@
                                 <form id="login-form"  method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }}" role="form" style="display: block;">
                                     @csrf
                                     <div class="form-group">
-                                        <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+                                        <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}">
 
                                         @if ($errors->has('email'))
                                             <span class="invalid-feedback" role="alert">

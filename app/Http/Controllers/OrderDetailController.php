@@ -144,7 +144,7 @@ class OrderDetailController extends Controller
             ->whereRaw('created_at >= "'.$start_date.' 00:00:00" AND created_at <= "'.$end_date . ' 23:59:59"')
             ->whereIn('order_id',$id)
             ->groupBy('product_id')
-            ->orderBy('created_at', 'asc')
+            ->orderBy('totalQuantity', 'desc')
             ->get();
         return $chart_data;
     }
