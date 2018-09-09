@@ -37,6 +37,7 @@
                                     {{--<option selected value="5">All</option>--}}
                                 {{--</select>--}}
                             {{--</div>--}}
+
                         </div>
                     </div>
                     <div>
@@ -46,20 +47,20 @@
                                 <tr>
                                     <th class="column-0"></th>
                                     <th class="column-1 text-center">ID</th>
-                                    <th class="column-2">Buyer</th>
+                                    <th class="column-2">Receiver</th>
                                     <th class="column-3">Address</th>
                                     <th class="column-4">Phone Number</th>
                                     <th class="column-5">Order Detail</th>
-                                    <th class="column-6">Total</th>
+                                    <th class="column-6" style="width: 10%;">Total</th>
                                     <th class="column-7">Status</th>
                                     <th class="column-8 text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                             @foreach($orders as $item)
-                                <tr id="row-item-{{$item->id}}">
-                                    <td class="column-0 text-center">
-                                        <input type="checkbox">
+                                <tr class="row-item" id="row-item-{{$item->id}}">
+                                    <td class="column-0">
+                                        <input type="checkbox" class="check-item">
                                     </td>
                                     <td class="column-1 text-center">{{$item->id}}
                                         <a class="btn btn-simple btn-link btn-icon text-center" data-placement="top"
@@ -75,8 +76,8 @@
                                             <li>{{$order_detail->product->name}} - {{$order_detail->quantity}}</li>
                                         @endforeach
                                     </td>
-                                    <td class="column-6">{{$item->total_price}}</td>
-                                    <td class="column-7 font-weight-bold">{{$item->statusLabel}}</td>
+                                    <td class="column-6" style="width: 10%;">{{$item->getTotalMoneyWithFormat()}} (vnd)</td>
+                                    <td class="column-7 font-weight-bold status-label">{{$item->statusLabel}}</td>
                                     <td class="column-8 text-center">
 
                                         @if($item->status == 0)
@@ -103,13 +104,13 @@
                                 <div class="col-md-8 form-inline">
                                     <div class="form-check mb-2">
                                         <input class="form-check-input col-lg-2" type="checkbox" value="" id="check-all">
-                                        <select id="select-action" class="form-control">
+                                        <select id="select-action" name="select-action" class="form-control">
                                             <option selected value="0">Action</option>
                                             <option value="1">Confirm All</option>
-                                            <option value="2">Finish Action</option>
-                                            <option value="1">Cancel All</option>
+                                            <option value="2">Finish All</option>
+                                            <option value="-1">Cancel All</option>
                                         </select>
-                                        <button type="submit" class="btn btn-primary ml-2" id="btn-apply-brand">Submit</button>
+                                        <button type="submit" class="btn btn-primary ml-2" id="btn-apply-action">Submit</button>
                                     </div>
                                 </div>
                             </div>
@@ -125,6 +126,7 @@
         </section>
     </section>
 
+
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
@@ -132,7 +134,6 @@
         $('.filter-btn select[name=status]').change(function () {
             window.location.href = $('.filter-btn').attr('action') + '?status=' + $(this).val();
         });
-
         $(function() {
             var start = moment().subtract(29, 'days');
             var end = moment();
@@ -219,6 +220,167 @@
                 });
             });
         });
+        $('#check-all').click(function () {
+            $('.check-item').prop('checked', $(this).is(':checked'));
+        });
 
+        $('body').on('click', '#btn-apply-action', function () {
+            var value = ($('select[name="select-action"]').val());
+            var arrayId = [];
+            $('.check-item:checked').each(function(index, item) {
+                arrayId.push(parseInt(item.closest('.row-item').id.replace('row-item-', '')));
+            });
+            if(arrayId.length == 0){
+                swal("Please choose at least 1 item!", {
+                    icon: "warning",
+                });
+                return;
+            }
+
+            switch (value){
+                case '-1':
+                    swal({
+                        title: "Are you sure?",
+                        text: "Are you sure to cancel these orders?",
+                        icon: "info",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                        .then((willCancel) => {if (willCancel) {
+                            var arrayStatus = [];
+                            for (var k = 0; k < arrayId.length; k++) {
+                                var status = $('#row-item-' + arrayId[k]).children().next().next().next().next().next().next().next().text().trim();
+                                arrayStatus.push(status);
+                            }
+                            for (var j = 0; j < arrayStatus.length; j++){
+                                console.log(arrayStatus[j]);
+                                if (arrayStatus[j] == 'Confirmed' || arrayStatus[j] == 'DONE') {
+                                    delete arrayId[j];
+                                    swal({
+                                        title: "Can't cancel confirmed or finished orders!",
+                                        text: "Please only choose orders that can be canceled",
+                                        icon: "warning",
+                                    });
+                                }
+                            }
+                            arrayId = jQuery.grep(arrayId, function(n){ return (n); });
+                            $.ajax({
+                                method: 'POST',
+                                url: '/admin/order/update-status-many',
+                                data: {
+                                    '_token': $('meta[name="csrf-token"]').attr('content'),
+                                    'ids': arrayId,
+                                    'status': -1
+                                },
+                                success: function (resp) {
+                                    for (var i = 0; i < arrayId.length; i++) {
+                                        $('#row-item-' + arrayId[i]).remove();
+                                    }
+                                    // if($('.check-item').length == 0){
+                                        // setTimeout(function(){
+                                        //     window.location.reload(1);
+                                        // }, 2*500);
+                                    // }
+                                    window.setTimeout(function(){window.location.reload()}, 1000);
+                                },
+                                error: function (r) {
+                                    console.log(r);
+                                    swal("Action fails! Please try again later!", {
+                                        icon: "warning",
+                                    });
+                                }
+                            });
+                        }});
+                    break;
+
+                case '1':
+                    swal({
+                        title: "Are you sure?",
+                        text: "Are you sure to confirm these orders?",
+                        icon: "info",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                        .then((willConfirm) => {if (willConfirm) {
+                            $.ajax({
+                                method: 'POST',
+                                url: '/admin/order/update-status-many',
+                                data: {
+                                    '_token': $('meta[name="csrf-token"]').attr('content'),
+                                    'ids': arrayId,
+                                    'status': 1
+                                },
+                                success: function (resp) {
+                                    for (var i = 0; i < arrayId.length; i++) {
+                                        $('#row-item-' + arrayId[i]).remove();
+                                    }
+                                    window.setTimeout(function(){window.location.reload()}, 1000);
+                                },
+                                error: function (r) {
+                                    console.log(r);
+                                    swal("Action fails! Please try again later!", {
+                                        icon: "warning",
+                                    });
+                                }
+                            });
+                        }});
+                    break;
+
+                case '2':
+                    swal({
+                        title: "Are you sure?",
+                        text: "Are you sure to finish these orders?",
+                        icon: "info",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                        .then((willFinish) => {if (willFinish) {
+                            var arrayStatus = [];
+                            for (var k = 0; k < arrayId.length; k++) {
+                                var status = $('#row-item-' + arrayId[k]).children().next().next().next().next().next().next().next().text().trim();
+                                arrayStatus.push(status);
+                            }
+                            for (var j = 0; j < arrayStatus.length; j++){
+                                console.log(arrayStatus[j]);
+                                if (arrayStatus[j] == 'Confirmed' || arrayStatus[j] == 'DONE') {
+                                    delete arrayId[j];
+                                    swal({
+                                        title: "Can't finish confirmed or canceld orders!",
+                                        text: "Please only choose orders that can be finished",
+                                        icon: "warning",
+                                    });
+                                }
+                            }
+                            arrayId = jQuery.grep(arrayId, function(n){ return (n); });
+                            $.ajax({
+                                method: 'POST',
+                                url: '/admin/order/update-status-many',
+                                data: {
+                                    '_token': $('meta[name="csrf-token"]').attr('content'),
+                                    'ids': arrayId,
+                                    'status': 2
+                                },
+                                success: function (resp) {
+                                    for (var i = 0; i < arrayId.length; i++) {
+                                        $('#row-item-' + arrayId[i]).remove();
+                                    }
+                                    window.setTimeout(function(){window.location.reload()}, 1000);
+                                },
+                                error: function (r) {
+                                    console.log(r);
+                                    swal("Action fails! Please try again later!", {
+                                        icon: "warning",
+                                    });
+                                }
+                            });
+                        }});
+                    break;
+                default:
+                    swal("Invalid action! Please try again!", {
+                        icon: "warning",
+                    });
+                    break;
+            }
+        })
     </script>
 @endsection

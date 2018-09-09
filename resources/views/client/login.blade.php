@@ -23,7 +23,7 @@
                                 <form id="login-form"  method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }}" role="form" style="display: block;">
                                     @csrf
                                     <div class="form-group">
-                                        <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+                                        <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}">
 
                                         @if ($errors->has('email'))
                                             <span class="invalid-feedback" role="alert">
@@ -63,11 +63,11 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <li class="t-center m-b-13">
-                                                <a href="{{url('/redirect')}}"><i class="fab fa-facebook-square fa-2x" aria-hidden="true"></i></a>
+                                                <a href="{{url('/facebook/redirect')}}"><i class="fab fa-facebook-square fa-2x" aria-hidden="true"></i></a>
                                                 &nbsp;
-                                                <a href="#"><i class="fab fa-google-plus-square fa-2x" aria-hidden="true"></i></a>
+                                                <a href="{{url('/google/redirect')}}"><i class="fab fa-google-plus-square fa-2x" aria-hidden="true"></i></a>
                                                 &nbsp;
-                                                <a href="#"><i class="fab fa-pinterest-square fa-2x" aria-hidden="true"></i></a>
+                                                <a href="{{url('/zaloLogin')}}"><i class="fab fa-pinterest-square fa-2x" aria-hidden="true"></i></a>
                                             </li>
                                         </div>
                                     </div>

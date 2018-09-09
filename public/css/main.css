@@ -661,7 +661,7 @@ input[type="date" i] {
   color: white;
 }
 
-.header-fixed .social a {
+.header-fixed .social a , .header-fixed .social button {
   color: #222222;
 }
 

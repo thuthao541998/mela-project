@@ -16,7 +16,7 @@
 
 Route::get('/','CategoryController@indexClient');
 Route::get('/list-product',"ProductController@indexClient");
-Route::get('/product/{id}',"ProductController@show");
+Route::get('/product/{id}',"ProductController@showClient");
 Route::get('/brand/{id}',"BrandController@detailBrand");
 Route::get('/cart',function (){
     return view('client.cart.cart');
@@ -27,21 +27,24 @@ Route::get('/test',function (){
 Route::get('/about-us',function (){
     return view('client.aboutUs');
 });
-Route::get('/contact-us',function (){
-    return view('client.contactUs');
-});
+//Contact
+Route::get('/contact-us','ContactController@index');
+Route::post('/contact-us','ContactController@save');
+//
 Route::get('/list-article', "ArticleController@indexClient");
 Route::get('/article/{id}', 'ArticleController@showClient');
 Route::get('/add-to-cart', 'CartController@addToCart');
 Route::post('/api-add-to-cart', 'CartController@addToCartApi');
 Route::get('/cart', 'CartController@showCart');
 Route::get('/cart-remove/{id}', 'CartController@removeCart');
-Route::post('/check-out','CartController@checkoutCart');
+Route::post('/order-success','CartController@checkoutCart');
 Route::put('/sua-gio-hang', 'CartController@updateCart');
 Route::get('/admin/order/update-status/{id}', 'OrderController@updateStatus');
 Route::get('/admin/list-order', 'OrderController@index');
 Route::get('/api-get-chart-data', 'OrderController@getChartDataApi');
 Route::get('/api-get-data-to-time', 'OrderController@getDataToTimeApi');
+
+Route::get('/api-get-pie-chart-data', 'OrderDetailController@getPieChartDataApi');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/list-product/search', 'ProductController@search')->name('search.action');
 
@@ -55,8 +58,16 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/client-login',['as' => 'client.login',function (){
     return view('client.login');
 }]);
-Route::get('/redirect', 'SocialAuthFacebookController@redirect');
-Route::get('/callback', 'SocialAuthFacebookController@callback');
+Route::get('/{provider}/redirect', 'SocialAuthController@redirect');
+Route::get('/{provider}/callback', 'SocialAuthController@callback');
+//Login with Zalo
+Route::get('/zaloLogin',function(){
+   return redirect('https://oauth.zaloapp.com/v3/auth?app_id=3902778407091030839&redirect_uri='.url('callbackZalo'));
+});
+Route::get('/callbackZalo', 'SocialAuthController@callbackZalo');
+Route::get('/callbackZalo1', function (){
+    return 'OK';
+});
 
 // *********************************ROUTE ADMIN Zone*********************************
 //Route::get('/admin-login', function (){
@@ -64,10 +75,7 @@ Route::get('/callback', 'SocialAuthFacebookController@callback');
 //});
 //    Auth Admin
 Route::group(['middleware' => ['sellUserGuest']],function (){
-    Route::group(['middleware' => ['checkAdminAccount']],function (){
-        Route::get('admin-register', 'AdminAuth\RegisterController@index');
-        Route::post('admin-register', 'AdminAuth\RegisterController@register');
-    });
+
     Route::get('admin-login','AdminAuth\LoginController@index');
     Route::post('admin-login','AdminAuth\LoginController@login');
     Route::post('admin-logout','AdminAuth\LoginController@logout');
@@ -76,6 +84,11 @@ Route::group(['middleware' => ['sellUserGuest']],function (){
 
 Route::group(['middleware' => ['sellUserAuth']],function (){
 
+    Route::group(['middleware' => ['checkAdminAccount']],function (){
+        Route::get('admin-register', 'AdminAuth\RegisterController@index');
+        Route::post('admin-register', 'AdminAuth\RegisterController@register');
+    });
+    
     Route::get('/admin', function (){
         return view('admin.dashboard');
     });
@@ -97,7 +110,7 @@ Route::group(['middleware' => ['sellUserAuth']],function (){
     Route::post("admin/article/destroy-many", "ArticleController@destroyMany");
     Route::post("admin/brand/destroy-many", "CategoryController@destroyMany");
 
-
+    Route::post('admin/order/update-status-many','OrderController@updateStatusMany');
 
     Route::get("/admin/article/get-json/{id}", "ArticleController@showJson");
     Route::put("/admin/article/update-json/{id}", "ArticleController@quickUpdate");
@@ -110,6 +123,4 @@ Route::group(['middleware' => ['sellUserAuth']],function (){
 Route::get('admin/404',function (){
     return view('admin.404.404');
 });
-Route::get('/admin/dash-board', function (){
-   return view('admin.dashboard');
-});
+

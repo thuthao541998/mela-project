@@ -22,7 +22,8 @@
                                 Send us a Message
                             </h3>
 
-                            <form class="wrap-form-reservation size22 m-l-r-auto">
+                            <form class="wrap-form-reservation size22 m-l-r-auto" method="POST" action="{{url('/contact-us')}}">
+                                @csrf
                                 <div class="row">
                                     <div class="col-md-4">
                                         <!-- Name -->
@@ -31,7 +32,14 @@
 						</span>
 
                                         <div class="wrap-inputname size12 bo2 bo-rad-10 m-t-3 m-b-23">
-                                            <input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="name" placeholder="Name">
+                                            <input class="bo-rad-10 sizefull txt10 p-l-20 " id="name" type="text" name="name" placeholder="Name"
+                                            @if(Auth::user())
+                                                value="{{Auth::user() -> name}}"
+                                            @endif
+                                            >
+                                            <div class="mustname" style="display: none">
+                                                Please enter Your Name
+                                            </div>
                                         </div>
                                     </div>
 
@@ -42,7 +50,14 @@
 						</span>
 
                                         <div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
-                                            <input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="email" placeholder="Email">
+                                            <input class="bo-rad-10 sizefull txt10 p-l-20 email" type="text" name="email" placeholder="Email"
+                                           @if(Auth::user())
+                                               value="{{Auth::user() -> email}}"
+                                            @endif
+                                            >
+                                            <div class="mustemail" style="display: none">
+                                                Please enter Your Email
+                                            </div>
                                         </div>
                                     </div>
 
@@ -53,7 +68,10 @@
 						</span>
 
                                         <div class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23">
-                                            <input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="phone" placeholder="Phone">
+                                            <input class="bo-rad-10 sizefull txt10 p-l-20 phone" type="text" name="phone" placeholder="Phone">
+                                            <div class="mustphone" style="display: none">
+                                                Please enter Your Phone
+                                            </div>
                                         </div>
                                     </div>
 
@@ -62,13 +80,16 @@
                                         <span class="txt9">
 							Message
 						</span>
-                                        <textarea class="bo-rad-10 size35 bo2 txt10 p-l-20 p-t-15 m-b-10 m-t-3" name="message" placeholder="Message"></textarea>
+                                        <textarea class="bo-rad-10 size35 bo2 txt10 p-l-20 p-t-15 m-b-10 m-t-3 message" name="message" placeholder="Message" ></textarea>
+                                        <div class="mustmessage" style="display: none">
+                                            Please enter Your Message
+                                        </div>
                                     </div>
                                 </div>
 
                                 <div class="wrap-btn-booking flex-c-m m-t-13">
                                     <!-- Button3 -->
-                                    <button type="submit" class="btn3 flex-c-m size36 txt11 trans-0-4">
+                                    <button type="button" class="btn3 flex-c-m size36 txt11 trans-0-4 send">
                                         Submit
                                     </button>
                                 </div>
@@ -98,5 +119,6 @@
             </p>
         </div>
     </section>
-    <script src="{{asset('js/contactUs.js')}}"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="{{asset('js/contactUs.js')}}"></script>
 @endsection
