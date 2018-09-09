@@ -89,7 +89,7 @@ class OrderController extends Controller
         }
         return response()->json(['list_obj' => $orders], 200);
     }
-}
+
 
     public function updateStatusMany(Request $request)
     {
