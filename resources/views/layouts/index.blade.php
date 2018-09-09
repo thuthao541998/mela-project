@@ -93,12 +93,14 @@
                                     <div class="header-icons-mobile">
                                         <div class="header-wrapicon2">
                                             <button href="#" class="fa fa-shopping-cart fa-2x js-show-header-dropdown m-t-10"></button>
-                                            <span class="header-icons-noti" style="left: 35px; bottom: 20px; top: 0px;" id="header-icons-noti">{{\App\Cart::getTotalItem()}}</span>
+                                            <span class="header-icons-noti" style="left: 35px; bottom: 20px; top: 0px;" id="header-icons-noti">
+                                                {{\App\Cart::getTotalItem()}}
+                                            </span>
 
                                             <!-- Header cart noti -->
                                             <div class="header-cart header-dropdown">
                                                 <ul class="header-cart-wrapitem">
-                                                    @if(count(\App\Cart::getCart()->items)>0)
+                                                    @if(\App\Cart::getTotalItem()>0)
                                                         @foreach(\App\Cart::getCart()->items as $item)
                                                             <li class="header-cart-item">
                                                                 <div class="header-cart-item-img">
@@ -109,7 +111,6 @@
                                                                     <a href="#" class="header-cart-item-name" style="color: #555; ">
                                                                         {{$item->product->name}}
                                                                     </a>
-
                                                                     <span class="header-cart-item-info">
                                                                         {{$item->quantity}} x {{$item->product->discountPriceWithFormat}}
                                                                     </span>
@@ -117,7 +118,7 @@
                                                             </li>
                                                         @endforeach
                                                     @else
-                                                        'Hiện tại không có sản phẩm nào trong giỏ hàng'
+                                                        <li style="color:black;">'You haven't chosen any product yet'</li>
                                                     @endif
                                                 </ul>
 
@@ -328,7 +329,7 @@
         <div class="wrap-slick1-dots"></div>
     </div>
 </section>
-
+<div class="thao"></div>
 @yield('content')
 
 <!-- Blog -->
@@ -666,6 +667,8 @@
 <script src="{{asset('js/sweetalert.min.js')}}"></script>
 <script src="{{asset('js/main.js')}}"></script>
 <script src="{{asset('js/cart.js')}}"></script>
+<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+
 
 </body>
 </html>
