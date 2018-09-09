@@ -11,7 +11,12 @@
                 </div>
                 <div class="alert alert-success hidden mt-2 ml-2 mr-2" role="alert" id="messageSuccess"></div>
                 <div class="alert alert-danger hidden mt-2 ml-2 mr-2" role="alert" id="messageError"></div>
-                {{--<div>--}}
+                <div>
+                    {{--<div class="form-group mx-sm-4 mb-3 ml-5">--}}
+                        {{--<a href="/admin/order" class="col-lg-3">--}}
+                            {{--<i class="fas fa-caret-square-left "></i> Back to list order--}}
+                        {{--</a>--}}
+                    {{--</div>--}}
                     {{--<div class="filter-btn form-inline" action="/admin/product" method="GET">--}}
                         {{--<div class="form-group mx-sm-4 mb-3">--}}
                             {{--<label for="chooseCategory">Category</label>--}}
@@ -32,7 +37,7 @@
                             {{--</select>--}}
                         {{--</div>--}}
                     {{--</div>--}}
-                {{--</div>--}}
+                </div>
                     <div>
                         <table class="table table-light pl-4 float-lg-none">
                             <thead>
@@ -62,7 +67,7 @@
                                         <td class="col-xs-2 text-center">
                                             {{$product->discount_price_string}}
                                             @if($product->original_price_string != $product->discount_price_string)
-                                                <del class=" text-danger">{{$product->original_price_string}}</del>
+                                                <del class="text-danger">{{$product->original_price_string}}</del>
                                             @endif
                                         </td>
                                         <td class="col-md-2 col-xs-2 text-center">{{$item->unit_price * $item->quantity}} (vnd)</td>

@@ -45,7 +45,7 @@
                             <thead>
                                 <tr>
                                     <th class="column-0"></th>
-                                    <th class="column-1">ID</th>
+                                    <th class="column-1 text-center">ID</th>
                                     <th class="column-2">Buyer</th>
                                     <th class="column-3">Address</th>
                                     <th class="column-4">Phone Number</th>
@@ -58,11 +58,16 @@
                             <tbody>
                             @foreach($orders as $item)
                                 <tr id="row-item-{{$item->id}}">
-                                    <td class="column-0">
+                                    <td class="column-0 text-center">
                                         <input type="checkbox">
                                     </td>
-                                    <td class="column-1"><a href="order/{{$item->id}}" style="color: #000000">{{$item->id}}</a></td>
-                                    <td class="column-2"><a href="order/{{$item->id}}" style="color: #000000">{{$item->ship_name}}</a></td>
+                                    <td class="column-1 text-center">{{$item->id}}
+                                        <a class="btn btn-simple btn-link btn-icon text-center" data-placement="top"
+                                           title="Click to view the details of this order" href="/admin/order/{{$item->id}}">
+                                            <button class="btn btn-outline-success">Detail</button>
+                                        </a>
+                                    </td>
+                                    <td class="column-2">{{$item->ship_name}}</td>
                                     <td class="column-3">{{$item->ship_address}}</td>
                                     <td class="column-4">{{$item->ship_phone}}</td>
                                     <td class="column-5">
@@ -73,6 +78,7 @@
                                     <td class="column-6">{{$item->total_price}}</td>
                                     <td class="column-7 font-weight-bold">{{$item->statusLabel}}</td>
                                     <td class="column-8 text-center">
+
                                         @if($item->status == 0)
                                             <a href="/admin/order/update-status/{{$item->id}}?status=1" onclick="return confirm('Are sure to confirm this order?')"
                                                class="btn btn-simple btn-info btn-icon edit" title="Click to have this order confirmed"><i class="fas fa-hourglass"></i></a>
