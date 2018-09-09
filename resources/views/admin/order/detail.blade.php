@@ -41,52 +41,54 @@
                 <div>
                     <table class="table table-light pl-4 float-lg-none">
                         <thead>
-                        <tr class="row col-md-12 col-sm-12 col-lg-12">
-                            <th class="col-xsm-1" style="width: 3%"></th>
-                            <th class="col-xs-1 text-center">Id</th>
-                            <th class="col-xs-2 col-md-2 col-sm-2 ">Name</th>
-                            <th class="col-xs-2 col-md-2 col-sm-2 ">Images</th>
-                            <th class="col-xs-1 col-md-1 col-sm-1 text-center">Quantity</th>
-                            <th class="col-xs-2 col-md-2 col-sm-2 text-center">Unit price</th>
-                            <th class="col-xs-2 col-md-2 col-sm-2 text-center">Total</th>
-                            <th class="col-xs-1 col-md-1 col-sm-1 text-center">Action</th>
+                        <tr>
+                            <th class="column-4"></th>
+                            <th class="column-2 text-center">Id</th>
+                            <th class="column-3">Name</th>
+                            <th class="column-4">Images</th>
+                            <th class="column-5 text-center">Quantity</th>
+                            <th class="column-6 text-center">Unit price</th>
+                            <th class="column-7 text-center">Total</th>
+                            <th class="column-8 text-center">Action</th>
                         </tr>
                         </thead>
                         <tbody>
                         {{--{{$order_details}}--}}
                         @foreach($order_details as $item)
-                            <tr id="row-item-{{$item->product->id}}" class="row col-md-12 col-sm-12 col-lg-12">
-                                <td class="col-xsm-1" style="width: 3%">
+                            <tr id="row-item-{{$item->product->id}}">
+                                <td class="column-1" style="width: 3%">
                                     <input type="checkbox">
                                 </td>
-                                <td class="col-xs-1 text-center">{{$item->product->id}}</td>
-                                <td class="col-xs-2">{{$item->product->name}}</td>
-                                <td class="col-xs-2 "><img src="{{$item->product->images}}" class="card"
+                                <td class="column-2 text-center">{{$item->product->id}}</td>
+                                <td class="column-3 ">{{$item->product->name}}</td>
+                                <td class="column-4 "><img src="{{$item->product->images}}" class="card"
                                                            style="background-size: cover; width: 80px; height: 80px;">
                                 </td>
-                                <td class="col-xs-1 text-center">{{$item->quantity}}</td>
-                                <td class="col-xs-2 text-center">
+                                <td class="column-5 text-center">{{$item->quantity}}</td>
+                                <td class="column-6 text-center">
                                     {{$item->product->discount_price_string}}
                                     @if($item->product->original_price_string != $item->product->discount_price_string)
-                                        <del class="text-danger">{{$item->product->original_price_string}}</del>
+                                        <div>
+                                            <del class="text-danger">{{$item->product->original_price_string}}</del>
+                                        </div>
                                     @endif
                                 </td>
-                                <td class="col-md-2 col-xs-2 text-center">{{$item->unit_price * $item->quantity}}
+                                <td class="column-7 text-center total-unit">{{$item->totalUnit}}
                                     (vnd)
                                 </td>
-                                <td class="col-md-1 col-sm-1 text-center">
+                                <td class="column-8 text-center">
                                     <a href="javascript:void(0)"
                                        class="btn btn-link btn-delete btn-delete-product p-t-0" data-toggle="tooltip"
                                        title="Delete" data-placement="top"><span class="fa fa-trash"></span></a>
                                 </td>
                             </tr>
                         @endforeach
-                        <tr class="row col-md-12 col-sm-12 col-lg-12">
-                            <td class="font-weight-bold col-xs-8 text-right" style="font-size: 16px">Total</td>
-                            <td class="col-xs-4 text-center" style="font-size: 16px">{{$order->total_price}} (vnd)</td>
-                        </tr>
                         </tbody>
                     </table>
+                    <div class="float-right mr-5">
+                        <span class="text-right font-weight-bold" style="font-size: 16px; font-weight: bold">Total : </span>
+                        <span class="text-center" style="font-size: 16px">{{$order->getTotalMoneyWithFormat()}} (vnd)</span>
+                    </div>
                     <div class="row">
                         <div class="col-md-12 form-inline">
                             <div class="form-check ml-2">
