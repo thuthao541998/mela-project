@@ -100,7 +100,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <p>{{$product_id}}</p>
                         @else
                             <div class="alert alert-info">Have no order in this fields.
                             </div>
