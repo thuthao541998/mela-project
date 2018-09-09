@@ -49,7 +49,8 @@ class OrderController extends Controller
             return view('admin.404.404');
         }
         return view('admin.order.detail')
-            ->with('order', $order);
+            ->with('order', $order)
+            ->with('order_details',$order->order_details);
     }
 
     public function update($id)
