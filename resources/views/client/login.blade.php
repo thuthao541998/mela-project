@@ -2,7 +2,7 @@
 @section('content')
 @section('page-topic','Login')
 <link rel="stylesheet" href="{{asset('css/login.css')}}">
-    <div class="container m-t-100">
+    <div class="login p-t-100 p-b-50" style="background-image: url('{{asset('images/icons/pattern1.png')}}')">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <div class="panel panel-login">

@@ -90,7 +90,6 @@ class OrderController extends Controller
         }
         return response()->json(['list_obj' => $orders], 200);
     }
-
     public function updateStatusMany(Request $request)
     {
         DB::table('orders')->where('id', Input::get('ids'))->update(['status' => $request->get('status')]);
