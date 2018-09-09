@@ -175,14 +175,29 @@
             var chart = new google.visualization.PieChart(document.getElementById('piechart'));
 
             chart.draw(data, options);
-        }
 
-        $('body').on('click', 'g path', function () {
-            
-        });
-        
-        function getOrderWithProductId() {
-            
+            google.visualization.events.addListener(chart, 'select', selectHandler);
+
+            function selectHandler(e) {
+                for(var i = 0; i < chart.getSelection().length; i++){
+                    var item = chart.getSelection()[i];
+                    var message = '';
+                    if (item.row != null && item.column != null) {
+                        var str = data.getFormattedValue(item.row, item.column);
+                    } else if (item.row != null) {
+                        var str = data.getFormattedValue(item.row, 0);
+                    } else if (item.column != null) {
+                        var str = data.getFormattedValue(0, item.column);
+                    }
+                    for (var k = 0; k < chart_data.length; k++){
+                        if (chart_data[k].product.name == str){
+                            var obj = chart_data[k];
+                        }
+                    } 
+                    var product_id = obj.product.id;
+                    window.location.href = '/admin/order?product_id=' + product_id;
+                }
+            }
         }
     </script>
 @endsection
