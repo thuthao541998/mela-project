@@ -23,5 +23,8 @@ class OrderDetail extends Model
         $product = Product::find($this->product_id);
         return $product;
     }
-
+    public function getTotalUnitAttribute(){
+        $total_unit = $this->quantity * Product::find($this->product_id)->discountPrice;
+        return sprintf('%s', number_format($total_unit, 0));
+    }
 }

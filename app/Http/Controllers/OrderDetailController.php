@@ -19,7 +19,7 @@ class OrderDetailController extends Controller
         }
 //        return view của 1 order detail cụ thể chứ không phải list
         return view('admin.order_detail.list')
-            ->with('admin', $order_detail);
+            ->with('$order', $order_detail);
     }
 
     public function update($id)
