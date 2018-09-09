@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Order;
+use App\OrderDetail;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
@@ -46,8 +48,8 @@ class OrderController extends Controller
         if ($order == null) {
             return view('404');
         }
-        return view('admin.order.list')
-            ->with('admin', $order);
+        return view('admin.order.detail')
+            ->with('order', $order);
     }
 
     public function update($id)
@@ -75,9 +77,24 @@ class OrderController extends Controller
         return redirect()->back();
     }
 
+    public function getDataToTimeApi()
+    {
+        $start_date = Input::get('startDate');
+        $end_date = Input::get('endDate');
+        $orders = Order::select()
+            ->whereBetween('orders.created_at', array($start_date .' 00:00:00', $end_date . ' 23:59:59'))
+            ->get();
+        foreach ($orders as $data) {
+            $data->statusLabel = $data->getStatusLabelAttribute();
+        }
+        return response()->json(['list_obj' => $orders], 200);
+    }
+}
+
     public function updateStatusMany(Request $request)
     {
         DB::table('orders')->where('id', Input::get('ids'))->update(['status' => $request->get('status')]);
         return redirect()->back();
     }
 }
+

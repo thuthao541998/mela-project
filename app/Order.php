@@ -39,6 +39,11 @@ class Order extends Model
         }
     }
 
+    public function getOrderDetailsAttribute(){
+        $order_details = OrderDetail::where('order_id','=',$this->id)->get();
+        return $this->attributes['orderDetails'] = $order_details;
+    }
+    protected $appends = ['order_details'];
     function getTotalMoneyWithFormat()
     {
         return sprintf('%s', number_format($this->total_price, 0));
