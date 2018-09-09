@@ -40,6 +40,10 @@
                 url: '/api-get-chart-data?startDate='+start.format('YYYY-MM-DD')+'&endDate='+end.format('YYYY-MM-DD'),
                 method: 'GET',
                 success: function (resp) {
+                    if(resp.length ==0){
+                        swal('No data exists for line chart', 'Please choose another time range.', 'warning');
+                        return;
+                    };
                     drawChart(resp);
                     var totalRevenue = 0;
                     for(var i=0; i<resp.length ; i++){
@@ -108,7 +112,7 @@
                     method: 'GET',
                     success: function (resp) {
                         if(resp.length ==0){
-                            swal('No data exists', 'Please choose another time range.', 'warning');
+                            swal('No data exists for pie chart', 'Please choose another time range.', 'warning');
                             return;
                         };
                         drawPieChart(resp);
@@ -122,7 +126,7 @@
                     method: 'GET',
                     success: function (resp) {
                         if(resp.length ==0){
-                            swal('No data exists', 'Please choose another time range.', 'warning');
+                            swal('No data exists for line chart', 'Please choose another time range.', 'warning');
                             return;
                         };
                         drawChart(resp);
@@ -147,7 +151,10 @@
                 url: '/api-get-pie-chart-data?startDate='+start.format('YYYY-MM-DD')+'&endDate='+end.format('YYYY-MM-DD'),
                 method: 'GET',
                 success: function (resp) {
-                    console.log(resp);
+                    if(resp.length ==0){
+                        swal('No data exists for pie chart', 'Please choose another time range.', 'warning');
+                        return;
+                    };
                     drawPieChart(resp);
                 },
                 error: function (r) {

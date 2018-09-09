@@ -121,6 +121,4 @@ Route::group(['middleware' => ['sellUserAuth']],function (){
 Route::get('admin/404',function (){
     return view('admin.404.404');
 });
-Route::get('/admin/dash-board', function (){
-   return view('admin.dashboard');
-});
+
