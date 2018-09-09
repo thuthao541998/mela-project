@@ -39,4 +39,8 @@ class Order extends Model
         }
     }
 
+    function getTotalMoneyWithFormat()
+    {
+        return sprintf('%s', number_format($this->total_price, 0));
+    }
 }
