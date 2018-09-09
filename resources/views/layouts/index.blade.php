@@ -44,17 +44,17 @@
 <header>
     <!-- Header desktop -->
     <div class="wrap-menu-header gradient1 trans-0-4">
-        <div class="container h-full">
+        <div class="h-full">
             <div class="wrap_header trans-0-3">
                 <!-- Logo -->
-                <div class="logo">
+                <div class="logo p-l-60">
                     <a href="/">
                         <img src="{{asset('images/logo.png')}}" alt="IMG-LOGO" data-logofixed="{{asset('images/logo.png')}}">
                     </a>
                 </div>
 
                 <!-- Menu -->
-                <div class="wrap_menu p-l-45 p-l-0-xl">
+                <div class="wrap_menu p-l-100 p-l-0-xl">
                     <nav class="menu">
                         <ul class="main_menu m-l-94">
                             <li>
@@ -82,7 +82,7 @@
                 </div>
 
                 <!-- Social -->
-                <div class="social flex-w flex-l-m p-r-20">
+                <div class="social flex-w flex-l-m p-r-70">
                     <button class="btn-show-sidebar m-l-33 trans-0-4"></button>
                     <span class="p-l-30">
                         <div class="btn-show-menu">
@@ -140,7 +140,7 @@
                             </div>
                         </div>
                     </span>
-                    @if(isset(Auth::user()->name)))
+                    @if(isset(Auth::user()->name))
                         <div class="dropdown" style="background-color: #bd3112;
                                                         color: white;
                                                         border-radius: 10px;
@@ -157,7 +157,7 @@
                             </div>
                         </div>
                     @else
-                    <span class="p-l-30 btn-show-menu">
+                    <span class="m-r-80 m-l-30 btn-show-menu">
                         <a href="{{route('client.login')}}"><i class="fas fa-user-circle fa-2x" aria-hidden="true" ></i></a>
                     </span>
                     @endif
