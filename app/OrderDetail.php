@@ -23,10 +23,4 @@ class OrderDetail extends Model
         $product = Product::find($this->product_id);
         return $product;
     }
-
-    public function getProductsAttribute(){
-        $products = Product::where('id','=',$this->product_id)->get();
-        return $this->attributes['products'] = $products;
-    }
-    protected $appends = ['products'];
 }

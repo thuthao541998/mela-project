@@ -39,6 +39,7 @@ Route::get('/cart', 'CartController@showCart');
 Route::get('/cart-remove/{id}', 'CartController@removeCart');
 Route::post('/order-success','CartController@checkoutCart');
 Route::put('/sua-gio-hang', 'CartController@updateCart');
+Route::get('/admin/order/{id}', 'OrderController@show');
 Route::get('/admin/order/update-status/{id}', 'OrderController@updateStatus');
 Route::get('/admin/list-order', 'OrderController@index');
 Route::get('/api-get-chart-data', 'OrderController@getChartDataApi');

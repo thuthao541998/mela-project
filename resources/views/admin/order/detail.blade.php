@@ -53,8 +53,8 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($order->order_details as $item)
-                                @foreach($item->products as $product)
+                            @foreach($order->order_details as $items)
+                                @foreach($items->products as $product)
                                     <tr id="row-item-{{$product->id}}" class="row col-md-12 col-sm-12 col-lg-12">
                                         <td class="col-xsm-1" style="width: 3%">
                                             <input type="checkbox">
@@ -63,16 +63,16 @@
                                         <td class="col-xs-2">{{$product->name}}</td>
                                         <td class="col-xs-2 "><img src="{{$product->images}}" class="card"
                                                                   style="background-size: cover; width: 80px; height: 80px;"></td>
-                                        <td class="col-xs-1 text-center">{{$item->quantity}}</td>
+                                        <td class="col-xs-1 text-center">{{$items->quantity}}</td>
                                         <td class="col-xs-2 text-center">
                                             {{$product->discount_price_string}}
                                             @if($product->original_price_string != $product->discount_price_string)
                                                 <del class="text-danger">{{$product->original_price_string}}</del>
                                             @endif
                                         </td>
-                                        <td class="col-md-2 col-xs-2 text-center">{{$item->unit_price * $item->quantity}} (vnd)</td>
+                                        <td class="col-md-2 col-xs-2 text-center">{{$items->unit_price * $items->quantity}} (vnd)</td>
                                         <td class="col-md-1 col-sm-1 text-center">
-                                            <a href="javascript:void(0)" id="{{$item-> id}}"
+                                            <a href="javascript:void(0)"
                                                class="btn btn-link btn-delete btn-delete-product p-t-0" data-toggle="tooltip"
                                                title="Delete" data-placement="top"><span class="fa fa-trash"></span></a>
                                         </td>

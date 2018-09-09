@@ -14,7 +14,7 @@ class OrderController extends Controller
     public function index()
     {
         $choosedStatus = Input::get('status'); // default all.
-        if((!Input::has('status') || $choosedStatus== 3)){
+        if ((!Input::has('status') || $choosedStatus == 3)) {
             $choosedStatus = 3;
             $orders = Order::paginate(10);
         } else {
@@ -28,25 +28,25 @@ class OrderController extends Controller
 
 
     public function getChartDataApi()
-{
-    $start_date = Input::get('startDate');
-    $end_date = Input::get('endDate');
-    $chart_data = Order::select(DB::raw('sum(total_price) as revenue'), DB::raw('date(created_at) as day'))
+    {
+        $start_date = Input::get('startDate');
+        $end_date = Input::get('endDate');
+        $chart_data = Order::select(DB::raw('sum(total_price) as revenue'), DB::raw('date(created_at) as day'))
 //        ->whereRaw('id=2')
 //        ->whereBetween('created_at', array($start_date .' 00:00:00', $end_date . ' 23:59:59'))
-        ->whereRaw('created_at >= "'.$start_date.' 00:00:00" AND created_at <= "'.$end_date . ' 23:59:59" AND status = 2')
-        ->groupBy('day')
-        ->orderBy('day', 'desc')
-        ->get();
+            ->whereRaw('created_at >= "' . $start_date . ' 00:00:00" AND created_at <= "' . $end_date . ' 23:59:59" AND status = 2')
+            ->groupBy('day')
+            ->orderBy('day', 'desc')
+            ->get();
 
-    return $chart_data;
-}
+        return $chart_data;
+    }
 
     public function show($id)
     {
         $order = Order::find($id);
         if ($order == null) {
-            return view('404');
+            return view('admin.404.404');
         }
         return view('admin.order.detail')
             ->with('order', $order);
@@ -82,14 +82,13 @@ class OrderController extends Controller
         $start_date = Input::get('startDate');
         $end_date = Input::get('endDate');
         $orders = Order::select()
-            ->whereBetween('orders.created_at', array($start_date .' 00:00:00', $end_date . ' 23:59:59'))
+            ->whereBetween('orders.created_at', array($start_date . ' 00:00:00', $end_date . ' 23:59:59'))
             ->get();
         foreach ($orders as $data) {
             $data->statusLabel = $data->getStatusLabelAttribute();
         }
         return response()->json(['list_obj' => $orders], 200);
     }
-}
 
     public function updateStatusMany(Request $request)
     {
