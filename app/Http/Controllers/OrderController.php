@@ -24,9 +24,19 @@ class OrderController extends Controller
         } else {
             $orders = Order::where(['status' => $choosedStatus])->paginate(10);
         }
+        $orders = Order::paginate(10);
+        foreach ($orders as $item)
+            foreach ($item->details() as $product)
+            if ($product->product_id != $product_id){
+                $key = $orders->search(function($item) {
+                    return $item->product_id;
+                });
+                $orders->forget($item);
+            }
         return view('admin.order.list')
             ->with('choosedStatus', $choosedStatus)
             ->with('orders', $orders)
+            ->with('product_id', $product_id)
             ->with('null', null);
     }
 

@@ -100,6 +100,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <p>{{$product_id}}</p>
                         @else
                             <div class="alert alert-info">Have no order in this fields.
                             </div>
@@ -107,6 +108,7 @@
                         <div class="pagination pull-right">
                             {!! $orders->links() !!}
                         </div>
+
                     </div>
                 </div>
         </section>
