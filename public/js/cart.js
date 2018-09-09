@@ -25,7 +25,7 @@ $('body').on('click', '.add-to-cart', function () {
                 new_content += new_items[i].product.name;
                 new_content += '</a>';
                 new_content += '<span class="header-cart-item-info">';
-                new_content += new_items[i].quantity + ' x ' + new_items[i].product.dicountPriceString;
+                new_content += new_items[i].quantity + ' x ' + new_items[i].product.discount_price_string;
                 new_content += '</span>';
                 new_content += '</div>';
                 new_content += '</li>';
