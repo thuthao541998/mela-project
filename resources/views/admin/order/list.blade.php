@@ -43,7 +43,7 @@
                                     <th class="column-3">Address</th>
                                     <th class="column-4">Phone Number</th>
                                     <th class="column-5">Order Detail</th>
-                                    <th class="column-6">Total</th>
+                                    <th class="column-6" style="width: 10%;">Total</th>
                                     <th class="column-7">Status</th>
                                     <th class="column-8 text-center">Action</th>
                                 </tr>
@@ -63,7 +63,7 @@
                                             <li>{{$order_detail->product->name}} - {{$order_detail->quantity}}</li>
                                         @endforeach
                                     </td>
-                                    <td class="column-6">{{$item->getTotalMoneyWithFormat()}} (vnd)</td>
+                                    <td class="column-6" style="width: 10%;">{{$item->getTotalMoneyWithFormat()}} (vnd)</td>
                                     <td class="column-7 font-weight-bold status-label">{{$item->statusLabel}}</td>
                                     <td class="column-8 text-center">
                                         @if($item->status==0)
