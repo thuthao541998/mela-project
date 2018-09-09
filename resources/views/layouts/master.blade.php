@@ -310,7 +310,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <span>Order Manager</span>
                             </a>
                             <ul class="sub">
-                                <li><a href="/admin/order/create">Add Order</a></li>
                                 <li><a href="/admin/order">List All Orders</a></li>
                             </ul>
                         </li>

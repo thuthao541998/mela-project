@@ -47,14 +47,6 @@ class OrderController extends Controller
     return $chart_data;
 }
 
-    public function create()
-    {
-        $order = new Order();
-        $action = '/admin/order/create';
-        return view('admin.order.form')
-            ->with('admin', $order)
-            ->with('action', $action);
-    }
 
     /**
      * Store a newly created resource in storage.
