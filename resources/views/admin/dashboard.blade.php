@@ -176,5 +176,13 @@
 
             chart.draw(data, options);
         }
+
+        $('body').on('click', 'g path', function () {
+            
+        });
+        
+        function getOrderWithProductId() {
+            
+        }
     </script>
 @endsection
