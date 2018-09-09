@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Input;
 
 class Order extends Model
 {
@@ -21,21 +22,30 @@ class Order extends Model
     {
         switch ($this->status) {
             case -1:
-                return 'Đã huỷ';
+                return 'Canceled';
                 break;
             case 0:
-                return 'Chờ xử lý';
+                return 'Confirming';
                 break;
             case 1:
-                return 'Đã xác nhận';
+                return 'Confirmed';
                 break;
             case 2:
-                return 'Hoàn thành';
+                return 'DONE';
                 break;
             default:
-                return 'Không xác định';
+                return 'Unknown';
                 break;
         }
     }
 
+    public function getOrderDetailsAttribute(){
+        $order_details = OrderDetail::where('order_id','=',$this->id)->get();
+        return $this->attributes['orderDetails'] = $order_details;
+    }
+    protected $appends = ['order_details'];
+    function getTotalMoneyWithFormat()
+    {
+        return sprintf('%s', number_format($this->total_price, 0));
+    }
 }

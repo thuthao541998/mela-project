@@ -661,7 +661,7 @@ input[type="date" i] {
   color: white;
 }
 
-.header-fixed .social a {
+.header-fixed .social a , .header-fixed .social button {
   color: #222222;
 }
 
@@ -1278,7 +1278,8 @@ input[type="date" i] {
 /*[ Modal video 01 ]
 -----------------------------------------------------------
 */
-body {padding-right: 0px !important;}
+body {padding-right: 0px !important; overflow-x: hidden;
+}
 .modal {
   padding: 0px !important;
   z-index: 1160;
@@ -1644,4 +1645,7 @@ span.header-icons-noti {
   width: fit-content;
   max-height: 250px;
   margin-bottom: 1rem;
+}
+.cart{
+  background-image: url("../images/icons/pattern1.png");
 }

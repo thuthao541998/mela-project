@@ -1,0 +1,62 @@
+
+.form-heading { color:#fff; font-size:23px;}
+.panel h2{ color:#444444; font-size:18px; margin:0 0 8px 0;}
+.panel p { color:#777777; font-size:14px; margin-bottom:30px; line-height:24px;}
+.login-form .form-control {
+    background: #9999FF none repeat scroll 0 0;
+    border: 1px solid #d4d4d4;
+    border-radius: 4px;
+    font-size: 14px;
+    height: 50px;
+    line-height: 50px;
+    width: 300px;
+    padding-left: 20px
+}
+.main-div {
+    background: #fffcfc none repeat scroll 0 0;
+    border-radius: 2px;
+    margin: 10px auto 30px;
+    max-width: 30%;
+    padding-top:50px;
+    padding-bottom: 50px;
+    -webkit-box-shadow: 2px 4px 33px -1px rgba(168,39,39,0.83);
+    -moz-box-shadow: 2px 4px 33px -1px rgba(168,39,39,0.83);
+    box-shadow: 2px 4px 33px -1px rgba(168,39,39,0.83);
+    margin-top: 100px;
+}
+
+.login-form .form-group {
+    margin-bottom:10px;
+}
+.login-form{ text-align:center;}
+.forgot a {
+    color: #777777;
+    font-size: 14px;
+    text-decoration: underline;
+}
+.login-form  .btn.btn-primary {
+    background: #CC66CC none repeat scroll 0 0;
+    color: #ffffff;
+    font-size: 14px;
+    height: 50px;
+    line-height: 50px;
+    padding: 0;
+}
+.forgot {
+     margin-bottom:30px;
+}
+.botto-text {
+    color: #ffffff;
+    font-size: 14px;
+    margin: auto;
+}
+.login-form .btn.btn-primary.reset {
+    background: #ff9900 none repeat scroll 0 0;
+}
+.back { text-align: left; margin-top:10px;}
+.back a {color: #444444; font-size: 13px;text-decoration: none;}
+
+body{
+    background-image: url('../images/bg.jpg');
+    background-size: cover;
+}

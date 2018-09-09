@@ -1,4 +1,4 @@
-$('.add-to-cart').click(function () {
+$('body').on('click', '.add-to-cart', function () {
     var product_id = $(this).attr('id').replace('add-cart-', '');
     var quantity = 1;
     $.ajax({
@@ -13,7 +13,7 @@ $('.add-to-cart').click(function () {
             console.log(resp);
             var new_count = resp.cart.count;
             var new_total_money = resp.cart.total_money;
-            var new_items = resp.cart.items;
+            var new_items = resp.items;
             var new_content = '';
             for (var i in new_items) {
                 new_content += '<li class="header-cart-item">';
@@ -25,24 +25,24 @@ $('.add-to-cart').click(function () {
                 new_content += new_items[i].product.name;
                 new_content += '</a>';
                 new_content += '<span class="header-cart-item-info">';
-                new_content += new_items[i].quantity + ' x ' + new_items[i].product.dicountPriceString;
+                new_content += new_items[i].quantity + ' x ' + new_items[i].product.discount_price_string;
                 new_content += '</span>';
                 new_content += '</div>';
                 new_content += '</li>';
+
             }
-            if(new_count == undefined){
+            $('.header-cart-wrapitem').html(new_content);
+            if (new_count == undefined) {
                 $('#header-icons-noti').text(1);
-            }else{
+            } else {
                 $('#header-icons-noti').text(new_count);
             }
-
-            $('#header-cart-wrapitem').html(new_content);
-            $('#header-cart-total').text(new_total_money);
-            // import swal from 'sweetalert';
+            $('#header-cart-total').text(new_total_money).formatNumber();
             swal('Successfully!', 'ADDED TO CART. You can change the quantity of the product in cart later!', 'success');
+
         },
         error: function (error) {
-            swal('FAILED', JSON.parse(error.responseText).msg);
+            swal('Thao tác thất bại', JSON.parse(error.responseText).msg);
         }
     });
 });
