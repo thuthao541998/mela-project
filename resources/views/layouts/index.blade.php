@@ -92,7 +92,7 @@
                                     <!-- Header Icon mobile -->
                                     <div class="header-icons-mobile">
                                         <div class="header-wrapicon2">
-                                            <a href="#" class="fa fa-shopping-cart fa-2x js-show-header-dropdown m-t-10"></a>
+                                            <button href="#" class="fa fa-shopping-cart fa-2x js-show-header-dropdown m-t-10"></button>
                                             <span class="header-icons-noti" style="left: 35px; bottom: 20px; top: 0px;" id="header-icons-noti">{{\App\Cart::getTotalItem()}}</span>
 
                                             <!-- Header cart noti -->
@@ -111,7 +111,7 @@
                                                                     </a>
 
                                                                     <span class="header-cart-item-info">
-                                                                        {{$item->quantity}} x {{$item->product->discountPrice}}
+                                                                        {{$item->quantity}} x {{$item->product->discountPriceWithFormat}}
                                                                     </span>
                                                                 </div>
                                                             </li>
@@ -122,13 +122,13 @@
                                                 </ul>
 
                                                 <div class="header-cart-total">
-                                                    Total: <span id="header-cart-total">{{\App\Cart::getCart()->getTotalMoneyString()}}</span>
+                                                    Total: <span id="header-cart-total">{{\App\Cart::getCart()->getTotalMoneyWithFormat()}}</span>
                                                 </div>
 
                                                 <div class="header-cart-buttons">
                                                     <div class="header-cart-wrapbtn">
                                                         <!-- Button -->
-                                                        <a href="/cart" class="flex-c-m bg1 bo-rad-20 hov1 s-text1 trans-0-4" style="color:white">
+                                                        <a href="/cart" class="flex-c-m bg1 bo-rad-20 hov1 s-text1 trans-0-4 view-cart" style="color:white">
                                                             View Cart
                                                         </a>
                                                     </div>
@@ -653,6 +653,10 @@
 <script type="text/javascript" src="{{asset('js/parallax100.js')}}"></script>
 <script type="text/javascript">
     $('.parallax100').parallax100();
+    // $('a.view-cart').click(function(e)
+    // {
+    //     e.preventDefault();
+    // });
 </script>
 <!--===============================================================================================-->
 <script type="text/javascript" src="{{asset('js/countdowntime.js')}}"></script>
