@@ -102,7 +102,7 @@
                                                 <ul class="header-cart-wrapitem">
                                                     @if(\App\Cart::getTotalItem()>0)
                                                         @foreach(\App\Cart::getCart()->items as $item)
-                                                            <li class="header-cart-item" id="cart-item-{{$item->product->id}}">
+                                                            <li class="header-cart-item">
                                                                 <div class="header-cart-item-img">
                                                                     <img src="{{$item->product->images}}" alt="IMG">
                                                                 </div>
@@ -112,7 +112,7 @@
                                                                         {{$item->product->name}}
                                                                     </a>
                                                                     <span class="header-cart-item-info">
-                                                                        <span class="quantity-item-{{$item->product->id}}">{{$item->quantity}}</span> x {{$item->product->discountPriceWithFormat}}
+                                                                        {{$item->quantity}} x {{$item->product->discountPriceWithFormat}}
                                                                     </span>
                                                                 </div>
                                                             </li>
