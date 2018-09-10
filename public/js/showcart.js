@@ -99,4 +99,14 @@ $(document).ready(function() {
             },
         }
     });
+
+    $('#submitBtn').click(function () {
+        console.log();
+        if ($('#checkLogin')[0].value == 0){
+            alert('Please login to continue');
+            location.href = '/client-login'
+        }else {
+            $('form[name="order-form"]').submit();
+        }
+    })
 });
