@@ -129,11 +129,16 @@
                         <span class="m-text21 w-size20 w-full-sm total-money p-l-30">{{$cart->getTotalMoneyWithFormat()}}</span>
                         <span>(VND)</span>
                     </div>
-
                     <div class="size15 trans-0-4">
+                        @if(Auth::user() == null)
+                            <input type="text" value="0" hidden id="checkLogin">
+                        @else
+                            <input type="text" value="1" hidden id="checkLogin">
+                        @endif
+
                         <!-- Button -->
                         <button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4 checkout-btn"
-                                type="submit">
+                                type="submit" id="submitBtn">
                             Proceed to Checkout
                         </button>
                     </div>
