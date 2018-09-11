@@ -107,7 +107,6 @@
                         <div class="pagination pull-right">
                             {!! $orders->links() !!}
                         </div>
-
                     </div>
                 </div>
         </section>

@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Order;
+use App\OrderDetail;
+use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Session;
 
 class OrderController extends Controller
 {
@@ -18,22 +21,22 @@ class OrderController extends Controller
     {
         $choosedStatus = Input::get('status'); // default all.
         $product_id = Input::get('product_id');
+
         if((!Input::has('status') || $choosedStatus== 3)){
             $choosedStatus = 3;
             $orders = Order::paginate(10);
         } else {
             $orders = Order::where(['status' => $choosedStatus])->paginate(10);
         }
-        foreach ($orders as $key=>$item)
-            foreach ($item->details() as $product)
-                if ($product->product->id != $product_id){
-                    unset($orders[$key]);
-                    return $orders;
-//                    $orders->forget($key);
-//                    $orders = $orders->pull($key);
-//                    unset($orders[$i]);
+        if (Input::has('product_id')){
+            $details = OrderDetail::where('product_id', $product_id)->get();
+            $order_ids = array();
+            for ($i = 0 ;$i<count($details);$i++){
+                $order_id = $details[$i] -> order_id;
+                $order_ids[] = $order_id;
             }
-
+        $orders = Order::whereIn('id',$order_ids)->paginate(10);
+        }
         return view('admin.order.list')
             ->with('choosedStatus', $choosedStatus)
             ->with('orders', $orders)
