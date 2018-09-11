@@ -274,13 +274,13 @@
                         </span>
 
                     <h2 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="fadeInUp">
-                        Mela Shop
+                        MELA Cosmetics
                     </h2>
                     <h3 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="fadeInUp">SALE UP TO 40%</h3>
                     <div class="wrap-btn-slide1 animated visible-false" data-appear="zoomIn">
                         <!-- Button1 -->
                         <a href="/" class="btn1 flex-c-m size1 txt3 trans-0-4" style="width:200px">
-                            @yield('page-topic')
+                            MELA Cosmetics
                         </a>
                     </div>
                 </div>
@@ -293,13 +293,13 @@
                         </span>
 
                     <h2 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="lightSpeedIn">
-                        Mela Shop
+                        MELA Cosmetics
                     </h2>
                     <h3 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="fadeInUp">SALE UP TO 40%</h3>
                     <div class="wrap-btn-slide1 animated visible-false" data-appear="slideInUp">
                         <!-- Button1 -->
                         <a href="/" class="btn1 flex-c-m size1 txt3 trans-0-4" style="width:200px">
-                            @yield('page-topic')
+                            MELA Cosmetics
                         </a>
                     </div>
                 </div>
@@ -312,13 +312,13 @@
                         </span>
 
                     <h2 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="rotateInUpRight">
-                        Mela Shop
+                        MELA Cosmetics
                     </h2>
                     <h3 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="fadeInUp">SALE UP TO 40%</h3>
                     <div class="wrap-btn-slide1 animated visible-false" data-appear="rotateIn">
                         <!-- Button1 -->
                         <a href="/" class="btn1 flex-c-m size1 txt3 trans-0-4" style="width:200px">
-                            @yield('page-topic')
+                            MELA Cosmetics
                         </a>
                     </div>
                 </div>
