@@ -17,6 +17,7 @@
 Route::get('/','CategoryController@indexClient');
 Route::get('/list-product',"ProductController@indexClient");
 Route::get('/product/{id}',"ProductController@showClient");
+Route::get('/list-product/search', 'ProductController@search')->name('search.action');
 Route::get('/brand/{id}',"BrandController@detailBrand");
 Route::get('/cart',function (){
     return view('client.cart.cart');
@@ -30,9 +31,10 @@ Route::get('/about-us',function (){
 //Contact
 Route::get('/contact-us','ContactController@index');
 Route::post('/contact-us','ContactController@save');
-//
+//Article
 Route::get('/list-article', "ArticleController@indexClient");
 Route::get('/article/{id}', 'ArticleController@showClient');
+//Cart
 Route::get('/add-to-cart', 'CartController@addToCart');
 Route::post('/api-add-to-cart', 'CartController@addToCartApi');
 Route::get('/cart', 'CartController@showCart');
@@ -41,10 +43,11 @@ Route::post('/order-success','CartController@checkoutCart');
 Route::put('/sua-gio-hang', 'CartController@updateCart');
 Route::get('/admin/order/update-status/{id}', 'OrderController@updateStatus');
 Route::get('/admin/list-order', 'OrderController@index');
+//Chart
 Route::get('/api-get-chart-data', 'OrderController@getChartDataApi');
 Route::get('/api-get-pie-chart-data', 'OrderDetailController@getPieChartDataApi');
+//Dashboard
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/list-product/search', 'ProductController@search')->name('search.action');
 
 //*********************************Auth Zone*********************************
 Route::post('/login',['as' => 'login', 'uses' => 'Auth\LoginController@login']);
@@ -100,7 +103,6 @@ Route::group(['middleware' => ['sellUserAuth']],function (){
     Route::resource('admin/article', 'ArticleController');
 
     Route::resource('admin/category', 'CategoryController');
-
     Route::resource('admin/brand','BrandController');
 
     Route::post("admin/product/destroy-many",'ProductController@destroyMany');

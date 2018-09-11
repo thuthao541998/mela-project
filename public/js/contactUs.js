@@ -25,11 +25,12 @@ $(document).ready(function (e) {
             // alert(window.location.pathname)
             //    Send Request Ajax\
             var data = {
-                'name': name,
-                'phone' : phone,
-                'email' : email,
-                'message':message
+                'name': 'name',
+                'phone' : 'phone',
+                'email' : 'email',
+                'message': 'message'
             }
+            alert(JSON.stringify(data));
             $.ajax({
                 method: 'POST',
                 url: window.location.href,
@@ -38,13 +39,14 @@ $(document).ready(function (e) {
                     'contactData': JSON.stringify(data)
                 },
                 success: function (resp) {
-                    swal("Your messange has been sent successfully!", {
+                    swal("Your message has been sent successfully!", {
                         icon: "success",
                     });
+                    console.log(data);
                     location.href = '/';
                 },
-                error: function () {
-                    alert('Fail')
+                error: function (err) {
+                    alert('Fail: ' + err);
                 }
             })
         };

@@ -17,13 +17,16 @@
                             </div>
                         </div>
 
+                        {{--Contact form?--}}
+
                         <div class="container">
                             <h3 class="tit7 t-center p-b-62 p-t-105">
                                 Send us a Message
                             </h3>
 
                             <form class="wrap-form-reservation size22 m-l-r-auto" method="POST" action="{{url('/contact-us')}}">
-                                @csrf
+                                {{ csrf_field() }}
+                                {{--@csrf--}}
                                 <div class="row">
                                     <div class="col-md-4">
                                         <!-- Name -->
