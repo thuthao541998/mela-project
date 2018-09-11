@@ -79,7 +79,6 @@
                                     <td class="column-6" style="width: 6%;">{{$item->getTotalMoneyWithFormat()}} (vnd)</td>
                                     <td class="column-7 font-weight-bold status-label">{{$item->statusLabel}}</td>
                                     <td class="column-8 text-center">
-
                                         @if($item->status == 0)
                                             <a href="/admin/order/update-status/{{$item->id}}?status=1" onclick="return confirm('Are sure to confirm this order?')"
                                                class="btn btn-simple btn-info btn-icon edit" title="Click to have this order confirmed"><i class="fas fa-hourglass"></i></a>

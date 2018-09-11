@@ -78,6 +78,36 @@
             };
             var chart = new google.charts.Line(document.getElementById('linechart_material'));
             chart.draw(data, google.charts.Line.convertOptions(options));
+
+            console.log(data);
+            google.visualization.events.addListener(chart, 'select', selectHandler);
+
+            function selectHandler(e) {
+                for(var i = 0; i < chart.getSelection().length; i++){
+
+                    var item = chart.getSelection()[i];
+                    console.log(data);
+                    var message = '';
+                    if (item.row != null && item.column != null) {
+                        var str = data.getFormattedValue(item.row, item.column);
+                        console.log(str);
+                    } else if (item.row != null) {
+                        var str = data.getFormattedValue(item.row, 0);
+                        console.log(str);
+                    } else if (item.column != null) {
+                        var str = data.getFormattedValue(0, item.column);
+                        console.log(str);
+                    }
+                    if (data['hc'][0] != undefined && data['hc'][0][1]['Cf'] == str){
+                        var created_at = data['hc'][0][0]['Cf'];
+                        console.log(created_at);
+                    } else if (data['hc'][1] != undefined && data['hc'][1][1]['Cf'] == str) {
+                        var created_at = data['hc'][1][0]['Cf'];
+                        console.log(created_at);
+                    }
+                    window.location.href = '/admin/order?created_at=' + created_at;
+                }
+            }
         }
         $(function() {
             var start = moment().subtract(29, 'days');
