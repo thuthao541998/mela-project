@@ -66,6 +66,23 @@ $(".cart_delete").click(function () {
         });
 });
 
+$('input[name="save-changes"]').click(function () {
+        var list = document.getElementsByClassName("num-product");
+        for ( var i = 0; i < list.length; i++ ){
+            if (list[i].value <= 0){
+                console.log(list[i].parentElement.nextElementSibling);
+                list[i].parentElement.nextElementSibling.innerHTML= "There has to be at least 1 product.";
+                return false;
+            }
+        }
+});
+
+$('.num-product').keyup(function () {
+   if ($(this).val() > 0){
+       $(this).parent().next().html('');
+   }
+});
+
 $(document).ready(function () {
     $('form[name="order-form"]').validate({
         rules: {
