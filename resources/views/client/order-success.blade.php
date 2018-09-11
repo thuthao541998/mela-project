@@ -15,7 +15,7 @@
                                 <br>
                                 New York, NY 10018
                                 <br>
-                                <abbr title="Phone">P:</abbr>  (+1) 96 716 6879
+                                Phone:(+1) 96 716 6879
                             </address>
                         </div>
                     </div>
@@ -57,8 +57,8 @@
                             </tr>
                             </tbody>
                         </table>
-                        <div class="thank-you">Within 2 days, MELA will call to confirm your order.
-                            Thank you for ordering at MELA.</div>
+                        <div class="text-danger">Within 2 days, MELA will call to confirm your order.
+                            <br>Thank you for ordering at MELA.</div>
                     </div>
                 </div>
             </div>
