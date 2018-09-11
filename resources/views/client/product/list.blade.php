@@ -66,7 +66,7 @@
                                     </select>
                                 </div>
                             </div>
-                            @if(count($list_obj)>0)
+                            @if(count($list_obj)>0 && isset($list_obj))
                                 <div class="product-title">PRODUCT LIST [{{count($list_obj)}}]</div>
                                 <div class="wrap-item-mainmenu p-b-22" id="results">
                                     @foreach($list_obj as $obj)
@@ -253,6 +253,8 @@
 <script>
     var searchfunction = function () {
         {
+            var today = new Date();
+            var lastWeek = Date.parse(new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7));
             var query = $('.search').val();
             if (query) {
                 $.ajax({
@@ -279,27 +281,24 @@
                                 content += '<div class="text-blo3 size21 flex-col-l-m">';
                                 content += '<a href="/product/' + list_obj[i].id + '" class="txt21 m-b-3">';
                                 content += list_obj[i].name;
-                                @if($obj->isDiscount())
-                                    content += '<span style="background-color: red; color:white;" class="p-l-6 p-r-5">SALE ' + list_obj[i].discount + '%</span>';
-                                @endif
-                                        @if($obj->isNew())
-                                    content += '<span class="p-l-2 p-r-2 font-weight-bold m-l-5" style="background-color: green; color:white;">NEW</span>';
-                                @endif
-                                    content += '</a>';
+                                if(list_obj[i].original_price_string != list_obj[i].discount_price_string ){
+                                    content += '<span style="background-color: red; color:white;" class="p-l-6 p-r-5">SALE ' + list_obj[i].discount + '%</span>';}
+                                if(list_obj[i].created_at < today && list_obj[i].created_at> lastWeek){
+                                    content += '<span class="p-l-2 p-r-2 font-weight-bold m-l-5" style="background-color: green; color:white;">NEW</span>';}
+                                content += '</a>';
                                 content += '<span class="txt23">';
                                 content += list_obj[i].overview;
                                 content += '</span>';
                                 content += '<span class="txt22 m-t-10">';
-                                @if($obj->isDiscount())
+                                if(list_obj[i].original_price_string != list_obj[i].discount_price_string){
                                     content += '<span class="font-weight-bold">' + list_obj[i].discount_price_string;
                                 content += '</span>';
                                 content += '<del class="text-muted">';
                                 content += '<small>' + list_obj[i].original_price_string + '</small>';
-                                content += '</del>';
-                                @else
+                                content += '</del>';}
+                                else{
                                     content += '<span class="font-weight-bold">' + list_obj[i].original_price_string;
-                                content += '</span>';
-                                @endif
+                                content += '</span>';}
                                     content += '</span>';
                                 content += '<button class="add-cart-large add-to-cart m-t-10"  id="add-cart-' + list_obj[i].id + '"><i class="fas fa-cart-plus fa-2x"></i></button>';
                                 content += '</div>';
