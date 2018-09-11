@@ -175,7 +175,7 @@
 
     <ul class="menu-sidebar p-t-95 p-b-70">
         <li class="t-center m-b-13">
-            <a href="#"><i class="fab fa-facebook-square fa-2x" aria-hidden="true"></i></a>
+            <a href="https://www.facebook.com/MelaHanoi/"><i class="fab fa-facebook-square fa-2x" aria-hidden="true"></i></a>
             &nbsp;
             <a href="#"><i class="fab fa-snapchat-square fa-2x" aria-hidden="true"></i></a>
             &nbsp;
@@ -279,7 +279,7 @@
                     <h3 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="fadeInUp">SALE UP TO 40%</h3>
                     <div class="wrap-btn-slide1 animated visible-false" data-appear="zoomIn">
                         <!-- Button1 -->
-                        <a href="/" class="btn1 flex-c-m size1 txt3 trans-0-4">
+                        <a href="/" class="btn1 flex-c-m size1 txt3 trans-0-4" style="width:200px">
                             @yield('page-topic')
                         </a>
                     </div>
@@ -298,7 +298,7 @@
                     <h3 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="fadeInUp">SALE UP TO 40%</h3>
                     <div class="wrap-btn-slide1 animated visible-false" data-appear="slideInUp">
                         <!-- Button1 -->
-                        <a href="/" class="btn1 flex-c-m size1 txt3 trans-0-4">
+                        <a href="/" class="btn1 flex-c-m size1 txt3 trans-0-4" style="width:200px">
                             @yield('page-topic')
                         </a>
                     </div>
@@ -317,7 +317,7 @@
                     <h3 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="fadeInUp">SALE UP TO 40%</h3>
                     <div class="wrap-btn-slide1 animated visible-false" data-appear="rotateIn">
                         <!-- Button1 -->
-                        <a href="/" class="btn1 flex-c-m size1 txt3 trans-0-4">
+                        <a href="/" class="btn1 flex-c-m size1 txt3 trans-0-4" style="width:200px">
                             @yield('page-topic')
                         </a>
                     </div>
@@ -329,7 +329,9 @@
         <div class="wrap-slick1-dots"></div>
     </div>
 </section>
-@yield('content')
+    @yield('content')
+
+
 
 <!-- Blog -->
 <section class="section-blog bg-white p-t-115 p-b-123">
@@ -553,51 +555,51 @@
 
                 <!-- Gallery footer -->
                 <div class="wrap-gallery-footer flex-w">
-                    <a class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
+                    <a href="/list-product?categoryId=1" class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
                         <img src="{{asset('images/photo-gallery-thumb-01.jpg')}}" alt="GALLERY">
                     </a>
 
-                    <a class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
+                    <a href="/list-product?categoryId=2" class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
                         <img src="{{asset('images/photo-gallery-thumb-02.jpg')}}" alt="GALLERY">
                     </a>
 
-                    <a class="item-gallery-footer wrap-pic-w"data-lightbox="gallery-footer">
+                    <a href="/list-product?categoryId=3" class="item-gallery-footer wrap-pic-w"data-lightbox="gallery-footer">
                         <img src="{{asset('images/photo-gallery-thumb-03.jpg')}}" alt="GALLERY">
                     </a>
 
-                    <a class="item-gallery-footer wrap-pic-w"data-lightbox="gallery-footer">
+                    <a href="/list-product?categoryId=4" class="item-gallery-footer wrap-pic-w"data-lightbox="gallery-footer">
                         <img src="{{asset('images/photo-gallery-thumb-04.jpg')}}" alt="GALLERY">
                     </a>
 
-                    <a class="item-gallery-footer wrap-pic-w"data-lightbox="gallery-footer">
+                    <a href="/list-product?categoryId=5" class="item-gallery-footer wrap-pic-w"data-lightbox="gallery-footer">
                         <img src="{{asset('images/photo-gallery-thumb-05.jpg')}}" alt="GALLERY">
                     </a>
 
-                    <a class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
+                    <a href="/list-product?categoryId=6" class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
                         <img src="{{asset('images/photo-gallery-thumb-06.jpg')}}" alt="GALLERY">
                     </a>
 
-                    <a class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
+                    <a href="/list-product?categoryId=7" class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
                         <img src="{{asset('images/photo-gallery-thumb-07.jpg')}}" alt="GALLERY">
                     </a>
 
-                    <a class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
+                    <a href="/list-product?categoryId=8" class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
                         <img src="{{asset('images/photo-gallery-thumb-08.jpg')}}" alt="GALLERY">
                     </a>
 
-                    <a class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
+                    <a href="/list-product?categoryId=9" class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
                         <img src="{{asset('images/photo-gallery-thumb-09.jpg')}}" alt="GALLERY">
                     </a>
 
-                    <a class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
+                    <a href="/list-product?categoryId=10" class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
                         <img src="{{asset('images/photo-gallery-thumb-10.jpg')}}" alt="GALLERY">
                     </a>
 
-                    <a class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
+                    <a href="/list-product?categoryId=11" class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
                         <img src="{{asset('images/photo-gallery-thumb-11.jpg')}}" alt="GALLERY">
                     </a>
 
-                    <a class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
+                    <a href="/list-product?categoryId=12" class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
                         <img src="{{asset('images/photo-gallery-thumb-12.jpg')}}" alt="GALLERY">
                     </a>
                 </div>
@@ -610,11 +612,7 @@
         <div class="container">
             <div class="flex-sb-m flex-w p-t-22 p-b-22">
                 <div class="p-t-5 p-b-5">
-                    <a href="#"><i class="fab fa-facebook-square fa-2x" aria-hidden="true"></i></a>
-                    &nbsp;
-                    <a href="#"><i class="fab fa-snapchat-square fa-2x" aria-hidden="true"></i></a>
-                    &nbsp;
-                    <a href="#"><i class="fab fa-line fa-2x" aria-hidden="true"></i></a>
+                    <a href="https://www.facebook.com/MelaHanoi/"><i class="fab fa-facebook-square fa-2x" aria-hidden="true"></i></a>
                 </div>
 
                 <div class="txt17 p-r-20 p-t-5 p-b-5">
@@ -660,8 +658,6 @@
 </script>
 <!--===============================================================================================-->
 <script type="text/javascript" src="{{asset('js/countdowntime.js')}}"></script>
-<!--===============================================================================================-->
-<script type="text/javascript" src="{{asset('js/lightbox.min.js')}}"></script>
 <!--===============================================================================================-->
 <script src="{{asset('js/sweetalert.min.js')}}"></script>
 <script src="{{asset('js/main.js')}}"></script>
