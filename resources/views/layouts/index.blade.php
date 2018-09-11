@@ -175,7 +175,7 @@
 
     <ul class="menu-sidebar p-t-95 p-b-70">
         <li class="t-center m-b-13">
-            <a href="#"><i class="fab fa-facebook-square fa-2x" aria-hidden="true"></i></a>
+            <a href="https://www.facebook.com/MelaHanoi/"><i class="fab fa-facebook-square fa-2x" aria-hidden="true"></i></a>
             &nbsp;
             <a href="#"><i class="fab fa-snapchat-square fa-2x" aria-hidden="true"></i></a>
             &nbsp;
@@ -612,11 +612,7 @@
         <div class="container">
             <div class="flex-sb-m flex-w p-t-22 p-b-22">
                 <div class="p-t-5 p-b-5">
-                    <a href="#"><i class="fab fa-facebook-square fa-2x" aria-hidden="true"></i></a>
-                    &nbsp;
-                    <a href="#"><i class="fab fa-snapchat-square fa-2x" aria-hidden="true"></i></a>
-                    &nbsp;
-                    <a href="#"><i class="fab fa-line fa-2x" aria-hidden="true"></i></a>
+                    <a href="https://www.facebook.com/MelaHanoi/"><i class="fab fa-facebook-square fa-2x" aria-hidden="true"></i></a>
                 </div>
 
                 <div class="txt17 p-r-20 p-t-5 p-b-5">
@@ -662,8 +658,6 @@
 </script>
 <!--===============================================================================================-->
 <script type="text/javascript" src="{{asset('js/countdowntime.js')}}"></script>
-<!--===============================================================================================-->
-<script type="text/javascript" src="{{asset('js/lightbox.min.js')}}"></script>
 <!--===============================================================================================-->
 <script src="{{asset('js/sweetalert.min.js')}}"></script>
 <script src="{{asset('js/main.js')}}"></script>
