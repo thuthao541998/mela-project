@@ -15,7 +15,7 @@
                                 <br>
                                 New York, NY 10018
                                 <br>
-                                <abbr title="Phone">P:</abbr>  (+1) 96 716 6879
+                                Phone :(+1) 96 716 6879
                             </address>
                         </div>
                     </div>

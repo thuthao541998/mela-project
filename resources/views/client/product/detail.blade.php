@@ -1,6 +1,6 @@
 @extends("layouts.index")
 @section('content')
-@section('page-topic', 'Product')
+@section('page-topic', $obj->name)
 <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Montserrat:300' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="{{asset('css/product-detail.css')}}">
@@ -15,7 +15,7 @@
 <link rel="stylesheet" type="text/css" href="{{asset('css/product-related-item.css')}}">
 
 
-<div style="background-color: white;">
+<div style="background-image: url('{{asset('images/icons/pattern1.png')}}')">
 
     <div class="container" style="padding: 50px;">
         <div class="card">
