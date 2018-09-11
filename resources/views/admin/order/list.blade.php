@@ -1,6 +1,7 @@
 @extends('layouts.master')
 @section('page-title', 'List Order - Admin Page')
 @section('content')
+
     <link href="{{asset('css/list.css')}}" rel='stylesheet' type='text/css' />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     <section id="main-content">
@@ -41,7 +42,9 @@
                         </div>
                     </div>
                     <div>
-                        @if($orders->count()>0)
+
+                        @if(isset($orders)  && ($orders -> count()) > 0)
+
                         <table class="table">
                             <thead>
                                 <tr>
@@ -57,6 +60,7 @@
                                 </tr>
                             </thead>
                             <tbody>
+
                             @foreach($orders as $item)
                                 <tr class="row-item" id="row-item-{{$item->id}}">
                                     <td class="column-0">
@@ -198,11 +202,11 @@
                             content += '<td class="column-8 text-center">';
 
                             if (list_obj[i].status == 0) {
-                                content += '<a href="/admin/order/update-status/{{$item->id}}?status=1" onclick="return confirm("Are sure to confirm this order?")" class="btn btn-simple btn-info btn-icon edit" title="Click to have this order confirmed"><i class="fas fa-hourglass"></i></a>';
-                            content += '<a href="/admin/order/update-status/{{$item->id}}?status=-1" onclick="return confirm("Are sure to confirm this order?")" class="btn btn-simple btn-danger btn-icon edit" title="Click to cancel this order"><i class="fas fa-times"></i></a>';
+                                content += '<a href="/admin/order/update-status/'+list_obj[i].id+'?status=1" onclick="return confirm("Are sure to confirm this order?")" class="btn btn-simple btn-info btn-icon edit" title="Click to have this order confirmed"><i class="fas fa-hourglass"></i></a>';
+                            content += '<a href="/admin/order/update-status/'+list_obj[i].id+'?status=-1" onclick="return confirm("Are sure to confirm this order?")" class="btn btn-simple btn-danger btn-icon edit" title="Click to cancel this order"><i class="fas fa-times"></i></a>';
                             } else if (list_obj[i].status == 1) {
-                                content += '<a href="/admin/order/update-status/{{$item->id}}?status=2" onclick="return confirm("Are you sure to finish this order?")" class="btn btn-simple btn-success btn-icon edit" title="Click to have this order finished"><i class="fas fa-check"></i></a>';
-                                content += '<a href="/admin/order/update-status/{{$item->id}}?status=-1" onclick="return confirm("Are sure to cancel this order?)" class="btn btn-simple btn-danger btn-icon edit" title="Click to cancel this order"><i class="fas fa-times"></i></a>';
+                                content += '<a href="/admin/order/update-status/'+list_obj[i].id+'?status=2" onclick="return confirm("Are you sure to finish this order?")" class="btn btn-simple btn-success btn-icon edit" title="Click to have this order finished"><i class="fas fa-check"></i></a>';
+                                content += '<a href="/admin/order/update-status/'+list_obj[i].id+'?status=-1" onclick="return confirm("Are sure to cancel this order?)" class="btn btn-simple btn-danger btn-icon edit" title="Click to cancel this order"><i class="fas fa-times"></i></a>';
                             } else if (list_obj[i].status == 2) {
                                     content += '<i class="fas fa-check 4x text-danger"></i>';
                             } else if (list_obj[i].status == -1) {

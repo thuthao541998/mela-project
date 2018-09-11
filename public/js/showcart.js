@@ -101,6 +101,7 @@ $(document).ready(function () {
     });
 
     $('#submitBtn').click(function () {
+
         if ($('#checkLogin')[0].value == 0) {
             swal({
                 title: "You haven't logged in yet!",
@@ -114,7 +115,9 @@ $(document).ready(function () {
                     return false;
                 });
         } else {
-            $('form[name="order-form"]').submit();
+            // alert(1)
+            // console.log($('form[name="order-form"]'))
+            document.getElementById('order-form').submit();
         }
     })
 });
