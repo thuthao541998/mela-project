@@ -91,7 +91,7 @@
                 </form>
             </div>
 
-            <form action="/order-success" name="order-form" method="POST" >
+            <form action="/order-success" name="order-form" method="post" id="order-form" >
                 @csrf();
                 <!-- Total -->
                 <div class="bo9 w-size18 p-l-40 p-r-40 p-t-30 p-b-38 m-t-30 m-r-0 m-l-auto p-lr-15-sm m-b-50" style="background: white">
@@ -104,7 +104,7 @@
                           Shipping:
                         </span>
 
-                        <form class="w-size20 w-full-sm" method="POST" action="/order-success">
+                        {{--<form class="w-size20 w-full-sm" method="POST" action="/order-success">--}}
                             <div class="size15 bo4 m-b-30 m-t-20">
                                 <input class="sizefull s-text7 p-l-15 p-r-15" name="ship_name" placeholder="Receiver Name"
                                        type="text">
@@ -118,7 +118,7 @@
                                 <input class="sizefull s-text7 p-l-15 p-r-15" name="ship_phone" placeholder="Phone"
                                        type="text">
                             </div>
-                        </form>
+                        {{--</form>--}}
                     </div>
 
                     <!--  -->
@@ -156,7 +156,6 @@
 </div>
 
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script type="text/javascript" src="{{asset('js/showcart.js')}}">
+<script type="text/javascript" src="{{asset('js/showcart.js')}}"></script>
 
-</script>
 @endsection

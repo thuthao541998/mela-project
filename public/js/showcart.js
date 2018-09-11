@@ -116,8 +116,8 @@ $(document).ready(function () {
                 });
         } else {
             // alert(1)
-            console.log($('form[name="order-form"]'))
-            $('form[name="order-form"]').submit();
+            // console.log($('form[name="order-form"]'))
+            document.getElementById('order-form').submit();
         }
     })
 });
