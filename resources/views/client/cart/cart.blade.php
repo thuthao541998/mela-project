@@ -75,7 +75,6 @@
                                         </td>
                                     </tr>
                                 @endforeach
-
                                 @endif
                                 </tbody>
                             </table>
@@ -130,11 +129,16 @@
                         <span class="m-text21 w-size20 w-full-sm total-money p-l-30">{{$cart->getTotalMoneyWithFormat()}}</span>
                         <span>(VND)</span>
                     </div>
-
                     <div class="size15 trans-0-4">
+                        @if(Auth::user() == null)
+                            <input type="text" value="0" hidden id="checkLogin">
+                        @else
+                            <input type="text" value="1" hidden id="checkLogin">
+                        @endif
+
                         <!-- Button -->
                         <button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4 checkout-btn"
-                                type="submit">
+                                type="submit" id="submitBtn">
                             Proceed to Checkout
                         </button>
                     </div>
@@ -153,7 +157,6 @@
 
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
-<script src="{{asset('js/jquery.formatNumber-0.1.1.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/showcart.js')}}">
 
 </script>

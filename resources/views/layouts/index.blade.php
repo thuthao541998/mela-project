@@ -44,17 +44,17 @@
 <header>
     <!-- Header desktop -->
     <div class="wrap-menu-header gradient1 trans-0-4">
-        <div class="container h-full">
+        <div class="h-full">
             <div class="wrap_header trans-0-3">
                 <!-- Logo -->
-                <div class="logo">
+                <div class="logo p-l-60">
                     <a href="/">
                         <img src="{{asset('images/logo.png')}}" alt="IMG-LOGO" data-logofixed="{{asset('images/logo.png')}}">
                     </a>
                 </div>
 
                 <!-- Menu -->
-                <div class="wrap_menu p-l-45 p-l-0-xl">
+                <div class="wrap_menu p-l-100 p-l-0-xl">
                     <nav class="menu">
                         <ul class="main_menu m-l-94">
                             <li>
@@ -82,7 +82,7 @@
                 </div>
 
                 <!-- Social -->
-                <div class="social flex-w flex-l-m p-r-20">
+                <div class="social flex-w flex-l-m p-r-70">
                     <button class="btn-show-sidebar m-l-33 trans-0-4"></button>
                     <span class="p-l-30">
                         <div class="btn-show-menu">
@@ -92,13 +92,15 @@
                                     <!-- Header Icon mobile -->
                                     <div class="header-icons-mobile">
                                         <div class="header-wrapicon2">
-                                            <a href="#" class="fa fa-shopping-cart fa-2x js-show-header-dropdown m-t-10"></a>
-                                            <span class="header-icons-noti" style="left: 35px; bottom: 20px; top: 0px;" id="header-icons-noti">{{\App\Cart::getTotalItem()}}</span>
+                                            <button href="#" class="fa fa-shopping-cart fa-2x js-show-header-dropdown m-t-10"></button>
+                                            <span class="header-icons-noti" style="left: 35px; bottom: 20px; top: 0px;" id="header-icons-noti">
+                                                {{\App\Cart::getTotalItem()}}
+                                            </span>
 
                                             <!-- Header cart noti -->
                                             <div class="header-cart header-dropdown">
                                                 <ul class="header-cart-wrapitem">
-                                                    @if(count(\App\Cart::getCart()->items)>0)
+                                                    @if(\App\Cart::getTotalItem()>0)
                                                         @foreach(\App\Cart::getCart()->items as $item)
                                                             <li class="header-cart-item">
                                                                 <div class="header-cart-item-img">
@@ -109,26 +111,25 @@
                                                                     <a href="#" class="header-cart-item-name" style="color: #555; ">
                                                                         {{$item->product->name}}
                                                                     </a>
-
                                                                     <span class="header-cart-item-info">
-                                                                        {{$item->quantity}} x {{$item->product->discountPrice}}
+                                                                        {{$item->quantity}} x {{$item->product->discountPriceWithFormat}}
                                                                     </span>
                                                                 </div>
                                                             </li>
                                                         @endforeach
                                                     @else
-                                                        'Hiện tại không có sản phẩm nào trong giỏ hàng'
+                                                        <li style="color:black;">'You haven't chosen any product yet'</li>
                                                     @endif
                                                 </ul>
 
                                                 <div class="header-cart-total">
-                                                    Total: <span id="header-cart-total">{{\App\Cart::getCart()->getTotalMoneyString()}}</span>
+                                                    Total: <span id="header-cart-total">{{\App\Cart::getCart()->getTotalMoneyWithFormat()}}</span>
                                                 </div>
 
                                                 <div class="header-cart-buttons">
                                                     <div class="header-cart-wrapbtn">
                                                         <!-- Button -->
-                                                        <a href="/cart" class="flex-c-m bg1 bo-rad-20 hov1 s-text1 trans-0-4" style="color:white">
+                                                        <a href="/cart" class="flex-c-m bg1 bo-rad-20 hov1 s-text1 trans-0-4 view-cart" style="color:white">
                                                             View Cart
                                                         </a>
                                                     </div>
@@ -140,7 +141,7 @@
                             </div>
                         </div>
                     </span>
-                    @if(isset(Auth::user()->name)))
+                    @if(isset(Auth::user()->name))
                         <div class="dropdown" style="background-color: #bd3112;
                                                         color: white;
                                                         border-radius: 10px;
@@ -157,7 +158,7 @@
                             </div>
                         </div>
                     @else
-                    <span class="p-l-30 btn-show-menu">
+                    <span class="m-r-80 m-l-30 btn-show-menu">
                         <a href="{{route('client.login')}}"><i class="fas fa-user-circle fa-2x" aria-hidden="true" ></i></a>
                     </span>
                     @endif
@@ -328,7 +329,6 @@
         <div class="wrap-slick1-dots"></div>
     </div>
 </section>
-
 @yield('content')
 
 <!-- Blog -->
@@ -653,6 +653,10 @@
 <script type="text/javascript" src="{{asset('js/parallax100.js')}}"></script>
 <script type="text/javascript">
     $('.parallax100').parallax100();
+    // $('a.view-cart').click(function(e)
+    // {
+    //     e.preventDefault();
+    // });
 </script>
 <!--===============================================================================================-->
 <script type="text/javascript" src="{{asset('js/countdowntime.js')}}"></script>
@@ -662,6 +666,8 @@
 <script src="{{asset('js/sweetalert.min.js')}}"></script>
 <script src="{{asset('js/main.js')}}"></script>
 <script src="{{asset('js/cart.js')}}"></script>
+<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+
 
 </body>
 </html>

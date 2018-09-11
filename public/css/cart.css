@@ -11301,7 +11301,6 @@ button:hover {
 }
 
 .main_menu {
-    margin: 0;
     display: -webkit-box;
     display: flex;
     flex-wrap: wrap;
@@ -11310,6 +11309,7 @@ button:hover {
 }
 
 .main_menu > li {
+    margin-left: 30px;
     display: block;
     padding: 20px 15px
 }
