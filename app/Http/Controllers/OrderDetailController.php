@@ -139,7 +139,7 @@ class OrderDetailController extends Controller
         $chart_data = OrderDetail::select(DB::raw('sum(quantity) as totalQuantity'), 'product_id')
             ->whereBetween('created_at', array($start_date .' 00:00:00', $end_date . ' 23:59:59'))
             ->groupBy('product_id')
-            ->orderBy('created_at', 'asc')
+            ->orderBy('totalQuantity', 'desc')
             ->get();
 //        $chart_data = DB::select("select sum(quantity) as totalQuantity, order_details.product_id, products.name as product_name from order_details inner join products on order_details.product_id = products.id WHERE order_details.created_at BETWEEN '" . $start_date. " 00:00:00' and '" . $end_date . " 23:59:59' group BY product_id, product_name order by order_details.created_at desc");
         //$queries = \DB::getQueryLog();
