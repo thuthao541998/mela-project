@@ -364,7 +364,7 @@
                                 </h4></a>
 
                             <p class="m-b-20">
-                                Mela shop with lipstick is not just a normal lipstick beauty, but also ...
+                                Mela Cosmetics with lipstick is not just a normal lipstick beauty, but also ...
                             </p>
 
                             <a href="blog-detail.html" class="txt4">
@@ -420,7 +420,7 @@
                                 </h4></a>
 
                             <p class="m-b-20">
-                                Mela Shop with the concept new lipstick model nice, but just ...
+                                Mela Cosmetics with the concept new lipstick model nice, but just ...
                             </p>
 
                             <a href="blog-detail.html" class="txt4">

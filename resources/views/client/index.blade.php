@@ -8,7 +8,7 @@
                 <div class="col-md-6 p-t-45 p-b-30">
                     <div class="wrap-text-welcome t-center">
                         <span class="tit2 t-center">
-                            Mela Shop
+                            Mela Cosmetics
                         </span>
 
                         <h3 class="tit3 t-center m-b-35 m-t-5">
@@ -16,7 +16,7 @@
                         </h3>
 
                         <p class="t-center m-b-22 m-l-r-auto">
-                            Welcome to Mela Shop, let shop tell you what is the power of Lipstick. Let us enlighten you on "Saint Lipstick"
+                            Welcome to Mela Cosmetics, let shop tell you what is the power of Lipstick. Let us enlighten you on "Saint Lipstick"
                         </p>
                         <button style="padding: 10px;" class="btn-danger bo-rad-5" href="/list-product">Click here to get your boyfriend a perfect KISS</button>
                     </div>
