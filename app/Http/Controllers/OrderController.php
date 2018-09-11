@@ -33,6 +33,13 @@ class OrderController extends Controller
             }
         $orders = Order::whereIn('id',$order_ids)->paginate(10);
         }
+        if (Input::has('created_at')){
+            $created_at = Input::get('created_at');
+            $orders = Order::where('created_at', '>=', $created_at.' 00:00:00')
+                ->where('created_at', '<=', $created_at.' 23:59:59')
+                ->where('status', '=', '2')
+                ->paginate(10);
+        }
         return view('admin.order.list')
             ->with('choosedStatus', $choosedStatus)
             ->with('orders', $orders)
