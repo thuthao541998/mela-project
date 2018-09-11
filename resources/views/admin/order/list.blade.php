@@ -2,11 +2,18 @@
 @section('page-title', 'List Order - Admin Page')
 @section('content')
     <link href="{{asset('css/list.css')}}" rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     <section id="main-content">
         <section class="wrapper">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         List Order
+                    </div>
+                    <div class="float-right mt-3">
+                        <div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; width: 100%">
+                            <i class="fa fa-calendar"></i>&nbsp;
+                            <span></span><i class="fa fa-caret-down"></i>
+                        </div>
                     </div>
                     <div>
                         <div class="filter-btn form-inline" action="/admin/order" method="GET">
@@ -20,16 +27,17 @@
                                     <option value="-1" {{-1==$choosedStatus?'selected':''}}>Cancelled</option>
                                 </select>
                             </div>
-                            <div class="form-group mx-sm-4 mb-3">
-                                <label for="chooseTime">Time</label>
-                                <select id="select-action" name="categoryId" class="form-control">
-                                    <option selected value="1">Today</option>
-                                    <option selected value="2">Last Week</option>
-                                    <option selected value="3">Last Month</option>
-                                    <option selected value="4">Last 2 Months</option>
-                                    <option selected value="5">All</option>
-                                </select>
-                            </div>
+                            {{--<div class="form-group mx-sm-4 mb-3">--}}
+                                {{--<label for="chooseTime">Time</label>--}}
+                                {{--<select id="select-action" name="categoryId" class="form-control">--}}
+                                    {{--<option selected value="1">Today</option>--}}
+                                    {{--<option selected value="2">Last Week</option>--}}
+                                    {{--<option selected value="3">Last Month</option>--}}
+                                    {{--<option selected value="4">Last 2 Months</option>--}}
+                                    {{--<option selected value="5">All</option>--}}
+                                {{--</select>--}}
+                            {{--</div>--}}
+
                         </div>
                     </div>
                     <div>
@@ -38,12 +46,12 @@
                             <thead>
                                 <tr>
                                     <th class="column-0"></th>
-                                    <th class="column-1">ID</th>
-                                    <th class="column-2">Buyer</th>
+                                    <th class="column-1 text-center">ID</th>
+                                    <th class="column-2">Receiver</th>
                                     <th class="column-3">Address</th>
                                     <th class="column-4">Phone Number</th>
                                     <th class="column-5">Order Detail</th>
-                                    <th class="column-6">Total</th>
+                                    <th class="column-6" style="width: 6%;">Total</th>
                                     <th class="column-7">Status</th>
                                     <th class="column-8 text-center">Action</th>
                                 </tr>
@@ -54,7 +62,12 @@
                                     <td class="column-0">
                                         <input type="checkbox" class="check-item">
                                     </td>
-                                    <td class="column-1">{{$item->id}}</td>
+                                    <td class="column-1 text-center">{{$item->id}}
+                                        <a class="btn btn-simple btn-link btn-icon text-center" data-placement="top"
+                                           title="Click to view the details of this order" href="/admin/order/{{$item->id}}">
+                                            <button class="btn btn-outline-success">Detail</button>
+                                        </a>
+                                    </td>
                                     <td class="column-2">{{$item->ship_name}}</td>
                                     <td class="column-3">{{$item->ship_address}}</td>
                                     <td class="column-4">{{$item->ship_phone}}</td>
@@ -63,10 +76,11 @@
                                             <li>{{$order_detail->product->name}} - {{$order_detail->quantity}}</li>
                                         @endforeach
                                     </td>
-                                    <td class="column-6">{{$item->total_price}}</td>
+                                    <td class="column-6" style="width: 6%;">{{$item->getTotalMoneyWithFormat()}} (vnd)</td>
                                     <td class="column-7 font-weight-bold status-label">{{$item->statusLabel}}</td>
                                     <td class="column-8 text-center">
-                                        @if($item->status==0)
+
+                                        @if($item->status == 0)
                                             <a href="/admin/order/update-status/{{$item->id}}?status=1" onclick="return confirm('Are sure to confirm this order?')"
                                                class="btn btn-simple btn-info btn-icon edit" title="Click to have this order confirmed"><i class="fas fa-hourglass"></i></a>
                                             <a href="/admin/order/update-status/{{$item->id}}?status=-1" onclick="return confirm('Are sure to confirm this order?')"
@@ -112,12 +126,100 @@
         </section>
     </section>
 
-    <script src="{{asset('js/sweetalert.min.js')}}"></script>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script>
         $('.filter-btn select[name=status]').change(function () {
             window.location.href = $('.filter-btn').attr('action') + '?status=' + $(this).val();
         });
+        $(function() {
+            var start = moment().subtract(29, 'days');
+            var end = moment();
 
+            function cb(start, end) {
+                $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+            }
+
+            $('#reportrange').daterangepicker({
+                startDate: start,
+                endDate: end,
+                ranges: {
+                    'Today': [moment(), moment()],
+                    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                    'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                    'This Month': [moment().startOf('month'), moment().endOf('month')],
+                    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                }
+            }, cb);
+            cb(start, end);
+
+            $('#reportrange').on('cancel.daterangepicker', function(ev, picker) {
+                //do something, like clearing an input
+                $('#reportrange').val('');
+            });
+
+            $('#reportrange').on('apply.daterangepicker', function(ev, picker) {
+                // console.log(picker.endDate.format('YYYY-MM-DD'));
+                var startDate = picker.startDate.format('YYYY-MM-DD');
+                var endDate = picker.endDate.format('YYYY-MM-DD');
+                $.ajax({
+                    url: '/api-get-data-to-time?startDate=' + startDate + '&endDate=' + endDate,
+                    method: 'GET',
+                    success: function (resp) {
+                        var list_obj = resp.list_obj;
+                        if(list_obj == 0){
+                            swal('No data exists', 'Please choose another time range.', 'warning');
+                            return;
+                        };
+                        var content = '';
+                        console.log(resp);
+                        for (var i in list_obj) {
+                            content += '<tr id="row-item-' + list_obj[i].id + '">';
+                                content += '<td class="column-0">';
+                            content += '<input type="checkbox">';
+                            content += '</td>';
+                            content += '<td class="column-1">' + list_obj[i].id + '</td>';
+                            content += '<td class="column-2">' + list_obj[i].ship_name + '</td>';
+                            content += '<td class="column-3">' + list_obj[i].ship_address + '</td>';
+                            content += '<td class="column-4">' + list_obj[i].ship_phone + '</td>';
+                            content += '<td class="column-5">';
+                            jQuery.each(list_obj[i].order_details, function(i, item) {
+                                if (item.product_id != undefined){
+                                    jQuery.each(item.products, function(k, product){
+                                        content += '<li>' + product.name + ' - ' + item.quantity + '</li>';
+                                    });
+                                }
+                            });
+                            content += '</td>';
+                            content += '<td class="column-6">' + list_obj[i].total_price + '</td>';
+                            content += '<td class="column-7 font-weight-bold">' + list_obj[i].statusLabel + '</td>';
+                            content += '<td class="column-8 text-center">';
+
+                            if (list_obj[i].status == 0) {
+                                content += '<a href="/admin/order/update-status/{{$item->id}}?status=1" onclick="return confirm("Are sure to confirm this order?")" class="btn btn-simple btn-info btn-icon edit" title="Click to have this order confirmed"><i class="fas fa-hourglass"></i></a>';
+                            content += '<a href="/admin/order/update-status/{{$item->id}}?status=-1" onclick="return confirm("Are sure to confirm this order?")" class="btn btn-simple btn-danger btn-icon edit" title="Click to cancel this order"><i class="fas fa-times"></i></a>';
+                            } else if (list_obj[i].status == 1) {
+                                content += '<a href="/admin/order/update-status/{{$item->id}}?status=2" onclick="return confirm("Are you sure to finish this order?")" class="btn btn-simple btn-success btn-icon edit" title="Click to have this order finished"><i class="fas fa-check"></i></a>';
+                                content += '<a href="/admin/order/update-status/{{$item->id}}?status=-1" onclick="return confirm("Are sure to cancel this order?)" class="btn btn-simple btn-danger btn-icon edit" title="Click to cancel this order"><i class="fas fa-times"></i></a>';
+                            } else if (list_obj[i].status == 2) {
+                                    content += '<i class="fas fa-check 4x text-danger"></i>';
+                            } else if (list_obj[i].status == -1) {
+                                content += '<i class="fas fa-times 4x text-danger"></i>';
+                            }
+                            content += '</td>';
+                            content += '</tr>';
+                        }
+                        $('tbody').html(content);
+                    },
+                    error: function () {
+                        swal('Action failed', 'Cannot retrieve data from API', 'error');
+                    }
+                });
+            });
+        });
         $('#check-all').click(function () {
             $('.check-item').prop('checked', $(this).is(':checked'));
         });

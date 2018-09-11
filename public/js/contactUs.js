@@ -38,8 +38,9 @@ $(document).ready(function (e) {
                     'contactData': JSON.stringify(data)
                 },
                 success: function (resp) {
-                    alert('Success');
-                    console.log(resp)
+                    swal("Your messange has been sent successfully!", {
+                        icon: "success",
+                    });
                     location.href = '/';
                 },
                 error: function () {
