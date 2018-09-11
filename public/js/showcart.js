@@ -66,7 +66,7 @@ $(".cart_delete").click(function () {
         });
 });
 
-$(document).ready(function() {
+$(document).ready(function () {
     $('form[name="order-form"]').validate({
         rules: {
             ship_name: {
@@ -99,4 +99,25 @@ $(document).ready(function() {
             },
         }
     });
+
+    $('#submitBtn').click(function () {
+
+        if ($('#checkLogin')[0].value == 0) {
+            swal({
+                title: "You haven't logged in yet!",
+                text: "Please log in to checkout!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((ok) => {
+                    window.location.href = '/client-login';
+                    return false;
+                });
+        } else {
+            // alert(1)
+            // console.log($('form[name="order-form"]'))
+            document.getElementById('order-form').submit();
+        }
+    })
 });

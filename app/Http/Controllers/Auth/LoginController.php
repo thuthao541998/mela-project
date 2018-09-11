@@ -5,6 +5,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\URL;
 
 class LoginController extends Controller
 {
@@ -41,6 +43,14 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    public function index(){
+        if(!Session::has('pre_url')){
+            Session::put('pre_url', URL::previous());
+        }else{
+            if(URL::previous() != URL::to('client-login')) Session::put('pre_url', URL::previous());
+        }
+        return view('client.login');
+    }
     public function logout(Request $request )
     {
 

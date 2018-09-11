@@ -16,14 +16,15 @@ class OrderController extends Controller
         $choosedStatus = Input::get('status'); // default all.
         if ((!Input::has('status') || $choosedStatus == 3)) {
             $choosedStatus = 3;
-            $orders = Order::paginate(10);
+            $orders = Order::orderByRaw('created_at DESC')->paginate(10);
         } else {
-            $orders = Order::where(['status' => $choosedStatus])->paginate(10);
+            $orders = Order::where(['status' => $choosedStatus])->orderByRaw('created_at DESC')->paginate(10);
         }
+//        dd($orders -> count());
         return view('admin.order.list')
             ->with('choosedStatus', $choosedStatus)
             ->with('orders', $orders)
-            ->with('null', null);
+            ;
     }
 
 
@@ -84,6 +85,7 @@ class OrderController extends Controller
         $end_date = Input::get('endDate');
         $orders = Order::select()
             ->whereBetween('orders.created_at', array($start_date . ' 00:00:00', $end_date . ' 23:59:59'))
+            ->whereRaw('status = 2')
             ->get();
         foreach ($orders as $data) {
             $data->statusLabel = $data->getStatusLabelAttribute();
