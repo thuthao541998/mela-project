@@ -48,4 +48,5 @@ class Order extends Model
     {
         return sprintf('%s', number_format($this->total_price, 0));
     }
+
 }
