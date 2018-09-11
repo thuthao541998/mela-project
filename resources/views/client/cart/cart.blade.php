@@ -138,7 +138,7 @@
 
                         <!-- Button -->
                         <button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4 checkout-btn"
-                                type="submit" id="submitBtn">
+                                type="button" id="submitBtn">
                             Proceed to Checkout
                         </button>
                     </div>

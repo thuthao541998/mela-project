@@ -101,7 +101,6 @@ $(document).ready(function () {
     });
 
     $('#submitBtn').click(function () {
-        console.log();
         if ($('#checkLogin')[0].value == 0) {
             swal({
                 title: "You haven't logged in yet!",
