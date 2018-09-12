@@ -66,7 +66,8 @@
                                     <td class="column-0">
                                         <input type="checkbox" class="check-item">
                                     </td>
-                                    <td class="column-1 text-center">{{$item->id}}
+                                    <td class="column-1 text-center">
+                                        <div>{{$item->id}}</div>
                                         <a class="btn btn-simple btn-link btn-icon text-center" data-placement="top"
                                            title="Click to view the details of this order" href="/admin/order/{{$item->id}}">
                                             <button class="btn btn-outline-success">Detail</button>
