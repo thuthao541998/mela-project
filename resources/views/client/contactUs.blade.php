@@ -92,7 +92,7 @@
 
                                 <div class="wrap-btn-booking flex-c-m m-t-13">
                                     <!-- Button3 -->
-                                    <button type="button" class="btn3 flex-c-m size36 txt11 trans-0-4 send">
+                                    <button type="submit" class="btn3 flex-c-m size36 txt11 trans-0-4">
                                         Submit
                                     </button>
                                 </div>
