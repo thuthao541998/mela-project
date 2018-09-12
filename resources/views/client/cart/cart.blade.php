@@ -66,6 +66,7 @@
                                                     <i class="fs-12 fa fa-plus" aria-hidden="true"></i>
                                                 </button>
                                             </div>
+                                            <span class="text-danger" style="font-size: 83%;"></span>
                                         </td>
                                         <td class="column-5 total-unit-price"
                                             id="unit-total-{{$item->product->id}}">{{$item->getTotalPriceWithFormat()}}</td>
@@ -83,8 +84,7 @@
                              <div class="size10 trans-0-4 m-t-10 m-b-10">
                              <!-- Button -->
                                 <input name="save-changes" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4"
-                                    value="Save changes"
-                                    type="submit">
+                                        value="Save changes" type="submit">
                             </div>
                         </div>
                     </div>
