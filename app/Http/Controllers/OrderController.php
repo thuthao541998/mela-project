@@ -54,10 +54,10 @@ class OrderController extends Controller
     {
         $start_date = Input::get('startDate');
         $end_date = Input::get('endDate');
-        $chart_data = Order::select(DB::raw('sum(total_price) as revenue'), DB::raw('date(created_at) as day'))
+        $chart_data = Order::select(DB::raw('sum(total_price) as revenue'), DB::raw('date(updated_at) as day'))
 //        ->whereRaw('id=2')
 //        ->whereBetween('created_at', array($start_date .' 00:00:00', $end_date . ' 23:59:59'))
-            ->whereRaw('created_at >= "' . $start_date . ' 00:00:00" AND created_at <= "' . $end_date . ' 23:59:59" AND status = 2')
+            ->whereRaw('updated_at >= "' . $start_date . ' 00:00:00" AND updated_at <= "' . $end_date . ' 23:59:59" AND status = 2')
             ->groupBy('day')
             ->orderBy('day', 'desc')
             ->get();
@@ -106,8 +106,8 @@ class OrderController extends Controller
         $start_date = Input::get('startDate');
         $end_date = Input::get('endDate');
         $orders = Order::select()
-            ->whereBetween('orders.updated_at', array($start_date . ' 00:00:00', $end_date . ' 23:59:59'))
-            ->whereRaw('status = 2')
+            ->whereBetween('orders.created_at', array($start_date . ' 00:00:00', $end_date . ' 23:59:59'))
+            ->orderBy('created_at','desc')
             ->get();
         foreach ($orders as $data) {
             $data->statusLabel = $data->getStatusLabelAttribute();

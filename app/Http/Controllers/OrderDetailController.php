@@ -53,7 +53,7 @@ class OrderDetailController extends Controller
         $id = $orders->pluck('id')->all();
 
         $chart_data = OrderDetail::select(DB::raw('sum(quantity) as totalQuantity'), 'product_id')
-            ->whereRaw('created_at >= "'.$start_date.' 00:00:00" AND created_at <= "'.$end_date . ' 23:59:59"')
+            ->whereRaw('updated_at >= "'.$start_date.' 00:00:00" AND updated_at <= "'.$end_date . ' 23:59:59"')
             ->whereIn('order_id',$id)
             ->groupBy('product_id')
             ->orderBy('totalQuantity', 'desc')
