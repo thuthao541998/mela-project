@@ -105,11 +105,17 @@
                         </span>
 
                         {{--<form class="w-size20 w-full-sm" method="POST" action="/order-success">--}}
+                        @if(isset(Auth::user()->name))
+                            <div class="size15 bo4 m-b-30 m-t-20">
+                                <input class="sizefull s-text7 p-l-15 p-r-15" name="ship_name" placeholder="Receiver Name" value="{{Auth::user()->name}}"
+                                       type="text">
+                            </div>
+                        @else
                             <div class="size15 bo4 m-b-30 m-t-20">
                                 <input class="sizefull s-text7 p-l-15 p-r-15" name="ship_name" placeholder="Receiver Name"
                                        type="text">
                             </div>
-
+                        @endif
                             <div class="size15 bo4 m-b-30">
                                 <input class="sizefull s-text7 p-l-15 p-r-15" name="ship_address" placeholder="Address"
                                        type="text">

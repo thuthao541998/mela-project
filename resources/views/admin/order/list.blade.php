@@ -66,7 +66,8 @@
                                     <td class="column-0">
                                         <input type="checkbox" class="check-item">
                                     </td>
-                                    <td class="column-1 text-center">{{$item->id}}
+                                    <td class="column-1 text-center">
+                                        <div>{{$item->id}}</div>
                                         <a class="btn btn-simple btn-link btn-icon text-center" data-placement="top"
                                            title="Click to view the details of this order" href="/admin/order/{{$item->id}}">
                                             <button class="btn btn-outline-success">Detail</button>
@@ -77,10 +78,10 @@
                                     <td class="column-4">{{$item->ship_phone}}</td>
                                     <td class="column-5">
                                         @foreach($item->details as $order_detail)
-                                            <li>{{$order_detail->product->name}} - {{$order_detail->quantity}}</li>
+                                            <li>{{$order_detail->quantity}} - {{$order_detail->product->name}}</li>
                                         @endforeach
                                     </td>
-                                    <td class="column-6" style="width: 6%;">{{$item->getTotalMoneyWithFormat()}} (vnd)</td>
+                                    <td class="column-6" style="width: 6%;">{{$item->total_money_with_format}} (vnd)</td>
                                     <td class="column-7 font-weight-bold status-label">{{$item->statusLabel}}</td>
                                     <td class="column-8 text-center">
                                         @if($item->status == 0)
@@ -178,26 +179,26 @@
                             return;
                         };
                         var content = '';
-                        console.log(resp);
                         for (var i in list_obj) {
                             content += '<tr id="row-item-' + list_obj[i].id + '">';
                                 content += '<td class="column-0">';
                             content += '<input type="checkbox">';
                             content += '</td>';
-                            content += '<td class="column-1">' + list_obj[i].id + '</td>';
+                            content += '<td style="text-align:center;" class="column-1"><div>' + list_obj[i].id + '</div>';
+                            content += '<a class="btn btn-simple btn-link btn-icon text-center" data-placement="top" title="Click to view the details of this order" href="/admin/order/'+ list_obj[i].id +'">';
+                            content += '<button class="btn btn-outline-success">Detail</button>';
+                            content += '</a>';
+                            content += '</td>';
                             content += '<td class="column-2">' + list_obj[i].ship_name + '</td>';
                             content += '<td class="column-3">' + list_obj[i].ship_address + '</td>';
                             content += '<td class="column-4">' + list_obj[i].ship_phone + '</td>';
                             content += '<td class="column-5">';
-                            jQuery.each(list_obj[i].order_details, function(i, item) {
-                                if (item.product_id != undefined){
-                                    jQuery.each(item.products, function(k, product){
-                                        content += '<li>' + product.name + ' - ' + item.quantity + '</li>';
-                                    });
-                                }
+                            // console.log(list_obj[i].order_details);
+                            jQuery.each(list_obj[i].order_details, function(j, item) {
+                                content += '<li>' + item.quantity + ' - ' + item.product.name + '</li>';
                             });
                             content += '</td>';
-                            content += '<td class="column-6">' + list_obj[i].total_price + '</td>';
+                            content += '<td class="column-6">' + list_obj[i].total_money_with_format + '</td>';
                             content += '<td class="column-7 font-weight-bold">' + list_obj[i].statusLabel + '</td>';
                             content += '<td class="column-8 text-center">';
 
