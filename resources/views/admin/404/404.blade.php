@@ -33,7 +33,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<h3>ĐÂM ĐẦU</h3>
 		<h2>Ngõ Cụt</h2>
 		<p>Bạn đang lầm đường lạc lối, hãy về với Mela để được KHAI SÁNG.</p>
-		<a href="#">Về Mela</a>
+		<a href="/">Về Mela</a>
 	</div>
 </div>
 <script src="js/bootstrap.js"></script>

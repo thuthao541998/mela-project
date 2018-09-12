@@ -66,7 +66,24 @@ $(".cart_delete").click(function () {
         });
 });
 
-$(document).ready(function() {
+$('input[name="save-changes"]').click(function () {
+        var list = document.getElementsByClassName("num-product");
+        for ( var i = 0; i < list.length; i++ ){
+            if (list[i].value <= 0){
+                console.log(list[i].parentElement.nextElementSibling);
+                list[i].parentElement.nextElementSibling.innerHTML= "There has to be at least 1 product.";
+                return false;
+            }
+        }
+});
+
+$('.num-product').keyup(function () {
+   if ($(this).val() > 0){
+       $(this).parent().next().html('');
+   }
+});
+
+$(document).ready(function () {
     $('form[name="order-form"]').validate({
         rules: {
             ship_name: {
@@ -99,4 +116,25 @@ $(document).ready(function() {
             },
         }
     });
+
+    $('#submitBtn').click(function () {
+
+        if ($('#checkLogin')[0].value == 0) {
+            swal({
+                title: "You haven't logged in yet!",
+                text: "Please log in to checkout!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((ok) => {
+                    window.location.href = '/client-login';
+                    return false;
+                });
+        } else {
+            // alert(1)
+            // console.log($('form[name="order-form"]'))
+            document.getElementById('order-form').submit();
+        }
+    })
 });

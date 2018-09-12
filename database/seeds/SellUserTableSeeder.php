@@ -14,7 +14,7 @@ class SellUserTableSeeder extends Seeder
         \Illuminate\Support\Facades\DB::table('sell_users')->truncate();
         \Illuminate\Support\Facades\DB::table('sell_users') -> insert([
            [
-                'name' => 'Admin',
+               'name' => 'Admin',
                'email' => 'admin@admin.com',
                'password' => bcrypt('12345678')
            ],

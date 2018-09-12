@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Socialite;
 use App\Services\SocialAccountService;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\URL;
 
 class SocialAuthController extends Controller
 {
@@ -19,6 +21,8 @@ class SocialAuthController extends Controller
      */
     public function redirect($provider)
     {
+
+
         return Socialite::driver($provider)->redirect();
     }
 
@@ -32,7 +36,8 @@ class SocialAuthController extends Controller
 
         $user = $service->createOrGetUser($provider);
         auth()->login($user);
-        return redirect()->to('/');
+
+        return redirect() -> to(Session::get('pre_url'));
     }
     public function callbackZalo(){
 //        Lấy access Token

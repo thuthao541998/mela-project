@@ -2,7 +2,7 @@
 @section('content')
 @section('page-topic','Login')
 <link rel="stylesheet" href="{{asset('css/login.css')}}">
-    <div class="container m-t-100">
+    <div class="login p-t-100 p-b-50" style="background-image: url('{{asset('images/icons/pattern1.png')}}')">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <div class="panel panel-login">
@@ -23,7 +23,7 @@
                                 <form id="login-form"  method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }}" role="form" style="display: block;">
                                     @csrf
                                     <div class="form-group">
-                                        <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+                                        <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}">
 
                                         @if ($errors->has('email'))
                                             <span class="invalid-feedback" role="alert">

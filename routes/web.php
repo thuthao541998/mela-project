@@ -45,20 +45,24 @@ Route::get('/admin/order/update-status/{id}', 'OrderController@updateStatus');
 Route::get('/admin/list-order', 'OrderController@index');
 //Chart
 Route::get('/api-get-chart-data', 'OrderController@getChartDataApi');
+Route::get('/api-get-data-to-time', 'OrderController@getDataToTimeApi');
+
 Route::get('/api-get-pie-chart-data', 'OrderDetailController@getPieChartDataApi');
 //Dashboard
 Route::get('/home', 'HomeController@index')->name('home');
 
 //*********************************Auth Zone*********************************
-Route::post('/login',['as' => 'login', 'uses' => 'Auth\LoginController@login']);
+Route::group(['middleware' => ['checkGuest']],function (){
+    Route::post('login',['as' => 'login', 'uses' => 'Auth\LoginController@login']);
+    Route::post('/register',['as' => 'register', 'uses' => 'Auth\RegisterController@register']);
+    Route::get('/client-login',['as' => 'client.login','uses' => 'Auth\LoginController@index']);
+});
 Route::post('/logout',['as' => 'logout', 'uses' => 'Auth\LoginController@logout']);
-Route::post('/register',['as' => 'register', 'uses' => 'Auth\RegisterController@register']);
+
 
 //Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/client-login',['as' => 'client.login',function (){
-    return view('client.login');
-}]);
+//Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get('/{provider}/redirect', 'SocialAuthController@redirect');
 Route::get('/{provider}/callback', 'SocialAuthController@callback');
 //Login with Zalo
@@ -105,6 +109,10 @@ Route::group(['middleware' => ['sellUserAuth']],function (){
     Route::resource('admin/category', 'CategoryController');
     Route::resource('admin/brand','BrandController');
 
+    Route::get('/admin/order/{id}', 'OrderController@show');
+    Route::get('/admin/order/update-status/{id}', 'OrderController@updateStatus');
+    Route::get('/admin/list-order', 'OrderController@index');
+
     Route::post("admin/product/destroy-many",'ProductController@destroyMany');
     Route::post("admin/category/destroy-many", "CategoryController@destroyMany");
     Route::post("admin/article/destroy-many", "ArticleController@destroyMany");
@@ -120,9 +128,7 @@ Route::group(['middleware' => ['sellUserAuth']],function (){
 });
 
 //*********************************Error Zone*********************************
-Route::get('admin/404',function (){
+Route::get('/404',function (){
     return view('admin.404.404');
-});
-Route::get('/admin/dash-board', function (){
-   return view('admin.dashboard');
-});
+}) -> name('404');
+
