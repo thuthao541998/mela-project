@@ -148,9 +148,11 @@ class ProductController extends Controller
                 $list_obj->push($brand_items[$i]);
             }
         }
+
         return view('client.product.detail')
             ->with('obj', $obj)
-            ->with('list_obj', $list_obj);
+            ->with('list_obj', $list_obj)
+            ->with('comments',$obj->comments);
     }
 
     /**
