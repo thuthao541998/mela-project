@@ -36,14 +36,15 @@ class ContactController extends Controller
         $mailer = new \Swift_Mailer($transport);
 
 // Create a message
-        $message = (new \Swift_Message('Wonderful Subject'))
-            ->setFrom(['thuthao541998@gmail.com' => 'Customer Feedback'])
+        $message = (new \Swift_Message('New Customer Feedback'))
+            ->setFrom(['thuthao541998@gmail.com' => 'Customer Service'])
             ->setTo(['mela.cosmetics.2018@gmail.com'=>'Mela Cosmetics'])
-            ->addPart('<div>Customer: </div>'.$name.'<br>', 'text/html')
-            ->addPart('<div>Phone: </div>'.$phone.'<br>', 'text/html')
-            ->addPart('<div>Email: </div>'.$email.'<br>', 'text/html')
-            ->addPart('<div>Content: </div>', 'text/html')
-            ->addPart('<p>'.$content.'</p>', 'text/html')
+            ->addPart(
+                '<div style="font-weight: bold; font-size: large;">Customer: <span style="font-weight: normal; font-size: medium;">'.$name.'</span></div><br>'.
+                '<div style="font-weight: bold; font-size: large;">Phone:  <span style="font-weight: normal; font-size: medium;">'.$phone.'</span></div><br>'.
+                '<div style="font-weight: bold; font-size: large;">Email:(click to reply)  <span style="font-weight: normal; font-size: medium;">'.$email.' (click to reply)</span></div><br>'.
+                '<div style="font-weight: bold; font-size: large;">Content: <p style="font-weight: normal;font-style: italic; font-size: medium;">'.$content.'</p></div>'
+                ,'text/html')
             ;
 
 // Send the message
