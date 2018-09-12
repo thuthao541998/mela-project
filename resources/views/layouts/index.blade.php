@@ -6,7 +6,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="{{asset('images/icons/favicon.png')}}"/>
+    <link rel="icon" type="image/png" href="{{asset('images/m.png')}}"/>
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}">
     <!--===============================================================================================-->
@@ -276,7 +276,6 @@
                     <h2 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="fadeInUp">
                         MELA Cosmetics
                     </h2>
-                    <h3 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="fadeInUp">SALE UP TO 40%</h3>
                     <div class="wrap-btn-slide1 animated visible-false" data-appear="zoomIn">
                         <!-- Button1 -->
                         <a href="/" class="btn1 flex-c-m size1 txt3 trans-0-4" style="width:200px">
@@ -295,7 +294,6 @@
                     <h2 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="lightSpeedIn">
                         MELA Cosmetics
                     </h2>
-                    <h3 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="fadeInUp">SALE UP TO 40%</h3>
                     <div class="wrap-btn-slide1 animated visible-false" data-appear="slideInUp">
                         <!-- Button1 -->
                         <a href="/" class="btn1 flex-c-m size1 txt3 trans-0-4" style="width:200px">
@@ -314,8 +312,7 @@
                     <h2 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="rotateInUpRight">
                         MELA Cosmetics
                     </h2>
-                    <h3 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="fadeInUp">SALE UP TO 40%</h3>
-                    <div class="wrap-btn-slide1 animated visible-false" data-appear="rotateIn">
+                   <div class="wrap-btn-slide1 animated visible-false" data-appear="rotateIn">
                         <!-- Button1 -->
                         <a href="/" class="btn1 flex-c-m size1 txt3 trans-0-4" style="width:200px">
                             MELA Cosmetics
