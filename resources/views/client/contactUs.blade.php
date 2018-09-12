@@ -17,13 +17,16 @@
                             </div>
                         </div>
 
+                        {{--Contact form?--}}
+
                         <div class="container">
                             <h3 class="tit7 t-center p-b-62 p-t-105">
                                 Send us a Message
                             </h3>
 
                             <form class="wrap-form-reservation size22 m-l-r-auto" method="POST" action="{{url('/contact-us')}}">
-                                @csrf
+                                {{ csrf_field() }}
+                                {{--@csrf--}}
                                 <div class="row">
                                     <div class="col-md-4">
                                         <!-- Name -->
@@ -89,7 +92,7 @@
 
                                 <div class="wrap-btn-booking flex-c-m m-t-13">
                                     <!-- Button3 -->
-                                    <button type="button" class="btn3 flex-c-m size36 txt11 trans-0-4 send">
+                                    <button type="submit" class="btn3 flex-c-m size36 txt11 trans-0-4">
                                         Submit
                                     </button>
                                 </div>

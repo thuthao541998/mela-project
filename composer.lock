@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6747f5c81a2f329f3bfffb03d9b21905",
+    "content-hash": "d92b4a1a8de2754042472c82a887d3b9",
     "packages": [
         {
             "name": "cloudinary/cloudinary_php",
@@ -2806,60 +2806,6 @@
             "time": "2017-11-27T11:13:29+00:00"
         },
         {
-            "name": "unisharp/laravel-ckeditor",
-            "version": "4.7.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/UniSharp/laravel-ckeditor.git",
-                "reference": "5c75f3f9128ec8567955913074795deee5869c5c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/UniSharp/laravel-ckeditor/zipball/5c75f3f9128ec8567955913074795deee5869c5c",
-                "reference": "5c75f3f9128ec8567955913074795deee5869c5c",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "~5.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Unisharp\\Ckeditor\\": "./"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0+",
-                "LGPL-2.1+",
-                "MPL-1.1+"
-            ],
-            "authors": [
-                {
-                    "name": "CKSource",
-                    "homepage": "http://cksource.com"
-                },
-                {
-                    "name": "UniSharp Ltd. (Composer Package Maintainer)",
-                    "homepage": "http://www.unisharp.com"
-                }
-            ],
-            "description": "JavaScript WYSIWYG web text editor (for laravel).",
-            "homepage": "http://ckeditor.com",
-            "keywords": [
-                "CKEditor",
-                "editor",
-                "fckeditor",
-                "html",
-                "javascript",
-                "laravel",
-                "richtext",
-                "text",
-                "wysiwyg"
-            ],
-            "time": "2017-11-01T04:33:40+00:00"
-        },
-        {
             "name": "vlucas/phpdotenv",
             "version": "v2.5.1",
             "source": {
@@ -4553,6 +4499,60 @@
             ],
             "description": "A small library for converting tokenized PHP source code into XML and potentially other formats",
             "time": "2017-04-07T12:08:54+00:00"
+        },
+        {
+            "name": "unisharp/laravel-ckeditor",
+            "version": "4.7.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/UniSharp/laravel-ckeditor.git",
+                "reference": "5c75f3f9128ec8567955913074795deee5869c5c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/UniSharp/laravel-ckeditor/zipball/5c75f3f9128ec8567955913074795deee5869c5c",
+                "reference": "5c75f3f9128ec8567955913074795deee5869c5c",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Unisharp\\Ckeditor\\": "./"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+",
+                "LGPL-2.1+",
+                "MPL-1.1+"
+            ],
+            "authors": [
+                {
+                    "name": "CKSource",
+                    "homepage": "http://cksource.com"
+                },
+                {
+                    "name": "UniSharp Ltd. (Composer Package Maintainer)",
+                    "homepage": "http://www.unisharp.com"
+                }
+            ],
+            "description": "JavaScript WYSIWYG web text editor (for laravel).",
+            "homepage": "http://ckeditor.com",
+            "keywords": [
+                "CKEditor",
+                "editor",
+                "fckeditor",
+                "html",
+                "javascript",
+                "laravel",
+                "richtext",
+                "text",
+                "wysiwyg"
+            ],
+            "time": "2017-11-01T04:33:40+00:00"
         },
         {
             "name": "webmozart/assert",
