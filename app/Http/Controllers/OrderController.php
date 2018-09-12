@@ -106,7 +106,7 @@ class OrderController extends Controller
         $start_date = Input::get('startDate');
         $end_date = Input::get('endDate');
         $orders = Order::select()
-            ->whereBetween('orders.created_at', array($start_date . ' 00:00:00', $end_date . ' 23:59:59'))
+            ->whereBetween('orders.updated_at', array($start_date . ' 00:00:00', $end_date . ' 23:59:59'))
             ->whereRaw('status = 2')
             ->get();
         foreach ($orders as $data) {
