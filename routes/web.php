@@ -56,9 +56,10 @@ Route::group(['middleware' => ['checkGuest']],function (){
     Route::post('login',['as' => 'login', 'uses' => 'Auth\LoginController@login']);
     Route::post('/register',['as' => 'register', 'uses' => 'Auth\RegisterController@register']);
     Route::get('/client-login',['as' => 'client.login','uses' => 'Auth\LoginController@index']);
+
 });
 Route::post('/logout',['as' => 'logout', 'uses' => 'Auth\LoginController@logout']);
-
+Route::post('/post-comment','CommentController@store');
 
 //Auth::routes();
 //Route::get('/home', 'HomeController@index')->name('home');

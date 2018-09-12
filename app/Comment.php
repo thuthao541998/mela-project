@@ -6,9 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
-    public function getUserAtrribute(){
-        $user = User::find($this->user_id);
-        return $this->atrributes['user'] = $user;
+    protected $table = 'comments';
+    public $timestamps = true;
+    public function getUserCommentAttribute(){
+        $user_comment = User::find($this->user_id);
+        return $user_comment->name;
     }
-    protected $appends = ['user'];
+    public function getUserFirstChar(){
+        $user_comment = User::find($this->user_id);
+        $name = $user_comment->name;
+        return substr($name, 0, 1);
+    }
 }

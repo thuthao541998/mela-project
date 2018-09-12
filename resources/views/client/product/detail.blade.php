@@ -10,7 +10,6 @@
 <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}">
 <script type="text/javascript" src="{{asset('js/bootstrap.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
-
 <script type="text/javascript" src="{{asset('js/product-related-item.js')}}"></script>
 <link rel="stylesheet" type="text/css" href="{{asset('css/product-related-item.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('css/comment.css')}}">
@@ -71,52 +70,58 @@
             Review Product
         </h3>
     </div>
+
     <div class="container m-b-20" style="padding-left: 50px;">
         <div class="row">
             <div class="col-md-12">
-                <div class="widget-area no-padding blank">
-                    <div class="col-lg-2 text-center p-t-15 m-r-15 image" style="background-color: #fcb1ae">M</div>
-                    <div class="col-lg-10 status-upload">
-                        <form>
-                            <textarea placeholder="Review this product!"></textarea>
-                            <button type="submit" class="btn btn-danger">Review</button>
-                        </form>
-                    </div><!-- Status Upload  -->
-                </div><!-- Widget Area -->
+                @if(isset(Auth::user()->name))
+                    <div class="widget-area no-padding blank">
+                        <div class="col-lg-2 text-center p-t-15 m-r-15 image" style="background-color: #fcb1ae">M</div>
+                        <div class="col-lg-10 status-upload">
+                            <form name="post-comment" action="/post-comment" method="post">
+                                <textarea placeholder="Review this product!" name="content"></textarea>
+                                <input class="hidden" name="user_id" value="{{Auth::user()->id}}">
+                                <input class="hidden" name="product_id" value="{{$obj->id}}">
+                                <button type="button" class="btn btn-danger post-comment">Review</button>
+                            </form>
+                        </div><!-- Status Upload  -->
+                    </div><!-- Widget Area -->
+                @else
+                    <div style="font-size: 16px">Please
+                        <a href="/client-login"><span class="btn btn-danger">Log in</span></a> to be able to post review for this product</div>
+                @endif
             </div>
         </div>
         <div class="text-center p-r-20 line-item-mainmenu bg3-pattern m-t-20" style="width: 90%"></div>
     </div>
-
     <div style="padding-left: 138px">
         <div class="row">
-            {{$comments}}
+            {{--{{dd($comments)}}--}}
             @if(count($comments)>0)
                 @foreach($comments as $comment)
                     <div class="col-sm-8">
                         <div class="panel panel-white post panel-shadow">
                             <div class="post-heading">
                                 <div class="pull-left">
-                                    <div class="image text-center p-t-15" style="background-color: #fcb1ae"> M</div>
+                                    <div class="image text-center p-t-15 avatar"
+                                         style="background-color: #fcb1ae">{{$comment->getUserFirstChar()}}</div>
                                 </div>
                                 <div class="pull-left meta m-l-30">
-                                    <div class="title h5">
-                                        <a href="#"><b>{{$comment->content}}</b></a>
+                                    <div class="userName title h5">
+                                        <b>{{$comment->userComment}}</b>
                                         made a review.
                                     </div>
-                                    <h6 class="text-muted time">1 minute ago</h6>
+                                    <h6 class="text-muted time">{{$comment->created_at}}</h6>
                                 </div>
                             </div>
                             <div class="post-description">
-                                <p>Bootdey is a gallery of free snippets resources templates and utilities for bootstrap
-                                    css
-                                    hmtl js framework. Codes for developers and web designers</p>
+                                <p>{{$comment->content}}</p>
                             </div>
                         </div>
                     </div>
                 @endforeach
             @else
-                 <div>This product doesn't have any review</div>
+                <div>This product doesn't have any review</div>
             @endif
         </div>
     </div>
@@ -203,6 +208,6 @@
             </div>
         </div>
     </div>
-
 </div>
+<script type="text/javascript" src="{{asset('js/comment.js')}}"></script>
 @endsection

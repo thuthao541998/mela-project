@@ -6,6 +6,7 @@ use App\Brand;
 use App\Category;
 use App\Http\Requests\StoreProductPost;
 use App\Product;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
