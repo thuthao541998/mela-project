@@ -39,17 +39,30 @@ class ContactController extends Controller
         $message = (new \Swift_Message('New Customer Feedback'))
             ->setFrom(['thuthao541998@gmail.com' => 'Customer Service'])
             ->setTo(['mela.cosmetics.2018@gmail.com'=>'Mela Cosmetics'])
-            ->addPart(
+            ->addPart('<div style="color: #444151">'.
                 '<div style="font-weight: bold; font-size: large;">Customer: <span style="font-weight: normal; font-size: medium;">'.$name.'</span></div><br>'.
                 '<div style="font-weight: bold; font-size: large;">Phone:  <span style="font-weight: normal; font-size: medium;">'.$phone.'</span></div><br>'.
-                '<div style="font-weight: bold; font-size: large;">Email:(click to reply)  <span style="font-weight: normal; font-size: medium;">'.$email.' (click to reply)</span></div><br>'.
-                '<div style="font-weight: bold; font-size: large;">Content: <p style="font-weight: normal;font-style: italic; font-size: medium;">'.$content.'</p></div>'
+                '<div style="font-weight: bold; font-size: large;">Email:  <span style="font-weight: normal; font-size: medium;">'.$email.' (click to reply)</span></div><br>'.
+                '<div style="font-weight: bold; font-size: large;">Content: <p style="font-weight: normal;font-style: italic; font-size: medium;">'.$content.'</p></div>'.
+                '</div>'
                 ,'text/html')
             ;
 
 // Send the message
         $result = $mailer->send($message);
-
+        echo "
+        <script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'></script>
+        <script
+			  src='https://code.jquery.com/jquery-3.3.1.min.js'
+			  integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8='
+			  crossorigin='anonymous'></script>
+        <script>
+            $(document).ready(function(e) {
+                swal('Your message has been sent successfully!', {icon: 'success'});
+                window.location.href = '/';
+            });
+        </script>
+        ";
     }
 
     public function showContact(){
