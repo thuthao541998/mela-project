@@ -133,24 +133,12 @@ class ProductController extends Controller
         if ($obj == null) {
             return view('404');
         }
-
-//        Model::where(function ($query) {
-//            $query->where('a', '=', 1)
-//                ->orWhere('b', '=', 1);
-//        })->where(function ($query) {
-//            $query->where('c', '=', 1)
-//                ->orWhere('d', '=', 1);
-//        });
-
         $limit = 8;
         $list_obj = null;
-
         $categoryId = $obj->categoryId;
         $brandId = $obj->brandId;
-
         $no_category_item = Product::where('categoryId', $categoryId)->count();
         $no_brand_item = Product::where('brandId', $brandId)->count();
-
         if ($limit <= $no_category_item){
             $list_obj = DB::table('products')->take($limit)->get();
         } else{

@@ -13,24 +13,17 @@
 
 <script type="text/javascript" src="{{asset('js/product-related-item.js')}}"></script>
 <link rel="stylesheet" type="text/css" href="{{asset('css/product-related-item.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('css/comment.css')}}">
 
-
-<div style="background-image: url('{{asset('images/icons/pattern1.png')}}')">
-
+<div style="background-color: white">
     <div class="container" style="padding: 50px;">
-        <div class="card">
+        <div>
             <div class="row">
-                <aside class="col-sm-6 border-right">
+                <aside class="col-sm-6">
                     <article class="gallery-wrap">
                         <div class="img-big-wrap">
-                            <div> <a href="#"><img src="{{$obj->images}}" alt="{{$obj->name}}"></a></div>
-                        </div> <!-- slider-product.// -->
-                        {{--<div class="img-small-wrap">--}}
-                        {{--<div class="item-gallery"> <img src="https://s9.postimg.org/tupxkvfj3/image.jpg"> </div>--}}
-                        {{--<div class="item-gallery"> <img src="https://s9.postimg.org/tupxkvfj3/image.jpg"> </div>--}}
-                        {{--<div class="item-gallery"> <img src="https://s9.postimg.org/tupxkvfj3/image.jpg"> </div>--}}
-                        {{--<div class="item-gallery"> <img src="https://s9.postimg.org/tupxkvfj3/image.jpg"> </div>--}}
-                        {{--</div> <!-- slider-nav.// -->--}}
+                            <div><a href="#"><img src="{{$obj->images}}" alt="{{$obj->name}}"></a></div>
+                        </div>
                     </article> <!-- gallery-wrap .end// -->
                 </aside>
                 <aside class="col-sm-6">
@@ -42,7 +35,7 @@
                                 @if($obj->isDiscount())
                                     <span class="font-weight-bold h3 text-danger product_price">VND {{$obj->discountPriceWithFormat}}
                                     </span>
-                                        <del class="text-muted">
+                                    <del class="text-muted">
                                         <small>VND {{$obj->originalPriceWithFormat}}</small>
                                     </del>
                                 @else
@@ -50,37 +43,105 @@
                                     </span>
                                 @endif
                             </span>
-                        <br>
-                        <dl class="item-property">
-                            <dt>Overview</dt>
-                            <dd><p>{{$obj->overview}}</p></dd>
+                            <br>
+                            <dl class="item-property">
+                                <dt>Overview</dt>
+                                <dd>
+                        <p>{{$obj->overview}}</p></dd>
                         </dl>
                         <dl class="item-property">
                             <dt>Description</dt>
                             <dd><p>{{$obj->description}}</p></dd>
                         </dl>
-                        {{--<dl class="param param-feature">--}}
-                            {{--<dt>Brand</dt>--}}
-                            {{--<dd>{{$brand}}</dd>--}}
-                        {{--</dl>  <!-- item-property-hor .// -->--}}
                         <hr>
-                        <button class="btn btn-lg btn-danger text-uppercase add-to-cart" id="add-cart-{{$obj->id}}"> <i class="fas fa-shopping-cart"></i> Add to cart </button>
+                        <button class="btn btn-lg btn-danger text-uppercase add-to-cart" id="add-cart-{{$obj->id}}"><i
+                                    class="fas fa-shopping-cart"></i> Add to cart
+                        </button>
                     </article> <!-- card-body.// -->
                 </aside> <!-- col.// -->
             </div> <!-- row.// -->
         </div> <!-- card.// -->
-   </div>
+    </div>
+
+
+    {{--Comment--}}
+    <div class="text-center"><img src="{{asset('images/flower-line-broder-2.png')}}" width="50%"></img></div>
+    <div class="blog text-center">
+            <h3 class="tit2 text-center">
+                Review Product
+            </h3>
+    </div>
+    <div class="container m-b-20" style="padding-left: 50px;">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="widget-area no-padding blank">
+                    <div class="col-lg-2 text-center p-t-15 m-r-15 image" style="background-color: #fcb1ae">M</div>
+                    <div class="col-lg-10 status-upload">
+                        <form>
+                            <textarea placeholder="Review this product!"></textarea>
+                            <button type="submit" class="btn btn-danger">Review</button>
+                        </form>
+                    </div><!-- Status Upload  -->
+                </div><!-- Widget Area -->
+            </div>
+        </div>
+        <div class="text-center p-r-20 line-item-mainmenu bg3-pattern m-t-20" style="width: 90%"></div>
+    </div>
+
+    <div style="padding-left: 138px">
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="panel panel-white post panel-shadow">
+                    <div class="post-heading">
+                        <div class="pull-left">
+                            <div class="image text-center p-t-15" style="background-color: #fcb1ae"> M</div>
+                        </div>
+                        <div class="pull-left meta m-l-30">
+                            <div class="title h5">
+                                <a href="#"><b>Ryan Haywood</b></a>
+                                made a review.
+                            </div>
+                            <h6 class="text-muted time">1 minute ago</h6>
+                        </div>
+                    </div>
+                    <div class="post-description">
+                        <p>Bootdey is a gallery of free snippets resources templates and utilities for bootstrap css
+                            hmtl js framework. Codes for developers and web designers</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="panel panel-white post">
+                    <div class="post-heading">
+                        <div class="pull-left image">
+                            <img src="http://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar"
+                                 alt="user profile image">
+                        </div>
+                        <div class="pull-left meta">
+                            <div class="title h5">
+                                <a href="#"><b>Ryan Haywood</b></a>
+                                made a post.
+                            </div>
+                            <h6 class="text-muted time">1 minute ago</h6>
+                        </div>
+                    </div>
+                    <div class="post-description">
+                        <p>Bootdey is a gallery of free snippets resources templates and utilities for bootstrap css
+                            hmtl js framework. Codes for developers and web designers</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center m-t-50 m-b-30"><img src="{{asset('images/flower-line-broder-2.png')}}" width="50%"></img></div>
 
     {{--Related Products--}}
     <div class="container">
-        <div class="row blog">
-
-            <div class="text-center" style="padding-left: 500px;">
+        <div class="blog">
                 <h3 class="tit2 text-center">
                     Related Products
                 </h3>
-            </div>
-
         </div>
         <div class="row blog">
             <div class="col-md-12">
@@ -106,18 +167,13 @@
                                     <div class="col-sm-3">
                                         <div class="imagebox">
                                             <a href="/product/{{$list_obj[$i]->id}}">
-                                                <img src="{{$list_obj[$i]->images}}" alt="{{$list_obj[$i]->name}}" style="max-width:100%;">
+                                                <img src="{{$list_obj[$i]->images}}" alt="{{$list_obj[$i]->name}}"
+                                                     style="max-width:100%;">
                                                 <span class="imagebox-desc">{{$list_obj[$i]->name}}</span>
                                             </a>
                                         </div>
                                     </div>
 
-                                    {{--<div class="col-md-3">--}}
-                                        {{--<a href="/product/{{$list_obj[$i]->id}}">--}}
-                                            {{--<img src="{{$list_obj[$i]->images}}" alt="Image" style="max-width:100%;">--}}
-                                            {{--<div>{{$list_obj[$i]->name}}</div>--}}
-                                        {{--</a>--}}
-                                    {{--</div>--}}
                                 @endfor
                             </div>
                             <!--.row-->
@@ -130,18 +186,12 @@
                                     <div class="col-sm-3">
                                         <div class="imagebox">
                                             <a href="/product/{{$list_obj[$i]->id}}">
-                                                <img src="{{$list_obj[$i]->images}}" alt="{{$list_obj[$i]->name}}" style="max-width:100%;">
+                                                <img src="{{$list_obj[$i]->images}}" alt="{{$list_obj[$i]->name}}"
+                                                     style="max-width:100%;">
                                                 <span class="imagebox-desc">{{$list_obj[$i]->name}}</span>
                                             </a>
                                         </div>
                                     </div>
-
-                                    {{--<div class="col-md-3">--}}
-                                        {{--<a href="/product/{{$list_obj[$i]->id}}">--}}
-                                            {{--<img src="{{$list_obj[$i]->images}}" alt="{{$list_obj[$i]->name}}" style="max-width:100%;">--}}
-                                            {{--<div>{{$list_obj[$i]->name}}</div>--}}
-                                        {{--</a>--}}
-                                    {{--</div>--}}
                                 @endfor
                             </div>
                             <!--.row-->
@@ -150,7 +200,6 @@
 
                     </div>
                     <!--.carousel-inner-->
-
 
 
                 </div>
@@ -163,7 +212,6 @@
                     <span class="sr-only">Next</span>
                 </a>
                 <!--.Carousel-->
-
             </div>
         </div>
     </div>
