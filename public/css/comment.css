@@ -229,3 +229,16 @@ body .no-padding {
 .wrap-slick1 {
     background-image: none;
 }
+.btn-secondary {
+    background-color: transparent;
+    border: none;
+}
+
+.btn-secondary:hover{
+    background-color: transparent;
+    border: none;
+}
+.show>.btn-secondary.dropdown-toggle,.show>.btn-secondary.dropdown-toggle:focus {
+    background-color: transparent;
+    border-color: none;
+}
