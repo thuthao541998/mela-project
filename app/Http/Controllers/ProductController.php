@@ -132,7 +132,7 @@ class ProductController extends Controller
     {
         $obj = Product::find($id);
         if ($obj == null) {
-            return view('404');
+            return view('errors.404');
         }
         $limit = 8;
         $list_obj = null;

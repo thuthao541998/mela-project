@@ -61,12 +61,8 @@ class BrandController extends Controller
      */
     public function show($id)
     {
-        $obj = Brand::find($id);
-        if ($obj == null) {
-            return view('admin.404.404');
-        }
-        return view('admin.brand.show')
-            ->with('obj', $obj);
+       return view('admin.404.404');
+
     }
 
     public function detailBrand($id){
