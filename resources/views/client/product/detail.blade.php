@@ -119,6 +119,11 @@
                             </div>
                         </div>
                     </div>
+                    @if($comment->user_id == Auth::user()->id)
+                    <div class="delete-btn col-sm-1 p-t-50">
+                        <button><i class="fas fa-times"></i></button>
+                    </div>
+                    @endif
                 @endforeach
             @else
                 <div>This product doesn't have any review</div>
