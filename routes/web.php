@@ -48,7 +48,6 @@ Route::get('/api-get-chart-data', 'OrderController@getChartDataApi');
 Route::get('/api-get-pie-chart-data', 'OrderDetailController@getPieChartDataApi');
 //Dashboard
 Route::get('/home', 'HomeController@index')->name('home');
-
 //*********************************Auth Zone*********************************
 Route::post('/login',['as' => 'login', 'uses' => 'Auth\LoginController@login']);
 Route::post('/logout',['as' => 'logout', 'uses' => 'Auth\LoginController@logout']);
@@ -125,4 +124,16 @@ Route::get('admin/404',function (){
 });
 Route::get('/admin/dash-board', function (){
    return view('admin.dashboard');
+});
+
+//Subscription newsletter
+Route::get('/admin/newsletter/create', function (){
+    return view('admin.contact.create');
+});
+Route::post('/admin/newsletter/create','ContactController@sendSubscriptionMail');
+Route::get('/admin/newsletter/list', function (){
+    return view('admin.contact.list_newsletter');
+});
+Route::get('/admin/contact/list', function (){
+    return view('admin.contact.list_contact');
 });

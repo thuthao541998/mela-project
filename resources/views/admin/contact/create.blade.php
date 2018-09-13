@@ -1,11 +1,11 @@
 @extends('layouts.master')
-@section('page-title', 'Create Article - Admin Page')
+@section('page-title', 'Create Subscription Newsletter - Admin Page')
 @section('content')
     <link rel="stylesheet" href="{{asset('css/form.css')}}">
     <div class="row">
         <div class="col-lg-12">
             <section class="panel">
-                <header class="panel-heading">Create new article
+                <header class="panel-heading">Create new Subscription Newsletter
                     <span class="tools pull-right">
                         <a href="javascript:;">
                             <span class="fa fa-chevron-down"></span>
@@ -19,27 +19,28 @@
                         </div>
                     @endif
                     <div class="form">
-                        <form id="create-form" class="cmxform form-horizontal" method="post" action="/admin/article" novalidate="novalidate"  enctype="multipart/form-data">
+                        <form id="create-form" class="cmxform form-horizontal" method="post" action="/admin/newsletter/create" novalidate="novalidate"  enctype="multipart/form-data">
                             {{csrf_field()}}
                             <div class="col-lg-7">
                                 <div class="form-group ">
-                                    <label class="control-label col-lg-2">Title</label>
+                                    <label class="control-label col-lg-2">Subject</label>
                                     <div class="col-lg-9">
                                         <input class=" form-control" name="title" type="text">
-                                        @foreach ($errors->get('title') as $title)
-                                            <p class="text-danger help-block">{{$title}}</p>
+                                        @foreach ($errors->get('subject') as $subject)
+                                            <p class="text-danger help-block">{{$subject}}</p>
                                         @endforeach
                                     </div>
                                 </div>
-                                <div class="form-group ">
-                                    <label class="control-label col-lg-2">Author</label>
-                                    <div class="col-lg-9">
-                                        <input class=" form-control" name="author" type="text">
-                                        @foreach ($errors->get('author') as $author)
-                                            <p class="text-danger help-block">{{$author}}</p>
-                                        @endforeach
-                                    </div>
-                                </div>
+                                
+                                {{--<div class="form-group ">--}}
+                                    {{--<label class="control-label col-lg-2">To</label>--}}
+                                    {{--<div class="col-lg-9">--}}
+                                        {{--<input class=" form-control" name="author" type="text">--}}
+                                        {{--@foreach ($errors->get('mails') as $mails)--}}
+                                            {{--<p class="text-danger help-block">{{$mails}}</p>--}}
+                                        {{--@endforeach--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
                                 <div class="form-group">
                                     <div><label class="control-label col-lg-2">Content</label></div>
                                     <div class="col-lg-12 ml-3 mt-4 w-full-md">
@@ -48,18 +49,6 @@
                                         <div id="editor-status" class="help-block"></div>
                                         @foreach ($errors->get('content') as $content)
                                             <p class="text-danger help-block">{{$content}}</p>
-                                        @endforeach
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-5">
-                                <div class="custom-file">
-                                    <label class="control-label col-lg-3">Images</label>
-                                    <div class="col-lg-9">
-                                        <input type="file" class="custom-file-input" name="images" id="img">
-                                        <label class="custom-file-label text-truncate" for="img">Choose file</label>
-                                        @foreach ($errors->get('images') as $images)
-                                            <p class="text-danger help-block">{{$images}}</p>
                                         @endforeach
                                     </div>
                                 </div>
