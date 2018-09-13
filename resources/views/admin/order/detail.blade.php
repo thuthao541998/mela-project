@@ -87,7 +87,7 @@
                     </table>
                     <div class="float-right mr-5">
                         <span class="text-right font-weight-bold" style="font-size: 16px; font-weight: bold">Total : </span>
-                        <span class="text-center" style="font-size: 16px">{{$order->getTotalMoneyWithFormat()}} (vnd)</span>
+                        <span class="text-center" style="font-size: 16px">{{$order->total_money_with_format}} (vnd)</span>
                     </div>
                     <div class="row">
                         <div class="col-md-12 form-inline">

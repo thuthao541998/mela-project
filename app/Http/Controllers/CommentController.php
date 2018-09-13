@@ -16,7 +16,7 @@ class CommentController extends Controller
     public function index()
     {
         $list_obj = Comment::paginate(5);
-        return view('admin.comment.list', compact('comment'))->with('list_obj', $list_obj);
+        return $list_obj;
     }
 
     public function indexClient()
@@ -26,128 +26,28 @@ class CommentController extends Controller
         return view('client.comment.list', compact('comment'))->with('list_obj', $list_obj);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function store()
     {
-        return view('admin.comment.create');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        $request->validated();
-        $obj = new comment();
+        $obj = new Comment();
+        $obj->product_id = Input::get('product_id');
+        $obj->user_id = Input::get('user_id');
         $obj->content = Input::get('content');
         $obj->save();
-        return redirect('/admin/comment');
+        $comments = Comment::whereRaw('product_id='.Input::get('product_id'))->orderByRaw('created_at DESC')->get();
+        return $comments;
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+
+    public function destroy()
     {
+        $id = Input::get('id');
         $obj = Comment::find($id);
         if ($obj == null) {
-            return view('admin.404.404');
-        }
-        return view('admin.comment.detail')
-            ->with('obj', $obj);
-    }
-
-    public function showClient($id)
-    {
-        $obj = comment::find($id);
-        if ($obj == null) {
-            return view('admin.404.404');
-        }
-        return view('client.comment.detail')
-            ->with('obj', $obj);
-    }
-
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        $obj = Comment::find($id);
-        if ($obj == null) {
-            return view('admin.404.404');
-        }
-        return view('admin.comment.edit')
-            ->with('obj', $obj);
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update($id, Request $request)
-    {
-        $request->validated();
-        $obj = Comment::find($id);
-        if ($obj == null) {
-            return view('admin.404.404');
-        }
-        $obj->content = Input::get('content');
-        $obj->save();
-        return redirect('/admin/comment');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-
-
-    public function destroy($id)
-    {
-        $obj = Comment::find($id);
-        if ($obj == null) {
-            return response('The artitle is not found or has been deleted!', 404);
+            return response('The comment is not found or has been deleted!', 404);
         }
         $obj->delete();
-        return response('Deleted', 200);
+        $comments = Comment::whereRaw('product_id='.Input::get('product_id'))->orderByRaw('created_at DESC')->get();
+        return $comments;
     }
 
-    public function showJson($id)
-    {
-        $obj = Comment::find($id);
-        if ($obj == null) {
-            return response()->json(['msg' => 'Not found'], 404);
-        }
-        return response()->json(['item' => $obj], 200);
-    }
-
-    public function quickUpdate(Request $request, $id)
-    {
-        $obj = Comment::find($id);
-        if ($obj == null) {
-            return response()->json(['msg' => 'Not found'], 404);
-        }
-        $obj->content = Input::get('content');
-        $obj->save();
-        return response()->json(['item' => $obj], 200);
-    }
 }

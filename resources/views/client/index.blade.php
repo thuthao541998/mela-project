@@ -1,6 +1,6 @@
 @extends("layouts.index")
 @section('content')
-@section('page-topic','MELA')
+@section('page-topic','MELA Cosmetics')
     <!-- Welcome -->
     <section class="section-welcome bg1-pattern p-t-120 p-b-105">
         <div class="container">
@@ -8,7 +8,7 @@
                 <div class="col-md-6 p-t-45 p-b-30">
                     <div class="wrap-text-welcome t-center">
                         <span class="tit2 t-center">
-                            Mela Shop
+                            Mela Cosmetics
                         </span>
 
                         <h3 class="tit3 t-center m-b-35 m-t-5">
@@ -16,7 +16,7 @@
                         </h3>
 
                         <p class="t-center m-b-22 m-l-r-auto">
-                            Welcome to Mela Shop, let shop tell you what is the power of Lipstick. Let us enlighten you on "Saint Lipstick"
+                            Welcome to Mela Cosmetics, let shop tell you what is the power of Lipstick. Let us enlighten you on "Saint Lipstick"
                         </p>
                         <button style="padding: 10px;" class="btn-danger bo-rad-5" href="/list-product">Click here to get your boyfriend a perfect KISS</button>
                     </div>
@@ -51,19 +51,19 @@
                         <!-- Block1 -->
                         <div class="blo1">
                             <div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom">
-                                <a href="#"><img src="images/intro-01.jpg" alt="IMG-INTRO"></a>
+                                <a href="/article/3"><img src="images/intro-01.jpg" alt="IMG-INTRO"></a>
                             </div>
 
                             <div class="wrap-text-blo1 p-t-35">
-                                <a href="#"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
-                                        Enlightenment thinking
+                                <a href="/article/3"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
+                                        A Women's March Organizer on the Feminist Power of Red Lipstick
                                     </h4></a>
 
                                 <p class="m-b-20">
                                     Have you ever thought: "Lipstick is just cosmetics applied to the lips alone?" So, you're wrong, let Mela enlighten you from thoughts
                                 </p>
 
-                                <a href="#" class="txt4">
+                                <a href="/article/3" class="txt4">
                                     Learn more
                                     <i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
                                 </a>
@@ -75,19 +75,18 @@
                         <!-- Block1 -->
                         <div class="blo1">
                             <div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom">
-                                <a href="#"><img src="images/intro-02.jpg" alt="IMG-INTRO"></a>
+                                <a href="/article/4"><img src="images/intro-02.jpg" alt="IMG-INTRO"></a>
                             </div>
 
                             <div class="wrap-text-blo1 p-t-35">
-                                <a href="#"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
-                                        Enlightening experience
+                                <a href="/article/4"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
+                                        LIPSTICK REVIEW FOR VALENTINE’S DAY
                                     </h4></a>
 
                                 <p class="m-b-20">
-                                    "Lipstick just Chemical alone?" You have thought wrong, Lipstick can be fruit, flowers, leaves, ... Let Mela enlighten you about the experience.
-                                </p>
+                                    The lipsticks by Soft Touch also fade in a nice way. A great option for shiny + durable lipstick lovers, who are willing to compromise a little on durability for a lower price.                                </p>
 
-                                <a href="#" class="txt4">
+                                <a href="/article/4" class="txt4">
                                     Learn more
                                     <i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
                                 </a>
@@ -99,19 +98,19 @@
                         <!-- Block1 -->
                         <div class="blo1">
                             <div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom">
-                                <a href="#"><img src="images/intro-04.jpg" alt="IMG-INTRO"></a>
+                                <a href="/article/5"><img src="images/intro-04.jpg" alt="IMG-INTRO"></a>
                             </div>
 
                             <div class="wrap-text-blo1 p-t-35">
-                                <a href="#"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
-                                        Enlightened awareness
+                                <a href="/article/5"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
+                                        NARSISSIST WANTED VELVET LIPGLIDE SET
                                     </h4></a>
 
                                 <p class="m-b-20">
                                     "Only expensive lipstick is good!" if think so, you're wrong. Let Mela enlighten you about public perception.
                                 </p>
 
-                                <a href="#" class="txt4">
+                                <a href="/article/5" class="txt4">
                                     Learn more
                                     <i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
                                 </a>
@@ -133,7 +132,7 @@
                 </span>
 
                 <h3 class="tit5 t-center m-t-2">
-                    Our Menu
+                    Our Categories
                 </h3>
             </div>
 
@@ -145,7 +144,7 @@
                             <img src="{{$item->images}}" class="cate-img" alt="IMG-MENU">
 
                             <!-- Button2 -->
-                            <a href="#" class="btn2 flex-c-m txt5 ab-c-m size7">
+                            <a href="/list-product?categoryId={{$item->id}}" class="btn2 flex-c-m txt5 ab-c-m size7">
                                 {{$item->name}}
                             </a>
                         </div>

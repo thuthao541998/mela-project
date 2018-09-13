@@ -1,6 +1,7 @@
 @extends('layouts.master')
 @section('page-title', 'List Order - Admin Page')
 @section('content')
+
     <link href="{{asset('css/list.css')}}" rel='stylesheet' type='text/css' />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     <section id="main-content">
@@ -41,7 +42,9 @@
                         </div>
                     </div>
                     <div>
-                        @if($orders->count()>0)
+
+                        @if(isset($orders)  && ($orders -> count()) > 0)
+
                         <table class="table">
                             <thead>
                                 <tr>
@@ -57,12 +60,14 @@
                                 </tr>
                             </thead>
                             <tbody>
+
                             @foreach($orders as $item)
                                 <tr class="row-item" id="row-item-{{$item->id}}">
                                     <td class="column-0">
                                         <input type="checkbox" class="check-item">
                                     </td>
-                                    <td class="column-1 text-center">{{$item->id}}
+                                    <td class="column-1 text-center">
+                                        <div>{{$item->id}}</div>
                                         <a class="btn btn-simple btn-link btn-icon text-center" data-placement="top"
                                            title="Click to view the details of this order" href="/admin/order/{{$item->id}}">
                                             <button class="btn btn-outline-success">Detail</button>
@@ -73,13 +78,12 @@
                                     <td class="column-4">{{$item->ship_phone}}</td>
                                     <td class="column-5">
                                         @foreach($item->details as $order_detail)
-                                            <li>{{$order_detail->product->name}} - {{$order_detail->quantity}}</li>
+                                            <li>{{$order_detail->quantity}} - {{$order_detail->product->name}}</li>
                                         @endforeach
                                     </td>
-                                    <td class="column-6" style="width: 6%;">{{$item->getTotalMoneyWithFormat()}} (vnd)</td>
+                                    <td class="column-6" style="width: 6%;">{{$item->total_money_with_format}} (vnd)</td>
                                     <td class="column-7 font-weight-bold status-label">{{$item->statusLabel}}</td>
                                     <td class="column-8 text-center">
-
                                         @if($item->status == 0)
                                             <a href="/admin/order/update-status/{{$item->id}}?status=1" onclick="return confirm('Are sure to confirm this order?')"
                                                class="btn btn-simple btn-info btn-icon edit" title="Click to have this order confirmed"><i class="fas fa-hourglass"></i></a>
@@ -175,35 +179,35 @@
                             return;
                         };
                         var content = '';
-                        console.log(resp);
                         for (var i in list_obj) {
                             content += '<tr id="row-item-' + list_obj[i].id + '">';
                                 content += '<td class="column-0">';
                             content += '<input type="checkbox">';
                             content += '</td>';
-                            content += '<td class="column-1">' + list_obj[i].id + '</td>';
+                            content += '<td style="text-align:center;" class="column-1"><div>' + list_obj[i].id + '</div>';
+                            content += '<a class="btn btn-simple btn-link btn-icon text-center" data-placement="top" title="Click to view the details of this order" href="/admin/order/'+ list_obj[i].id +'">';
+                            content += '<button class="btn btn-outline-success">Detail</button>';
+                            content += '</a>';
+                            content += '</td>';
                             content += '<td class="column-2">' + list_obj[i].ship_name + '</td>';
                             content += '<td class="column-3">' + list_obj[i].ship_address + '</td>';
                             content += '<td class="column-4">' + list_obj[i].ship_phone + '</td>';
                             content += '<td class="column-5">';
-                            jQuery.each(list_obj[i].order_details, function(i, item) {
-                                if (item.product_id != undefined){
-                                    jQuery.each(item.products, function(k, product){
-                                        content += '<li>' + product.name + ' - ' + item.quantity + '</li>';
-                                    });
-                                }
+                            // console.log(list_obj[i].order_details);
+                            jQuery.each(list_obj[i].order_details, function(j, item) {
+                                content += '<li>' + item.quantity + ' - ' + item.product.name + '</li>';
                             });
                             content += '</td>';
-                            content += '<td class="column-6">' + list_obj[i].total_price + '</td>';
+                            content += '<td class="column-6">' + list_obj[i].total_money_with_format + '</td>';
                             content += '<td class="column-7 font-weight-bold">' + list_obj[i].statusLabel + '</td>';
                             content += '<td class="column-8 text-center">';
 
                             if (list_obj[i].status == 0) {
-                                content += '<a href="/admin/order/update-status/{{$item->id}}?status=1" onclick="return confirm("Are sure to confirm this order?")" class="btn btn-simple btn-info btn-icon edit" title="Click to have this order confirmed"><i class="fas fa-hourglass"></i></a>';
-                            content += '<a href="/admin/order/update-status/{{$item->id}}?status=-1" onclick="return confirm("Are sure to confirm this order?")" class="btn btn-simple btn-danger btn-icon edit" title="Click to cancel this order"><i class="fas fa-times"></i></a>';
+                                content += '<a href="/admin/order/update-status/'+list_obj[i].id+'?status=1" onclick="return confirm("Are sure to confirm this order?")" class="btn btn-simple btn-info btn-icon edit" title="Click to have this order confirmed"><i class="fas fa-hourglass"></i></a>';
+                            content += '<a href="/admin/order/update-status/'+list_obj[i].id+'?status=-1" onclick="return confirm("Are sure to confirm this order?")" class="btn btn-simple btn-danger btn-icon edit" title="Click to cancel this order"><i class="fas fa-times"></i></a>';
                             } else if (list_obj[i].status == 1) {
-                                content += '<a href="/admin/order/update-status/{{$item->id}}?status=2" onclick="return confirm("Are you sure to finish this order?")" class="btn btn-simple btn-success btn-icon edit" title="Click to have this order finished"><i class="fas fa-check"></i></a>';
-                                content += '<a href="/admin/order/update-status/{{$item->id}}?status=-1" onclick="return confirm("Are sure to cancel this order?)" class="btn btn-simple btn-danger btn-icon edit" title="Click to cancel this order"><i class="fas fa-times"></i></a>';
+                                content += '<a href="/admin/order/update-status/'+list_obj[i].id+'?status=2" onclick="return confirm("Are you sure to finish this order?")" class="btn btn-simple btn-success btn-icon edit" title="Click to have this order finished"><i class="fas fa-check"></i></a>';
+                                content += '<a href="/admin/order/update-status/'+list_obj[i].id+'?status=-1" onclick="return confirm("Are sure to cancel this order?)" class="btn btn-simple btn-danger btn-icon edit" title="Click to cancel this order"><i class="fas fa-times"></i></a>';
                             } else if (list_obj[i].status == 2) {
                                     content += '<i class="fas fa-check 4x text-danger"></i>';
                             } else if (list_obj[i].status == -1) {

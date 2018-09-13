@@ -66,6 +66,7 @@
                                                     <i class="fs-12 fa fa-plus" aria-hidden="true"></i>
                                                 </button>
                                             </div>
+                                            <span class="text-danger" style="font-size: 83%;"></span>
                                         </td>
                                         <td class="column-5 total-unit-price"
                                             id="unit-total-{{$item->product->id}}">{{$item->getTotalPriceWithFormat()}}</td>
@@ -83,15 +84,14 @@
                              <div class="size10 trans-0-4 m-t-10 m-b-10">
                              <!-- Button -->
                                 <input name="save-changes" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4"
-                                    value="Save changes"
-                                    type="submit">
+                                        value="Save changes" type="submit">
                             </div>
                         </div>
                     </div>
                 </form>
             </div>
 
-            <form action="/order-success" name="order-form" method="POST" >
+            <form action="/order-success" name="order-form" method="post" id="order-form" >
                 @csrf();
                 <!-- Total -->
                 <div class="bo9 w-size18 p-l-40 p-r-40 p-t-30 p-b-38 m-t-30 m-r-0 m-l-auto p-lr-15-sm m-b-50" style="background: white">
@@ -104,12 +104,18 @@
                           Shipping:
                         </span>
 
-                        <form class="w-size20 w-full-sm" method="POST" action="/order-success">
+                        {{--<form class="w-size20 w-full-sm" method="POST" action="/order-success">--}}
+                        @if(isset(Auth::user()->name))
+                            <div class="size15 bo4 m-b-30 m-t-20">
+                                <input class="sizefull s-text7 p-l-15 p-r-15" name="ship_name" placeholder="Receiver Name" value="{{Auth::user()->name}}"
+                                       type="text">
+                            </div>
+                        @else
                             <div class="size15 bo4 m-b-30 m-t-20">
                                 <input class="sizefull s-text7 p-l-15 p-r-15" name="ship_name" placeholder="Receiver Name"
                                        type="text">
                             </div>
-
+                        @endif
                             <div class="size15 bo4 m-b-30">
                                 <input class="sizefull s-text7 p-l-15 p-r-15" name="ship_address" placeholder="Address"
                                        type="text">
@@ -118,7 +124,7 @@
                                 <input class="sizefull s-text7 p-l-15 p-r-15" name="ship_phone" placeholder="Phone"
                                        type="text">
                             </div>
-                        </form>
+                        {{--</form>--}}
                     </div>
 
                     <!--  -->
@@ -156,8 +162,6 @@
 </div>
 
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
-<script type="text/javascript" src="{{asset('js/showcart.js')}}">
+<script type="text/javascript" src="{{asset('js/showcart.js')}}"></script>
 
-</script>
 @endsection

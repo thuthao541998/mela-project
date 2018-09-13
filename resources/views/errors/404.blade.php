@@ -13,7 +13,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- bootstrap-css -->
-<link rel="stylesheet" href="css/bootstrap.min.css" >
+<link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" >
 <!-- //bootstrap-css -->
 <!-- Custom CSS -->
 <link href="{{asset('css/style.css')}}" rel='stylesheet' type='text/css' />
@@ -24,7 +24,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link rel="stylesheet" href="{{asset('css/font.css')}}" type="text/css"/>
 <link href="{{asset('css/font-awesome.css')}}" rel="stylesheet">
 <!-- //font-awesome icons -->
-<script src="js/jquery2.0.3.min.js"></script>
+<script src="{{asset('js/jquery2.0.3.min.js')}}"></script>
 </head>
 <body>
 <!--main content start-->
@@ -33,15 +33,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<h3>ĐÂM ĐẦU</h3>
 		<h2>Ngõ Cụt</h2>
 		<p>Bạn đang lầm đường lạc lối, hãy về với Mela để được KHAI SÁNG.</p>
-		<a href="/">Về Mela</a>
+		<a href="#">Về Mela</a>
 	</div>
 </div>
-<script src="js/bootstrap.js"></script>
-<script src="js/jquery.dcjqaccordion.2.7.js"></script>
-<script src="js/scripts.js"></script>
-<script src="js/jquery.slimscroll.js"></script>
-<script src="js/jquery.nicescroll.js"></script>
-<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
-<script src="js/jquery.scrollTo.js"></script>
+<script src="{{asset('js/bootstrap.js')}}"></script>
+<script src="{{asset('js/jquery.dcjqaccordion.2.7.js')}}"></script>
+<script src="{{asset('js/scripts.js')}}"></script>
+<script src="{{asset('js/jquery.slimscroll.j')}}s"></script>
+<script src="{{asset('js/jquery.nicescroll.js')}}"></script>
+<script src="{{asset('js/jquery.scrollTo.js')}}"></script>
 </body>
 </html>
