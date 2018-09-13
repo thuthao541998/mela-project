@@ -60,7 +60,7 @@ Route::group(['middleware' => ['checkGuest']],function (){
 });
 Route::post('/logout',['as' => 'logout', 'uses' => 'Auth\LoginController@logout']);
 Route::post('/post-comment','CommentController@store');
-
+Route::post('/delete-comment','CommentController@destroy');
 //Auth::routes();
 //Route::get('/home', 'HomeController@index')->name('home');
 

@@ -76,7 +76,7 @@
             <div class="col-md-12">
                 @if(isset(Auth::user()->name))
                     <div class="widget-area no-padding blank">
-                        <div class="col-lg-2 text-center p-t-15 m-r-15 image" style="background-color: #fcb1ae">{{Auth::user()->name[0]}}</div>
+                        <div class="user-id col-lg-2 text-center p-t-15 m-r-15 image" style="background-color: #fcb1ae">{{Auth::user()->name[0]}}</div>
                         <div class="col-lg-10 status-upload">
                             <form name="post-comment" action="/post-comment" method="post">
                                 <textarea placeholder="Review this product!" name="content"></textarea>
@@ -120,6 +120,7 @@
                         </div>
                     </div>
                     @if($comment->user_id == Auth::user()->id)
+                    <div class="hidden">{{$comment->id}}</div>
                     <div class="delete-btn col-sm-1 p-t-50">
                         <button><i class="fas fa-times"></i></button>
                     </div>

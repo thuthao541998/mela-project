@@ -38,27 +38,16 @@ class CommentController extends Controller
     }
 
 
-    public function update($id, Request $request)
+    public function destroy()
     {
-        $request->validated();
-        $obj = Comment::find($id);
-        if ($obj == null) {
-            return view('admin.404.404');
-        }
-        $obj->content = Input::get('content');
-        $obj->save();
-        return redirect('/admin/comment');
-    }
-
-
-    public function destroy($id)
-    {
+        $id = Input::get('id');
         $obj = Comment::find($id);
         if ($obj == null) {
             return response('The artitle is not found or has been deleted!', 404);
         }
         $obj->delete();
-        return response('Deleted', 200);
+        $comments = Comment::whereRaw('product_id='.Input::get('product_id'))->orderByRaw('created_at DESC')->get();
+        return $comments;
     }
 
 }
