@@ -66,7 +66,7 @@
                                     </select>
                                 </div>
                             </div>
-                            @if(count($list_obj)>0)
+                            @if(count($list_obj)>0 && isset($list_obj))
                                 <div class="product-title">PRODUCT LIST [{{count($list_obj)}}]</div>
                                 <div class="wrap-item-mainmenu p-b-22" id="results">
                                     @foreach($list_obj as $obj)
@@ -74,53 +74,54 @@
                                             <div class="blo3 flex-w flex-col-l-sm m-t-30 m-b-20">
                                                 <div class="pic-blo3 size20 bo-rad-10 hov-img-zoom m-r-28">
 
-                                                <a href="/product/{{$obj->id}}"><img src="{{$obj->images}}"
-                                                                                     alt="IMG-MENU"
-                                                                                     style="width: 180px; height: 180px"></a>
-                                            </div>
-                                            <div class="text-blo3 size21 flex-col-l-m">
-                                                <a href="/product/{{$obj->id}}" class="txt21 m-b-3 product_name">
-                                                    {{$obj->name}}
-                                                    @if($obj->isDiscount())
-                                                        <span style="background-color: red; color:white;"
-                                                              class="p-l-6 p-r-5">SALE {{$obj->discount}}%</span>
-                                                    @endif
-                                                    @if($obj->isNew())
-                                                        <span class="font-weight-bold"
-                                                              style="background-color: green; color:white;">NEW</span>
-                                                    @endif
-                                                </a>
-                                                <span class="txt23">
+                                                    <a href="/product/{{$obj->id}}"><img src="{{$obj->images}}"
+                                                                                         alt="IMG-MENU"
+                                                                                         style="width: 180px; height: 180px"></a>
+                                                </div>
+                                                <div class="text-blo3 size21 flex-col-l-m">
+                                                    <a href="/product/{{$obj->id}}" class="txt21 m-b-3 product_name">
+                                                        {{$obj->name}}
+                                                        @if($obj->isDiscount())
+                                                            <span style="background-color: red; color:white;"
+                                                                  class="p-l-6 p-r-5">SALE {{$obj->discount}}%</span>
+                                                        @endif
+                                                        @if($obj->isNew())
+                                                            <span class="font-weight-bold"
+                                                                  style="background-color: green; color:white;">NEW</span>
+                                                        @endif
+                                                    </a>
+                                                    <span class="txt23">
                                                     {{$obj->overview}}
                                                 </span>
-                                                <span class="txt22 m-t-10">
+                                                    <span class="txt22 m-t-10">
                                                     @if($obj->isDiscount())
-                                                        <span class="font-weight-bold product_price">{{$obj->discountPriceString}}
+                                                            <span class="font-weight-bold product_price">{{$obj->discountPriceString}}
                                                         </span>
-                                                        <del class="text-muted">
+                                                            <del class="text-muted">
                                                             <small>{{$obj->originalPriceString}}</small>
                                                         </del>
-                                                    @else
-                                                        <span class="font-weight-bold">{{$obj->originalPriceString}}
+                                                        @else
+                                                            <span class="font-weight-bold">{{$obj->originalPriceString}}
                                                         </span>
-                                                    @endif
+                                                        @endif
                                             </span>
-                                                <button class="add-cart-large add-to-cart m-t-10"
-                                                        id="add-cart-{{$obj->id}}"><i
-                                                            class="fas fa-cart-plus fa-2x"></i></button>
+                                                    <button class="add-cart-large add-to-cart m-t-10"
+                                                            id="add-cart-{{$obj->id}}"><i
+                                                                class="fas fa-cart-plus fa-2x"></i></button>
+                                                </div>
+                                                <div class="line-item-mainmenu bg3-pattern"></div>
                                             </div>
-                                            <div class="line-item-mainmenu bg3-pattern"></div>
+                                            @endforeach
                                         </div>
-                                    @endforeach
+                                        <div class="pagination">
+                                            {!! $list_obj->links() !!}
+                                        </div>
+                                        @else
+                                            <div class="no-product">
+                                                <h4>Have no product in this field</h4>
+                                            </div>
+                                        @endif
                                 </div>
-                                <div class="pagination">
-                                    {!! $list_obj->links() !!}
-                                </div>
-                            @else
-                                <div class="no-product">
-                                    <h4>Have no product in this field</h4>
-                                </div>
-                            @endif
                         </div>
                     </div>
                 </div>
@@ -131,11 +132,11 @@
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
 <script>
-    $(document).ready(function() {
-        $('body').on('change', '.filter-btn select[name=sort-product]',function () {
+    $(document).ready(function () {
+        $('body').on('change', '.filter-btn select[name=sort-product]', function () {
             var sortVal = $('.filter-btn select[name=sort-product]').val();
 
-            switch (sortVal){
+            switch (sortVal) {
                 // Sort by A-Z
                 case '1':
                     var list, i, switching, b, shouldSwitch;
@@ -250,8 +251,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.3/pagination.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
 <script>
-    var searchfunction = function(){
+    var searchfunction = function () {
         {
+            var today = new Date();
+            var lastWeek = Date.parse(new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7));
             var query = $('.search').val();
             if (query) {
                 $.ajax({
@@ -266,7 +269,7 @@
                         var limit = 10;
                         var list_obj = data.list_obj;
                         var count = list_obj.length;
-                        var totalPage = Math.ceil(count/10);
+                        var totalPage = Math.ceil(count / 10);
                         if (count > 0) {
                             var content = '';
                             for (var i in list_obj) {
@@ -278,33 +281,31 @@
                                 content += '<div class="text-blo3 size21 flex-col-l-m">';
                                 content += '<a href="/product/' + list_obj[i].id + '" class="txt21 m-b-3">';
                                 content += list_obj[i].name;
-                                @if($obj->isDiscount())
-                                    content += '<span style="background-color: red; color:white;" class="p-l-6 p-r-5">SALE ' + list_obj[i].discount + '%</span>';
-                                @endif
-                                @if($obj->isNew())
-                                    content += '<span class="p-l-2 p-r-2 font-weight-bold m-l-5" style="background-color: green; color:white;">NEW</span>';
-                                @endif
-                                    content += '</a>';
+                                if(list_obj[i].original_price_string != list_obj[i].discount_price_string ){
+                                    content += '<span style="background-color: red; color:white;" class="p-l-6 p-r-5">SALE ' + list_obj[i].discount + '%</span>';}
+                                if(list_obj[i].created_at < today && list_obj[i].created_at> lastWeek){
+                                    content += '<span class="p-l-2 p-r-2 font-weight-bold m-l-5" style="background-color: green; color:white;">NEW</span>';}
+                                content += '</a>';
                                 content += '<span class="txt23">';
                                 content += list_obj[i].overview;
                                 content += '</span>';
                                 content += '<span class="txt22 m-t-10">';
-                                @if($obj->isDiscount())
+                                if(list_obj[i].original_price_string != list_obj[i].discount_price_string){
                                     content += '<span class="font-weight-bold">' + list_obj[i].discount_price_string;
                                 content += '</span>';
                                 content += '<del class="text-muted">';
                                 content += '<small>' + list_obj[i].original_price_string + '</small>';
-                                content += '</del>';
-                                @else
+                                content += '</del>';}
+                                else{
                                     content += '<span class="font-weight-bold">' + list_obj[i].original_price_string;
-                                content += '</span>';
-                                @endif
+                                content += '</span>';}
                                     content += '</span>';
                                 content += '<button class="add-cart-large add-to-cart m-t-10"  id="add-cart-' + list_obj[i].id + '"><i class="fas fa-cart-plus fa-2x"></i></button>';
                                 content += '</div>';
                                 content += '</div>';
                                 // content += '<div class="line-item-mainmenu bg3-pattern"></div>';
-                            };
+                            }
+                            ;
 
                             var page = 1;
                             var paginateContent = '';
@@ -325,7 +326,6 @@
                             paginateContent += '</ul>';
 
 
-
                             $('.product-title').html('PRODUCT LIST [' + count + ']');
                             $('#results').html(content);
                             $('.pagination').html(paginateContent);
@@ -334,9 +334,9 @@
                             // Pagination
                             var pageSize = 10;
 
-                            showPage = function(page) {
+                            showPage = function (page) {
                                 $(".show_product").hide();
-                                $(".show_product").each(function(n) {
+                                $(".show_product").each(function (n) {
                                     if (n >= pageSize * (page - 1) && n < pageSize * page)
                                         $(this).show();
                                 });
@@ -344,7 +344,7 @@
 
                             showPage(1);
 
-                            $("body").on('click', '.pagination li a',function() {
+                            $("body").on('click', '.pagination li a', function () {
                                 $(".pagination li").removeClass("active");
                                 $(this).parent().addClass("active");
                                 showPage(parseInt($(this).text()));
@@ -367,7 +367,7 @@
 
     $('.search-query').keypress(function (e) {
         var key = e.which;
-        if (key == 13){
+        if (key == 13) {
             searchfunction();
         }
     });
@@ -376,4 +376,6 @@
     });
 </script>
 <script src="{{asset('js/app.js')}}"></script>
+<script src="{{asset('js/jquery.formatNumber-0.1.1.min.js')}}"></script>
+
 @endsection

@@ -40,6 +40,10 @@
                 url: '/api-get-chart-data?startDate='+start.format('YYYY-MM-DD')+'&endDate='+end.format('YYYY-MM-DD'),
                 method: 'GET',
                 success: function (resp) {
+                    if(resp.length ==0){
+                        swal('No data exists for line chart', 'Please choose another time range.', 'warning');
+                        return;
+                    };
                     drawChart(resp);
                     var totalRevenue = 0;
                     for(var i=0; i<resp.length ; i++){
@@ -74,6 +78,16 @@
             };
             var chart = new google.charts.Line(document.getElementById('linechart_material'));
             chart.draw(data, google.charts.Line.convertOptions(options));
+
+            google.visualization.events.addListener(chart, 'select', selectHandler);
+            console.log(chart_data);
+
+            function selectHandler(e) {
+                for(var i = 0; i < chart.getSelection().length; i++){
+                    var item = chart.getSelection()[i];
+                    window.location.href = '/admin/order?created_at=' + chart_data[item.row].day;
+                }
+            }
         }
         $(function() {
             var start = moment().subtract(29, 'days');
@@ -108,7 +122,7 @@
                     method: 'GET',
                     success: function (resp) {
                         if(resp.length ==0){
-                            swal('No data exists', 'Please choose another time range.', 'warning');
+                            swal('No data exists for pie chart', 'Please choose another time range.', 'warning');
                             return;
                         };
                         drawPieChart(resp);
@@ -122,7 +136,7 @@
                     method: 'GET',
                     success: function (resp) {
                         if(resp.length ==0){
-                            swal('No data exists', 'Please choose another time range.', 'warning');
+                            swal('No data exists for line chart', 'Please choose another time range.', 'warning');
                             return;
                         };
                         drawChart(resp);
@@ -147,10 +161,15 @@
                 url: '/api-get-pie-chart-data?startDate='+start.format('YYYY-MM-DD')+'&endDate='+end.format('YYYY-MM-DD'),
                 method: 'GET',
                 success: function (resp) {
-                    console.log(resp);
+                    if(resp.length ==0){
+                        swal('No data exists for pie chart', 'Please choose another time range.', 'warning');
+                        return;
+                    };
+                    // console.log(resp);
                     drawPieChart(resp);
                 },
                 error: function (r) {
+                    console.log(r);
                     swal('Something is wrong', 'Cannot retrieve data from API', 'error');
                 }
             });
@@ -175,6 +194,15 @@
             var chart = new google.visualization.PieChart(document.getElementById('piechart'));
 
             chart.draw(data, options);
+
+            google.visualization.events.addListener(chart, 'select', selectHandler);
+
+            function selectHandler(e) {
+                for(var i = 0; i < chart.getSelection().length; i++){
+                    var item = chart.getSelection()[i];
+                    window.location.href = '/admin/order?product_id=' + chart_data[item.row].product_id;
+                }
+            }
         }
     </script>
 @endsection

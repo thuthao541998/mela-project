@@ -6,7 +6,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="{{asset('images/icons/favicon.png')}}"/>
+    <link rel="icon" type="image/png" href="{{asset('images/m.png')}}"/>
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}">
     <!--===============================================================================================-->
@@ -44,17 +44,17 @@
 <header>
     <!-- Header desktop -->
     <div class="wrap-menu-header gradient1 trans-0-4">
-        <div class="container h-full">
+        <div class="h-full">
             <div class="wrap_header trans-0-3">
                 <!-- Logo -->
-                <div class="logo">
+                <div class="logo p-l-60">
                     <a href="/">
                         <img src="{{asset('images/logo.png')}}" alt="IMG-LOGO" data-logofixed="{{asset('images/logo.png')}}">
                     </a>
                 </div>
 
                 <!-- Menu -->
-                <div class="wrap_menu p-l-45 p-l-0-xl">
+                <div class="wrap_menu p-l-100 p-l-0-xl">
                     <nav class="menu">
                         <ul class="main_menu m-l-94">
                             <li>
@@ -82,7 +82,7 @@
                 </div>
 
                 <!-- Social -->
-                <div class="social flex-w flex-l-m p-r-20">
+                <div class="social flex-w flex-l-m p-r-70">
                     <button class="btn-show-sidebar m-l-33 trans-0-4"></button>
                     <span class="p-l-30">
                         <div class="btn-show-menu">
@@ -92,13 +92,15 @@
                                     <!-- Header Icon mobile -->
                                     <div class="header-icons-mobile">
                                         <div class="header-wrapicon2">
-                                            <a href="#" class="fa fa-shopping-cart fa-2x js-show-header-dropdown m-t-10"></a>
-                                            <span class="header-icons-noti" style="left: 35px; bottom: 20px; top: 0px;" id="header-icons-noti">{{\App\Cart::getTotalItem()}}</span>
+                                            <button href="#" class="fa fa-shopping-cart fa-2x js-show-header-dropdown m-t-10"></button>
+                                            <span class="header-icons-noti" style="left: 35px; bottom: 20px; top: 0px;" id="header-icons-noti">
+                                                {{\App\Cart::getTotalItem()}}
+                                            </span>
 
                                             <!-- Header cart noti -->
                                             <div class="header-cart header-dropdown">
                                                 <ul class="header-cart-wrapitem">
-                                                    @if(count(\App\Cart::getCart()->items)>0)
+                                                    @if(\App\Cart::getTotalItem()>0)
                                                         @foreach(\App\Cart::getCart()->items as $item)
                                                             <li class="header-cart-item">
                                                                 <div class="header-cart-item-img">
@@ -109,26 +111,25 @@
                                                                     <a href="#" class="header-cart-item-name" style="color: #555; ">
                                                                         {{$item->product->name}}
                                                                     </a>
-
                                                                     <span class="header-cart-item-info">
-                                                                        {{$item->quantity}} x {{$item->product->discountPrice}}
+                                                                        {{$item->quantity}} x {{$item->product->discountPriceWithFormat}}
                                                                     </span>
                                                                 </div>
                                                             </li>
                                                         @endforeach
                                                     @else
-                                                        'Hiện tại không có sản phẩm nào trong giỏ hàng'
+                                                        <li style="color:black;">'You haven't chosen any product yet'</li>
                                                     @endif
                                                 </ul>
 
                                                 <div class="header-cart-total">
-                                                    Total: <span id="header-cart-total">{{\App\Cart::getCart()->getTotalMoneyString()}}</span>
+                                                    Total: <span id="header-cart-total">{{\App\Cart::getCart()->getTotalMoneyWithFormat()}}</span>
                                                 </div>
 
                                                 <div class="header-cart-buttons">
                                                     <div class="header-cart-wrapbtn">
                                                         <!-- Button -->
-                                                        <a href="/cart" class="flex-c-m bg1 bo-rad-20 hov1 s-text1 trans-0-4" style="color:white">
+                                                        <a href="/cart" class="flex-c-m bg1 bo-rad-20 hov1 s-text1 trans-0-4 view-cart" style="color:white">
                                                             View Cart
                                                         </a>
                                                     </div>
@@ -140,7 +141,7 @@
                             </div>
                         </div>
                     </span>
-                    @if(isset(Auth::user()->name)))
+                    @if(isset(Auth::user()->name))
                         <div class="dropdown" style="background-color: #bd3112;
                                                         color: white;
                                                         border-radius: 10px;
@@ -157,7 +158,7 @@
                             </div>
                         </div>
                     @else
-                    <span class="p-l-30 btn-show-menu">
+                    <span class="m-r-80 m-l-30 btn-show-menu">
                         <a href="{{route('client.login')}}"><i class="fas fa-user-circle fa-2x" aria-hidden="true" ></i></a>
                     </span>
                     @endif
@@ -174,7 +175,7 @@
 
     <ul class="menu-sidebar p-t-95 p-b-70">
         <li class="t-center m-b-13">
-            <a href="#"><i class="fab fa-facebook-square fa-2x" aria-hidden="true"></i></a>
+            <a href="https://www.facebook.com/MelaHanoi/"><i class="fab fa-facebook-square fa-2x" aria-hidden="true"></i></a>
             &nbsp;
             <a href="#"><i class="fab fa-snapchat-square fa-2x" aria-hidden="true"></i></a>
             &nbsp;
@@ -273,13 +274,12 @@
                         </span>
 
                     <h2 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="fadeInUp">
-                        Mela Shop
+                        MELA Cosmetics
                     </h2>
-                    <h3 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="fadeInUp">SALE UP TO 40%</h3>
                     <div class="wrap-btn-slide1 animated visible-false" data-appear="zoomIn">
                         <!-- Button1 -->
-                        <a href="/" class="btn1 flex-c-m size1 txt3 trans-0-4">
-                            @yield('page-topic')
+                        <a href="/" class="btn1 flex-c-m size1 txt3 trans-0-4" style="width:200px">
+                            MELA Cosmetics
                         </a>
                     </div>
                 </div>
@@ -292,13 +292,12 @@
                         </span>
 
                     <h2 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="lightSpeedIn">
-                        Mela Shop
+                        MELA Cosmetics
                     </h2>
-                    <h3 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="fadeInUp">SALE UP TO 40%</h3>
                     <div class="wrap-btn-slide1 animated visible-false" data-appear="slideInUp">
                         <!-- Button1 -->
-                        <a href="/" class="btn1 flex-c-m size1 txt3 trans-0-4">
-                            @yield('page-topic')
+                        <a href="/" class="btn1 flex-c-m size1 txt3 trans-0-4" style="width:200px">
+                            MELA Cosmetics
                         </a>
                     </div>
                 </div>
@@ -311,13 +310,12 @@
                         </span>
 
                     <h2 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="rotateInUpRight">
-                        Mela Shop
+                        MELA Cosmetics
                     </h2>
-                    <h3 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="fadeInUp">SALE UP TO 40%</h3>
-                    <div class="wrap-btn-slide1 animated visible-false" data-appear="rotateIn">
+                   <div class="wrap-btn-slide1 animated visible-false" data-appear="rotateIn">
                         <!-- Button1 -->
-                        <a href="/" class="btn1 flex-c-m size1 txt3 trans-0-4">
-                            @yield('page-topic')
+                        <a href="/" class="btn1 flex-c-m size1 txt3 trans-0-4" style="width:200px">
+                            MELA Cosmetics
                         </a>
                     </div>
                 </div>
@@ -328,8 +326,9 @@
         <div class="wrap-slick1-dots"></div>
     </div>
 </section>
+    @yield('content')
 
-@yield('content')
+
 
 <!-- Blog -->
 <section class="section-blog bg-white p-t-115 p-b-123">
@@ -362,7 +361,7 @@
                                 </h4></a>
 
                             <p class="m-b-20">
-                                Mela shop with lipstick is not just a normal lipstick beauty, but also ...
+                                Mela Cosmetics with lipstick is not just a normal lipstick beauty, but also ...
                             </p>
 
                             <a href="blog-detail.html" class="txt4">
@@ -418,7 +417,7 @@
                                 </h4></a>
 
                             <p class="m-b-20">
-                                Mela Shop with the concept new lipstick model nice, but just ...
+                                Mela Cosmetics with the concept new lipstick model nice, but just ...
                             </p>
 
                             <a href="blog-detail.html" class="txt4">
@@ -478,7 +477,7 @@
 
                     <li class="txt14 m-b-14">
                         <i class="fa fa-envelope fs-13 dis-inline-block size19" aria-hidden="true"></i>
-                        contact@site.com
+                        mela.cosmetics.2018@gmail.com
                     </li>
                 </ul>
 
@@ -553,51 +552,51 @@
 
                 <!-- Gallery footer -->
                 <div class="wrap-gallery-footer flex-w">
-                    <a class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
+                    <a href="/list-product?categoryId=1" class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
                         <img src="{{asset('images/photo-gallery-thumb-01.jpg')}}" alt="GALLERY">
                     </a>
 
-                    <a class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
+                    <a href="/list-product?categoryId=2" class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
                         <img src="{{asset('images/photo-gallery-thumb-02.jpg')}}" alt="GALLERY">
                     </a>
 
-                    <a class="item-gallery-footer wrap-pic-w"data-lightbox="gallery-footer">
+                    <a href="/list-product?categoryId=3" class="item-gallery-footer wrap-pic-w"data-lightbox="gallery-footer">
                         <img src="{{asset('images/photo-gallery-thumb-03.jpg')}}" alt="GALLERY">
                     </a>
 
-                    <a class="item-gallery-footer wrap-pic-w"data-lightbox="gallery-footer">
+                    <a href="/list-product?categoryId=4" class="item-gallery-footer wrap-pic-w"data-lightbox="gallery-footer">
                         <img src="{{asset('images/photo-gallery-thumb-04.jpg')}}" alt="GALLERY">
                     </a>
 
-                    <a class="item-gallery-footer wrap-pic-w"data-lightbox="gallery-footer">
+                    <a href="/list-product?categoryId=5" class="item-gallery-footer wrap-pic-w"data-lightbox="gallery-footer">
                         <img src="{{asset('images/photo-gallery-thumb-05.jpg')}}" alt="GALLERY">
                     </a>
 
-                    <a class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
+                    <a href="/list-product?categoryId=6" class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
                         <img src="{{asset('images/photo-gallery-thumb-06.jpg')}}" alt="GALLERY">
                     </a>
 
-                    <a class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
+                    <a href="/list-product?categoryId=7" class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
                         <img src="{{asset('images/photo-gallery-thumb-07.jpg')}}" alt="GALLERY">
                     </a>
 
-                    <a class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
+                    <a href="/list-product?categoryId=8" class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
                         <img src="{{asset('images/photo-gallery-thumb-08.jpg')}}" alt="GALLERY">
                     </a>
 
-                    <a class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
+                    <a href="/list-product?categoryId=9" class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
                         <img src="{{asset('images/photo-gallery-thumb-09.jpg')}}" alt="GALLERY">
                     </a>
 
-                    <a class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
+                    <a href="/list-product?categoryId=10" class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
                         <img src="{{asset('images/photo-gallery-thumb-10.jpg')}}" alt="GALLERY">
                     </a>
 
-                    <a class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
+                    <a href="/list-product?categoryId=11" class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
                         <img src="{{asset('images/photo-gallery-thumb-11.jpg')}}" alt="GALLERY">
                     </a>
 
-                    <a class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
+                    <a href="/list-product?categoryId=12" class="item-gallery-footer wrap-pic-w" data-lightbox="gallery-footer">
                         <img src="{{asset('images/photo-gallery-thumb-12.jpg')}}" alt="GALLERY">
                     </a>
                 </div>
@@ -610,11 +609,7 @@
         <div class="container">
             <div class="flex-sb-m flex-w p-t-22 p-b-22">
                 <div class="p-t-5 p-b-5">
-                    <a href="#"><i class="fab fa-facebook-square fa-2x" aria-hidden="true"></i></a>
-                    &nbsp;
-                    <a href="#"><i class="fab fa-snapchat-square fa-2x" aria-hidden="true"></i></a>
-                    &nbsp;
-                    <a href="#"><i class="fab fa-line fa-2x" aria-hidden="true"></i></a>
+                    <a href="https://www.facebook.com/MelaHanoi/"><i class="fab fa-facebook-square fa-2x" aria-hidden="true"></i></a>
                 </div>
 
                 <div class="txt17 p-r-20 p-t-5 p-b-5">
@@ -653,15 +648,19 @@
 <script type="text/javascript" src="{{asset('js/parallax100.js')}}"></script>
 <script type="text/javascript">
     $('.parallax100').parallax100();
+    // $('a.view-cart').click(function(e)
+    // {
+    //     e.preventDefault();
+    // });
 </script>
 <!--===============================================================================================-->
 <script type="text/javascript" src="{{asset('js/countdowntime.js')}}"></script>
 <!--===============================================================================================-->
-<script type="text/javascript" src="{{asset('js/lightbox.min.js')}}"></script>
-<!--===============================================================================================-->
 <script src="{{asset('js/sweetalert.min.js')}}"></script>
 <script src="{{asset('js/main.js')}}"></script>
 <script src="{{asset('js/cart.js')}}"></script>
+<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+
 
 </body>
 </html>

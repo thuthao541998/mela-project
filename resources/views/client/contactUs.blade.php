@@ -1,6 +1,6 @@
 @extends("layouts.index")
 @section('content')
-@section('page-topic','CONTACT US')
+@section('page-topic','CONTACT MELA COSMETICS')
 
 <link href="{{asset('css/contactUs.css')}}" rel='stylesheet' type='text/css' />
 
