@@ -13,13 +13,7 @@ class OrderDetailController extends Controller
 
     public function show($id)
     {
-        $order_detail = OrderDetail::find($id);
-        if ($order_detail == null) {
-            return view('404');
-        }
-//        return view của 1 order detail cụ thể chứ không phải list
-        return view('admin.order_detail.list')
-            ->with('$order', $order_detail);
+        return view('errors.404');
     }
 
     public function update($id)
@@ -27,7 +21,7 @@ class OrderDetailController extends Controller
         $id = Input::get('id');
         $order_detail = OrderDetail::find($id);
         if ($order_detail == null) {
-            return view('404');
+            return view('errors.404');
         }
         $order_detail = new OrderDetail();
         $order_detail->productId = Input::get('productId');

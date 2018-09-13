@@ -68,12 +68,9 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
-        $obj = Article::find($id);
-        if ($obj == null) {
-            return view('admin.404.404');
-        }
-        return view('admin.article.detail')
-            ->with('obj', $obj);
+
+        return view('errors.404');
+
     }
 
     public function showClient($id)
