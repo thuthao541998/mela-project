@@ -76,7 +76,7 @@
             <div class="col-md-12">
                 @if(isset(Auth::user()->name))
                     <div class="widget-area no-padding blank">
-                        <div class="col-lg-2 text-center p-t-15 m-r-15 image" style="background-color: #fcb1ae">M</div>
+                        <div class="col-lg-2 text-center p-t-15 m-r-15 image" style="background-color: #fcb1ae">{{Auth::user()->name[0]}}</div>
                         <div class="col-lg-10 status-upload">
                             <form name="post-comment" action="/post-comment" method="post">
                                 <textarea placeholder="Review this product!" name="content"></textarea>
@@ -95,7 +95,7 @@
         <div class="text-center p-r-20 line-item-mainmenu bg3-pattern m-t-20" style="width: 90%"></div>
     </div>
     <div style="padding-left: 138px">
-        <div class="row">
+        <div class="comments row">
             {{--{{dd($comments)}}--}}
             @if(count($comments)>0)
                 @foreach($comments as $comment)
@@ -104,7 +104,7 @@
                             <div class="post-heading">
                                 <div class="pull-left">
                                     <div class="image text-center p-t-15 avatar"
-                                         style="background-color: #fcb1ae">{{$comment->getUserFirstChar()}}</div>
+                                         style="background-color: #fcb1ae">{{$comment->userFirstChar}}</div>
                                 </div>
                                 <div class="pull-left meta m-l-30">
                                     <div class="userName title h5">

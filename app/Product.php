@@ -77,7 +77,7 @@ class Product extends Model
         }
     }
     function getCommentsAttribute(){
-        $comments = Comment::whereRaw('product_id = '.$this->id)->get();
+        $comments = Comment::whereRaw('product_id = '.$this->id)->orderByRaw('created_at DESC')->get();
         return $comments;
     }
     protected $appends = ['original_price_string','discount_price_string'];
