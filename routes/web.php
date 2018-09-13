@@ -135,9 +135,7 @@ Route::get('/admin/dash-board', function (){
 });
 
 //Subscription newsletter
-Route::get('/admin/newsletter/create', function (){
-    return view('admin.contact.create');
-});
+Route::get('/admin/newsletter/create','ContactController@showMail');
 Route::post('/admin/newsletter/create','ContactController@sendSubscriptionMail');
 Route::get('/admin/newsletter/list', function (){
     return view('admin.contact.list_newsletter');

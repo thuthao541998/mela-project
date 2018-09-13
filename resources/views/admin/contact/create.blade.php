@@ -25,10 +25,20 @@
                                 <div class="form-group ">
                                     <label class="control-label col-lg-2">Subject</label>
                                     <div class="col-lg-9">
-                                        <input class=" form-control" name="title" type="text">
+                                        <input class=" form-control" name="subject" type="text">
                                         @foreach ($errors->get('subject') as $subject)
                                             <p class="text-danger help-block">{{$subject}}</p>
                                         @endforeach
+                                    </div>
+                                </div>
+
+                                <div class="form-group ">
+                                    <label class="control-label col-lg-2">To</label>
+                                    <div class="col-lg-9" style="vertical-align: middle;">
+                                        Sending to all subscribed users
+                                        {{--@foreach($list_obj as $obj)--}}
+                                            {{--<p>{{$obj->email}}</p>--}}
+                                        {{--@endforeach--}}
                                     </div>
                                 </div>
 
@@ -41,6 +51,7 @@
                                         {{--@endforeach--}}
                                     {{--</div>--}}
                                 {{--</div>--}}
+
                                 <div class="form-group">
                                     <div><label class="control-label col-lg-2">Content</label></div>
                                     <div class="col-lg-12 ml-3 mt-4 w-full-md">
@@ -55,7 +66,7 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-lg-offset-3 col-lg-6">
-                                    <button class="btn btn-primary" type="submit">Save</button>
+                                    <button class="btn btn-primary" type="submit" id="btn-submit">Save</button>
                                     <button class="btn btn-default" type="reset">Reset</button>
                                 </div>
                             </div>
@@ -86,7 +97,6 @@
             .create( document.querySelector( '#editor' ))
             .then( newEditor => {
                 editor = newEditor;
-                console.log(Array.from( editor.ui.componentFactory.names() ));
             } )
             .catch( err => {
                 console.error( err.stack );
