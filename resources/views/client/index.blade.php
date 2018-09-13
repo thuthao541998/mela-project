@@ -144,7 +144,7 @@
                             <img src="{{$item->images}}" class="cate-img" alt="IMG-MENU">
 
                             <!-- Button2 -->
-                            <a href="#" class="btn2 flex-c-m txt5 ab-c-m size7">
+                            <a href="/list-product?categoryId={{$item->id}}" class="btn2 flex-c-m txt5 ab-c-m size7">
                                 {{$item->name}}
                             </a>
                         </div>

@@ -55,7 +55,6 @@ $('body').on('click', '.delete-btn', function () {
     var id = $(this).prev().text();
     var user_id = $('input[name="user_id"]').val();
     var product_id = $('input[name="product_id"]').val();
-    alert(user_id);
     $.ajax({
         method: 'POST',
         url: '/delete-comment',
@@ -90,7 +89,7 @@ $('body').on('click', '.delete-btn', function () {
                     comments += '</div>';
                     comments += '</div>';
                     if (resp[i].user_id == user_id) {
-                        comments += '<div class="hidden"></div>';
+                        comments += '<div class="hidden">'+resp[i].id+'</div>';
                         comments += '<div class="delete-btn col-sm-1 p-t-50">';
                         comments += '<button><i class="fas fa-times"></i></button>'
                         comments += '</div>';
