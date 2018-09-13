@@ -43,7 +43,7 @@ class CommentController extends Controller
         $id = Input::get('id');
         $obj = Comment::find($id);
         if ($obj == null) {
-            return response('The artitle is not found or has been deleted!', 404);
+            return response('The comment is not found or has been deleted!', 404);
         }
         $obj->delete();
         $comments = Comment::whereRaw('product_id='.Input::get('product_id'))->orderByRaw('created_at DESC')->get();
