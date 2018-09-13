@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Mail;
 
-require_once 'C:\Users\Adminis\Desktop\Mela\vendor\autoload.php';
+//require_once 'C:\Users\Adminis\Desktop\Mela\vendor\autoload.php';
 
 class ContactController extends Controller
 {
