@@ -55,6 +55,7 @@
                                     <th class="column-4">Phone Number</th>
                                     <th class="column-5">Order Detail</th>
                                     <th class="column-6" style="width: 6%;">Total</th>
+                                    <th class="column-9">Created Time</th>
                                     <th class="column-7">Status</th>
                                     <th class="column-8 text-center">Action</th>
                                 </tr>
@@ -82,6 +83,7 @@
                                         @endforeach
                                     </td>
                                     <td class="column-6" style="width: 6%;">{{$item->total_money_with_format}} (vnd)</td>
+                                    <th class="column-9" style="font-weight: normal;">{{$item->created_at}}</th>
                                     <td class="column-7 font-weight-bold status-label">{{$item->statusLabel}}</td>
                                     <td class="column-8 text-center">
                                         @if($item->status == 0)

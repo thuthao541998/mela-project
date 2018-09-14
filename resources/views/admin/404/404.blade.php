@@ -30,10 +30,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--main content start-->
 <div class="eror-w3">
 	<div class="agile-info">
-		<h3>HEADING TO</h3>
+		<h3>Heading to</h3>
 		<h2>Nowhere</h2>
 		<p>You're lost, Back to Mela to be enlightened</p>
-		<a href="/">Back to Mela</a>
+		<a href="/admin">Back to Mela</a>
 	</div>
 </div>
 <script src="js/bootstrap.js"></script>
