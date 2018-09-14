@@ -119,7 +119,7 @@
                                 </div>
                             </div>
                         @else
-                            <div class="alert alert-info">Have no order in this fields.
+                            <div class="alert alert-info">Have no order in this field.
                             </div>
                         @endif
                         <div class="pagination pull-right">

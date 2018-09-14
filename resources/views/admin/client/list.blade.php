@@ -1,7 +1,6 @@
 @extends('layouts.master')
 @section('page-title', 'List Client - Admin Page')
 @section('content')
-
     <link href="{{asset('css/list.css')}}" rel='stylesheet' type='text/css' />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     <section id="main-content">
@@ -18,7 +17,7 @@
                 </div>
                 <div>
 
-                    @if(isset($orders)  && ($orders -> count()) > 0)
+                    @if(isset($list_obj)  && ($list_obj -> count()) > 0)
 
                         <table class="table">
                             <thead>
@@ -59,20 +58,17 @@
                                     <input class="form-check-input col-lg-2" type="checkbox" value="" id="check-all">
                                     <select id="select-action" name="select-action" class="form-control">
                                         <option selected value="0">Action</option>
-                                        <option value="1">Confirm All</option>
-                                        <option value="2">Finish All</option>
-                                        <option value="-1">Cancel All</option>
                                     </select>
                                     <button type="submit" class="btn btn-primary ml-2" id="btn-apply-action">Submit</button>
                                 </div>
                             </div>
                         </div>
                     @else
-                        <div class="alert alert-info">Have no order in this fields.
+                        <div class="alert alert-info">Have no client in this field.
                         </div>
                     @endif
                     <div class="pagination pull-right">
-                        {!! $orders->links() !!}
+                        {!! $list_obj->links() !!}
                     </div>
                 </div>
             </div>

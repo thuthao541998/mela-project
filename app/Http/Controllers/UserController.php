@@ -6,7 +6,7 @@
  * Time: 8:45 PM
  */
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers;
 
 
 use App\Http\Controllers\Controller;
