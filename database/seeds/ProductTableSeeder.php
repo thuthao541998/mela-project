@@ -193,7 +193,7 @@ class ProductTableSeeder extends Seeder
                 'description' => 'Indulge your cravings with our Whipped Lip & Cheek Soufflé. Our two-in-one mousse can be used to precisely line lips and on the apples of your cheeks for a soft, natural flush. Achieve a delicious wash of color with a matte finish using this creamy and multipurpose formula. ',
                 'overview' => 'Indulge your cravings with our Whipped Lip & Cheek Soufflé.',
                 'brandId' => 2,
-                'categoryId' => 3,
+                'categoryId' => 4,
                 'discount' => 5
             ],
             ['name' => 'THE BLONDS  ',
@@ -202,7 +202,7 @@ class ProductTableSeeder extends Seeder
                 'description' => 'Formulated to shade, define and showcase the lips. Two hues and two textures. The iconic product that made M∙A∙C famous. Special packaging features a glamorous jewel-encrusted silver square design. ',
                 'overview' => 'A lipstick in two hues specially packaged in a glamorous jewel-encrusted silver square design.',
                 'brandId' => 7,
-                'categoryId' => 1,
+                'categoryId' => 4,
                 'discount' => 5
             ],
             ['name' => 'RETRO MATTE LIQUID LIPCOLOUR  ',
@@ -211,7 +211,7 @@ class ProductTableSeeder extends Seeder
                 'description' => 'Indulge your cravings with our Whipped Lip & Cheek Soufflé. Our two-in-one mousse can be used to precisely line lips and on the apples of your cheeks for a soft, natural flush. Achieve a delicious wash of color with a matte finish using this creamy and multipurpose formula. ',
                 'overview' => 'Indulge your cravings with our Whipped Lip & Cheek Soufflé.',
                 'brandId' => 7,
-                'categoryId' => 1,
+                'categoryId' => 3,
                 'discount' => 15
             ],
             ['name' => 'PLUMPING LIPSTICK  ',
