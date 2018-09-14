@@ -67,7 +67,7 @@
                                                 &nbsp;
                                                 <a href="{{url('/google/redirect')}}"><i class="fab fa-google-plus-square fa-2x" aria-hidden="true"></i></a>
                                                 &nbsp;
-                                                <a href="{{url('/zaloLogin')}}"><i class="fab fa-pinterest-square fa-2x" aria-hidden="true"></i></a>
+                                                <a href="{{url('/zaloLogin')}}"><img  style="max-width: 26.5px; max-height: 32px; opacity: 0.6; border-radius: 3px; margin-bottom: 15px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQejjr1-rf0uhRpl13kjaAmaFvLA_Vsm33hrXIoPcL0ul1Jbs1c" alt="Z"></a>
                                             </li>
                                         </div>
                                     </div>
@@ -84,7 +84,7 @@
                                         @endif
                                     </div>
                                     <div class="form-group">
-                                        <input placeholder="Email Address" id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
+                                        <input placeholder="Email Address" id="email-register" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
 
                                         @if ($errors->has('email'))
                                             <span class="invalid-feedback" role="alert">
@@ -93,7 +93,7 @@
                                         @endif
                                     </div>
                                     <div class="form-group">
-                                        <input placeholder="Password" id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                                        <input placeholder="Password" id="password-register" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 
                                         @if ($errors->has('password'))
                                             <span class="invalid-feedback" role="alert">
@@ -114,11 +114,11 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <li class="t-center m-b-13">
-                                                <a href="#"><i class="fab fa-facebook-square fa-2x" aria-hidden="true"></i></a>
+                                                <a href="{{url('/facebook/redirect')}}"><i class="fab fa-facebook-square fa-2x" aria-hidden="true"></i></a>
                                                 &nbsp;
-                                                <a href="#"><i class="fab fa-google-plus-square fa-2x" aria-hidden="true"></i></a>
+                                                <a href="{{url('/google/redirect')}}"><i class="fab fa-google-plus-square fa-2x" aria-hidden="true"></i></a>
                                                 &nbsp;
-                                                <a href="#"><i class="fab fa-pinterest-square fa-2x" aria-hidden="true"></i></a>
+                                                <a href="{{url('/zaloLogin')}}"><img  style="max-width: 26.5px; max-height: 32px; opacity: 0.6; border-radius: 3px; margin-bottom: 15px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQejjr1-rf0uhRpl13kjaAmaFvLA_Vsm33hrXIoPcL0ul1Jbs1c" alt="Z"></a>
                                             </li>
                                         </div>
                                     </div>
