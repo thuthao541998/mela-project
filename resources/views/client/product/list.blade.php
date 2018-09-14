@@ -304,7 +304,7 @@
                                 content += '<button class="add-cart-large add-to-cart m-t-10"  id="add-cart-' + list_obj[i].id + '"><i class="fas fa-cart-plus fa-2x"></i></button>';
                                 content += '</div>';
                                 content += '</div>';
-                                // content += '<div class="line-item-mainmenu bg3-pattern"></div>';
+                                content += '<div class="line-item-mainmenu bg3-pattern"></div>';
                             }
                             ;
 
