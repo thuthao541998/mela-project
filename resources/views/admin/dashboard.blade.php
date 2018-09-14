@@ -58,12 +58,13 @@
                     };
                     drawChart(resp);
                     var totalRevenue = 0;
-                    var firstRevenue = parseInt(resp[0].revenue);
+                    var lastRevenue = parseInt(resp[0].revenue);
                     var last =resp.length;
-                    var lastRevenue = parseInt(resp[resp.length-1].revenue);
-                    console.log(lastRevenue);
+                    var firstRevenue = parseInt(resp[resp.length-1].revenue);
+                    console.log('first'+lastRevenue);
                     console.log(firstRevenue);
                     var difference = lastRevenue - firstRevenue;
+                    console.log(difference);
                     if(difference<0){
                         $('.advice-content').text('giảm')
                     }
