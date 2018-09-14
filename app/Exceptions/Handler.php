@@ -52,7 +52,7 @@ class Handler extends ExceptionHandler
             {
                 // not found
                 case 404:
-                    return redirect()->route('404');
+                    return redirect()->route('errors.404');
                     break;
 
                 // internal error
@@ -61,8 +61,9 @@ class Handler extends ExceptionHandler
                     break;
 
                 case 405:
-                    return redirect()->route('404');
+                    return redirect()->route('errors.404');
                 default:
+                    return redirect()->route('errors.404');
                     return $this->renderHttpException($e);
                     break;
             }
