@@ -17,8 +17,6 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{asset('css/animate.css')}}">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{asset('css/hamburgers.min.css')}}">
-    <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{asset('css/animsition.min.css')}}">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{asset('css/select2.min.css')}}">
@@ -26,8 +24,6 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/daterangepicker.css')}}">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{asset('css/slick.css')}}">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{asset('css/lightbox.min.css')}}">
     <!--===============================================================================================-->
     {{--<link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">--}}
     <link rel="stylesheet" type="text/css" href="{{asset('css/cart.css')}}">
