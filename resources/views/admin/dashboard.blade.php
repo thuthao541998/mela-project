@@ -58,11 +58,15 @@
                     };
                     drawChart(resp);
                     var totalRevenue = 0;
-                    var firstRevenue = resp[0].revenue;
+                    var firstRevenue = parseInt(resp[0].revenue);
                     var last =resp.length;
-                    var lastRevenue = resp[resp.length-1].revenue;
+                    var lastRevenue = parseInt(resp[resp.length-1].revenue);
                     console.log(lastRevenue);
                     console.log(firstRevenue);
+                    var difference = lastRevenue - firstRevenue;
+                    if(difference<0){
+                        $('.advice-content').text('giảm')
+                    }
                     for(var i=0; i<resp.length ; i++){
                         totalRevenue += parseInt(resp[i].revenue);
                     };
