@@ -29,7 +29,6 @@ $('body').on('click', '.add-to-cart', function () {
                 new_content += '</span>';
                 new_content += '</div>';
                 new_content += '</li>';
-
             }
             $('.header-cart-wrapitem').html(new_content);
             if (new_count == undefined) {
@@ -39,7 +38,6 @@ $('body').on('click', '.add-to-cart', function () {
             }
             $('#header-cart-total').text(new_total_money).formatNumber();
             swal('Successfully!', 'ADDED TO CART. You can change the quantity of the product in cart later!', 'success');
-
         },
         error: function (error) {
             swal('Thao tác thất bại', JSON.parse(error.responseText).msg);

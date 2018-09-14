@@ -55,10 +55,11 @@ Route::group(['middleware' => ['checkGuest']],function (){
     Route::post('login',['as' => 'login', 'uses' => 'Auth\LoginController@login']);
     Route::post('/register',['as' => 'register', 'uses' => 'Auth\RegisterController@register']);
     Route::get('/client-login',['as' => 'client.login','uses' => 'Auth\LoginController@index']);
+
 });
 Route::post('/logout',['as' => 'logout', 'uses' => 'Auth\LoginController@logout']);
-
-
+Route::post('/post-comment','CommentController@store');
+Route::post('/delete-comment','CommentController@destroy');
 //Auth::routes();
 //Route::get('/home', 'HomeController@index')->name('home');
 
@@ -124,6 +125,7 @@ Route::group(['middleware' => ['sellUserAuth']],function (){
 
     Route::get("/admin/product/get-json/{id}", "ProductController@showJson");
     Route::put("/admin/product/update-json/{id}", "ProductController@quickUpdate");
+    Route::get("/admin/client","UserController@index");
 });
 
 //*********************************Error Zone*********************************

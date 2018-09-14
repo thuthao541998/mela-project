@@ -65,6 +65,6 @@ class SocialAuthController extends Controller
 
 //        Đăng nhập
         Auth::guard() -> login($user);
-       return redirect('/') ;
+        return redirect() -> to(Session::get('pre_url'));
     }
 }

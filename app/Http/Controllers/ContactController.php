@@ -11,7 +11,11 @@ use Illuminate\Notifications\Console\NotificationTableCommand;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Mail;
 
-require_once 'F:\PHP\mela-project\vendor\autoload.php';
+// <<<<<<< tra#mail
+// require_once 'F:\PHP\mela-project\vendor\autoload.php';
+// =======
+// //require_once 'C:\Users\Adminis\Desktop\Mela\vendor\autoload.php';
+// >>>>>>> develope
 
 class ContactController extends Controller
 {

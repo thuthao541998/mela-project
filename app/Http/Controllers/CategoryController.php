@@ -35,12 +35,6 @@ class CategoryController extends Controller
         return view('admin.category.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(StoreCategoryPost $request)
     {
         $request->validated();
@@ -64,12 +58,9 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        $obj = Category::find($id);
-        if ($obj == null) {
-            return view('admin.404.404');
-        }
-        return view('admin.category.show')
-            ->with('obj', $obj);
+
+       return view('admin.404.404');
+
     }
 
     /**

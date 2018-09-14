@@ -3,6 +3,14 @@
 @section('content')
     <link href="{{asset('css/list.css')}}" rel='stylesheet' type='text/css' />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <style>
+        #piechart:hover {
+            cursor: pointer;
+        }
+        g circle:hover {
+            cursor: pointer;
+        }
+    </style>
     <section id="main-content">
         <section class="wrapper">
             <div class="panel panel-default">
@@ -20,6 +28,10 @@
                     Total Revenue : <span class="total-revenue"></span> (VND)
                 </div>
                 <div id="linechart_material" style="margin: 30px;"></div>
+                <div class="advice">
+                    <div>Revenue Status</div>
+                    <div class="advice-content"></div>
+                </div>
                 <div id="piechart" style="width: 600px; height: 500px;"></div>
                 @if (Session::has('message'))
                     <div class="alert {{ Session::get('message-class') }}">{{ Session::get('message') }}</div>
@@ -46,6 +58,15 @@
                     };
                     drawChart(resp);
                     var totalRevenue = 0;
+                    var firstRevenue = parseInt(resp[0].revenue);
+                    var last =resp.length;
+                    var lastRevenue = parseInt(resp[resp.length-1].revenue);
+                    console.log(lastRevenue);
+                    console.log(firstRevenue);
+                    var difference = lastRevenue - firstRevenue;
+                    if(difference<0){
+                        $('.advice-content').text('giảm')
+                    }
                     for(var i=0; i<resp.length ; i++){
                         totalRevenue += parseInt(resp[i].revenue);
                     };
@@ -81,7 +102,6 @@
 
             google.visualization.events.addListener(chart, 'select', selectHandler);
             console.log(chart_data);
-
             function selectHandler(e) {
                 for(var i = 0; i < chart.getSelection().length; i++){
                     var item = chart.getSelection()[i];
@@ -199,6 +219,7 @@
 
             function selectHandler(e) {
                 for(var i = 0; i < chart.getSelection().length; i++){
+                    
                     var item = chart.getSelection()[i];
                     window.location.href = '/admin/order?product_id=' + chart_data[item.row].product_id;
                 }

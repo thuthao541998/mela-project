@@ -6,6 +6,7 @@ use App\Brand;
 use App\Category;
 use App\Http\Requests\StoreProductPost;
 use App\Product;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
@@ -131,26 +132,14 @@ class ProductController extends Controller
     {
         $obj = Product::find($id);
         if ($obj == null) {
-            return view('404');
+            return view('errors.404');
         }
-
-//        Model::where(function ($query) {
-//            $query->where('a', '=', 1)
-//                ->orWhere('b', '=', 1);
-//        })->where(function ($query) {
-//            $query->where('c', '=', 1)
-//                ->orWhere('d', '=', 1);
-//        });
-
         $limit = 8;
         $list_obj = null;
-
         $categoryId = $obj->categoryId;
         $brandId = $obj->brandId;
-
         $no_category_item = Product::where('categoryId', $categoryId)->count();
         $no_brand_item = Product::where('brandId', $brandId)->count();
-
         if ($limit <= $no_category_item){
             $list_obj = DB::table('products')->take($limit)->get();
         } else{
@@ -160,9 +149,11 @@ class ProductController extends Controller
                 $list_obj->push($brand_items[$i]);
             }
         }
+
         return view('client.product.detail')
             ->with('obj', $obj)
-            ->with('list_obj', $list_obj);
+            ->with('list_obj', $list_obj)
+            ->with('comments',$obj->comments);
     }
 
     /**
