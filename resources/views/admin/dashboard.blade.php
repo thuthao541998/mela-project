@@ -28,6 +28,10 @@
                     Total Revenue : <span class="total-revenue"></span> (VND)
                 </div>
                 <div id="linechart_material" style="margin: 30px;"></div>
+                <div class="advice">
+                    <div>Revenue Status</div>
+                    <div class="advice-content"></div>
+                </div>
                 <div id="piechart" style="width: 600px; height: 500px;"></div>
                 @if (Session::has('message'))
                     <div class="alert {{ Session::get('message-class') }}">{{ Session::get('message') }}</div>
@@ -54,6 +58,11 @@
                     };
                     drawChart(resp);
                     var totalRevenue = 0;
+                    var firstRevenue = resp[0].revenue;
+                    var last =resp.length;
+                    var lastRevenue = resp[resp.length-1].revenue;
+                    console.log(lastRevenue);
+                    console.log(firstRevenue);
                     for(var i=0; i<resp.length ; i++){
                         totalRevenue += parseInt(resp[i].revenue);
                     };
@@ -89,7 +98,6 @@
 
             google.visualization.events.addListener(chart, 'select', selectHandler);
             console.log(chart_data);
-
             function selectHandler(e) {
                 for(var i = 0; i < chart.getSelection().length; i++){
                     var item = chart.getSelection()[i];
