@@ -204,9 +204,10 @@
             chart.draw(data, options);
 
             google.visualization.events.addListener(chart, 'select', selectHandler);
-            // console.log(chart.getSelection());
+
             function selectHandler(e) {
-                for(var i = 0; i < 4; i++){
+                for(var i = 0; i < chart.getSelection().length; i++){
+                    
                     var item = chart.getSelection()[i];
                     window.location.href = '/admin/order?product_id=' + chart_data[item.row].product_id;
                 }
