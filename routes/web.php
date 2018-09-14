@@ -126,6 +126,7 @@ Route::group(['middleware' => ['sellUserAuth']],function (){
 
     Route::get("/admin/product/get-json/{id}", "ProductController@showJson");
     Route::put("/admin/product/update-json/{id}", "ProductController@quickUpdate");
+    Route::get("/admin/client","UserController@index");
 });
 
 //*********************************Error Zone*********************************
