@@ -77,7 +77,7 @@ class ArticleController extends Controller
     {
         $obj = Article::find($id);
         if ($obj == null) {
-            return view('admin.404.404');
+            return view('errors.404');
         }
         return view('client.article.detail')
             ->with('obj', $obj);

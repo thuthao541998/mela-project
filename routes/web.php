@@ -50,7 +50,6 @@ Route::get('/api-get-data-to-time', 'OrderController@getDataToTimeApi');
 Route::get('/api-get-pie-chart-data', 'OrderDetailController@getPieChartDataApi');
 //Dashboard
 Route::get('/home', 'HomeController@index')->name('home');
-
 //*********************************Auth Zone*********************************
 Route::group(['middleware' => ['checkGuest']],function (){
     Route::post('login',['as' => 'login', 'uses' => 'Auth\LoginController@login']);
@@ -126,10 +125,23 @@ Route::group(['middleware' => ['sellUserAuth']],function (){
 
     Route::get("/admin/product/get-json/{id}", "ProductController@showJson");
     Route::put("/admin/product/update-json/{id}", "ProductController@quickUpdate");
+    Route::get("/admin/client","UserController@index");
 });
 
 //*********************************Error Zone*********************************
 Route::get('/404',function (){
     return view('admin.404.404');
-}) -> name('404');
+});
+Route::get('/admin/dash-board', function (){
+   return view('admin.dashboard');
+});
 
+//Subscription newsletter
+Route::get('/admin/newsletter/create','ContactController@showMail');
+Route::post('/admin/newsletter/create','ContactController@sendSubscriptionMail');
+Route::get('/admin/newsletter/list', function (){
+    return view('admin.contact.list_newsletter');
+});
+Route::get('/admin/contact/list', function (){
+    return view('admin.contact.list_contact');
+});

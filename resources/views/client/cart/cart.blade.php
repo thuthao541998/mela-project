@@ -71,8 +71,8 @@
                                         <td class="column-5 total-unit-price"
                                             id="unit-total-{{$item->product->id}}">{{$item->getTotalPriceWithFormat()}}</td>
                                         <td class="column-6 cart_delete" id="row-{{$item->product->id}}">
-                                            <a class="cart_quantity_delete" id="delete-{{$item->product->id}}" href="#"><i
-                                                        class="fa fa-times"></i></a>
+                                            <button class="cart_quantity_delete" id="delete-{{$item->product->id}}" type="button"><i
+                                                        class="fa fa-times"></i></button>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -92,7 +92,7 @@
             </div>
 
             <form action="/order-success" name="order-form" method="post" id="order-form" >
-                @csrf();
+                @csrf()
                 <!-- Total -->
                 <div class="bo9 w-size18 p-l-40 p-r-40 p-t-30 p-b-38 m-t-30 m-r-0 m-l-auto p-lr-15-sm m-b-50" style="background: white">
                     <h5 class="m-text20 p-b-24">
@@ -162,6 +162,7 @@
 </div>
 
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="{{asset('js/jquery.formatNumber-0.1.1.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/showcart.js')}}"></script>
 
 @endsection

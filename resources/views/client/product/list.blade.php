@@ -76,7 +76,7 @@
 
                                                     <a href="/product/{{$obj->id}}"><img src="{{$obj->images}}"
                                                                                          alt="IMG-MENU"
-                                                                                         style="width: 180px; height: 180px"></a>
+                                                                                         style="width: 100%;height: 150%;"></a>
                                                 </div>
                                                 <div class="text-blo3 size21 flex-col-l-m">
                                                     <a href="/product/{{$obj->id}}" class="txt21 m-b-3 product_name">
@@ -109,7 +109,7 @@
                                                             id="add-cart-{{$obj->id}}"><i
                                                                 class="fas fa-cart-plus fa-2x"></i></button>
                                                 </div>
-                                                <div class="line-item-mainmenu bg3-pattern"></div>
+                                                <div class="line-item-mainmenu bg3-pattern m-t-25"></div>
                                             </div>
                                             @endforeach
                                         </div>
@@ -261,6 +261,7 @@
                     url: "{{ route('search.action') }}",
                     method: 'GET',
                     data: {
+                        _token: $('meta[name="csrf-token"]').attr('content'),
                         query: query
                     },
                     dataType: 'json',
@@ -276,7 +277,7 @@
                                 content += '<div class="blo3 flex-w flex-col-l-sm m-t-30 m-b-20 show_product">';
                                 content += '<div class="pic-blo3 size20 bo-rad-10 hov-img-zoom m-r-28">';
 
-                                content += '<a href="/product/' + list_obj[i].id + '"><img src="' + list_obj[i].images + '" alt="IMG-MENU" style="width: 180px; height: 180px"></a>';
+                                content += '<a href="/product/' + list_obj[i].id + '"><img src="' + list_obj[i].images + '" alt="IMG-MENU" style="width: 100%;height: 100%;"></a>';
                                 content += '</div>';
                                 content += '<div class="text-blo3 size21 flex-col-l-m">';
                                 content += '<a href="/product/' + list_obj[i].id + '" class="txt21 m-b-3">';
@@ -303,7 +304,7 @@
                                 content += '<button class="add-cart-large add-to-cart m-t-10"  id="add-cart-' + list_obj[i].id + '"><i class="fas fa-cart-plus fa-2x"></i></button>';
                                 content += '</div>';
                                 content += '</div>';
-                                // content += '<div class="line-item-mainmenu bg3-pattern"></div>';
+                                content += '<div class="line-item-mainmenu bg3-pattern"></div>';
                             }
                             ;
 

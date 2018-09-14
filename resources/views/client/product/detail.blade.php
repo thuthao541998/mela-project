@@ -215,5 +215,7 @@
         </div>
     </div>
 </div>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="{{asset('js/jquery.formatNumber-0.1.1.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/comment.js')}}"></script>
 @endsection
