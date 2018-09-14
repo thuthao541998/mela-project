@@ -3,6 +3,14 @@
 @section('content')
     <link href="{{asset('css/list.css')}}" rel='stylesheet' type='text/css' />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <style>
+        #piechart:hover {
+            cursor: pointer;
+        }
+        g circle:hover {
+            cursor: pointer;
+        }
+    </style>
     <section id="main-content">
         <section class="wrapper">
             <div class="panel panel-default">
@@ -199,6 +207,7 @@
 
             function selectHandler(e) {
                 for(var i = 0; i < chart.getSelection().length; i++){
+                    
                     var item = chart.getSelection()[i];
                     window.location.href = '/admin/order?product_id=' + chart_data[item.row].product_id;
                 }
