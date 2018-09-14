@@ -18,7 +18,7 @@
                         <p class="t-center m-b-22 m-l-r-auto">
                             Welcome to Mela Cosmetics, let shop tell you what is the power of Lipstick. Let us enlighten you on "Saint Lipstick"
                         </p>
-                        <button style="padding: 10px;" class="btn-danger bo-rad-5" href="/list-product">Click here to get your boyfriend a perfect KISS</button>
+                        <a style="padding: 10px;" class="btn btn-danger bo-rad-5" href="/list-product">Click here to get your boyfriend a perfect KISS</a>
                     </div>
                 </div>
 
@@ -238,11 +238,6 @@
                                             </span>
                                         </div>
                                     </div>
-
-                                    <a href="#" class="txt4 m-t-40">
-                                        Learn more
-                                        <i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
-                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -328,11 +323,6 @@
                                             </span>
                                         </div>
                                     </div>
-
-                                    <a href="#" class="txt4 m-t-40">
-                                        Learn more
-                                        <i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
-                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -417,11 +407,6 @@
                                             </span>
                                         </div>
                                     </div>
-
-                                    <a href="#" class="txt4 m-t-40">
-                                        View Details
-                                        <i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
-                                    </a>
                                 </div>
                             </div>
                         </div>

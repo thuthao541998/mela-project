@@ -27,6 +27,7 @@
                                 <th class="column-2">Name</th>
                                 <th class="column-3">Email</th>
                                 <th class="column-4">Password</th>
+                                <th class="column-4">Created Time</th>
                                 <th class="column-8 text-center">Action</th>
                             </tr>
                             </thead>
@@ -43,11 +44,14 @@
                                     <td class="column-2">{{$item->name}}</td>
                                     <td class="column-3">{{$item->email}}</td>
                                     <td class="column-4">{{$item->password}}</td>
+                                    <td class="column-4">{{$item->created_at}}</td>
+                                    @if(Auth::guard('web_sellUser') -> user() -> id == 1)
                                     <td class="column-8 text-center">
                                         <a href="javascript:void(0)" id="{{$item-> id}}"
                                            class="btn btn-link btn-delete btn-delete-client" data-toggle="tooltip"
                                            title="Delete" data-placement="top"><span class="fa fa-trash"></span></a>
                                     </td>
+                                    @endif
                                 </tr>
                             @endforeach
                             </tbody>

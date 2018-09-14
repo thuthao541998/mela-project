@@ -339,7 +339,7 @@
                 </span>
 
                 <h3 class="tit5 t-center m-t-2">
-                    The Blog
+                    The Article
                 </h3>
             </div>
 
@@ -348,23 +348,19 @@
                     <!-- Block1 -->
                     <div class="blo1">
                         <div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom pos-relative">
-                            <a href="blog-detail.html"><img src="{{asset('images/blog-01.jpg')}}" alt="IMG-INTRO"></a>
-
-                            <div class="time-blog">
-                                21 Dec 2017
-                            </div>
+                            <a href="/article/6"><img src="{{asset('images/blog-01.jpg')}}" alt="IMG-INTRO"></a>
                         </div>
 
                         <div class="wrap-text-blo1 p-t-35">
-                            <a href="blog-detail.html"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
-                                    Not only is beauty
+                            <a href="/article/6"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
+                                    BOBBI BROWN CRUSHED LIP COLOUR LIPSTICK
                                 </h4></a>
 
                             <p class="m-b-20">
-                                Mela Cosmetics with lipstick is not just a normal lipstick beauty, but also ...
+                                "It makes me feel like Im going to a party"
                             </p>
 
-                            <a href="blog-detail.html" class="txt4">
+                            <a href="/article/6" class="txt4">
                                 Continue Reading
                                 <i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
                             </a>
@@ -376,23 +372,19 @@
                     <!-- Block1 -->
                     <div class="blo1">
                         <div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom pos-relative">
-                            <a href="blog-detail.html"><img src="{{asset('images/blog-02.jpg')}}" alt="IMG-INTRO"></a>
-
-                            <div class="time-blog">
-                                15 Dec 2017
-                            </div>
+                            <a href="/article/7"><img src="{{asset('images/blog-02.jpg')}}" alt="IMG-INTRO"></a>
                         </div>
 
                         <div class="wrap-text-blo1 p-t-35">
-                            <a href="blog-detail.html"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
-                                    Darkness
+                            <a href="/article/7"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
+                                    Hot Lips is Charlotte Tilbury’s Star-Studded Lipstick Line
                                 </h4></a>
 
                             <p class="m-b-20">
-                                Mela lipstick always makes you stand out Shop though not enough light, by ...
+                                "The mood-enhancing power of lipstick"
                             </p>
 
-                            <a href="blog-detail.html" class="txt4">
+                            <a href="/article/7" class="txt4">
                                 Continue Reading
                                 <i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
                             </a>
@@ -404,23 +396,19 @@
                     <!-- Block1 -->
                     <div class="blo1">
                         <div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom pos-relative">
-                            <a href="blog-detail.html"><img src="{{asset('images/blog-03.jpg')}}" alt="IMG-INTRO"></a>
-
-                            <div class="time-blog">
-                                12 Dec 2017
-                            </div>
+                            <a href="/article/8"><img src="{{asset('images/blog-03.jpg')}}" alt="IMG-INTRO"></a>
                         </div>
 
                         <div class="wrap-text-blo1 p-t-35">
-                            <a href="blog-detail.html"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
-                                    Daily life
+                            <a href="/article/8"><h4 class="txt5 color0-hov trans-0-4 m-b-13">
+                                    The New Lipstick Range Designed to Flatter Asian Skin
                                 </h4></a>
 
                             <p class="m-b-20">
-                                Mela Cosmetics with the concept new lipstick model nice, but just ...
+                                "I think of lipstick as clothing for your words"
                             </p>
 
-                            <a href="blog-detail.html" class="txt4">
+                            <a href="/article/8" class="txt4">
                                 Continue Reading
                                 <i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
                             </a>
