@@ -261,6 +261,7 @@
                     url: "{{ route('search.action') }}",
                     method: 'GET',
                     data: {
+                        _token: $('meta[name="csrf-token"]').attr('content'),
                         query: query
                     },
                     dataType: 'json',
