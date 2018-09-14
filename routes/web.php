@@ -130,7 +130,7 @@ Route::group(['middleware' => ['sellUserAuth']],function (){
 
 //*********************************Error Zone*********************************
 Route::get('/404',function (){
-    return view('admin.404.404');
+    return view('errors.404');
 }) -> name('errors.404');
 Route::get('/admin/dash-board', function (){
    return view('admin.dashboard');
