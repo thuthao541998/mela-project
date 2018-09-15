@@ -119,7 +119,8 @@
                             </div>
                         </div>
                     </div>
-                    @if($comment->user_id == Auth::user()->id)
+                
+                    @if(isset(Auth::user()->id) && $comment->user_id == Auth::user()->id )
                     <div class="hidden">{{$comment->id}}</div>
                     <div class="delete-btn col-sm-1 p-t-50">
                         <button><i class="fas fa-times"></i></button>
