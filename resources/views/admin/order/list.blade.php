@@ -65,7 +65,9 @@
                             @foreach($orders as $item)
                                 <tr class="row-item" id="row-item-{{$item->id}}">
                                     <td class="column-0">
+                                        @if($item->status==1 || $item->status==0)
                                         <input type="checkbox" class="check-item">
+                                        @endif
                                     </td>
                                     <td class="column-1 text-center">
                                         <div>{{$item->id}}</div>
