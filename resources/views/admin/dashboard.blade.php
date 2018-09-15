@@ -37,7 +37,7 @@
                     <div class="advice-content-best-seller" style="font-style: italic;"></div>
                 </div>
                 <div id="piechart" style="width: 600px; height: 500px;"></div>
-                <div id="curve_chart" style="width: 900px; height: 500px"></div>
+                <!-- <div id="curve_chart" style="width: 900px; height: 500px"></div> -->
             @if (Session::has('message'))
                     <div class="alert {{ Session::get('message-class') }}">{{ Session::get('message') }}</div>
                 @endif
