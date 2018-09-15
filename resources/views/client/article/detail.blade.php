@@ -26,10 +26,16 @@
                             {{--</a>--}}
                         </div>
                     </div>
-                    <div class="text-blo4 p-t-5 p-b-30 p-l-60 text-center text-justify">{!! $obj->content !!}</div>
+                    <div class="text-blo4 p-t-5 p-b-30 p-l-60 text-center text-justify content">{!! $obj->content !!}</div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+<style>
+ p {
+     line-height:2;
+     font-size:18px;
+ }
+</style>
 @endsection
