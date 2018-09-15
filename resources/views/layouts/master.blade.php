@@ -332,17 +332,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <li><a href="/admin/article">List All Articles</a></li>
                             </ul>
                         </li>
-                        <li class="sub-menu">
-                            <a href="javascript:;">
-                                <i class="fas fa-envelope"></i>
-                                <span>Newsletter Manager</span>
-                            </a>
-                            <ul class="sub">
-                                <li><a href="/admin/newsletter/create">Add Newsletter</a></li>
-                                <li><a href="/admin/newsletter">List All Newsletters</a></li>
-                                <li><a href="/admin">List All Email Contact</a></li>
-                            </ul>
-                        </li>
+                        
 
                     @if(Auth::guard('web_sellUser') -> user() -> id == 1)
                             <li class="sub-menu">
