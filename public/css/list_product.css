@@ -2959,7 +2959,6 @@ ul.dropdown-menu6 li a {
 }
 .no-product{
     color: #f05050;
-    margin-left: 20px;
     margin-right: 130px;
     border: solid 1px #f05050;
     height: 50px;
@@ -5654,8 +5653,4 @@ p.w3ls_para {
 
 .search-query:focus + button {
     z-index: 3;
-}
-
-.dropdown{
-    margin-bottom: 20px;
 }

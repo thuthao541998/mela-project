@@ -13,7 +13,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- bootstrap-css -->
-<link rel="stylesheet" href="css/bootstrap.min.css" >
+<link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" >
 <!-- //bootstrap-css -->
 <!-- Custom CSS -->
 <link href="{{asset('css/style.css')}}" rel='stylesheet' type='text/css' />
@@ -24,24 +24,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link rel="stylesheet" href="{{asset('css/font.css')}}" type="text/css"/>
 <link href="{{asset('css/font-awesome.css')}}" rel="stylesheet">
 <!-- //font-awesome icons -->
-<script src="js/jquery2.0.3.min.js"></script>
+<script src="{{asset('js/jquery2.0.3.min.js')}}"></script>
 </head>
 <body>
 <!--main content start-->
 <div class="eror-w3">
 	<div class="agile-info">
-		<h3>Heading to</h3>
+		<h3>HEADING TO</h3>
 		<h2>Nowhere</h2>
 		<p>You're lost, Back to Mela to be enlightened</p>
-		<a href="/admin">Back to Mela</a>
+		<a href="/">Back to Mela</a>
 	</div>
 </div>
-<script src="js/bootstrap.js"></script>
-<script src="js/jquery.dcjqaccordion.2.7.js"></script>
-<script src="js/scripts.js"></script>
-<script src="js/jquery.slimscroll.js"></script>
-<script src="js/jquery.nicescroll.js"></script>
-<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
-<script src="js/jquery.scrollTo.js"></script>
+<script src="{{asset('js/bootstrap.js')}}"></script>
+<script src="{{asset('js/jquery.dcjqaccordion.2.7.js')}}"></script>
+<script src="{{asset('js/scripts.js')}}"></script>
+<script src="{{asset('js/jquery.slimscroll.j')}}s"></script>
+<script src="{{asset('js/jquery.nicescroll.js')}}"></script>
+<script src="{{asset('js/jquery.scrollTo.js')}}"></script>
 </body>
 </html>

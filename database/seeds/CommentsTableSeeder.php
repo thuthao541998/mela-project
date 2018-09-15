@@ -11,8 +11,9 @@ class CommentsTableSeeder extends Seeder
      */
     public function run()
     {
+        \Illuminate\Support\Facades\DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         \Illuminate\Support\Facades\DB::table('comments')->truncate();
-        \Illuminate\Support\Facades\DB::insert([
+        \Illuminate\Support\Facades\DB::table('comments')->insert([
             [
                 'content' => 'Fast delivery. Carefully packed products',
                 'product_id' => 1,
@@ -49,5 +50,6 @@ class CommentsTableSeeder extends Seeder
                 'user_id' => 1
             ]
         ]);
+        \Illuminate\Support\Facades\DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

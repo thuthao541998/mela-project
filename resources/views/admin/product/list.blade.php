@@ -69,7 +69,7 @@
                                     <td class="col-md-1 col-sm-1">
                                         @if($item->isDiscount())
                                             <div class="font-weight-bold text-primary">
-                                                *{{$item->originalPriceString}}</div>
+                                                <del>{{$item->originalPriceString}}</del></div>
                                             <div class="text-danger">*{{$item->discountPriceString}}</div>
                                         @else
                                             <div class="font-weight-bold text-primary ">{{$item->originalPriceString}}</div>

@@ -17,13 +17,16 @@
                             </div>
                         </div>
 
+                        {{--Contact form?--}}
+
                         <div class="container">
                             <h3 class="tit7 t-center p-b-62 p-t-105">
                                 Send us a Message
                             </h3>
 
                             <form class="wrap-form-reservation size22 m-l-r-auto" method="POST" action="{{url('/contact-us')}}">
-                                @csrf
+                                {{ csrf_field() }}
+                                {{--@csrf--}}
                                 <div class="row">
                                     <div class="col-md-4">
                                         <!-- Name -->
@@ -89,7 +92,7 @@
 
                                 <div class="wrap-btn-booking flex-c-m m-t-13">
                                     <!-- Button3 -->
-                                    <button type="button" class="btn3 flex-c-m size36 txt11 trans-0-4 send">
+                                    <button type="submit" class="btn3 flex-c-m size36 txt11 trans-0-4">
                                         Submit
                                     </button>
                                 </div>
@@ -99,20 +102,14 @@
         </div>
         </div>
         <div class="bottom text-center">
-            <p>VĂN PHÒNG ĐẠI DIỆN & KINH DOANH</p>
+            <p>HEAD OFFICE</p>
             <p>
-                <span class="fa fa-map-marker"></span>&nbsp Địa chỉ: Đại học FPT - Tôn Thất Thuyết,Cầu Giấy, Hà Nội, Việt Nam</p>
+                <span class="fa fa-map-marker"></span>&nbsp Address: FPT University - Ton That Thuyet St.,Cau Giay, Hanoi, Vietnam</p>
             <p>
-                <span class="fa fa-phone"></span>&nbsp Điện thoại: 123-456-789</p>
+                <span class="fa fa-phone"></span>&nbsp Phone: (+84) 0918199762</p>
             <p>
                 <span class="fa fa-fax"></span>&nbsp Fax: (84-236) 3749 889 | 882 </p>
             <p class="sMedia">
-                <a href="#">
-                    <span class="fab fa-instagram text-black"></span>
-                </a>&nbsp&nbsp
-                <a href="#">
-                    <span class="fab fa-twitter text-black"></span>
-                </a>&nbsp&nbsp
                 <a href="#">
                     <span class="fab fa-facebook text-black"></span>
                 </a>

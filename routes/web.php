@@ -17,6 +17,7 @@
 Route::get('/','CategoryController@indexClient');
 Route::get('/list-product',"ProductController@indexClient");
 Route::get('/product/{id}',"ProductController@showClient");
+Route::get('/list-product/search', 'ProductController@search')->name('search.action');
 Route::get('/brand/{id}',"BrandController@detailBrand");
 Route::get('/cart',function (){
     return view('client.cart.cart');
@@ -30,31 +31,36 @@ Route::get('/about-us',function (){
 //Contact
 Route::get('/contact-us','ContactController@index');
 Route::post('/contact-us','ContactController@save');
-//
+//Article
 Route::get('/list-article', "ArticleController@indexClient");
 Route::get('/article/{id}', 'ArticleController@showClient');
+//Cart
 Route::get('/add-to-cart', 'CartController@addToCart');
 Route::post('/api-add-to-cart', 'CartController@addToCartApi');
 Route::get('/cart', 'CartController@showCart');
 Route::get('/cart-remove/{id}', 'CartController@removeCart');
 Route::post('/order-success','CartController@checkoutCart');
 Route::put('/sua-gio-hang', 'CartController@updateCart');
+Route::get('/admin/order/update-status/{id}', 'OrderController@updateStatus');
+Route::get('/admin/list-order', 'OrderController@index');
+//Chart
 Route::get('/api-get-chart-data', 'OrderController@getChartDataApi');
 Route::get('/api-get-data-to-time', 'OrderController@getDataToTimeApi');
 
 Route::get('/api-get-pie-chart-data', 'OrderDetailController@getPieChartDataApi');
+// Route::get('/api-get-line-curve', 'OrderDetailController@getLineCurveDataApi');
+//Dashboard
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/list-product/search', 'ProductController@search')->name('search.action');
-
 //*********************************Auth Zone*********************************
 Route::group(['middleware' => ['checkGuest']],function (){
     Route::post('login',['as' => 'login', 'uses' => 'Auth\LoginController@login']);
     Route::post('/register',['as' => 'register', 'uses' => 'Auth\RegisterController@register']);
     Route::get('/client-login',['as' => 'client.login','uses' => 'Auth\LoginController@index']);
+
 });
 Route::post('/logout',['as' => 'logout', 'uses' => 'Auth\LoginController@logout']);
-
-
+Route::post('/post-comment','CommentController@store');
+Route::post('/delete-comment','CommentController@destroy');
 //Auth::routes();
 //Route::get('/home', 'HomeController@index')->name('home');
 
@@ -102,7 +108,6 @@ Route::group(['middleware' => ['sellUserAuth']],function (){
     Route::resource('admin/article', 'ArticleController');
 
     Route::resource('admin/category', 'CategoryController');
-
     Route::resource('admin/brand','BrandController');
 
     Route::get('/admin/order/{id}', 'OrderController@show');
@@ -121,10 +126,23 @@ Route::group(['middleware' => ['sellUserAuth']],function (){
 
     Route::get("/admin/product/get-json/{id}", "ProductController@showJson");
     Route::put("/admin/product/update-json/{id}", "ProductController@quickUpdate");
+    Route::get("/admin/client","UserController@index");
 });
 
 //*********************************Error Zone*********************************
 Route::get('/404',function (){
-    return view('admin.404.404');
-}) -> name('404');
+    return view('errors.404');
+}) -> name('errors.404');
+Route::get('/admin/dash-board', function (){
+   return view('admin.dashboard');
+});
 
+//Subscription newsletter
+Route::get('/admin/newsletter/create','ContactController@showMail');
+Route::post('/admin/newsletter/create','ContactController@sendSubscriptionMail');
+Route::get('/admin/newsletter/list', function (){
+    return view('admin.contact.list_newsletter');
+});
+Route::get('/admin/contact/list', function (){
+    return view('admin.contact.list_contact');
+});

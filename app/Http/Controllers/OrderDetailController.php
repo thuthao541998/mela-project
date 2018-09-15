@@ -13,13 +13,7 @@ class OrderDetailController extends Controller
 
     public function show($id)
     {
-        $order_detail = OrderDetail::find($id);
-        if ($order_detail == null) {
-            return view('404');
-        }
-//        return view của 1 order detail cụ thể chứ không phải list
-        return view('admin.order_detail.list')
-            ->with('$order', $order_detail);
+        return view('errors.404');
     }
 
     public function update($id)
@@ -27,7 +21,7 @@ class OrderDetailController extends Controller
         $id = Input::get('id');
         $order_detail = OrderDetail::find($id);
         if ($order_detail == null) {
-            return view('404');
+            return view('errors.404');
         }
         $order_detail = new OrderDetail();
         $order_detail->productId = Input::get('productId');
@@ -51,13 +45,33 @@ class OrderDetailController extends Controller
 //            ->get();
         $orders = Order::whereRaw('status=2')->get();
         $id = $orders->pluck('id')->all();
-
         $chart_data = OrderDetail::select(DB::raw('sum(quantity) as totalQuantity'), 'product_id')
-            ->whereRaw('created_at >= "'.$start_date.' 00:00:00" AND created_at <= "'.$end_date . ' 23:59:59"')
+            ->whereRaw('updated_at >= "'.$start_date.' 00:00:00" AND updated_at <= "'.$end_date . ' 23:59:59"')
             ->whereIn('order_id',$id)
             ->groupBy('product_id')
             ->orderBy('totalQuantity', 'desc')
             ->get();
         return $chart_data;
     }
+//     public function getLineCurveDataApi()
+//     {
+//         $ids = [];
+//         $data = $this->getPieChartDataApi();
+// //        $newArray = array_slice($data, 0, 5, true);
+//         echo $data[3]->product->id;
+//         for($i=0;$i<5;$i++){
+//             $ids = $data[$i]->product->id;
+//         }
+//         echo $ids;
+//         $start_date = Input::get('startDate');
+//         $end_date = Input::get('endDate');
+
+//         $chart_data = OrderDetail::select(DB::raw('sum(quantity) as total'), 'product_id' ,  DB::raw('date(created_at) as day'))
+//             ->whereRaw('created_at >= "'.$start_date.' 00:00:00" AND created_at <= "'.$end_date . ' 23:59:59"')
+//             ->whereIn('product_id',$ids)
+//             ->groupBy('product_id','day')
+//             ->orderBy('day', 'desc')
+//             ->get();
+//         return $chart_data;
+//     }
 }

@@ -42,18 +42,43 @@ $(".cart_delete").click(function () {
                         'id': id
                     },
                     success: function (resp) {
+                        // console.log(resp);
                         $('.total-money').text(totalMoney - deleteTotal).formatNumber();
                         swal("Poof! This product has been remove!", {
                             icon: "success",
                         });
                         $('#row-' + id).closest('tr').remove();
-                        if ($('tbody').children().length == 1) {
-                            setTimeout(function () {
-                                window.location.reload(1);
-                            }, 1 * 1000);
+                        var new_count = 0;
+                        var new_total_money = 0;
+                        for(var i in resp[0]){
+                            new_count += parseInt(resp[0][i].quantity);
+                            new_total_money += parseInt(resp[0][i].quantity) * parseInt(resp[0][i].quantity);
                         }
-                        ;
-
+                        // var new_total_money = resp[1].total_money;
+                        var new_items = resp[0];
+                        var new_content = '';
+                        for (var i in new_items) {
+                            new_content += '<li class="header-cart-item">';
+                            new_content += '<div class="header-cart-item-img">';
+                            new_content += '<img src="' + new_items[i].product.images + '" alt="IMG">';
+                            new_content += '</div>';
+                            new_content += '<div class="header-cart-item-txt">';
+                            new_content += '<a href="#" class="header-cart-item-name" style="color: #555;">';
+                            new_content += new_items[i].product.name;
+                            new_content += '</a>';
+                            new_content += '<span class="header-cart-item-info">';
+                            new_content += new_items[i].quantity + ' x ' + new_items[i].product.discount_price_string;
+                            new_content += '</span>';
+                            new_content += '</div>';
+                            new_content += '</li>';
+                        }
+                        $('.header-cart-wrapitem').html(new_content);
+                        if (new_count == undefined) {
+                            $('#header-icons-noti').text(1);
+                        } else {
+                            $('#header-icons-noti').text(new_count);
+                        }
+                        $('#header-cart-total').text(new_total_money).formatNumber();
                     },
                     error: function (r) {
                         console.log(r)
@@ -64,6 +89,27 @@ $(".cart_delete").click(function () {
             }
             ;
         });
+});
+
+$(document).ready(function () {
+    $('input[name="save-changes"]').click(function () {
+        var list = document.getElementsByClassName("num-product");
+        for (var i = 0; i < list.length; i++) {
+            // alert(isNaturalNumber(list[i].value));
+            if (list[i].value <= 0 && isNaturalNumber(list[i].value) == false) {
+                console.log(list[i].parentElement.nextElementSibling);
+                list[i].parentElement.nextElementSibling.innerHTML = "Quantity has to be a natural number that is bigger than 0";
+                return false;
+            }
+        }
+    });
+
+});
+
+$('.num-product').keyup(function () {
+    if ($(this).val() > 0) {
+        $(this).parent().next().html('');
+    }
 });
 
 $(document).ready(function () {
@@ -121,3 +167,10 @@ $(document).ready(function () {
         }
     })
 });
+
+function isNaturalNumber(n) {
+    n = n.toString(); // force the value incase it is not
+    var n1 = Math.abs(n),
+        n2 = parseInt(n, 10);
+    return !isNaN(n1) && n2 === n1 && n1.toString() === n;
+}

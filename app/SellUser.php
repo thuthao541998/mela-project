@@ -16,4 +16,6 @@ class SellUser extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public $timestamps = true;
 }

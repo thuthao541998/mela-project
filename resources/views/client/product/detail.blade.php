@@ -10,27 +10,19 @@
 <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}">
 <script type="text/javascript" src="{{asset('js/bootstrap.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
-
 <script type="text/javascript" src="{{asset('js/product-related-item.js')}}"></script>
 <link rel="stylesheet" type="text/css" href="{{asset('css/product-related-item.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('css/comment.css')}}">
 
-
-<div style="background-image: url('{{asset('images/icons/pattern1.png')}}')">
-
+<div style="background-color: white">
     <div class="container" style="padding: 50px;">
-        <div class="card">
+        <div>
             <div class="row">
-                <aside class="col-sm-6 border-right">
+                <aside class="col-sm-6">
                     <article class="gallery-wrap">
                         <div class="img-big-wrap">
-                            <div> <a href="#"><img src="{{$obj->images}}" alt="{{$obj->name}}"></a></div>
-                        </div> <!-- slider-product.// -->
-                        {{--<div class="img-small-wrap">--}}
-                        {{--<div class="item-gallery"> <img src="https://s9.postimg.org/tupxkvfj3/image.jpg"> </div>--}}
-                        {{--<div class="item-gallery"> <img src="https://s9.postimg.org/tupxkvfj3/image.jpg"> </div>--}}
-                        {{--<div class="item-gallery"> <img src="https://s9.postimg.org/tupxkvfj3/image.jpg"> </div>--}}
-                        {{--<div class="item-gallery"> <img src="https://s9.postimg.org/tupxkvfj3/image.jpg"> </div>--}}
-                        {{--</div> <!-- slider-nav.// -->--}}
+                            <div><a href="#"><img src="{{$obj->images}}" alt="{{$obj->name}}"></a></div>
+                        </div>
                     </article> <!-- gallery-wrap .end// -->
                 </aside>
                 <aside class="col-sm-6">
@@ -42,7 +34,7 @@
                                 @if($obj->isDiscount())
                                     <span class="font-weight-bold h3 text-danger product_price">VND {{$obj->discountPriceWithFormat}}
                                     </span>
-                                        <del class="text-muted">
+                                    <del class="text-muted">
                                         <small>VND {{$obj->originalPriceWithFormat}}</small>
                                     </del>
                                 @else
@@ -50,37 +42,106 @@
                                     </span>
                                 @endif
                             </span>
-                        <br>
-                        <dl class="item-property">
-                            <dt>Overview</dt>
-                            <dd><p>{{$obj->overview}}</p></dd>
+                            <br>
+                            <dl class="item-property">
+                                <dt>Overview</dt>
+                                <dd>
+                        <p>{{$obj->overview}}</p></dd>
                         </dl>
                         <dl class="item-property">
                             <dt>Description</dt>
                             <dd><p>{{$obj->description}}</p></dd>
                         </dl>
-                        {{--<dl class="param param-feature">--}}
-                            {{--<dt>Brand</dt>--}}
-                            {{--<dd>{{$brand}}</dd>--}}
-                        {{--</dl>  <!-- item-property-hor .// -->--}}
                         <hr>
-                        <button class="btn btn-lg btn-danger text-uppercase add-to-cart" id="add-cart-{{$obj->id}}"> <i class="fas fa-shopping-cart"></i> Add to cart </button>
+                        <button class="btn btn-lg btn-danger text-uppercase add-to-cart" id="add-cart-{{$obj->id}}"><i
+                                    class="fas fa-shopping-cart"></i> Add to cart
+                        </button>
                     </article> <!-- card-body.// -->
                 </aside> <!-- col.// -->
             </div> <!-- row.// -->
         </div> <!-- card.// -->
-   </div>
+    </div>
+
+
+    {{--Comment--}}
+    <div class="text-center"><img src="{{asset('images/flower-line-broder-2.png')}}" width="50%"></img></div>
+    <div class="blog text-center">
+        <h3 class="tit2 text-center">
+            Review Product
+        </h3>
+    </div>
+
+    <div class="container m-b-20" style="padding-left: 50px;">
+        <div class="row">
+            <div class="col-md-12">
+                @if(isset(Auth::user()->name))
+                    <div class="widget-area no-padding blank">
+                        <div class="user-id col-lg-2 text-center p-t-15 m-r-15 image" style="background-color: #fcb1ae">{{Auth::user()->name[0]}}</div>
+                        <div class="col-lg-10 status-upload">
+                            <form name="post-comment" action="/post-comment" method="post">
+                                <textarea placeholder="Review this product!" name="content"></textarea>
+                                <input class="hidden" name="user_id" value="{{Auth::user()->id}}">
+                                <input class="hidden" name="product_id" value="{{$obj->id}}">
+                                <button type="button" class="btn btn-danger post-comment">Review</button>
+                            </form>
+                        </div><!-- Status Upload  -->
+                    </div><!-- Widget Area -->
+                @else
+                    <div style="font-size: 16px">Please
+                        <a href="/client-login"><span class="btn btn-danger">Log in</span></a> to be able to post review for this product</div>
+                @endif
+            </div>
+        </div>
+        <div class="text-center p-r-20 line-item-mainmenu bg3-pattern m-t-20" style="width: 90%"></div>
+    </div>
+    <div style="padding-left: 138px">
+        <div class="comments row">
+            {{--{{dd($comments)}}--}}
+            @if(count($comments)>0)
+                @foreach($comments as $comment)
+                    <div class="col-sm-8">
+                        <div class="panel panel-white post panel-shadow">
+                            <div class="post-heading">
+                                <div class="pull-left">
+                                    <div class="image text-center p-t-15 avatar"
+                                         style="background-color: #fcb1ae">{{$comment->userFirstChar}}</div>
+                                </div>
+                                <div class="pull-left meta m-l-30">
+                                    <div class="userName title h5">
+                                        <b>{{$comment->userComment}}</b>
+                                        made a review.
+                                    </div>
+                                    <h6 class="text-muted time">{{$comment->created_at}}</h6>
+                                </div>
+                            </div>
+                            <div class="post-description">
+                                <p>{{$comment->content}}</p>
+                            </div>
+                        </div>
+                    </div>
+                
+                    @if(isset(Auth::user()->id) && $comment->user_id == Auth::user()->id )
+                    <div class="hidden">{{$comment->id}}</div>
+                    <div class="delete-btn col-sm-1 p-t-50">
+                        <button><i class="fas fa-times"></i></button>
+                    </div>
+                    @endif
+                @endforeach
+            @else
+                <div>This product doesn't have any review</div>
+            @endif
+        </div>
+    </div>
+
+    <div class="text-center m-t-50 m-b-30"><img src="{{asset('images/flower-line-broder-2.png')}}" width="50%"></img>
+    </div>
 
     {{--Related Products--}}
     <div class="container">
-        <div class="row blog">
-
-            <div class="text-center" style="padding-left: 500px;">
-                <h3 class="tit2 text-center">
-                    Related Products
-                </h3>
-            </div>
-
+        <div class="blog">
+            <h3 class="tit2 text-center">
+                Related Products
+            </h3>
         </div>
         <div class="row blog">
             <div class="col-md-12">
@@ -106,18 +167,13 @@
                                     <div class="col-sm-3">
                                         <div class="imagebox">
                                             <a href="/product/{{$list_obj[$i]->id}}">
-                                                <img src="{{$list_obj[$i]->images}}" alt="{{$list_obj[$i]->name}}" style="max-width:100%;">
+                                                <img src="{{$list_obj[$i]->images}}" alt="{{$list_obj[$i]->name}}"
+                                                     style="max-width:100%;">
                                                 <span class="imagebox-desc">{{$list_obj[$i]->name}}</span>
                                             </a>
                                         </div>
                                     </div>
 
-                                    {{--<div class="col-md-3">--}}
-                                        {{--<a href="/product/{{$list_obj[$i]->id}}">--}}
-                                            {{--<img src="{{$list_obj[$i]->images}}" alt="Image" style="max-width:100%;">--}}
-                                            {{--<div>{{$list_obj[$i]->name}}</div>--}}
-                                        {{--</a>--}}
-                                    {{--</div>--}}
                                 @endfor
                             </div>
                             <!--.row-->
@@ -130,18 +186,12 @@
                                     <div class="col-sm-3">
                                         <div class="imagebox">
                                             <a href="/product/{{$list_obj[$i]->id}}">
-                                                <img src="{{$list_obj[$i]->images}}" alt="{{$list_obj[$i]->name}}" style="max-width:100%;">
+                                                <img src="{{$list_obj[$i]->images}}" alt="{{$list_obj[$i]->name}}"
+                                                     style="max-width:100%;">
                                                 <span class="imagebox-desc">{{$list_obj[$i]->name}}</span>
                                             </a>
                                         </div>
                                     </div>
-
-                                    {{--<div class="col-md-3">--}}
-                                        {{--<a href="/product/{{$list_obj[$i]->id}}">--}}
-                                            {{--<img src="{{$list_obj[$i]->images}}" alt="{{$list_obj[$i]->name}}" style="max-width:100%;">--}}
-                                            {{--<div>{{$list_obj[$i]->name}}</div>--}}
-                                        {{--</a>--}}
-                                    {{--</div>--}}
                                 @endfor
                             </div>
                             <!--.row-->
@@ -150,7 +200,6 @@
 
                     </div>
                     <!--.carousel-inner-->
-
 
 
                 </div>
@@ -163,10 +212,11 @@
                     <span class="sr-only">Next</span>
                 </a>
                 <!--.Carousel-->
-
             </div>
         </div>
     </div>
-
 </div>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="{{asset('js/jquery.formatNumber-0.1.1.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/comment.js')}}"></script>
 @endsection

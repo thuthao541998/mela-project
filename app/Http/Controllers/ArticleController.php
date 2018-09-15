@@ -17,14 +17,14 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $list_obj = Article::paginate(5);
+        $list_obj = Article::orderByRaw('created_at DESC')->paginate(5);
         return view('admin.article.list', compact('article'))->with('list_obj', $list_obj);
     }
 
     public function indexClient()
     {
         $limit = 10;
-        $list_obj = Article::paginate($limit);
+        $list_obj = Article::orderByRaw('created_at DESC')->paginate($limit);
         return view('client.article.list', compact('article'))->with('list_obj', $list_obj);
     }
 
@@ -68,19 +68,16 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
-        $obj = Article::find($id);
-        if ($obj == null) {
-            return view('admin.404.404');
-        }
-        return view('admin.article.detail')
-            ->with('obj', $obj);
+
+        return view('errors.404');
+
     }
 
     public function showClient($id)
     {
         $obj = Article::find($id);
         if ($obj == null) {
-            return view('admin.404.404');
+            return view('errors.404');
         }
         return view('client.article.detail')
             ->with('obj', $obj);

@@ -55,6 +55,7 @@
                                     <th class="column-4">Phone Number</th>
                                     <th class="column-5">Order Detail</th>
                                     <th class="column-6" style="width: 6%;">Total</th>
+                                    <th class="column-9">Created Time</th>
                                     <th class="column-7">Status</th>
                                     <th class="column-8 text-center">Action</th>
                                 </tr>
@@ -64,9 +65,12 @@
                             @foreach($orders as $item)
                                 <tr class="row-item" id="row-item-{{$item->id}}">
                                     <td class="column-0">
+                                        @if($item->status==1 || $item->status==0)
                                         <input type="checkbox" class="check-item">
+                                        @endif
                                     </td>
-                                    <td class="column-1 text-center">{{$item->id}}
+                                    <td class="column-1 text-center">
+                                        <div>{{$item->id}}</div>
                                         <a class="btn btn-simple btn-link btn-icon text-center" data-placement="top"
                                            title="Click to view the details of this order" href="/admin/order/{{$item->id}}">
                                             <button class="btn btn-outline-success">Detail</button>
@@ -77,10 +81,11 @@
                                     <td class="column-4">{{$item->ship_phone}}</td>
                                     <td class="column-5">
                                         @foreach($item->details as $order_detail)
-                                            <li>{{$order_detail->product->name}} - {{$order_detail->quantity}}</li>
+                                            <li>{{$order_detail->quantity}} - {{$order_detail->product->name}}</li>
                                         @endforeach
                                     </td>
-                                    <td class="column-6" style="width: 6%;">{{$item->getTotalMoneyWithFormat()}} (vnd)</td>
+                                    <td class="column-6" style="width: 6%;">{{$item->total_money_with_format}} (vnd)</td>
+                                    <th class="column-9" style="font-weight: normal;">{{$item->created_at}}</th>
                                     <td class="column-7 font-weight-bold status-label">{{$item->statusLabel}}</td>
                                     <td class="column-8 text-center">
                                         @if($item->status == 0)
@@ -118,7 +123,7 @@
                                 </div>
                             </div>
                         @else
-                            <div class="alert alert-info">Have no order in this fields.
+                            <div class="alert alert-info">Have no order in this field.
                             </div>
                         @endif
                         <div class="pagination pull-right">
@@ -178,26 +183,31 @@
                             return;
                         };
                         var content = '';
-                        console.log(resp);
                         for (var i in list_obj) {
-                            content += '<tr id="row-item-' + list_obj[i].id + '">';
+                            content += '<tr class="row-item" id="row-item-' + list_obj[i].id + '">';
                                 content += '<td class="column-0">';
-                            content += '<input type="checkbox">';
+                                console.log(list_obj[i].statusLabel)
+                                if (list_obj[i].status == 1 || list_obj[i].status == 0){
+                                    content += '<input type="checkbox" class="check-item">';
+                                }
+
                             content += '</td>';
-                            content += '<td class="column-1">' + list_obj[i].id + '</td>';
+                            content += '<td style="text-align:center;" class="column-1"><div>' + list_obj[i].id + '</div>';
+                            content += '<a class="btn btn-simple btn-link btn-icon text-center" data-placement="top" title="Click to view the details of this order" href="/admin/order/'+ list_obj[i].id +'">';
+                            content += '<button class="btn btn-outline-success">Detail</button>';
+                            content += '</a>';
+                            content += '</td>';
                             content += '<td class="column-2">' + list_obj[i].ship_name + '</td>';
                             content += '<td class="column-3">' + list_obj[i].ship_address + '</td>';
                             content += '<td class="column-4">' + list_obj[i].ship_phone + '</td>';
                             content += '<td class="column-5">';
-                            jQuery.each(list_obj[i].order_details, function(i, item) {
-                                if (item.product_id != undefined){
-                                    jQuery.each(item.products, function(k, product){
-                                        content += '<li>' + product.name + ' - ' + item.quantity + '</li>';
-                                    });
-                                }
+                            // console.log(list_obj[i].order_details);
+                            jQuery.each(list_obj[i].order_details, function(j, item) {
+                                content += '<li>' + item.quantity + ' - ' + item.product.name + '</li>';
                             });
                             content += '</td>';
-                            content += '<td class="column-6">' + list_obj[i].total_price + '</td>';
+                            content += '<th class="column-9" style="font-weight: normal;">'+list_obj[i].created_at+'</th>';
+                            content += '<td class="column-6">' + list_obj[i].total_money_with_format + '</td>';
                             content += '<td class="column-7 font-weight-bold">' + list_obj[i].statusLabel + '</td>';
                             content += '<td class="column-8 text-center">';
 
@@ -223,16 +233,21 @@
                 });
             });
         });
-        $('#check-all').click(function () {
+        $('#check-all').on('click',function () {
             $('.check-item').prop('checked', $(this).is(':checked'));
-        });
 
-        $('body').on('click', '#btn-apply-action', function () {
+        });
+$(document).ready(function(){
+    $('body').on('click', '#btn-apply-action',sendData )
+})
+        function sendData() {
+
             var value = ($('select[name="select-action"]').val());
             var arrayId = [];
             $('.check-item:checked').each(function(index, item) {
-                arrayId.push(parseInt(item.closest('.row-item').id.replace('row-item-', '')));
+                    arrayId.push(parseInt(item.closest('.row-item').id.replace('row-item-', '')));
             });
+
             if(arrayId.length == 0){
                 swal("Please choose at least 1 item!", {
                     icon: "warning",
@@ -252,9 +267,11 @@
                         .then((willCancel) => {if (willCancel) {
                             var arrayStatus = [];
                             for (var k = 0; k < arrayId.length; k++) {
-                                var status = $('#row-item-' + arrayId[k]).children().next().next().next().next().next().next().next().text().trim();
+                                var status = $('#row-item-' + arrayId[k]).children().next().next().next().next().next().next().next().next().text().trim();
                                 arrayStatus.push(status);
                             }
+                            console.log(arrayStatus);
+                            // return
                             for (var j = 0; j < arrayStatus.length; j++){
                                 console.log(arrayStatus[j]);
                                 if (arrayStatus[j] == 'Confirmed' || arrayStatus[j] == 'DONE') {
@@ -264,9 +281,12 @@
                                         text: "Please only choose orders that can be canceled",
                                         icon: "warning",
                                     });
+                                    return;
                                 }
                             }
                             arrayId = jQuery.grep(arrayId, function(n){ return (n); });
+                            console.log(arrayId);
+
                             $.ajax({
                                 method: 'POST',
                                 url: '/admin/order/update-status-many',
@@ -280,9 +300,9 @@
                                         $('#row-item-' + arrayId[i]).remove();
                                     }
                                     // if($('.check-item').length == 0){
-                                        // setTimeout(function(){
-                                        //     window.location.reload(1);
-                                        // }, 2*500);
+                                    // setTimeout(function(){
+                                    //     window.location.reload(1);
+                                    // }, 2*500);
                                     // }
                                     window.setTimeout(function(){window.location.reload()}, 1000);
                                 },
@@ -340,18 +360,19 @@
                         .then((willFinish) => {if (willFinish) {
                             var arrayStatus = [];
                             for (var k = 0; k < arrayId.length; k++) {
-                                var status = $('#row-item-' + arrayId[k]).children().next().next().next().next().next().next().next().text().trim();
+                                var status = $('#row-item-' + arrayId[k]).children().next().next().next().next().next().next().next().next().text().trim();
                                 arrayStatus.push(status);
                             }
                             for (var j = 0; j < arrayStatus.length; j++){
                                 console.log(arrayStatus[j]);
-                                if (arrayStatus[j] == 'Confirmed' || arrayStatus[j] == 'DONE') {
+                                if (arrayStatus[j] == 'Canceled' || arrayStatus[j] == 'DONE') {
                                     delete arrayId[j];
                                     swal({
                                         title: "Can't finish confirmed or canceld orders!",
                                         text: "Please only choose orders that can be finished",
                                         icon: "warning",
                                     });
+                                    return
                                 }
                             }
                             arrayId = jQuery.grep(arrayId, function(n){ return (n); });
@@ -384,6 +405,6 @@
                     });
                     break;
             }
-        })
+        }
     </script>
 @endsection

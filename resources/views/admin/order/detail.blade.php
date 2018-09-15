@@ -49,6 +49,7 @@
                             <th class="column-5 text-center">Quantity</th>
                             <th class="column-6 text-center">Unit price</th>
                             <th class="column-7 text-center">Total</th>
+                            <th class="column-9">Created Time</th>
                             <th class="column-8 text-center">Action</th>
                         </tr>
                         </thead>
@@ -76,6 +77,7 @@
                                 <td class="column-7 text-center total-unit">{{$item->totalUnit}}
                                     (vnd)
                                 </td>
+                                <th class="column-9" style="font-weight: normal;">{{$item->created_at}}</th>
                                 <td class="column-8 text-center">
                                     <a href="javascript:void(0)"
                                        class="btn btn-link btn-delete btn-delete-product p-t-0" data-toggle="tooltip"
@@ -87,7 +89,7 @@
                     </table>
                     <div class="float-right mr-5">
                         <span class="text-right font-weight-bold" style="font-size: 16px; font-weight: bold">Total : </span>
-                        <span class="text-center" style="font-size: 16px">{{$order->getTotalMoneyWithFormat()}} (vnd)</span>
+                        <span class="text-center" style="font-size: 16px">{{$order->total_money_with_format}} (vnd)</span>
                     </div>
                     <div class="row">
                         <div class="col-md-12 form-inline">

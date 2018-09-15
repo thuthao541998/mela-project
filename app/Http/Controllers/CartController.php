@@ -25,11 +25,11 @@ class CartController extends Controller
         $id = Input::get('id');
         $quantity = Input::get('quantity');
         if ($id == null || $quantity == null) {
-            return view('admin.404.404');// làm trang lỗi 400, bad request.
+            return view('errors.404');// làm trang lỗi 400, bad request.
         }
         $product = Product::find($id);
         if ($product == null || $product->status != 1) {
-            return view('admin.404.404');
+            return view('errors.404');
         }
         // validate quantity.
         $cart = new Cart();
@@ -55,7 +55,7 @@ class CartController extends Controller
             foreach (array_keys($products) as $key) {
                 $product = Product::find($key);
                 if ($product == null || $product->status != 1) {
-                    return view('admin.404.404');
+                    return view('errors.404');
                 }
                 $item = new CartItem();
                 $item->product = $product;
@@ -110,7 +110,11 @@ class CartController extends Controller
     public function removeCart($id)
     {
         Cart::getRemoveItem($id);
-        return redirect('/cart');
+        if (Session::has('cart')) {
+            $cart = Session::get('cart');
+            $items = $cart->items;
+        }
+        return [$items,$cart];
     }
     public function checkoutCart(Request $request){
         //$request->validated();
@@ -135,7 +139,7 @@ class CartController extends Controller
                 foreach ($cart->items as $item) {
                     $product = Product::find($item->product->id);
                     if ($product == null || $product->status != 1) {
-                        return view('admin.404.404');
+                        return view('errors.404');
                     }
                     $quantity = $item->quantity;
                     $order_detail = new OrderDetail();
