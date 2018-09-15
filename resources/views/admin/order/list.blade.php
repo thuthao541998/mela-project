@@ -231,6 +231,7 @@
         });
         $('#check-all').click(function () {
             $('.check-item').prop('checked', $(this).is(':checked'));
+
         });
 
         $('body').on('click', '#btn-apply-action', function () {
@@ -239,6 +240,7 @@
             $('.check-item:checked').each(function(index, item) {
                 arrayId.push(parseInt(item.closest('.row-item').id.replace('row-item-', '')));
             });
+
             if(arrayId.length == 0){
                 swal("Please choose at least 1 item!", {
                     icon: "warning",
@@ -258,9 +260,11 @@
                         .then((willCancel) => {if (willCancel) {
                             var arrayStatus = [];
                             for (var k = 0; k < arrayId.length; k++) {
-                                var status = $('#row-item-' + arrayId[k]).children().next().next().next().next().next().next().next().text().trim();
+                                var status = $('#row-item-' + arrayId[k]).children().next().next().next().next().next().next().next().next().text().trim();
                                 arrayStatus.push(status);
                             }
+                            console.log(arrayStatus);
+                            // return
                             for (var j = 0; j < arrayStatus.length; j++){
                                 console.log(arrayStatus[j]);
                                 if (arrayStatus[j] == 'Confirmed' || arrayStatus[j] == 'DONE') {
@@ -273,6 +277,8 @@
                                 }
                             }
                             arrayId = jQuery.grep(arrayId, function(n){ return (n); });
+                            console.log(arrayId);
+
                             $.ajax({
                                 method: 'POST',
                                 url: '/admin/order/update-status-many',
@@ -346,12 +352,12 @@
                         .then((willFinish) => {if (willFinish) {
                             var arrayStatus = [];
                             for (var k = 0; k < arrayId.length; k++) {
-                                var status = $('#row-item-' + arrayId[k]).children().next().next().next().next().next().next().next().text().trim();
+                                var status = $('#row-item-' + arrayId[k]).children().next().next().next().next().next().next().next().next().text().trim();
                                 arrayStatus.push(status);
                             }
                             for (var j = 0; j < arrayStatus.length; j++){
                                 console.log(arrayStatus[j]);
-                                if (arrayStatus[j] == 'Confirmed' || arrayStatus[j] == 'DONE') {
+                                if (arrayStatus[j] == 'Canceled' || arrayStatus[j] == 'DONE') {
                                     delete arrayId[j];
                                     swal({
                                         title: "Can't finish confirmed or canceld orders!",
