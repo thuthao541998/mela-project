@@ -200,6 +200,7 @@
                                 content += '<li>' + item.quantity + ' - ' + item.product.name + '</li>';
                             });
                             content += '</td>';
+                            content += '<th class="column-9" style="font-weight: normal;">'+list_obj[i].created_at+'</th>';
                             content += '<td class="column-6">' + list_obj[i].total_money_with_format + '</td>';
                             content += '<td class="column-7 font-weight-bold">' + list_obj[i].statusLabel + '</td>';
                             content += '<td class="column-8 text-center">';

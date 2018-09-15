@@ -7,15 +7,15 @@
             <div class="row">
                 <div class="well col-xs-10 col-sm-10 col-md-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-3">
                     <div class="row">
-                        <div class="col-xs-6 col-sm-6 col-md-6 address">
+                        <div class="col-xs-8 col-sm-8 col-md-8 address">
                             <address style="font-size: 15px">
                                 <strong>MELA COSMETICS</strong>
-                                <br>
-                                8th floor, 379 Hudson St
-                                <br>
-                                New York, NY 10018
-                                <br>
-                                Phone :(+84) 0918199762
+                                <div>
+                                FPT University - Ton That Thuyet St.,Cau Giay</div>
+                                <div>
+                                    Hanoi, Vietnam</div>
+                                <div>
+                                    Phone :(+84) 0918199762</div>
                             </address>
                         </div>
                     </div>
@@ -45,15 +45,15 @@
                                 <tr>
                                     <td class="col-md-9 text-left"><em>{{$item->product->name}}</em></td>
                                     <td class="col-md-1 text-center">{{$item->quantity}}</td>
-                                    <td class="col-md-1 text-center">{{$item->unit_price}}</td>
-                                    <td class="col-md-1 text-center">{{$item->quantity * $item->unit_price}}</td>
+                                    <td class="col-md-1 text-center">{{$item->product->discountPriceWithFormat}}</td>
+                                    <td class="col-md-1 text-center">{{$item->totalUnit}}</td>
                                 </tr>
                             @endforeach
                             <tr>
                                 <td>   </td>
                                 <td>   </td>
                                 <td class="text-right"><h4><strong>Total: </strong></h4></td>
-                                <td class="text-center text-danger"><h4><strong>{{$order->total_price}}</strong></h4></td>
+                                <td class="text-center text-danger"><h4><strong>VND {{$order->total_money_with_format}}</strong></h4></td>
                             </tr>
                             </tbody>
                         </table>
