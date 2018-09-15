@@ -45,7 +45,6 @@ class OrderDetailController extends Controller
 //            ->get();
         $orders = Order::whereRaw('status=2')->get();
         $id = $orders->pluck('id')->all();
-
         $chart_data = OrderDetail::select(DB::raw('sum(quantity) as totalQuantity'), 'product_id')
             ->whereRaw('updated_at >= "'.$start_date.' 00:00:00" AND updated_at <= "'.$end_date . ' 23:59:59"')
             ->whereIn('order_id',$id)
@@ -54,4 +53,25 @@ class OrderDetailController extends Controller
             ->get();
         return $chart_data;
     }
+//     public function getLineCurveDataApi()
+//     {
+//         $ids = [];
+//         $data = $this->getPieChartDataApi();
+// //        $newArray = array_slice($data, 0, 5, true);
+//         echo $data[3]->product->id;
+//         for($i=0;$i<5;$i++){
+//             $ids = $data[$i]->product->id;
+//         }
+//         echo $ids;
+//         $start_date = Input::get('startDate');
+//         $end_date = Input::get('endDate');
+
+//         $chart_data = OrderDetail::select(DB::raw('sum(quantity) as total'), 'product_id' ,  DB::raw('date(created_at) as day'))
+//             ->whereRaw('created_at >= "'.$start_date.' 00:00:00" AND created_at <= "'.$end_date . ' 23:59:59"')
+//             ->whereIn('product_id',$ids)
+//             ->groupBy('product_id','day')
+//             ->orderBy('day', 'desc')
+//             ->get();
+//         return $chart_data;
+//     }
 }

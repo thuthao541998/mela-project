@@ -48,6 +48,7 @@ Route::get('/api-get-chart-data', 'OrderController@getChartDataApi');
 Route::get('/api-get-data-to-time', 'OrderController@getDataToTimeApi');
 
 Route::get('/api-get-pie-chart-data', 'OrderDetailController@getPieChartDataApi');
+// Route::get('/api-get-line-curve', 'OrderDetailController@getLineCurveDataApi');
 //Dashboard
 Route::get('/home', 'HomeController@index')->name('home');
 //*********************************Auth Zone*********************************

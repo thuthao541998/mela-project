@@ -5654,7 +5654,3 @@ p.w3ls_para {
 .search-query:focus + button {
     z-index: 3;
 }
-
-.dropdown{
-    margin-bottom: 20px;
-}
