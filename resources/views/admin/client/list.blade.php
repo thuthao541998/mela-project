@@ -43,7 +43,7 @@
                                     </td>
                                     <td class="column-2">{{$item->name}}</td>
                                     <td class="column-3">{{$item->email}}</td>
-                                    <td class="column-4">{{$item->password}}</td>
+                                    <td class="column-4"><a href="#">Change Password</a></td>
                                     <td class="column-4">{{$item->created_at}}</td>
                                     @if(Auth::guard('web_sellUser') -> user() -> id == 1)
                                     <td class="column-8 text-center">
