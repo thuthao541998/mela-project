@@ -184,9 +184,13 @@
                         };
                         var content = '';
                         for (var i in list_obj) {
-                            content += '<tr id="row-item-' + list_obj[i].id + '">';
+                            content += '<tr class="row-item" id="row-item-' + list_obj[i].id + '">';
                                 content += '<td class="column-0">';
-                            content += '<input type="checkbox">';
+                                console.log(list_obj[i].statusLabel)
+                                if (list_obj[i].status == 1 || list_obj[i].status == 0){
+                                    content += '<input type="checkbox" class="check-item">';
+                                }
+
                             content += '</td>';
                             content += '<td style="text-align:center;" class="column-1"><div>' + list_obj[i].id + '</div>';
                             content += '<a class="btn btn-simple btn-link btn-icon text-center" data-placement="top" title="Click to view the details of this order" href="/admin/order/'+ list_obj[i].id +'">';
@@ -229,16 +233,19 @@
                 });
             });
         });
-        $('#check-all').click(function () {
+        $('#check-all').on('click',function () {
             $('.check-item').prop('checked', $(this).is(':checked'));
 
         });
+$(document).ready(function(){
+    $('body').on('click', '#btn-apply-action',sendData )
+})
+        function sendData() {
 
-        $('body').on('click', '#btn-apply-action', function () {
             var value = ($('select[name="select-action"]').val());
             var arrayId = [];
             $('.check-item:checked').each(function(index, item) {
-                arrayId.push(parseInt(item.closest('.row-item').id.replace('row-item-', '')));
+                    arrayId.push(parseInt(item.closest('.row-item').id.replace('row-item-', '')));
             });
 
             if(arrayId.length == 0){
@@ -274,6 +281,7 @@
                                         text: "Please only choose orders that can be canceled",
                                         icon: "warning",
                                     });
+                                    return;
                                 }
                             }
                             arrayId = jQuery.grep(arrayId, function(n){ return (n); });
@@ -292,9 +300,9 @@
                                         $('#row-item-' + arrayId[i]).remove();
                                     }
                                     // if($('.check-item').length == 0){
-                                        // setTimeout(function(){
-                                        //     window.location.reload(1);
-                                        // }, 2*500);
+                                    // setTimeout(function(){
+                                    //     window.location.reload(1);
+                                    // }, 2*500);
                                     // }
                                     window.setTimeout(function(){window.location.reload()}, 1000);
                                 },
@@ -364,6 +372,7 @@
                                         text: "Please only choose orders that can be finished",
                                         icon: "warning",
                                     });
+                                    return
                                 }
                             }
                             arrayId = jQuery.grep(arrayId, function(n){ return (n); });
@@ -396,6 +405,6 @@
                     });
                     break;
             }
-        })
+        }
     </script>
 @endsection
